@@ -1,0 +1,280 @@
+﻿:: Start
+The afterlife had wood paneling.
+
+It'd ordinarily be an absurd thing to notice.  I was dead, after all, in the hereafter's own waiting room.  You'd think there'd be pearly gates, or at least a hint of brimstone, but instead?
+
+It was a waiting room.  Wood paneling on the walls, an oblong receptionist counter complete with bored-looking [[receptionist]] doing her best not to make eye contact... it was only missing some out of date magazines and it'd be perfect.  I'd have to mention it to whoever ran the place.
+
+* [[Wait|intro_wait]]
+
+
+:: receptionist
+I made my way up to the receptionist.
+
+"Sam Hallivert" I said.  "I suppose I have an appointment?"
+
+The receptionist looked up at me as though I was barely more interesting than the game of solitaire she'd been cheating at.  "Not as such, no."  She went back to the game.
+
+I waited for her to continue talking, and she waited for me to sit back down.  She had the advantage of long hours' practice at ignoring waiting rooms, but I was dead.  It wasn't as though I had anywhere else to be.
+
+She looked back up.  "Mr. Guillory will see you as soon as he is available.  Please wait your turn."
+
+I glanced back at the row of four seats that apparently sufficed as a waiting room.  Without me there to provide bulk, they were empty.
+
+"He's with a client."  the receptionist said before I could even turn my head back.
+
+I nodded.  She'd won this round.
+
+* [[Back to the seat|intro_wait]]
+
+
+:: StoryTitle
+The Afterlife Had Wood Paneling
+
+
+:: StoryAuthor
+by Roger Ostrander
+
+
+:: CSS [stylesheet]
+.center {
+	text-align: center;
+}
+
+.location {
+   font-variant:small-caps;
+   font-weight:bold;
+}
+
+a:link.internalLink.disabled {
+	color: #333;
+}
+
+.content {
+	position:relative;
+}
+
+
+:: intro_wait
+I was expecting the seats to either be uncomfortably thin or absurdly over-stuffed, in the style of waiting room seats everywhere.  These looked thin but didn't feel it.  They didn't feel like much of anything, to be honest.  I could have been sitting on a box and leaning against the wall and gotten more of a sensory experience out of it.
+
+That I was reduced to mentally critiquing the furniture indicated a lot about my [[mental state|intro_mentalstate]].
+
+* [[Wait|intro_invite_in]]
+
+
+:: intro_mentalstate
+Some part of me kept insisting that I ought to be panicking right now.  I was dead, killed in the prime of my life by...  well, I couldn't remember how I died precisely, but I didn't really feel like knowing the grisly details of my demise at the moment anyway.
+
+The point was, I was dead and I ought to be upset by it, but I couldn't find it within myself to really care that hard.  Obviously, there was an afterlife - I was in it.  The fact that it lacked a certain polish was a minor detail.
+
+* [[Wait in the chair|intro_invite_in]]
+
+
+:: Test
+TEST
+
+
+
+:: sugarchoice script [script]
+// <<sugarchoice "targetPassage" "description">>
+// modified from the original at: https://groups.google.com/forum/#!msg/tweecode/eDZ5r_pmIeA/CMxlKbWQtHAJ
+// Removed "choiceName" because I name passages like variables anyway, and
+// does not disable visited links, just styles them differently.
+try {
+    version.extensions[ 'sugarchoice' ] = { major: 1, minor: 0, revision: 0 };
+    macros[ 'sugarchoice' ] = {
+        handler: function( place, macroName, params, parser ) {
+            if( typeof state.history[0].variables.sugarchoices == "undefined" ) {
+                state.history[0].variables.sugarchoices = {};
+            }
+            
+            var choiceID = params[0];
+            var choiceTarget = params[0];
+            var choiceDesc = params[1];
+            
+            // interpolate any variables in choiceDesc
+            // this thing keeps destroying my regexes with $ signs in them, so I had to move to an alternative of "__sent__" instead of "$"
+            choiceDesc = choiceDesc.replace( /__sent__([a-zA-Z0-9_]+)/g, function( token, match, number, txt ) { if( match in state.history[0].variables ) return state.history[0].variables[ match ]; return match; } );
+            
+            // has this choice been navigated before?
+            var link = document.createElement( "a" );
+            if( choiceID in state.history[0].variables.sugarchoices) {
+                link.className = "internalLink choice disabled";
+            }
+            else {
+                link.className = "internalLink choice";
+            }
+                link.href = "javascript:void(0)";
+                link.onclick = function() {
+                    macros[ "sugarchoice" ].activate( link, choiceID, choiceTarget );
+                };
+            link.innerHTML = choiceDesc;
+            place.appendChild( link );
+        },
+    activate: function( el, choiceID, choiceTarget ) {
+            state.history[0].variables.sugarchoices[ choiceID ] = choiceTarget;
+            state.display( choiceTarget, el );
+        },
+    init: function() { var v; var d; },
+    };
+} catch(e) {
+    throwError( place, "Error setting up sugarcane choices macro: " + e.message );
+} 
+
+
+:: intro_invite_in
+The door finally opened, and a bespectacled man in his early forties stepped out, holding a manilla folder.  Wherever I was, it was decidedly low-tech.
+
+"Sam Hallivert?" he said, looking up and meeting my gaze.  He at least had the dignity to look slightly embarassed at asking a question with an obivous answer. "Ah.  Right this way, if you would."
+
+* [[Follow him|intro_guillory]]
+
+
+:: intro_guillory
+What choice did I have?  As strangely at-peace as I was with my current morbid state of affairs, I still had questions. "Alex", as his gilded nametag proclaimed him to be, presumably had answers.
+
+He turned back through the door, and I followed.
+
+I'd been expecting a doctor's office - as much or as little as that made sense for a dead man - but what I got instead was "insurance agent".
+
+<html><div class="center">
+Alex Guillory<br/>
+<em>Customer Service Agent, Life Preservers Insurance</em><br/>
+"Put your life in our hands"
+</div></html>
+
+I frowned at the desk plaque as Alex moved behind it and took his seat.  Insurance?  It was naggingly familiar and utterly bewildering at the same time.
+
+If Guillory noticed my reaction, he didn't say anything.  Instead, he gestured toward the seat behind me - identical to those in the waiting room, so far as I could tell - and said "Mr. Hallivert, please, have a seat."
+
+* [[Take a seat|intro_gender_man]]
+* [[-- Wait, /Mister/ Hallivert?  There's been a mistake|intro_gender_woman]]
+
+
+:: intro_gender_man
+<<set $gender="Mr. ">>I took my seat.
+
+<<display "intro_questions">>
+
+
+:: intro_gender_woman
+<<set $gender="Ms. ">>I frowned.  "I know I'm probably not looking my best right now, but I'm no mister.  Ms. Hallivert, Detective Hallivert, my friends call me Sam....  Pick one."
+
+Guillory looked at me for a moment, then back at his folder.  Finally, shaking his head as though to clear it, he took a pen and made some note I couldn't see from my vantage point.  "My apologies, Ms. Hallivert, there was a mistake in our files.  Please take a seat."
+
+* [[Sit down|intro_questions]]
+
+
+
+:: intro_questions
+Guillory launched into what I could tell was a well-recited speech.
+
+"<<print $gender>> Hallivert, I'm sure you have many questions, and this entire experience is likely very disorienting for you.  However, to best help you through it, I'd like to ask you a few questions.  Is that acceptable?"
+
+* [[Answer some questions|intro_question_1]]
+* [[-- Hell no, I want answers|intro_interrupt_1]]
+
+
+:: intro_question_1
+"Thank you, <<print $gender>> Hallivert, I promise this will not take long and then I'll answer every question you have."
+
+He glanced back down at his notes, pen at the ready.  "Do you know why you are here?"
+
+* [[Tell him what you already know|intro_answer_1_dead]]
+* [[Play dumb|intro_answer_1_alive]]
+
+
+:: intro_interrupt_1
+I frowned.  "I'd prefer not to."  I said in a very specific mild tone.  Specifically, that mild tone of voice used to imply that one has a wide variety of more persuasive methods should mild tones not work.
+
+Guillory was either unfamiliar with the tone or completely unimpressed by it.  "I can imagine so, but it really is to help you."
+
+* [[Answer the questions|intro_question_1]]
+* [[-- No, you answer my questions|intro_interrupt_2]]
+
+
+:: intro_answer_1_dead
+I nodded, supressing a weary laugh.  "Yeah.  I'm dead."
+
+Guillory put down the pen and nodded, seemingly relieved.  "Ah, yes, that is the case.  I am glad that you've already realized it - many people, even after being briefed, take quite a while to come to that conclusion."
+
+He paused for a moment, smiling, but then suddenly seemed to remember he had work to do.  "Are you ready for the next question?"
+
+* [[You're ready for the next question|intro_question_2]]
+
+
+:: intro_answer_1_alive
+I did my most convincing I-don't-know-nothing shrug.  "You tell me."
+
+Guillory made a note in the folder.  "Ah, I'm sorry to be the bearer of bad news then.  I'm afraid you've died."  He followed this up immediately, as though afraid I was about to erupt in emotion.  "There's nothing to be worried about, you're fine now!  As I'll explain, you have a new life now with us, and it's every bit as full of potential as your last."
+
+He studied me for a few moments.  "May I ask you another question?"
+
+* [[Endure another question|intro_question_2]]
+
+
+:: intro_question_2
+He picked the pen back up.  "Next question - do you know where this is?  Specifically, where we are right now?"
+
+* [[No, you don't|intro_answer_2]]
+
+
+
+:: intro_answer_2
+I shrugged.  I'd gathered I was dead, that the afterlife was poorly decorated, and that angels (or devils, the state of my soul was still up in the air) had names like "Alex Guillory".  Everything else was news to me.
+
+Alex made a note in my file and nodded.  "Memory can take a while to be re-accessible."  He closed the folder and looked up at me.  "Well, I have answers."
+
+He gestured around himself, indicating that I should take in the room.  There wasn't much to see - the same faux-wood paneling on the walls, an uninspired plastic desk, the job plaque I'd noted earlier, a cup of pens.
+
+I'd been a private investigator in my previous life, though, so I also noticed what wasn't in the room.
+
+Guillory's desk only had his plaque, the pens, and the manilla folder.  There were no ports to plug anything into, and no ports for output.  The holographic projection interface you'd need if you wanted to use the desk for anything other than putting things on was conspicuously absent.  The desk was either a great deal less advanced than the desks I was familiar with, or a great deal more.
+
+Now that I was thinking about plugs, ports, and electronics I noticed more:  There were no electronics at all, and the corresponding places where they'd interface were also missing.  No charging stations.  There wasn't even a light switch and, now that I was looking, no /light/.
+
+I frowned at the last observation.  The room was lit perfectly - there weren't even shadows.  I'd say it was impossible but I'd already done one impossible thing today just by being here.
+
+* [[Mention the strangeness of this place|intro_bridge]]
+
+
+:: intro_bridge
+"This place is no insurance agency, that's for sure."  I said, gesturing to his plaque.
+
+Guillory chuckled.  "Actually, we are."  Opening the folder again, he pulled out a rather large bundle of paper, stapled together.  I hadn't remembered the folder holding that much, but I didn't get the chance to ask before Guillory turned the paper to face me and put it down on the desk.  "This is your policy."
+
+I wanted to ask Guillory for clarification, but I had the feeling the policy would speak for itself.  Unsurprisingly, it was by the same naggingly familiar "Life Preservers Insurance" and seemed to be pretty standard legalese.  I was about to give up and simply demand an answer when a portion caught my eye.
+
+<html>
+<blockquote>
+<p>17.  Consent for medical implant.</p>
+Participation in the Program requires consent to implant a medical device (colliq. "a soulkeeper") into the brain for a time no less than seven years.  I understand that this operation involves certain risks for physical and mental injury, and even in the case of successful restoration may result...
+</blockquote>
+</html>
+
+Guillory must have been watching for me to get to exactly that part.  "Before you become worried, you are a successful restoration.  I suspect you have many questions."<<set $heardOfSoulkeeper=1>>
+
+* [[Ask your questions|convo_guillory]]
+
+
+:: intro_interrupt_2
+He finally seemed to get the message that I wasn't feeling like playing his game, but to his credit he didn't let it creep into his voice.  "Very well," he said.
+
+<<display "convo_guillory">>
+
+
+:: convo_guillory
+Guillory looked every bit the model of an attentive insurance agent.  "What questions do you have for me?"
+
+<<sugarchoice "guillory_insurance" "What does an insurance company have to do with my death?">>
+<<if $heardOfSoulkeeper>><<sugarchoice "guillory_soulkeeper" "What's a 'soulkeeper'?">><<endif>>
+
+
+
+:: guillory_soulkeeper
+LEFT_OFF_HERE
+
+* [[You have more questions|convo_guillory]]
+
+

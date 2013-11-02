@@ -34,7 +34,7 @@ p16
 (dp17
 S'text'
 p18
-VThe afterlife had wood paneling.\u000a\u000a
+VThe afterlife had wood paneling.\u000a\u000aIt'd ordinarily be an absurd thing to notice.  I was dead, after all, in the hereafter's own waiting room.  You'd think there'd be pearly gates, or at least a hint of brimstone, but instead?\u000a\u000aIt was a waiting room.  Wood paneling on the walls, an oblong receptionist counter complete with bored-looking [[receptionist]] doing her best not to make eye contact... it was only missing some out of date magazines and it'd be perfect.  I'd have to mention it to whoever ran the place.\u000a\u000a* [[Wait|intro_wait]]
 p19
 sS'tags'
 p20
@@ -69,8 +69,8 @@ g12
 I00
 sg13
 (lp32
-I763
-aI11
+I710
+aI10
 asg15
 (itiddlywiki
 Tiddler
@@ -106,7 +106,7 @@ g12
 I00
 sg13
 (lp43
-I889
+I850
 aI10
 asg15
 (itiddlywiki
@@ -138,7 +138,788 @@ g51
 sg29
 VStoryAuthor
 p52
+sbsa(dp53
+g12
+I00
+sg13
+(lp54
+I290
+aI10
+asg15
+(itiddlywiki
+Tiddler
+p55
+(dp56
+g18
+VI made my way up to the receptionist.\u000a\u000a"Sam Hallivert" I said.  "I suppose I have an appointment?"\u000a\u000aThe receptionist looked up at me as though I was barely more interesting than the game of solitaire she'd been cheating at.  "Not as such, no."  She went back to the game.\u000a\u000aI waited for her to continue talking, and she waited for me to sit back down.  She had the advantage of long hours' practice at ignoring waiting rooms, but I was dead.  It wasn't as though I had anywhere else to be.\u000a\u000aShe looked back up.  "Mr. Guillory will see you as soon as he is available.  Please wait your turn."\u000a\u000aI glanced back at the row of four seats that apparently sufficed as a waiting room.  Without me there to provide bulk, they were empty.\u000a\u000a"He's with a client."  the receptionist said before I could even turn my head back.\u000a\u000aI nodded.  She'd won this round.\u000a\u000a* [[Back to the seat|intro_wait]]
+p57
+sg20
+(lp58
+sg22
+g23
+((I2013
+I11
+I1
+I18
+I20
+I36
+I4
+I305
+I1
+tp59
+(dp60
+tp61
+Rp62
+sg28
+g62
+sg29
+Vreceptionist
+p63
+sbsa(dp64
+g12
+I00
+sg13
+(lp65
+I10
+aI150
+asg15
+(itiddlywiki
+Tiddler
+p66
+(dp67
+g18
+VI was expecting the seats to either be uncomfortably thin or absurdly over-stuffed, in the style of waiting room seats everywhere.  These looked thin but didn't feel it.  They didn't feel like much of anything, to be honest.  I could have been sitting on a box and leaning against the wall and gotten more of a sensory experience out of it.\u000a\u000aThat I was reduced to mentally critiquing the furniture indicated a lot about my [[mental state|intro_mentalstate]].\u000a\u000a* [[Wait|intro_invite_in]]
+p68
+sg20
+(lp69
+sg22
+g23
+((I2013
+I11
+I1
+I18
+I31
+I41
+I4
+I305
+I1
+tp70
+(dp71
+tp72
+Rp73
+sg28
+g73
+sg29
+Vintro_wait
+p74
+sbsa(dp75
+g12
+I00
+sg13
+(lp76
+I290
+aI150
+asg15
+(itiddlywiki
+Tiddler
+p77
+(dp78
+g18
+VSome part of me kept insisting that I ought to be panicking right now.  I was dead, killed in the prime of my life by...  well, I couldn't remember how I died precisely, but I didn't really feel like knowing the grisly details of my demise at the moment anyway.\u000a\u000aThe point was, I was dead and I ought to be upset by it, but I couldn't find it within myself to really care that hard.  Obviously, there was an afterlife - I was in it.  The fact that it lacked a certain polish was a minor detail.\u000a\u000a* [[Wait in the chair|intro_invite_in]]
+p79
+sg20
+(lp80
+sg22
+g23
+((I2013
+I11
+I1
+I18
+I36
+I52
+I4
+I305
+I1
+tp81
+(dp82
+tp83
+Rp84
+sg28
+g84
+sg29
+Vintro_mentalstate
+p85
+sbsa(dp86
+g12
+I00
+sg13
+(lp87
+I10
+aI290
+asg15
+(itiddlywiki
+Tiddler
+p88
+(dp89
+g18
+VThe door finally opened, and a bespectacled man in his early forties stepped out, holding a manilla folder.  Wherever I was, it was decidedly low-tech.\u000a\u000a"Sam Hallivert?" he said, looking up and meeting my gaze.  He at least had the dignity to look slightly embarassed at asking a question with an obivous answer. "Ah.  Right this way, if you would."\u000a\u000a* [[Follow him|intro_guillory]]
+p90
+sg20
+(lp91
+sg22
+g23
+((I2013
+I11
+I1
+I18
+I42
+I42
+I4
+I305
+I1
+tp92
+(dp93
+tp94
+Rp95
+sg28
+g95
+sg29
+Vintro_invite_in
+p96
+sbsa(dp97
+g12
+I00
+sg13
+(lp98
+I290
+aI290
+asg15
+(itiddlywiki
+Tiddler
+p99
+(dp100
+g18
+VWhat choice did I have?  As strangely at-peace as I was with my current morbid state of affairs, I still had questions. "Alex", as his gilded nametag proclaimed him to be, presumably had answers.\u000a\u000aHe turned back through the door, and I followed.\u000a\u000aI'd been expecting a doctor's office - as much or as little as that made sense for a dead man - but what I got instead was "insurance agent".\u000a\u000a<html><div class="center">\u000aAlex Guillory<br/>\u000a<em>Customer Service Agent, Life Preservers Insurance</em><br/>\u000a"Put your life in our hands"\u000a</div></html>\u000a\u000aI frowned at the desk plaque as Alex moved behind it and took his seat.  Insurance?  It was naggingly familiar and utterly bewildering at the same time.\u000a\u000aIf Guillory noticed my reaction, he didn't say anything.  Instead, he gestured toward the seat behind me - identical to those in the waiting room, so far as I could tell - and said "Mr. Hallivert, please, have a seat."\u000a\u000a* [[Take a seat|intro_gender_man]]\u000a* [[-- Wait, /Mister/ Hallivert?  There's been a mistake|intro_gender_woman]]
+p101
+sg20
+(lp102
+sg22
+g23
+((I2013
+I11
+I1
+I19
+I5
+I34
+I4
+I305
+I1
+tp103
+(dp104
+tp105
+Rp106
+sg28
+g106
+sg29
+Vintro_guillory
+p107
+sbsa(dp108
+g12
+I00
+sg13
+(lp109
+I990
+aI10
+asg15
+(itiddlywiki
+Tiddler
+p110
+(dp111
+g18
+V.center {\u000a	text-align: center;\u000a}\u000a\u000a.location {\u000a   font-variant:small-caps;\u000a   font-weight:bold;\u000a}\u000a\u000aa:link.internalLink.disabled {\u000a	color: #333;\u000a}\u000a\u000a.content {\u000a	position:relative;\u000a}
+p112
+sg20
+(lp113
+Vstylesheet
+p114
+asg22
+g23
+((I2013
+I11
+I1
+I19
+I13
+I55
+I4
+I305
+I1
+tp115
+(dp116
+tp117
+Rp118
+sg28
+g118
+sg29
+VCSS
+p119
+sbsa(dp120
+g12
+I00
+sg13
+(lp121
+I10
+aI430
+asg15
+(itiddlywiki
+Tiddler
+p122
+(dp123
+g18
+V<<set $gender="Mr. ">>I took my seat.\u000a\u000a<<display "intro_questions">>
+p124
+sg20
+(lp125
+sg22
+g23
+((I2013
+I11
+I1
+I19
+I18
+I58
+I4
+I305
+I1
+tp126
+(dp127
+tp128
+Rp129
+sg28
+g129
+sg29
+Vintro_gender_man
+p130
+sbsa(dp131
+g12
+I00
+sg13
+(lp132
+I290
+aI430
+asg15
+(itiddlywiki
+Tiddler
+p133
+(dp134
+g18
+V<<set $gender="Ms. ">>I frowned.  "I know I'm probably not looking my best right now, but I'm no mister.  Ms. Hallivert, Detective Hallivert, my friends call me Sam....  Pick one."\u000a\u000aGuillory looked at me for a moment, then back at his folder.  Finally, shaking his head as though to clear it, he took a pen and made some note I couldn't see from my vantage point.  "My apologies, Ms. Hallivert, there was a mistake in our files.  Please take a seat."\u000a\u000a* [[Sit down|intro_questions]]\u000a
+p135
+sg20
+(lp136
+sg22
+g23
+((I2013
+I11
+I1
+I19
+I19
+I11
+I4
+I305
+I1
+tp137
+(dp138
+tp139
+Rp140
+sg28
+g140
+sg29
+Vintro_gender_woman
+p141
+sbsa(dp142
+g12
+I00
+sg13
+(lp143
+I150
+aI570
+asg15
+(itiddlywiki
+Tiddler
+p144
+(dp145
+g18
+VGuillory launched into what I could tell was a well-recited speech.\u000a\u000a"<<print $gender>> Hallivert, I'm sure you have many questions, and this entire experience is likely very disorienting for you.  However, to best help you through it, I'd like to ask you a few questions.  Is that acceptable?"\u000a\u000a* [[Answer some questions|intro_question_1]]\u000a* [[-- Hell no, I want answers|intro_interrupt_1]]
+p146
+sg20
+(lp147
+sg22
+g23
+((I2013
+I11
+I1
+I19
+I25
+I7
+I4
+I305
+I1
+tp148
+(dp149
+tp150
+Rp151
+sg28
+g151
+sg29
+Vintro_questions
+p152
+sbsa(dp153
+g12
+I00
+sg13
+(lp154
+I150
+aI710
+asg15
+(itiddlywiki
+Tiddler
+p155
+(dp156
+g18
+V"Thank you, <<print $gender>> Hallivert, I promise this will not take long and then I'll answer every question you have."\u000a\u000aHe glanced back down at his notes, pen at the ready.  "Do you know why you are here?"\u000a\u000a* [[Tell him what you already know|intro_answer_1_dead]]\u000a* [[Play dumb|intro_answer_1_alive]]
+p157
+sg20
+(lp158
+sg22
+g23
+((I2013
+I11
+I1
+I19
+I33
+I34
+I4
+I305
+I1
+tp159
+(dp160
+tp161
+Rp162
+sg28
+g162
+sg29
+Vintro_question_1
+p163
+sbsa(dp164
+g12
+I00
+sg13
+(lp165
+I290
+aI710
+asg15
+(itiddlywiki
+Tiddler
+p166
+(dp167
+g18
+VI frowned.  "I'd prefer not to."  I said in a very specific mild tone.  Specifically, that mild tone of voice used to imply that one has a wide variety of more persuasive methods should mild tones not work.\u000a\u000aGuillory was either unfamiliar with the tone or completely unimpressed by it.  "I can imagine so, but it really is to help you."\u000a\u000a* [[Answer the questions|intro_question_1]]\u000a* [[-- No, you answer my questions|intro_interrupt_2]]
+p168
+sg20
+(lp169
+sg22
+g23
+((I2013
+I11
+I1
+I19
+I34
+I42
+I4
+I305
+I1
+tp170
+(dp171
+tp172
+Rp173
+sg28
+g173
+sg29
+Vintro_interrupt_1
+p174
+sbsa(dp175
+g12
+I00
+sg13
+(lp176
+I290
+aI1270
+asg15
+(itiddlywiki
+Tiddler
+p177
+(dp178
+g18
+VHe finally seemed to get the message that I wasn't feeling like playing his game, but to his credit he didn't let it creep into his voice.  "Very well," he said.\u000a\u000a<<display "convo_guillory">>
+p179
+sg20
+(lp180
+sg22
+g23
+((I2013
+I11
+I1
+I19
+I39
+I21
+I4
+I305
+I1
+tp181
+(dp182
+tp183
+Rp184
+sg28
+g184
+sg29
+Vintro_interrupt_2
+p185
+sbsa(dp186
+g12
+I00
+sg13
+(lp187
+I10
+aI850
+asg15
+(itiddlywiki
+Tiddler
+p188
+(dp189
+g18
+VI nodded, supressing a weary laugh.  "Yeah.  I'm dead."\u000a\u000aGuillory put down the pen and nodded, seemingly relieved.  "Ah, yes, that is the case.  I am glad that you've already realized it - many people, even after being briefed, take quite a while to come to that conclusion."\u000a\u000aHe paused for a moment, smiling, but then suddenly seemed to remember he had work to do.  "Are you ready for the next question?"\u000a\u000a* [[You're ready for the next question|intro_question_2]]
+p190
+sg20
+(lp191
+sg22
+g23
+((I2013
+I11
+I1
+I19
+I42
+I13
+I4
+I305
+I1
+tp192
+(dp193
+tp194
+Rp195
+sg28
+g195
+sg29
+Vintro_answer_1_dead
+p196
+sbsa(dp197
+g12
+I00
+sg13
+(lp198
+I150
+aI850
+asg15
+(itiddlywiki
+Tiddler
+p199
+(dp200
+g18
+VI did my most convincing I-don't-know-nothing shrug.  "You tell me."\u000a\u000aGuillory made a note in the folder.  "Ah, I'm sorry to be the bearer of bad news then.  I'm afraid you've died."  He followed this up immediately, as though afraid I was about to erupt in emotion.  "There's nothing to be worried about, you're fine now!  As I'll explain, you have a new life now with us, and it's every bit as full of potential as your last."\u000a\u000aHe studied me for a few moments.  "May I ask you another question?"\u000a\u000a* [[Endure another question|intro_question_2]]
+p201
+sg20
+(lp202
+sg22
+g23
+((I2013
+I11
+I1
+I19
+I49
+I12
+I4
+I305
+I1
+tp203
+(dp204
+tp205
+Rp206
+sg28
+g206
+sg29
+Vintro_answer_1_alive
+p207
+sbsa(dp208
+g12
+I00
+sg13
+(lp209
+I150
+aI990
+asg15
+(itiddlywiki
+Tiddler
+p210
+(dp211
+g18
+VHe picked the pen back up.  "Next question - do you know where this is?  Specifically, where we are right now?"\u000a\u000a* [[No, you don't|intro_answer_2]]\u000a
+p212
+sg20
+(lp213
+sg22
+g23
+((I2013
+I11
+I1
+I19
+I53
+I46
+I4
+I305
+I1
+tp214
+(dp215
+tp216
+Rp217
+sg28
+g217
+sg29
+Vintro_question_2
+p218
+sbsa(dp219
+g12
+I00
+sg13
+(lp220
+I150
+aI1130
+asg15
+(itiddlywiki
+Tiddler
+p221
+(dp222
+g18
+VI shrugged.  I'd gathered I was dead, that the afterlife was poorly decorated, and that angels (or devils, the state of my soul was still up in the air) had names like "Alex Guillory".  Everything else was news to me.\u000a\u000aAlex made a note in my file and nodded.  "Memory can take a while to be re-accessible."  He closed the folder and looked up at me.  "Well, I have answers."\u000a\u000aHe gestured around himself, indicating that I should take in the room.  There wasn't much to see - the same faux-wood paneling on the walls, an uninspired plastic desk, the job plaque I'd noted earlier, a cup of pens.\u000a\u000aI'd been a private investigator in my previous life, though, so I also noticed what wasn't in the room.\u000a\u000aGuillory's desk only had his plaque, the pens, and the manilla folder.  There were no ports to plug anything into, and no ports for output.  The holographic projection interface you'd need if you wanted to use the desk for anything other than putting things on was conspicuously absent.  The desk was either a great deal less advanced than the desks I was familiar with, or a great deal more.\u000a\u000aNow that I was thinking about plugs, ports, and electronics I noticed more:  There were no electronics at all, and the corresponding places where they'd interface were also missing.  No charging stations.  There wasn't even a light switch and, now that I was looking, no /light/.\u000a\u000aI frowned at the last observation.  The room was lit perfectly - there weren't even shadows.  I'd say it was impossible but I'd already done one impossible thing today just by being here.\u000a\u000a* [[Mention the strangeness of this place|intro_bridge]]
+p223
+sg20
+(lp224
+sg22
+g23
+((I2013
+I11
+I1
+I19
+I58
+I31
+I4
+I305
+I1
+tp225
+(dp226
+tp227
+Rp228
+sg28
+g228
+sg29
+Vintro_answer_2
+p229
+sbsa(dp230
+g12
+I00
+sg13
+(lp231
+I150
+aI1270
+asg15
+(itiddlywiki
+Tiddler
+p232
+(dp233
+g18
+V"This place is no insurance agency, that's for sure."  I said, gesturing to his plaque.\u000a\u000aGuillory chuckled.  "Actually, we are."  Opening the folder again, he pulled out a rather large bundle of paper, stapled together.  I hadn't remembered the folder holding that much, but I didn't get the chance to ask before Guillory turned the paper to face me and put it down on the desk.  "This is your policy."\u000a\u000aI wanted to ask Guillory for clarification, but I had the feeling the policy would speak for itself.  Unsurprisingly, it was by the same naggingly familiar "Life Preservers Insurance" and seemed to be pretty standard legalese.  I was about to give up and simply demand an answer when a portion caught my eye.\u000a\u000a<html>\u000a<blockquote>\u000a<p>17.  Consent for medical implant.</p>\u000aParticipation in the Program requires consent to implant a medical device (colliq. "a soulkeeper") into the brain for a time no less than seven years.  I understand that this operation involves certain risks for physical and mental injury, and even in the case of successful restoration may result...\u000a</blockquote>\u000a</html>\u000a\u000aGuillory must have been watching for me to get to exactly that part.  "Before you become worried, you are a successful restoration.  I suspect you have many questions."<<set $heardOfSoulkeeper=1>>\u000a\u000a* [[Ask your questions|convo_guillory]]
+p234
+sg20
+(lp235
+sg22
+g23
+((I2013
+I11
+I1
+I20
+I13
+I32
+I4
+I305
+I1
+tp236
+(dp237
+tp238
+Rp239
+sg28
+g239
+sg29
+Vintro_bridge
+p240
+sbsa(dp241
+g12
+I00
+sg13
+(lp242
+I150
+aI1410
+asg15
+(itiddlywiki
+Tiddler
+p243
+(dp244
+g18
+VGuillory looked every bit the model of an attentive insurance agent.  "What questions do you have for me?"\u000a\u000a<<sugarchoice "guillory_insurance" "What does an insurance company have to do with my death?">>\u000a<<if $heardOfSoulkeeper>><<sugarchoice "guillory_soulkeeper" "What's a 'soulkeeper'?">><<endif>>\u000a
+p245
+sg20
+(lp246
+sg22
+g23
+((I2013
+I11
+I1
+I20
+I36
+I26
+I4
+I305
+I1
+tp247
+(dp248
+tp249
+Rp250
+sg28
+g250
+sg29
+Vconvo_guillory
+p251
+sbsa(dp252
+g12
+I00
+sg13
+(lp253
+I710
+aI150
+asg15
+(itiddlywiki
+Tiddler
+p254
+(dp255
+g18
+VTEST\u000a
+p256
+sg20
+(lp257
+sg22
+g23
+((I2013
+I11
+I1
+I21
+I14
+I24
+I4
+I305
+I1
+tp258
+(dp259
+tp260
+Rp261
+sg28
+g261
+sg29
+VTest
+p262
+sbsa(dp263
+g12
+I00
+sg13
+(lp264
+I850
+aI150
+asg15
+(itiddlywiki
+Tiddler
+p265
+(dp266
+g18
+V// <<sugarchoice "targetPassage" "description">>\u000a// modified from the original at: https://groups.google.com/forum/#!msg/tweecode/eDZ5r_pmIeA/CMxlKbWQtHAJ\u000a// Removed "choiceName" because I name passages like variables anyway, and\u000a// does not disable visited links, just styles them differently.\u000atry {\u000a    version.extensions[ 'sugarchoice' ] = { major: 1, minor: 0, revision: 0 };\u000a    macros[ 'sugarchoice' ] = {\u000a        handler: function( place, macroName, params, parser ) {\u000a            if( typeof state.history[0].variables.sugarchoices == "undefined" ) {\u000a                state.history[0].variables.sugarchoices = {};\u000a            }\u000a            \u000a            var choiceID = params[0];\u000a            var choiceTarget = params[0];\u000a            var choiceDesc = params[1];\u000a            \u000a            // interpolate any variables in choiceDesc\u000a            // this thing keeps destroying my regexes with $ signs in them, so I had to move to an alternative of "__sent__" instead of "$"\u000a            choiceDesc = choiceDesc.replace( /__sent__([a-zA-Z0-9_]+)/g, function( token, match, number, txt ) { if( match in state.history[0].variables ) return state.history[0].variables[ match ]; return match; } );\u000a            \u000a            // has this choice been navigated before?\u000a            var link = document.createElement( "a" );\u000a            if( choiceID in state.history[0].variables.sugarchoices) {\u000a                link.className = "internalLink choice disabled";\u000a            }\u000a            else {\u000a                link.className = "internalLink choice";\u000a            }\u000a                link.href = "javascript:void(0)";\u000a                link.onclick = function() {\u000a                    macros[ "sugarchoice" ].activate( link, choiceID, choiceTarget );\u000a                };\u000a            link.innerHTML = choiceDesc;\u000a            place.appendChild( link );\u000a        },\u000a    activate: function( el, choiceID, choiceTarget ) {\u000a            state.history[0].variables.sugarchoices[ choiceID ] = choiceTarget;\u000a            state.display( choiceTarget, el );\u000a        },\u000a    init: function() { var v; var d; },\u000a    };\u000a} catch(e) {\u000a    throwError( place, "Error setting up sugarcane choices macro: " + e.message );\u000a} 
+p267
+sg20
+(lp268
+Vscript
+p269
+asg22
+g23
+((I2013
+I11
+I1
+I21
+I17
+I38
+I4
+I305
+I1
+tp270
+(dp271
+tp272
+Rp273
+sg28
+g273
+sg29
+Vsugarchoice script
+p274
+sbsa(dp275
+g12
+I01
+sg13
+(lp276
+I290
+aI1410
+asg15
+(itiddlywiki
+Tiddler
+p277
+(dp278
+g18
+VLEFT_OFF_HERE\u000a\u000a* [[You have more questions|convo_guillory]]
+p279
+sg20
+(lp280
+sg22
+g23
+((I2013
+I11
+I1
+I21
+I34
+I27
+I4
+I305
+I1
+tp281
+(dp282
+tp283
+Rp284
+sg28
+g284
+sg29
+Vguillory_soulkeeper
+p285
 sbsasS'scale'
-p53
+p286
 I1
 ss.
