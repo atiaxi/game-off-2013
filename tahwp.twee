@@ -19,11 +19,11 @@ I waited for her to continue talking, and she waited for me to sit back down.  S
 
 She looked back up.  "Mr. Guillory will see you as soon as he is available.  Please wait your turn."
 
-I glanced back at the row of four seats that apparently sufficed as a waiting room.  Without me there to provide bulk, they were empty.
+I glanced back at the row of four seats that apparently sufficed as a waiting room.  Without me there to provide bulk, they were empty.  I opened my mouth to-
 
 "He's with a client."  the receptionist said before I could even turn my head back.
 
-I nodded.  She'd won this round.
+I nodded.  She'd won this round.<<set $guilloryPhone="Test">>
 
 * [[Back to the seat|intro_wait]]
 
@@ -54,6 +54,14 @@ a:link.internalLink.disabled {
 	position:relative;
 }
 
+a:link#wallet {
+	color: yellow;
+}
+
+li#storyMenu a {
+	color: yellow;
+}
+
 
 :: intro_wait
 I was expecting the seats to either be uncomfortably thin or absurdly over-stuffed, in the style of waiting room seats everywhere.  These looked thin but didn't feel it.  They didn't feel like much of anything, to be honest.  I could have been sitting on a box and leaning against the wall and gotten more of a sensory experience out of it.
@@ -73,7 +81,6 @@ The point was, I was dead and I ought to be upset by it, but I couldn't find it 
 
 :: Test
 TEST
-
 
 
 :: sugarchoice script [script]
@@ -149,7 +156,23 @@ I frowned at the desk plaque as Alex moved behind it and took his seat.  Insuran
 If Guillory noticed my reaction, he didn't say anything.  Instead, he gestured toward the seat behind me - identical to those in the waiting room, so far as I could tell - and said "Mr. Hallivert, please, have a seat."
 
 * [[Take a seat|intro_gender_man]]
-* [[-- Wait, /Mister/ Hallivert?  There's been a mistake|intro_gender_woman]]
+* [[-- Wait, /Mister/ Hallivert?  I'm a woman!|intro_gender_woman]]
+
+
+
+:: Wallet
+<<if state.history[1].passage.tags.indexOf("conversation") eq -1>><<set $walletReturn=state.history[1].passage.title>><<endif>>This is your wallet.
+
+<<if $guilloryInPerson>>You could call Guillory, but it'd be strange considering you're talking to him right now.<<else>>[[Call Guillory|convo_guillory]]<<endif>>
+
+<<print "* [[Stop looking through your wallet|" + $walletReturn + "]]">>
+
+
+
+
+
+:: StoryMenu
+<<if $hasWallet>>[[Wallet]]<<endif>>
 
 
 :: intro_gender_man
@@ -255,26 +278,169 @@ Participation in the Program requires consent to implant a medical device (colli
 
 Guillory must have been watching for me to get to exactly that part.  "Before you become worried, you are a successful restoration.  I suspect you have many questions."<<set $heardOfSoulkeeper=1>>
 
-* [[Ask your questions|convo_guillory]]
+* [[Ask your questions|real_convo_guillory]]
+
 
 
 :: intro_interrupt_2
 He finally seemed to get the message that I wasn't feeling like playing his game, but to his credit he didn't let it creep into his voice.  "Very well," he said.
 
-<<display "convo_guillory">>
+<<display "real_convo_guillory">>
 
 
-:: convo_guillory
-Guillory looked every bit the model of an attentive insurance agent.  "What questions do you have for me?"
+:: guillory_whatnext [conversation]
+Guillory smiled widely.  "That's entirely up to you.  You have most of another whole life ahead of you.  Many of our clients dedicate themselves to art, or mastering a skill that they lacked in life.  Many others simply lie back and relax, treating this as an extended retirement."
 
-<<sugarchoice "guillory_insurance" "What does an insurance company have to do with my death?">>
-<<if $heardOfSoulkeeper>><<sugarchoice "guillory_soulkeeper" "What's a 'soulkeeper'?">><<endif>>
+He gestured down to the sheaf of paper on his desk that was my insurance policy.  "The policy you purchased in life gives you fifty years of New Detroit time - more specifically, a little over three million seconds subjectively.  Time flows a little bit differently from city to city, but nothing you'll notice unless you spend a while there, and should you be able to afford that you'll likely have more time than you need anyway."
 
+"Afford?"  I looked at him skeptically.  There was always a catch.
 
-
-:: guillory_soulkeeper
-LEFT_OFF_HERE
+"You've no doubt heard the phrase 'time is money'?  Well here it is literally true.<<set $heardTimeIsMoney=1>>  What your policy paid for is enough computing power to simulate you for fifty years at the level of fidelity that New Detroit offers.  That money on the outside became time here.  Time here is a valuable and scarce commodity that cannot be counterfeited.  Your fifty years is currency - a fair bit of it, actually.  I would advise you not to spend it all in one place."
 
 * [[You have more questions|convo_guillory]]
+
+
+:: guillory_upload [conversation]
+"The process is very technical" Guillory literally handwaved the response.  At least he had the decency to almost immediately realize that I wasn't going to find that a satisfactory answer.
+
+"Well," he began again, "your soulkeeper <<set $heardOfSoulkeeper=1>>is extracted after your death.  Its patterns are fed into the large banks of machinery that make up this world, and those computers then add your mind to its simulation."
+
+"Simulation."  I said.  Suddenly the copy-and-paste furniture made a great deal more sense.
+
+"Yes.  I don't know your religious leanings, <<print $gender>> Hallivert, but this is not a spiritual afterlife.  You are currently within the memory and processors of nearly five thousand top-of the line servers at a data-center in Boulder City, Nevada."
+
+
+* [[You have more questions|convo_guillory]]
+
+
+:: real_convo_guillory
+<<set $guilloryInPerson=1>><<display "convo_guillory">>
+
+
+:: insurance_waiting_room
+<<set $guilloryInPerson=0>>The afterlife hadn't gotten any classier since the last time I'd been here at the Life Preservers Insurance office.  Same wood paneling that had been my first sight upon entering the world.  Same bored receptionist.  Same lack of magazines.
+
+There were three exits here:  The door to Alex Guillory's office at least attempted to look more like real wood than its surroundings.  The purpose of the metal door with the "EXIT" sign above it was obvious.  A smaller half-door at the other end of the room seems to be a janitor's closet of some sort.
+
+* [[Visit Guillory|real_convo_guillory]]
+* [[Peek in the Janitor's closet|insurance_janitor_interrupt]]
+* [[Head out to the street|insurance_exterior]]
+
+
+
+
+:: guillory_soulkeeper [conversation]
+"The Soulkeeper is you - at least, the you that you are now."
+
+Guillory saw my nonplussed expression.
+
+"Well, it's a bit more technical than what I'm about to describe, but simply put, the soulkeeper contains a few hundred billion tiny machines.  These machines are very small - the term 'microscopic' is too large, to give you an idea - such that all these machines can quite easily fit within your head."
+
+I didn't like where this was going.  Obviously I couldn't argue the end result, but the process was already sounding very uncomfortable.
+
+The insurance agent seemed to notice my discomfort.  "It's actually quite noninvasive.  The machines are smaller than even your own brain cells.  That's their job, after all - once implanted, each device finds a nerve to latch on to.  From there, it goes about recording everything.  What causes this nerve to fire?  What levels of neurotransmitters are present at the time it does so?  When does this nerve die, and if this happens what is the cause?  Is there a replacement?"
+
+"So they learned how to be me."  I observed.
+
+Guillory nodded.  "Exactly!"
+
+* [[You have more questions|convo_guillory]]
+
+
+:: guillory_insurance [conversation]
+The question made Guillory smile.  "That's somewhat of our mission statement."
+
+"Life Preservers Insurance," he said with the same air of rehearsed speech he'd had earlier, "was founded to provide people with policies that could be used to keep them alive in this simulation after they'd passed on.
+
+"That is somewhat of an important point - we are not a traditional insurance company.  We do not insure houses, or health, or even life in the usual manner - though much of the funding that finances your part of the simulation is derived from a life insurance policy.  Instead, we're an insurance company dedicated to getting people to the /next/ life.  This life.
+
+"In this way, we further <<set $heardOfPreservationists=1>>Preserver goals and, best of all, keep people alive and well."
+
+* [[You have more questions|convo_guillory]]
+
+
+:: convo_guillory [conversation]
+Guillory was every bit the model of an attentive insurance agent.  "What questions do you have for me?"
+
+<<sugarchoice "guillory_insurance" "What does an insurance company have to do with my death?">>
+<<if $heardOfPreservationists>><<sugarchoice "guillory_preserve" "So you're Preservationists?">>
+/%%/<<else>><<sugarchoice "guillory_preserve" "Life Preservers, huh?  Any relation to the Preservationists?">>
+/%%/<<endif>><<if $heardOfSoulkeeper>>
+<<sugarchoice "guillory_soulkeeper" "What's a 'soulkeeper'?">>
+/%%/<<endif>><<sugarchoice "guillory_upload" "How exactly did I end up here?">>
+<<sugarchoice "guillory_whatnext" "Where do I go now?">>
+<<if $heardTimeIsMoney>><<sugarchoice "guillory_broke" "What happens if I run out of time?">>
+/%%/<<endif>><<if $heardNeedsJanitorPermission>><<sugarchoice "guillory_janitor" "Your receptionist won't let me into the janitor's closet">>
+<<endif>>
+<<if $guilloryInPerson>>* [[You have no more questions|guillory_exit]]<<else>>* [[End the phone call|Wallet]]<<endif>>
+
+
+:: insurance_janitor_interrupt
+<<if $hasJanitorPermission>><<display "insurance_janitor">><<else>>
+I'd thought the receptionist was bored and lazy - the sort of person who gets a job because they want to pay the bills, not because they particularly have any passion for the job.  I quickly discovered I was wrong.
+
+The receptionist's true motives for taking the job appeared to be because it gave her the occasional chance to do what she did just then - leap from her desk and interpose herself bodily between me and the half-door.
+
+"You", she began thunderously, "do ''not'' have permission to go in that room!"<<set $heardNeedsJanitorPermission=1>>
+
+* [[Get back to acting like a normal person in the waiting room|insurance_waiting_room]]
+<<endif>>
+
+
+:: insurance_janitor
+TODO
+
+<<back>>
+
+
+:: insurance_exterior
+TODO
+
+<<back>>
+
+
+:: guillory_preserve [conversation]
+"Not exactly."  Now that a less professional topic such as religion had come up, Guillory looked a lot less comfortable.  "This company was founded by the Preservationist movement, of course, and a fair amount of stock is still owned by the church.  But-" he held up a finger to stress the point "we don't require that our clients adopt, share, or even entertain such beliefs.
+
+"Obviously, believing that people should be preserved after they die and working at an agency like this are quite compatible.  Similarly, those that believe in a non-digitizable soul that they will take with them to a true afterlife are unlikely to sign up for our services.  Still, we are open to all."
+
+* [[You have more questions|convo_guillory]]
+
+
+:: guillory_broke [conversation]
+A vague grimace game over Guillory's face.  "It's not a scenario we like to discuss - nothing terrible!" He rushed to reassure me despite the fact that I hadn't appeared surprised at all.  "Anyone who runs out of time is simply downgraded to Storage.  We're Preservers, after all<<set $heardOfPreservationists=1>>, we're not going to just delete someone."
+
+Despite the calming tone, I didn't like the sound of Storage.
+
+Guillory had anticipated my next question.  "Yes, Storage is what it sounds like.  Your patterns that are currently in simulation now are stored on disk - and also redundantly backed up, of course.  You will no longer be simulated, but of course it's the Preservationist belief that eventually simulation costs will be so low that everyone can be revived for free.  At that point, you'll be returned, likely to this very office."
+
+* [[You have more questions|convo_guillory]]
+
+
+:: guillory_exit
+<<if not $hasWallet>>"Oh, one more thing.  For the most part, items here keep their old-world uses.  The same goes for abstract concepts like 'time is money'<<set $heardTimeIsMoney=1>>."  He handed me a leather wallet.  "This is where your time is kept, as well as my card - it looks like a business card, but it'll act like a phone.  Full audio, holography, standard operation as far as phone calls go, but it can only contact me."
+<<set $hasWallet=1>><<update>><<endif>>
+
+Guillory leaned forward and shook my hand before I had the chance to react.  "We're glad to have your business, <<print $gender>> Hallivert.  As always, call if you need my help."
+
+* [[Head to the insurance agency waiting room|insurance_waiting_room]]
+
+
+
+:: guillory_janitor [conversation]
+Guillory looks confused for a moment.  "Janitor's closet?  Oh!  You must mean the filing room, of course.  Yes, there's a fair amount of proprietary information there, it's not open to the general public."
+<<if $investigating>>* [[Tell him it's for the investigation|guillory_janitor_ok]]<<else>>* [[You have more questions|convo_guillory]]<<endif>>
+
+
+
+:: guillory_janitor_ok
+Guillory glanced at Koloman's card and nodded.  It was hard to tell given his professional demeanor, but I could have sworn I'd seen a new respect in the insurance agent's gaze.
+
+"That changes things.  I'll grant you entry permissions immediately - you won't need a key or anything, the door will simply open for you.  I'll make sure our greeters are similarly informed."
+
+He paused for a moment.  "As I said before, however, there is a great deal of proprietary information in the filing room.  I hope I can count on your discretion?"
+
+* [[Reassure him, possibly falsely|convo_guillory]]
+
 
 
