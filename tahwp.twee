@@ -130,6 +130,26 @@ try {
 } 
 
 
+:: power_of_two_exterior
+"The Power of Two" sounded like it ought to be a bordello, and as I got closer to the building I could tell that this impression was, if anything, understated.
+
+Posters of naked women covered every available surface of the building, in many cases obscuring each other and in some places overlapping with the neon sign naming the building.  A very few ordinary signs were visible:  One proclaiming "Titanic Tits!" and another in much smaller type explaining that the cover charge to enter was 1 day.
+<<if $tourInProgress>>
+Samahd gestured to the display and wiggled his eyebrows suggestively.  "I'm not here to judge!".
+
+Grinning, he donned his tour-guide voice.  "This, as you've probably guessed, is New Detroit's premiere whorehouse.  Athena - that's the AI that runs this sim - doesn't let people just turn their brain's pleasure center on and ignore the world, so sex is still very much a thing!  It's got some benefits over the real thing.  No diseases, nobody can possibly get pregnant, nobody's forced into it because you can't be forced into anything here - it's pretty much the best brothel ever, anywhere."
+
+He shrugs.  "That's the official line, anyway.  It's kinda pricey for my taste.  Head up this way and I'll show you my hangout."
+
+* [[Follow him|bar_ocho_exterior]]
+<<else>>
+* [[Go up the street to Bar Ocho|bar_ocho_exterior]]
+* [[Go to the Hub|Hub]]
+* [[Head to the insurance office|insurance_exterior]]
+<<endif>>
+
+
+
 :: intro_invite_in
 The door finally opened, and a bespectacled man in his early forties stepped out, holding a manilla folder.  Wherever I was, it was decidedly low-tech.
 
@@ -161,13 +181,11 @@ If Guillory noticed my reaction, he didn't say anything.  Instead, he gestured t
 
 
 :: Wallet
-<<if state.history[1].passage.tags.indexOf("conversation") eq -1>><<set $walletReturn=state.history[1].passage.title>><<endif>>This is your wallet.
+<<if state.history[1].passage.tags.indexOf("conversation") eq -1>><<set $walletReturn=state.history[1].passage.title>><<endif>>I looked into my wallet.  I had <<print $money>> days' worth of money.  It bore little resemblance to the cash I'd been familiar with all my life, but the small strange bills were obviously made to be currency.
 
-<<if $guilloryInPerson>>You could call Guillory, but it'd be strange considering you're talking to him right now.<<else>>[[Call Guillory|convo_guillory]]<<endif>>
+<<if $guilloryInPerson>>I could have called Guillory, but it'd be strange considering I was talking to him right now.<<else>>[[Call Guillory|convo_guillory]]<<endif>>
 
 <<print "* [[Stop looking through your wallet|" + $walletReturn + "]]">>
-
-
 
 
 
@@ -244,6 +262,56 @@ He picked the pen back up.  "Next question - do you know where this is?  Specifi
 
 
 
+:: insurance_exterior
+I stood in front of the Life Preservers Insurance building - a middling grey cube in the sea of middling grey cubes that apparently made up this place.  It was dark - and I very quickly got the impression that it was always dark - but surprisingly quiet for a modern city.  No horns blared, nobody yelled from the window of their car.  There didn't appear to be any traffic whatsoever, that I noticed.  A few people trudged by now and then, silent in their contemplation or more likely spending all their mental energy on gathering the willpower necessary to take another step.
+
+<<if not $wasOfferedTour>>
+<<display "ferro_offer_tour">>
+<<else>>
+* [[Head to the Power of Two|power_of_two_exterior]]
+* [[Head to the Hub|Hub]]
+* [[Go home|apartment_exterior]]
+<<endif>>
+
+
+
+:: Hub
+For the center of the city, this is an extremely sparse area.  Roads from every corner of New Detroit converge in a circular plaza utterly lacking in any decoration at all.  They could have at least put a fountain or a statue in the middle.
+
+* [[Go to the insurance building|insurance_exterior]]
+* [[Visit the Power of Two|power_of_two_exterior]]
+* [[Make your way to Bar Ocho|bar_ocho_exterior]]
+* [[Go to the Elevator|elevator_exterior]]
+* [[Visit the Courthouse|courthouse_exterior]]
+* [[Make your way to the Church|church_exterior]]
+* [[Go Shopping|shopping_exterior]]
+* [[Head toward the Arts District|arts_exterior]]
+* [[Visit the Games District|games_exterior]]
+* [[Follow the tracks to the Train Station|train_exterior]]
+* [[Go to the Retirement Home|asylum_exterior]]
+* [[Go home|apartment_exterior]]
+
+
+
+:: bar_ocho_exterior
+Bar Ocho looks like someone took the platonic ideal of 'Bar' and copy-pasted it into the city.  Considering the fact that this was a simulated city, that might not have been too far from the truth.  The name of the bar was in neon, as far too many building signs seemed to be.  The "O" in "Ocho" was overlaying a large stylized 8-ball.  I found myself wondering if anyone played pool in New Detroit.
+
+<<if $tourInProgress>>
+Samahd stood to the side of the bar's door.  "For future reference, this is where I am on almost all of my downtime.  I mean, I'll give you my card at the end of the tour, but not everything is business, right?  Sometimes you need to unwind.  That's what this place is for!  The beer's not as effective as on the outside, but the upside is that you can't become addicted to it.  Simulation doesn't allow it.  Great, huh?"
+
+He gestured up to the non-buzzing neon sign.  "Oh, another thing.  See that sign?  That's a pun in my language.  'Borracho' means 'drunk'.  Despite the America-centric theme of the city names, there are more languages spoken here than in any other one place on earth.  Turns out translation is only hard for computers when they don't have full access to the mind-state of the people doing the talking.  So if you never got to learn another language in your previous life, don't worry!  You'll never need to!"
+
+He stepped away from the door and started walking up the street, pointing to a large vertical column in the distance.  The slightly glowing blue cylinder was far taller than any other building - or anything I'd ever seen in either life.  "That thing is our next stop."
+
+* [[Follow him|elevator_exterior]]
+<<else>>
+* [[Head to the Elevator|elevator_exterior]]
+* [[Go to the Hub|Hub]]
+* [[Peek in at the Power of Two|power_of_two_exterior]]
+<<endif>>
+
+
+
 :: intro_answer_2
 I shrugged.  I'd gathered I was dead, that the afterlife was poorly decorated, and that angels (or devils, the state of my soul was still up in the air) had names like "Alex Guillory".  Everything else was news to me.
 
@@ -260,6 +328,25 @@ Now that I was thinking about plugs, ports, and electronics I noticed more:  The
 I frowned at the last observation.  The room was lit perfectly - there weren't even shadows.  I'd say it was impossible but I'd already done one impossible thing today just by being here.
 
 * [[Mention the strangeness of this place|intro_bridge]]
+
+
+:: ferro_tour_accept
+<<set $money = $money - 7>><<set $tourInProgress = 1>><<set $ferroInPerson=1>><<set $wasOfferedTour=1>>I looked through my wallet and discovered I had exact change.  Hoping this worked like it did in the real world, I took seven days worth of bills out and handed it over to Samahd.  He smiled and took it, so I must have done something right.
+
+"All right, let's get started!  Let's see, basic information you need to know:  This is New Detroit, the lowest level of the simulation.  You've probably noticed all the lack of amenities - no shadows, no smells, no heat or cold, sounds don't travel far, lots of things lack texture - you get used to it.  You probably wouldn't even have noticed if I hadn't pointed them out." He grinned prankishly and started numbering things on his hand.
+
+"First, you can't die here."  There was something in the tone of his voice when he said this, but as usual I couldn't get him to stop long enough to ask.  "Where would you go, right?  Second, you can't be hurt here unless you go into the wrong neighborhood - and you'll know it if that happens.  Third, you can't be robbed - other people can't even //see// your wallet, let alone take anything out of it.  This Detroit's a lot safer than the real one, if a lot less scenic."
+
+"Fourth:  Don't run out of time.  That's a one-way ticket to Storage.  I'd recommend getting a job - even one that pays one day per day is a pretty good gig, keeps you going."
+
+Samahd looked down at his hands as though he'd forgotten something, then shook his head to dismiss it.  "Anyway, enough about the new motor city in general, let's get specific."
+
+He smiled his tour-guide smile and gestured to the Insurance building behind us.  "This, as you're probably already aware, is the Life Preservers Insurance building.  Drop-off point for new uploads fresh off the bus.  They've got customer service agents always ready to talk, they sometimes help with job placement if you're willing to pay for it.  Kinda self-defeating if you ask me, but hey, whatever works."
+
+"Up this way is the Power of Two."  Samahd started walking up the street.
+
+* [[Follow him|power_of_two_exterior]]
+
 
 
 :: intro_bridge
@@ -362,6 +449,7 @@ The question made Guillory smile.  "That's somewhat of our mission statement."
 :: convo_guillory [conversation]
 Guillory was every bit the model of an attentive insurance agent.  "What questions do you have for me?"
 
+<<sugarchoice "guillory_cause_of_death" "How did I die?">>
 <<sugarchoice "guillory_insurance" "What does an insurance company have to do with my death?">>
 <<if $heardOfPreservationists>><<sugarchoice "guillory_preserve" "So you're Preservationists?">>
 /%%/<<else>><<sugarchoice "guillory_preserve" "Life Preservers, huh?  Any relation to the Preservationists?">>
@@ -371,8 +459,19 @@ Guillory was every bit the model of an attentive insurance agent.  "What questio
 <<sugarchoice "guillory_whatnext" "Where do I go now?">>
 <<if $heardTimeIsMoney>><<sugarchoice "guillory_broke" "What happens if I run out of time?">>
 /%%/<<endif>><<if $heardNeedsJanitorPermission>><<sugarchoice "guillory_janitor" "Your receptionist won't let me into the janitor's closet">>
-<<endif>>
+/%%/<<endif>><<if $wasOfferedTour>><<sugarchoice "guillory_tour" "Someone offered to be a 'tour guide' for me.  Is it a scam?">>
+/%%/<<endif>>
 <<if $guilloryInPerson>>* [[You have no more questions|guillory_exit]]<<else>>* [[End the phone call|Wallet]]<<endif>>
+
+
+:: guillory_exit
+<<if not $hasWallet>>"Oh, one more thing.  For the most part, items here keep their old-world uses.  The same goes for abstract concepts like 'time is money'<<set $heardTimeIsMoney=1>>."  He handed me a leather wallet.  "This is where your time is kept, as well as my card - it looks like a business card, but it'll act like a phone.  Full audio, holography, standard operation as far as phone calls go, but it can only contact me."
+<<set $hasWallet=1>><<set $money=18250>><<update>><<endif>>
+
+Guillory leaned forward and shook my hand before I had the chance to react.  "We're glad to have your business, <<print $gender>> Hallivert.  As always, call if you need my help."
+
+* [[Head to the insurance agency waiting room|insurance_waiting_room]]
+
 
 
 :: insurance_janitor_interrupt
@@ -393,10 +492,18 @@ TODO
 <<back>>
 
 
-:: insurance_exterior
-TODO
+:: ferro_offer_tour
+I noticed almost immediately that one of the people here on the outside wasn't one of the city's commuters on their way to some dreary destination.  His gaze wasn't on the thin asphalt road like theirs; rather he was watching the insurance building carefully.
 
-<<back>>
+He smiled welcomingly as he caught my gaze, and had closed the gap between us before I could even say a word.
+
+"Samahd Ferro, Tour Guide." he said.  "I've got other titles - welcome wagon, noob patrol, New Arrival Emotional Well-Being Adjuster - it's just that the 'Tour Guide' thing is the most honest.
+
+"Anyway," he continued, not letting me get a word in edgewise, "it's my job to give new folks like yourself an overview of the area.  I mean, you probably got the basics from one of the stuffed-shirts inside, but it's one thing to know you live in a city, and another thing to see it.  What do you say?"
+
+* [[Ask how much this is going to cost|ferro_tour_haggle]]
+* [[--Maybe later|ferro_tour_decline]]
+
 
 
 :: guillory_preserve [conversation]
@@ -405,6 +512,7 @@ TODO
 "Obviously, believing that people should be preserved after they die and working at an agency like this are quite compatible.  Similarly, those that believe in a non-digitizable soul that they will take with them to a true afterlife are unlikely to sign up for our services.  Still, we are open to all."
 
 * [[You have more questions|convo_guillory]]
+
 
 
 :: guillory_broke [conversation]
@@ -417,13 +525,18 @@ Guillory had anticipated my next question.  "Yes, Storage is what it sounds like
 * [[You have more questions|convo_guillory]]
 
 
-:: guillory_exit
-<<if not $hasWallet>>"Oh, one more thing.  For the most part, items here keep their old-world uses.  The same goes for abstract concepts like 'time is money'<<set $heardTimeIsMoney=1>>."  He handed me a leather wallet.  "This is where your time is kept, as well as my card - it looks like a business card, but it'll act like a phone.  Full audio, holography, standard operation as far as phone calls go, but it can only contact me."
-<<set $hasWallet=1>><<update>><<endif>>
+:: ferro_tour_decline
+Samahd nodded quickly.  "Of course, there's nothing like the thrill of discovery on your own, is there?  Still, take my card."  He foisted the faux-paper into my hand, again before I could react.  I was beginning to miss my old body's fast reflexes.  "Feel free to call me should you change your mind!"<<set $cardFerro=1>><<set $wasOfferedTour=1>>
 
-Guillory leaned forward and shook my hand before I had the chance to react.  "We're glad to have your business, <<print $gender>> Hallivert.  As always, call if you need my help."
+* [[Watch him go|insurance_exterior]]
 
-* [[Head to the insurance agency waiting room|insurance_waiting_room]]
+
+
+:: ferro_tour_haggle
+"Just a week of your time."  Ferro continued talking before I could even ask for the obvious clarification.  "Of course, the tour isn't going to //take// a week to experience.  It'll cost that much.  It's well worth it, though - they don't let you become a tour guide unless you know this city in and out."
+
+* [[Take the tour|ferro_tour_accept]]
+* [[-- Maybe later|ferro_tour_decline]]
 
 
 
@@ -433,7 +546,7 @@ Guillory looks confused for a moment.  "Janitor's closet?  Oh!  You must mean th
 
 
 
-:: guillory_janitor_ok
+:: guillory_janitor_ok [conversation]
 Guillory glanced at Koloman's card and nodded.  It was hard to tell given his professional demeanor, but I could have sworn I'd seen a new respect in the insurance agent's gaze.
 
 "That changes things.  I'll grant you entry permissions immediately - you won't need a key or anything, the door will simply open for you.  I'll make sure our greeters are similarly informed."
@@ -442,5 +555,247 @@ He paused for a moment.  "As I said before, however, there is a great deal of pr
 
 * [[Reassure him, possibly falsely|convo_guillory]]
 
+
+
+:: guillory_cause_of_death [conversation]
+Guillory consults his notes.  "Looks like you were struck by a car?"  his voice radiates confusion.  
+
+"I got run over?"  I asked.  It was absurd - cars had dozens of redundant systems designed to prevent the computers that drove them from hitting people.  You could walk across a busy freeway in complete safety, provided you didn't mind heading to court afterward and paying a hefty fine for disrupting traffic.
+
+Guillory nods.  "Ah, here it is, you were struck by a //non-automatic// car.  Not a lot of people who don't have a self-driving car nowadays, but the hold-outs tend to be rather deluded about how good they are at driving."
+
+I'd been under the impression that dumb-cars had been finally outlawed years ago.  I hadn't really cared about the issue at the time, and now it was quite obviously too late.
+
+* [[You have more questions|convo_guillory]]
+
+
+
+:: elevator_exterior
+Every other building in New Detroit seemed to have been cut from the same block of concrete.  The Elevator was different.  A sleek blue steel column, it started from ground level and stretched upward into the sky.  I couldn't tell where - if anywhere - it stopped.
+
+<<if $tourInProgress>>
+"Yeah."  Samahd nodded.  "That's the Elevator, it's how you get to other cities in the same simulation.  It could have been an airport or something, but I think the people who designed it liked the Elevator metaphor.  They're above us that way."
+
+He turned back to me.  "Like I said at the beginning, this sim's workable but missing some amenities.  Nothing here takes your breath away, right?"
+
+I knew he used that phrase on purpose, because I noticed then that I wasn't breathing.  I hadn't been breathing the entire time.  I didn't think I //could// breathe and, most strange of all, this fact did not trigger a panicked choking for survival.
+
+"Yeah, this stage of the sim, the city we call New Detroit, it's just above the brain-in-a-jar level.  You get most of your brain simulated but almost none of your internal organs.  Cuts down on the overhead of the sim, you can fit more people in cheaply.
+
+"Ever have a dream that, when you wake up, you realize was utterly absurd?" Again, without waiting for an answer, he continued, "Why didn't you realize it in the dream?  I mean, four-armed gorilla monsters from space aren't even remotely real, but your dream-self doesn't question it.  It's the same thing here.  There's a part of your brain dedicated to constantly asking the question 'does this make any damn sense at all?'.  In dreams, it's shut off.  Here?  It's not even simulated."
+
+He gestured back to the column.  "That's not the case everywhere.  The next city up is New Phoenix.  They've got shadows, better physics, more texture, better sound, but still no internals.  It's the same sim, keep in mind that this isn't taking you off-grid or anything, it's just that they dedicate a lot more computing power to NPX.  It costs a lot more too, though - the ratio of New Detroit time to New Phoenix time is about 50:1.  One day's vacation would cost you a couple months.  That scale's just about the same all the way up, too.  Next city's New Amsterdam, and that's fifty times more expensive than New Phoenix.  Top of the pack is New Providence.  It's fifty times more expensive than NA.  I don't know if you've done the math, but that means you could spend a lifetime in a few minutes."
+
+He shook his head.  "Too rich for our blood, in other words.  Come on, let me show you the courthouse."
+
+* [[Follow him|courthouse_exterior]]
+<<else>>
+* [[Walk to the Courthouse|courthouse_exterior]]
+* [[Go to the Hub|Hub]]
+* [[Visit Bar Ocho|bar_ocho_exterior]]
+<<endif>>
+
+
+
+:: guillory_tour [conversation]
+"That depends heavily on the person."  Guillory answered unhelpfully.  "If you're talking about Mr. Ferro - that's the man who practically camps outside our doorstep - he is a legitimate guide.  One of the more respectable ones, I've heard, but that is not a particularly high bar to pass"
+
+* [[You have more questions|convo_guillory]]
+
+
+
+:: courthouse_exterior
+The architects who created New Detroit clearly had an extremely generic template - the Courthouse could not have looked any more the part.  Faux-marble stairs, textured columns, even a statue of justice out front.
+
+<<if $tourInProgress>>
+"You probably will never see the inside of this place unless you decide to become a history buff." 
+Samahd said.  "Used to be the center of law and order in this place, trials and everything, but it turns out it's easier just to make the sim so crimes can't be committed."
+
+He pointed to the flat wall of a convenience store.  "For instance, say you had a spraycan and you felt like tagging your name all over that thing."  He rummaged through his pockets for a moment.  "Damn, I don't have one.  I usually bring one for this demonstration.  Anyway, it wouldn't work.  You don't own that store, you don't have permission to modify it, you can't do anything to it."
+
+After a few more moments he pulled an ordinary-looking keyring from his pocket.  "I'd say 'at least I remembered these' but as it happens they're always with you.  They look like keys - old metal style keys, you've probably noticed the taste for antiques around here - and they act like them, letting you into doors, opening whatever you've locked, that kind of thing.  You've likely got one for your apartment."
+
+Dubiously, I reached into my pocket and pulled out a keyring.  It had one key, featuring the number "1336" emblazoned on it.  I let go and the ring and key vanished.  Patting the outside of my pocket revealed nothing, but reaching in again resulted in the same key.  I hadn't even felt it there.
+
+"A lot of abstractions work like that - your entry permissions being actual keys, the time-is-money concept being made into real bills.  New Detroit's got an old-time asthetic because there's no point in having it look technological.  We're not only surrounded by technology, we //are// technology.  No need to lug around a holographic projector for your phone when old-fasioned business cards can do the same thing."
+
+He shrugged.  "You really do get used to it.  Anyway, come on, let's go get religion."
+
+* [[Follow him|church_exterior]]
+<<else>>
+* [[Visit the Church|church_exterior]]
+* [[Go to the Hub|Hub]]
+* [[See the elevator|elevator_exterior]]
+<<endif>>
+
+
+:: church_exterior
+The church was one of the few stand-out buildings I'd seen in this city.  Its peaked roof made it taller than most of its neighbors, and the stained glass mural comprising its sole window was possibly the most detailed thing I'd seen in the city, even if I couldn't tell what it was supposed to be depicting.
+
+<<if $tourInProgress>>
+"You a Preservationist?" Samahd, true to character, did not even remotely give me time to reply.  "If so, this is the place for you.  I mean, the whole sim is theirs so I think they figure if you're here you're as good as converted anyway.  But still, if you want to go all-in on the worship thing, these guys have you covered."
+
+He took a few moments of precious precious silence to let me look over the building before continuing.  "Obviously, they're rich, but they don't pay much.  I mean, it's a church.  Most people volunteer."
+
+"Anyway, religion is hard.  Let's go shopping."
+
+* [[Follow him|shopping_exterior]]
+<<else>>
+* [[Go shopping|shopping_exterior]]
+* [[Go to the Hub|Hub]]
+* [[Visit the Courthouse|courthouse_exterior]]
+<<endif>>
+
+
+
+:: shopping_exterior
+New Detroit was a full-fledged city, and it was easy to forget that elsewhere.  Here, in the heart of the shopping district, it was obvious.  The hustle and bustle of human movement and conversation was more muted than it'd have been in the real world, but it still managed to be omnipresent.  And as in the real world, shopping seemed to be more popular than any other activity.
+
+<<if $tourInProgress>>
+"I wouldn't go on a spending spree right away!"  Samahd was having to speak up to be heard which, given the unrestrained volume he usually spoke at, was saying something.
+
+He lead us toward a marginally more quiet corner of what was essentially a large strip mall.
+
+"If you want to get a job, this is the easiest place to do it.  Some people order out of catalogs that act like the network-accessible shops you might be used to, but most people figure if they're going to get all old-timey, they're going to do it right.  In-person sales are pretty popular.  It only pays minimum wage - that's an hour per hour - but that'll extend you quite a bit."
+
+He leaned back against the wall and people-watched for a while, which mostly forced me to do the same.  Shoppers here seemed focused and uninclined to talk, despite all the babble I heard in the air.
+
+"Okay," Samahd was apparently done.  "enough regular people.  Let's go to the Arts District"
+
+* [[Follow him|arts_exterior]]
+<<else>>
+* [[Make your way to the Arts District|arts_exterior]]
+* [[Go to the Hub|Hub]]
+* [[Go to Church|church_exterior]]
+<<endif>>
+
+
+
+:: arts_exterior
+The Arts District was Broadway.  As it turned out, that wasn't a metaphor - someone had taken the entire cityscape of New York's theater district, scaled down the fidelity, mixed it up a bit, and placed it in New Detroit.
+
+I wasn't sure which, if any, of the details they'd gotten correct, but the neon lights were in fact bright.
+
+<<if $tourInProgress>>
+"Shopping's a good pastime, but if you want more classy sort of entertainment - well, as classy as you're likely to find in this city - the arts district here is the best place to do it." Samahd was standing in front of the Park Theater, which I'd been pretty sure had burned down centuries ago.  People were apparently not the only things that got afterlives.
+
+"Prices here are pretty reasonable.  Your real theater snobs are all up in New Amsterdam at a far better rendition of this building.  This is bottom floor for artists of all stripes, so you can even catch free shows."
+
+Finally, after what felt like hours of false starts, I got a word in edgewise.  "I suppose you can get hired on as an usher?"
+
+Samahd laughed.  "Yes, actually.  Most people here are actors, painters, musicians.  Being an usher would be better work if you could get it.  Everyone wants to start a band but, well, you know the phrase 'starving artist'?  It somehow manages to be true even in a place where you can't possibly starve."
+
+"Once you're finished with what passes for 'upscale' around here, I'll take you to where the real fun happens."
+
+* [[Follow him|games_exterior]]
+<<else>>
+* [[Head toward the Games District|games_exterior]]
+* [[Go to the Hub|Hub]]
+* [[Go shopping|shopping_exterior]]
+<<endif>>
+
+
+:: games_exterior
+The Games District was obvious - it was surrounded by golf courses.  The sudden lack of buildings hanging over me gave me the strange fleeting feeling of agoraphobia.
+
+<<if $tourInProgress>>
+"If you haven't guessed why this is separate from the arts district yet," Samahd said, gesturing to the greens, "it's because it's about three times bigger."
+
+We passed a few voleyball courts and a soccer field.  "Every sport on the planet is represented here, and some new ones that you can't do in the real world.  I wouldn't recommend starting with those, by the way."  He pointed to a three-story tall translucent cube that apparently featured rapidly changing gravity as a core game mechanic.
+
+"You mostly see sports-style games because those take the most room."  He pointed toward a small building off the main road.  "That leads to the arcades, underground.  Every video game we could licence - and with the kind of money the architects were throwing around, it was a lot - is available there, 15 minutes per play.  It ranges from some of the more recent full-immersion games - much easier to play here than in the real world, you don't need a sim implant or anything - to old-style mechanical pinball."
+
+"Take it from me," he came to a halt at the intersection, "your video game skills, if any, will carry over into this world, but your athletic skills won't.  I was a researcher but played softball on the side.  Couldn't play it at all once I got uploaded.  Game's the same, but you kinda have to re-learn your proprioception."
+
+That explained why my reflexes were terrible, at least.
+
+"Come on, we've got a train to catch."
+
+* [[Follow him|train_exterior]]
+<<else>>
+* [[Head toward the train station|train_exterior]]
+* [[Go to the Hub|Hub]]
+* [[Visit the Arts District|arts_exterior]]
+<<endif>>
+
+
+
+:: apartment_exterior
+741 McGraw St, Apartment #1336 - I knew it was my home without having to consult any notes, or even having to be told.  And it was a good thing, too - the apartment complex was one of dozens, exactly alike, copied-and-pasted like the insurance waiting room furniture on a massive scale.
+
+<<if $tourInProgress>><<silently>>
+<<set $tourInProgress=0>>
+<<set $ferroInPerson=0>>
+<<endsilently>>
+Samahd smiled and gestured magnificently to the particular grey slab that was my building.  "And here we have nearly come full circle.  This is your home, and where our tour ends."
+
+He turned to face down the road.  "For reference, this way leads back to the insurance offices, and over there leads to the neighborhood people around here call "The Hub".  It's an easy way to get across the city without having to walk through half the districts, but it's not on the tour because it's boring.  Keep in mind that this is a tour that features an insurance company, so when I say 'boring', I mean //boring//.
+
+"And finally," with a deft twist of his hand, he produced a business card like the one Guillory had given me.  "Here's my card.  I like to keep in touch with the people I show around, and I'm always willing to answer questions.  Feel free to call anytime."<<set $cardFerro=1>>
+
+With a hearty wave goodbye, Tour Guide Samahd Ferro walked away down the street.
+<<endif>>
+* [[Head indoors|apartment_interior]]
+* [[Go to the Insurance building|insurance_exterior]]
+* [[Go to the Hub|Hub]]
+* [[Visit the Retirement Home|asylum_exterior]]
+
+
+
+:: asylum_exterior
+A sign outlined in brick proclaimed the building behind the thick iron fence to be the "Shady Acres Retirement Home".  The building itself wasn't exactly welcoming, either.  It looked like a cross between a cheap hotel and a hospital.
+
+<<if $tourInProgress>>
+"You can't get in here without an invite" Samahd leaned up against the also-thick-iron gate.  "And trust me, that's for your own good, not theirs."
+
+He gestured to one of the windows.  "Those are the only windows in the city that are one-way.  Special dispensation from Athena, because what's going on in there is not pleasant.
+
+"Sorry, don't mean to get all spookhouse on you, it's just the place has a bad reputation.  For the most part, it's full of people who've been in the simulation for a very long time, but for whatever reasons don't want to go into Storage.  Lots of people who were in the first wave of uploads, way back when.  It was more experimental in those days, and it didn't always work right.  Plus you've got the people who've got the double bad luck to have died bad and remember their deaths.  Physical trauma is a thing of the past if you stay on the right side of the tracks, but PTSD is forever."
+
+He shook his head sadly.  "So yeah, the hospital look is not an accident."
+
+Just as quickly, though, he seemed to come out of his reverie.  "Well, isn't that a high note to go out on.  Come on, tour's almost over, time to show you your new digs."
+
+* [[Follow him|apartment_exterior]]
+<<else>>
+* [[Go home|apartment_exterior]]
+* [[Go to the Hub|Hub]]
+* [[Visit the Train Station|train_exterior]]
+<<endif>>
+
+
+
+:: train_exterior
+The train station consisted entirely of an awning over the waiting area by the tracks and a ticketing station manned by one supremely bored person.
+
+A chalkboard featured the current transit prices:
+* ''Metaverse:'' 8.45 centuries
+* ''Satya Yuga:'' 3.10 centuries
+* ''Valhalla:'' 1.20 centuries
+* ''New Olympus:  You are here.''
+
+<<if $tourInProgress>>
+"I mentioned earlier how the elevator doesn't take you off-grid." Samahd ignored the ticketing agent, and was ignored in return.  "Well this does.  If you wanted to visit any of the other sims we're networked to, this is the place."
+
+He walked up to the chalkboard.  "Of course, moving all the data that makes up a human being isn't exactly cheap, as you can see, and those prices don't include however much it'll cost to simulate you once you're there.  If you want my advice, save up for a day trip to New Amsterdam, see the beaches.  As expensive as that is, it's way more worth it."
+* [[Follow him|asylum_exterior]]
+<<else>>
+Conspicuously absent from your tour was the fact that a road goes over the tracks and leads on to another part of the city.
+
+* [[Head toward the Retirement Home|asylum_exterior]]
+* [[Cross the tracks|pvp_entrance]]
+* [[Go to the Hub|Hub]]
+* [[Visit the Games District|games_exterior]]
+<<endif>>
+
+
+:: apartment_interior
+
+* [[Go out on the streets|apartment_exterior]]
+
+
+
+:: pvp_entrance
+TODO
 
 

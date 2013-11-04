@@ -5,7 +5,7 @@ VC:\u005cUsers\u005croger\u005cDocuments\u005cGitHub\u005cgame-off-2013\u005ctah
 p2
 sS'saveDestination'
 p3
-S'C:\\Users\\roger\\Documents\\GitHub\\game-off-2013\\tahwp.tws'
+VC:\u005cUsers\u005croger\u005cDocuments\u005cGitHub\u005cgame-off-2013\u005ctahwp.tws
 p4
 sS'target'
 p5
@@ -69,7 +69,7 @@ g12
 I00
 sg13
 (lp32
-I710
+I570
 aI10
 asg15
 (itiddlywiki
@@ -106,7 +106,7 @@ g12
 I00
 sg13
 (lp43
-I850
+I710
 aI10
 asg15
 (itiddlywiki
@@ -328,7 +328,7 @@ g12
 I00
 sg13
 (lp109
-I990
+I850
 aI10
 asg15
 (itiddlywiki
@@ -771,7 +771,7 @@ Vintro_bridge
 p240
 sbsa(dp241
 g12
-I01
+I00
 sg13
 (lp242
 I290
@@ -782,7 +782,7 @@ Tiddler
 p243
 (dp244
 g18
-VGuillory was every bit the model of an attentive insurance agent.  "What questions do you have for me?"\u000a\u000a<<sugarchoice "guillory_insurance" "What does an insurance company have to do with my death?">>\u000a<<if $heardOfPreservationists>><<sugarchoice "guillory_preserve" "So you're Preservationists?">>\u000a/%%/<<else>><<sugarchoice "guillory_preserve" "Life Preservers, huh?  Any relation to the Preservationists?">>\u000a/%%/<<endif>><<if $heardOfSoulkeeper>>\u000a<<sugarchoice "guillory_soulkeeper" "What's a 'soulkeeper'?">>\u000a/%%/<<endif>><<sugarchoice "guillory_upload" "How exactly did I end up here?">>\u000a<<sugarchoice "guillory_whatnext" "Where do I go now?">>\u000a<<if $heardTimeIsMoney>><<sugarchoice "guillory_broke" "What happens if I run out of time?">>\u000a/%%/<<endif>><<if $heardNeedsJanitorPermission>><<sugarchoice "guillory_janitor" "Your receptionist won't let me into the janitor's closet">>\u000a<<endif>>\u000a<<if $guilloryInPerson>>* [[You have no more questions|guillory_exit]]<<else>>* [[End the phone call|Wallet]]<<endif>>
+VGuillory was every bit the model of an attentive insurance agent.  "What questions do you have for me?"\u000a\u000a<<sugarchoice "guillory_cause_of_death" "How did I die?">>\u000a<<sugarchoice "guillory_insurance" "What does an insurance company have to do with my death?">>\u000a<<if $heardOfPreservationists>><<sugarchoice "guillory_preserve" "So you're Preservationists?">>\u000a/%%/<<else>><<sugarchoice "guillory_preserve" "Life Preservers, huh?  Any relation to the Preservationists?">>\u000a/%%/<<endif>><<if $heardOfSoulkeeper>>\u000a<<sugarchoice "guillory_soulkeeper" "What's a 'soulkeeper'?">>\u000a/%%/<<endif>><<sugarchoice "guillory_upload" "How exactly did I end up here?">>\u000a<<sugarchoice "guillory_whatnext" "Where do I go now?">>\u000a<<if $heardTimeIsMoney>><<sugarchoice "guillory_broke" "What happens if I run out of time?">>\u000a/%%/<<endif>><<if $heardNeedsJanitorPermission>><<sugarchoice "guillory_janitor" "Your receptionist won't let me into the janitor's closet">>\u000a/%%/<<endif>><<if $wasOfferedTour>><<sugarchoice "guillory_tour" "Someone offered to be a 'tour guide' for me.  Is it a scam?">>\u000a/%%/<<endif>>\u000a<<if $guilloryInPerson>>* [[You have no more questions|guillory_exit]]<<else>>* [[End the phone call|Wallet]]<<endif>>
 p245
 sg20
 (lp246
@@ -813,7 +813,7 @@ g12
 I00
 sg13
 (lp254
-I710
+I570
 aI150
 asg15
 (itiddlywiki
@@ -850,8 +850,8 @@ g12
 I00
 sg13
 (lp265
-I850
-aI150
+F710.0
+aF150.0
 asg15
 (itiddlywiki
 Tiddler
@@ -1014,7 +1014,7 @@ Tiddler
 p314
 (dp315
 g18
-V"Not exactly."  Now that a less professional topic such as religion had come up, Guillory looked a lot less comfortable.  "This company was founded by the Preservationist movement, of course, and a fair amount of stock is still owned by the church.  But-" he held up a finger to stress the point "we don't require that our clients adopt, share, or even entertain such beliefs.\u000a\u000a"Obviously, believing that people should be preserved after they die and working at an agency like this are quite compatible.  Similarly, those that believe in a non-digitizable soul that they will take with them to a true afterlife are unlikely to sign up for our services.  Still, we are open to all."\u000a\u000a* [[You have more questions|convo_guillory]]
+V"Not exactly."  Now that a less professional topic such as religion had come up, Guillory looked a lot less comfortable.  "This company was founded by the Preservationist movement, of course, and a fair amount of stock is still owned by the church.  But-" he held up a finger to stress the point "we don't require that our clients adopt, share, or even entertain such beliefs.\u000a\u000a"Obviously, believing that people should be preserved after they die and working at an agency like this are quite compatible.  Similarly, those that believe in a non-digitizable soul that they will take with them to a true afterlife are unlikely to sign up for our services.  Still, we are open to all."\u000a\u000a* [[You have more questions|convo_guillory]]\u000a
 p316
 sg20
 (lp317
@@ -1123,15 +1123,15 @@ g12
 I00
 sg13
 (lp349
-I290
-aI1690
+I430
+aI1550
 asg15
 (itiddlywiki
 Tiddler
 p350
 (dp351
 g18
-V<<if not $hasWallet>>"Oh, one more thing.  For the most part, items here keep their old-world uses.  The same goes for abstract concepts like 'time is money'<<set $heardTimeIsMoney=1>>."  He handed me a leather wallet.  "This is where your time is kept, as well as my card - it looks like a business card, but it'll act like a phone.  Full audio, holography, standard operation as far as phone calls go, but it can only contact me."\u000a<<set $hasWallet=1>><<update>><<endif>>\u000a\u000aGuillory leaned forward and shook my hand before I had the chance to react.  "We're glad to have your business, <<print $gender>> Hallivert.  As always, call if you need my help."\u000a\u000a* [[Head to the insurance agency waiting room|insurance_waiting_room]]\u000a
+V<<if not $hasWallet>>"Oh, one more thing.  For the most part, items here keep their old-world uses.  The same goes for abstract concepts like 'time is money'<<set $heardTimeIsMoney=1>>."  He handed me a leather wallet.  "This is where your time is kept, as well as my card - it looks like a business card, but it'll act like a phone.  Full audio, holography, standard operation as far as phone calls go, but it can only contact me."\u000a<<set $hasWallet=1>><<set $money=18250>><<update>><<endif>>\u000a\u000aGuillory leaned forward and shook my hand before I had the chance to react.  "We're glad to have your business, <<print $gender>> Hallivert.  As always, call if you need my help."\u000a\u000a* [[Head to the insurance agency waiting room|insurance_waiting_room]]\u000a
 p352
 sg20
 (lp353
@@ -1160,15 +1160,15 @@ g12
 I00
 sg13
 (lp360
-I710
-aI290
+F570.0
+aF290.0
 asg15
 (itiddlywiki
 Tiddler
 p361
 (dp362
 g18
-V<<if state.history[1].passage.tags.indexOf("conversation") eq -1>><<set $walletReturn=state.history[1].passage.title>><<endif>>This is your wallet.\u000a\u000a<<if $guilloryInPerson>>You could call Guillory, but it'd be strange considering you're talking to him right now.<<else>>[[Call Guillory|convo_guillory]]<<endif>>\u000a\u000a<<print "* [[Stop looking through your wallet|" + $walletReturn + "]]">>\u000a\u000a\u000a
+V<<if state.history[1].passage.tags.indexOf("conversation") eq -1>><<set $walletReturn=state.history[1].passage.title>><<endif>>I looked into my wallet.  I had <<print $money>> days' worth of money.  It bore little resemblance to the cash I'd been familiar with all my life, but the small strange bills were obviously made to be currency.\u000a\u000a<<if $guilloryInPerson>>I could have called Guillory, but it'd be strange considering I was talking to him right now.<<else>>[[Call Guillory|convo_guillory]]<<endif>>\u000a\u000a<<print "* [[Stop looking through your wallet|" + $walletReturn + "]]">>\u000a
 p363
 sg20
 (lp364
@@ -1197,7 +1197,7 @@ g12
 I00
 sg13
 (lp371
-I850
+I710
 aI290
 asg15
 (itiddlywiki
@@ -1345,15 +1345,15 @@ g12
 I00
 sg13
 (lp415
-I850
-aI1550
+F990.0
+aF990.0
 asg15
 (itiddlywiki
 Tiddler
 p416
 (dp417
 g18
-VTODO\u000a\u000a<<back>>
+VI stood in front of the Life Preservers Insurance building - a middling grey cube in the sea of middling grey cubes that apparently made up this place.  It was dark - and I very quickly got the impression that it was always dark - but surprisingly quiet for a modern city.  No horns blared, nobody yelled from the window of their car.  There didn't appear to be any traffic whatsoever, that I noticed.  A few people trudged by now and then, silent in their contemplation or more likely spending all their mental energy on gathering the willpower necessary to take another step.\u000a\u000a<<if not $wasOfferedTour>>\u000a<<display "ferro_offer_tour">>\u000a<<else>>\u000a* [[Head to the Power of Two|power_of_two_exterior]]\u000a* [[Head to the Hub|Hub]]\u000a* [[Go home|apartment_exterior]]\u000a<<endif>>\u000a
 p418
 sg20
 (lp419
@@ -1470,7 +1470,9 @@ VGuillory glanced at Koloman's card and nodded.  It was hard to tell given his p
 p452
 sg20
 (lp453
-sg22
+Vconversation
+p454
+asg22
 g23
 ((I2013
 I11
@@ -1481,16 +1483,760 @@ I34
 I6
 I307
 I1
-tp454
-(dp455
-tp456
-Rp457
+tp455
+(dp456
+tp457
+Rp458
 sg28
-g457
+g458
 sg29
 Vguillory_janitor_ok
-p458
-sbsasS'scale'
 p459
-I1
+sbsa(dp460
+g12
+I00
+sg13
+(lp461
+I850
+aI1550
+asg15
+(itiddlywiki
+Tiddler
+p462
+(dp463
+g18
+VI noticed almost immediately that one of the people here on the outside wasn't one of the city's commuters on their way to some dreary destination.  His gaze wasn't on the thin asphalt road like theirs; rather he was watching the insurance building carefully.\u000a\u000aHe smiled welcomingly as he caught my gaze, and had closed the gap between us before I could even say a word.\u000a\u000a"Samahd Ferro, Tour Guide." he said.  "I've got other titles - welcome wagon, noob patrol, New Arrival Emotional Well-Being Adjuster - it's just that the 'Tour Guide' thing is the most honest.\u000a\u000a"Anyway," he continued, not letting me get a word in edgewise, "it's my job to give new folks like yourself an overview of the area.  I mean, you probably got the basics from one of the stuffed-shirts inside, but it's one thing to know you live in a city, and another thing to see it.  What do you say?"\u000a\u000a* [[Ask how much this is going to cost|ferro_tour_haggle]]\u000a* [[--Maybe later|ferro_tour_decline]]\u000a
+p464
+sg20
+(lp465
+sg22
+g23
+((I2013
+I11
+I3
+I16
+I7
+I56
+I6
+I307
+I0
+tp466
+(dp467
+tp468
+Rp469
+sg28
+g469
+sg29
+Vferro_offer_tour
+p470
+sbsa(dp471
+g12
+I00
+sg13
+(lp472
+I290
+aI1830
+asg15
+(itiddlywiki
+Tiddler
+p473
+(dp474
+g18
+VGuillory consults his notes.  "Looks like you were struck by a car?"  his voice radiates confusion.  \u000a\u000a"I got run over?"  I asked.  It was absurd - cars had dozens of redundant systems designed to prevent the computers that drove them from hitting people.  You could walk across a busy freeway in complete safety, provided you didn't mind heading to court afterward and paying a hefty fine for disrupting traffic.\u000a\u000aGuillory nods.  "Ah, here it is, you were struck by a //non-automatic// car.  Not a lot of people who don't have a self-driving car nowadays, but the hold-outs tend to be rather deluded about how good they are at driving."\u000a\u000aI'd been under the impression that dumb-cars had been finally outlawed years ago.  I hadn't really cared about the issue at the time, and now it was quite obviously too late.\u000a\u000a* [[You have more questions|convo_guillory]]\u000a
+p475
+sg20
+(lp476
+Vconversation
+p477
+asg22
+g23
+((I2013
+I11
+I3
+I16
+I9
+I54
+I6
+I307
+I0
+tp478
+(dp479
+tp480
+Rp481
+sg28
+g481
+sg29
+Vguillory_cause_of_death
+p482
+sbsa(dp483
+g12
+I00
+sg13
+(lp484
+I10
+aI1970
+asg15
+(itiddlywiki
+Tiddler
+p485
+(dp486
+g18
+V"That depends heavily on the person."  Guillory answered unhelpfully.  "If you're talking about Mr. Ferro - that's the man who practically camps outside our doorstep - he is a legitimate guide.  One of the more respectable ones, I've heard, but that is not a particularly high bar to pass"\u000a\u000a* [[You have more questions|convo_guillory]]\u000a
+p487
+sg20
+(lp488
+Vconversation
+p489
+asg22
+g23
+((I2013
+I11
+I3
+I16
+I22
+I5
+I6
+I307
+I0
+tp490
+(dp491
+tp492
+Rp493
+sg28
+g493
+sg29
+Vguillory_tour
+p494
+sbsa(dp495
+g12
+I00
+sg13
+(lp496
+I850
+aI1690
+asg15
+(itiddlywiki
+Tiddler
+p497
+(dp498
+g18
+VSamahd nodded quickly.  "Of course, there's nothing like the thrill of discovery on your own, is there?  Still, take my card."  He foisted the faux-paper into my hand, again before I could react.  I was beginning to miss my old body's fast reflexes.  "Feel free to call me should you change your mind!"<<set $cardFerro=1>><<set $wasOfferedTour=1>>\u000a\u000a* [[Watch him go|insurance_exterior]]\u000a
+p499
+sg20
+(lp500
+sg22
+g23
+((I2013
+I11
+I3
+I16
+I33
+I23
+I6
+I307
+I0
+tp501
+(dp502
+tp503
+Rp504
+sg28
+g504
+sg29
+Vferro_tour_decline
+p505
+sbsa(dp506
+g12
+I00
+sg13
+(lp507
+F990.0
+aF1690.0
+asg15
+(itiddlywiki
+Tiddler
+p508
+(dp509
+g18
+V"Just a week of your time."  Ferro continued talking before I could even ask for the obvious clarification.  "Of course, the tour isn't going to //take// a week to experience.  It'll cost that much.  It's well worth it, though - they don't let you become a tour guide unless you know this city in and out."\u000a\u000a* [[Take the tour|ferro_tour_accept]]\u000a* [[-- Maybe later|ferro_tour_decline]]\u000a
+p510
+sg20
+(lp511
+sg22
+g23
+((I2013
+I11
+I3
+I16
+I38
+I32
+I6
+I307
+I0
+tp512
+(dp513
+tp514
+Rp515
+sg28
+g515
+sg29
+Vferro_tour_haggle
+p516
+sbsa(dp517
+g12
+I00
+sg13
+(lp518
+F1130.0
+aF1130.0
+asg15
+(itiddlywiki
+Tiddler
+p519
+(dp520
+g18
+V<<set $money = $money - 7>><<set $tourInProgress = 1>><<set $ferroInPerson=1>><<set $wasOfferedTour=1>>I looked through my wallet and discovered I had exact change.  Hoping this worked like it did in the real world, I took seven days worth of bills out and handed it over to Samahd.  He smiled and took it, so I must have done something right.\u000a\u000a"All right, let's get started!  Let's see, basic information you need to know:  This is New Detroit, the lowest level of the simulation.  You've probably noticed all the lack of amenities - no shadows, no smells, no heat or cold, sounds don't travel far, lots of things lack texture - you get used to it.  You probably wouldn't even have noticed if I hadn't pointed them out." He grinned prankishly and started numbering things on his hand.\u000a\u000a"First, you can't die here."  There was something in the tone of his voice when he said this, but as usual I couldn't get him to stop long enough to ask.  "Where would you go, right?  Second, you can't be hurt here unless you go into the wrong neighborhood - and you'll know it if that happens.  Third, you can't be robbed - other people can't even //see// your wallet, let alone take anything out of it.  This Detroit's a lot safer than the real one, if a lot less scenic."\u000a\u000a"Fourth:  Don't run out of time.  That's a one-way ticket to Storage.  I'd recommend getting a job - even one that pays one day per day is a pretty good gig, keeps you going."\u000a\u000aSamahd looked down at his hands as though he'd forgotten something, then shook his head to dismiss it.  "Anyway, enough about the new motor city in general, let's get specific."\u000a\u000aHe smiled his tour-guide smile and gestured to the Insurance building behind us.  "This, as you're probably already aware, is the Life Preservers Insurance building.  Drop-off point for new uploads fresh off the bus.  They've got customer service agents always ready to talk, they sometimes help with job placement if you're willing to pay for it.  Kinda self-defeating if you ask me, but hey, whatever works."\u000a\u000a"Up this way is the Power of Two."  Samahd started walking up the street.\u000a\u000a* [[Follow him|power_of_two_exterior]]\u000a
+p521
+sg20
+(lp522
+sg22
+g23
+((I2013
+I11
+I3
+I16
+I43
+I55
+I6
+I307
+I0
+tp523
+(dp524
+tp525
+Rp526
+sg28
+g526
+sg29
+Vferro_tour_accept
+p527
+sbsa(dp528
+g12
+I00
+sg13
+(lp529
+F1550.0
+aF150.0
+asg15
+(itiddlywiki
+Tiddler
+p530
+(dp531
+g18
+V"The Power of Two" sounded like it ought to be a bordello, and as I got closer to the building I could tell that this impression was, if anything, understated.\u000a\u000aPosters of naked women covered every available surface of the building, in many cases obscuring each other and in some places overlapping with the neon sign naming the building.  A very few ordinary signs were visible:  One proclaiming "Titanic Tits!" and another in much smaller type explaining that the cover charge to enter was 1 day.\u000a<<if $tourInProgress>>\u000aSamahd gestured to the display and wiggled his eyebrows suggestively.  "I'm not here to judge!".\u000a\u000aGrinning, he donned his tour-guide voice.  "This, as you've probably guessed, is New Detroit's premiere whorehouse.  Athena - that's the AI that runs this sim - doesn't let people just turn their brain's pleasure center on and ignore the world, so sex is still very much a thing!  It's got some benefits over the real thing.  No diseases, nobody can possibly get pregnant, nobody's forced into it because you can't be forced into anything here - it's pretty much the best brothel ever, anywhere."\u000a\u000aHe shrugs.  "That's the official line, anyway.  It's kinda pricey for my taste.  Head up this way and I'll show you my hangout."\u000a\u000a* [[Follow him|bar_ocho_exterior]]\u000a<<else>>\u000a* [[Go up the street to Bar Ocho|bar_ocho_exterior]]\u000a* [[Go to the Hub|Hub]]\u000a* [[Head to the insurance office|insurance_exterior]]\u000a<<endif>>\u000a
+p532
+sg20
+(lp533
+sg22
+g23
+((I2013
+I11
+I3
+I17
+I6
+I28
+I6
+I307
+I0
+tp534
+(dp535
+tp536
+Rp537
+sg28
+g537
+sg29
+Vpower_of_two_exterior
+p538
+sbsa(dp539
+g12
+I00
+sg13
+(lp540
+F1550.0
+aF990.0
+asg15
+(itiddlywiki
+Tiddler
+p541
+(dp542
+g18
+VFor the center of the city, this is an extremely sparse area.  Roads from every corner of New Detroit converge in a circular plaza utterly lacking in any decoration at all.  They could have at least put a fountain or a statue in the middle.\u000a\u000a* [[Go to the insurance building|insurance_exterior]]\u000a* [[Visit the Power of Two|power_of_two_exterior]]\u000a* [[Make your way to Bar Ocho|bar_ocho_exterior]]\u000a* [[Go to the Elevator|elevator_exterior]]\u000a* [[Visit the Courthouse|courthouse_exterior]]\u000a* [[Make your way to the Church|church_exterior]]\u000a* [[Go Shopping|shopping_exterior]]\u000a* [[Head toward the Arts District|arts_exterior]]\u000a* [[Visit the Games District|games_exterior]]\u000a* [[Follow the tracks to the Train Station|train_exterior]]\u000a* [[Go to the Retirement Home|asylum_exterior]]\u000a* [[Go home|apartment_exterior]]\u000a
+p543
+sg20
+(lp544
+sg22
+g23
+((I2013
+I11
+I3
+I17
+I7
+I15
+I6
+I307
+I0
+tp545
+(dp546
+tp547
+Rp548
+sg28
+g548
+sg29
+VHub
+p549
+sbsa(dp550
+g12
+I00
+sg13
+(lp551
+F2670.0
+aF990.0
+asg15
+(itiddlywiki
+Tiddler
+p552
+(dp553
+g18
+VBar Ocho looks like someone took the platonic ideal of 'Bar' and copy-pasted it into the city.  Considering the fact that this was a simulated city, that might not have been too far from the truth.  The name of the bar was in neon, as far too many building signs seemed to be.  The "O" in "Ocho" was overlaying a large stylized 8-ball.  I found myself wondering if anyone played pool in New Detroit.\u000a\u000a<<if $tourInProgress>>\u000aSamahd stood to the side of the bar's door.  "For future reference, this is where I am on almost all of my downtime.  I mean, I'll give you my card at the end of the tour, but not everything is business, right?  Sometimes you need to unwind.  That's what this place is for!  The beer's not as effective as on the outside, but the upside is that you can't become addicted to it.  Simulation doesn't allow it.  Great, huh?"\u000a\u000aHe gestured up to the non-buzzing neon sign.  "Oh, another thing.  See that sign?  That's a pun in my language.  'Borracho' means 'drunk'.  Despite the America-centric theme of the city names, there are more languages spoken here than in any other one place on earth.  Turns out translation is only hard for computers when they don't have full access to the mind-state of the people doing the talking.  So if you never got to learn another language in your previous life, don't worry!  You'll never need to!"\u000a\u000aHe stepped away from the door and started walking up the street, pointing to a large vertical column in the distance.  The slightly glowing blue cylinder was far taller than any other building - or anything I'd ever seen in either life.  "That thing is our next stop."\u000a\u000a* [[Follow him|elevator_exterior]]\u000a<<else>>\u000a* [[Head to the Elevator|elevator_exterior]]\u000a* [[Go to the Hub|Hub]]\u000a* [[Peek in at the Power of Two|power_of_two_exterior]]\u000a<<endif>>\u000a
+p554
+sg20
+(lp555
+sg22
+g23
+((I2013
+I11
+I3
+I17
+I26
+I34
+I6
+I307
+I0
+tp556
+(dp557
+tp558
+Rp559
+sg28
+g559
+sg29
+Vbar_ocho_exterior
+p560
+sbsa(dp561
+g12
+I00
+sg13
+(lp562
+F3230.0
+aF1830.0
+asg15
+(itiddlywiki
+Tiddler
+p563
+(dp564
+g18
+VEvery other building in New Detroit seemed to have been cut from the same block of concrete.  The Elevator was different.  A sleek blue steel column, it started from ground level and stretched upward into the sky.  I couldn't tell where - if anywhere - it stopped.\u000a\u000a<<if $tourInProgress>>\u000a"Yeah."  Samahd nodded.  "That's the Elevator, it's how you get to other cities in the same simulation.  It could have been an airport or something, but I think the people who designed it liked the Elevator metaphor.  They're above us that way."\u000a\u000aHe turned back to me.  "Like I said at the beginning, this sim's workable but missing some amenities.  Nothing here takes your breath away, right?"\u000a\u000aI knew he used that phrase on purpose, because I noticed then that I wasn't breathing.  I hadn't been breathing the entire time.  I didn't think I //could// breathe and, most strange of all, this fact did not trigger a panicked choking for survival.\u000a\u000a"Yeah, this stage of the sim, the city we call New Detroit, it's just above the brain-in-a-jar level.  You get most of your brain simulated but almost none of your internal organs.  Cuts down on the overhead of the sim, you can fit more people in cheaply.\u000a\u000a"Ever have a dream that, when you wake up, you realize was utterly absurd?" Again, without waiting for an answer, he continued, "Why didn't you realize it in the dream?  I mean, four-armed gorilla monsters from space aren't even remotely real, but your dream-self doesn't question it.  It's the same thing here.  There's a part of your brain dedicated to constantly asking the question 'does this make any damn sense at all?'.  In dreams, it's shut off.  Here?  It's not even simulated."\u000a\u000aHe gestured back to the column.  "That's not the case everywhere.  The next city up is New Phoenix.  They've got shadows, better physics, more texture, better sound, but still no internals.  It's the same sim, keep in mind that this isn't taking you off-grid or anything, it's just that they dedicate a lot more computing power to NPX.  It costs a lot more too, though - the ratio of New Detroit time to New Phoenix time is about 50:1.  One day's vacation would cost you a couple months.  That scale's just about the same all the way up, too.  Next city's New Amsterdam, and that's fifty times more expensive than New Phoenix.  Top of the pack is New Providence.  It's fifty times more expensive than NA.  I don't know if you've done the math, but that means you could spend a lifetime in a few minutes."\u000a\u000aHe shook his head.  "Too rich for our blood, in other words.  Come on, let me show you the courthouse."\u000a\u000a* [[Follow him|courthouse_exterior]]\u000a<<else>>\u000a* [[Walk to the Courthouse|courthouse_exterior]]\u000a* [[Go to the Hub|Hub]]\u000a* [[Visit Bar Ocho|bar_ocho_exterior]]\u000a<<endif>>\u000a
+p565
+sg20
+(lp566
+sg22
+g23
+((I2013
+I11
+I3
+I17
+I41
+I33
+I6
+I307
+I0
+tp567
+(dp568
+tp569
+Rp570
+sg28
+g570
+sg29
+Velevator_exterior
+p571
+sbsa(dp572
+g12
+I00
+sg13
+(lp573
+F3510.0
+aF2810.0
+asg15
+(itiddlywiki
+Tiddler
+p574
+(dp575
+g18
+VThe architects who created New Detroit clearly had an extremely generic template - the Courthouse could not have looked any more the part.  Faux-marble stairs, textured columns, even a statue of justice out front.\u000a\u000a<<if $tourInProgress>>\u000a"You probably will never see the inside of this place unless you decide to become a history buff." \u000aSamahd said.  "Used to be the center of law and order in this place, trials and everything, but it turns out it's easier just to make the sim so crimes can't be committed."\u000a\u000aHe pointed to the flat wall of a convenience store.  "For instance, say you had a spraycan and you felt like tagging your name all over that thing."  He rummaged through his pockets for a moment.  "Damn, I don't have one.  I usually bring one for this demonstration.  Anyway, it wouldn't work.  You don't own that store, you don't have permission to modify it, you can't do anything to it."\u000a\u000aAfter a few more moments he pulled an ordinary-looking keyring from his pocket.  "I'd say 'at least I remembered these' but as it happens they're always with you.  They look like keys - old metal style keys, you've probably noticed the taste for antiques around here - and they act like them, letting you into doors, opening whatever you've locked, that kind of thing.  You've likely got one for your apartment."\u000a\u000aDubiously, I reached into my pocket and pulled out a keyring.  It had one key, featuring the number "1336" emblazoned on it.  I let go and the ring and key vanished.  Patting the outside of my pocket revealed nothing, but reaching in again resulted in the same key.  I hadn't even felt it there.\u000a\u000a"A lot of abstractions work like that - your entry permissions being actual keys, the time-is-money concept being made into real bills.  New Detroit's got an old-time asthetic because there's no point in having it look technological.  We're not only surrounded by technology, we //are// technology.  No need to lug around a holographic projector for your phone when old-fasioned business cards can do the same thing."\u000a\u000aHe shrugged.  "You really do get used to it.  Anyway, come on, let's go get religion."\u000a\u000a* [[Follow him|church_exterior]]\u000a<<else>>\u000a* [[Visit the Church|church_exterior]]\u000a* [[Go to the Hub|Hub]]\u000a* [[See the elevator|elevator_exterior]]\u000a<<endif>>
+p576
+sg20
+(lp577
+sg22
+g23
+((I2013
+I11
+I3
+I18
+I12
+I49
+I6
+I307
+I0
+tp578
+(dp579
+tp580
+Rp581
+sg28
+g581
+sg29
+Vcourthouse_exterior
+p582
+sbsa(dp583
+g12
+I00
+sg13
+(lp584
+F3930.0
+aF3930.0
+asg15
+(itiddlywiki
+Tiddler
+p585
+(dp586
+g18
+VThe church was one of the few stand-out buildings I'd seen in this city.  Its peaked roof made it taller than most of its neighbors, and the stained glass mural comprising its sole window was possibly the most detailed thing I'd seen in the city, even if I couldn't tell what it was supposed to be depicting.\u000a\u000a<<if $tourInProgress>>\u000a"You a Preservationist?" Samahd, true to character, did not even remotely give me time to reply.  "If so, this is the place for you.  I mean, the whole sim is theirs so I think they figure if you're here you're as good as converted anyway.  But still, if you want to go all-in on the worship thing, these guys have you covered."\u000a\u000aHe took a few moments of precious precious silence to let me look over the building before continuing.  "Obviously, they're rich, but they don't pay much.  I mean, it's a church.  Most people volunteer."\u000a\u000a"Anyway, religion is hard.  Let's go shopping."\u000a\u000a* [[Follow him|shopping_exterior]]\u000a<<else>>\u000a* [[Go shopping|shopping_exterior]]\u000a* [[Go to the Hub|Hub]]\u000a* [[Visit the Courthouse|courthouse_exterior]]\u000a<<endif>>\u000a
+p587
+sg20
+(lp588
+sg22
+g23
+((I2013
+I11
+I3
+I18
+I15
+I28
+I6
+I307
+I0
+tp589
+(dp590
+tp591
+Rp592
+sg28
+g592
+sg29
+Vchurch_exterior
+p593
+sbsa(dp594
+g12
+I00
+sg13
+(lp595
+F4210.0
+aF4910.0
+asg15
+(itiddlywiki
+Tiddler
+p596
+(dp597
+g18
+VNew Detroit was a full-fledged city, and it was easy to forget that elsewhere.  Here, in the heart of the shopping district, it was obvious.  The hustle and bustle of human movement and conversation was more muted than it'd have been in the real world, but it still managed to be omnipresent.  And as in the real world, shopping seemed to be more popular than any other activity.\u000a\u000a<<if $tourInProgress>>\u000a"I wouldn't go on a spending spree right away!"  Samahd was having to speak up to be heard which, given the unrestrained volume he usually spoke at, was saying something.\u000a\u000aHe lead us toward a marginally more quiet corner of what was essentially a large strip mall.\u000a\u000a"If you want to get a job, this is the easiest place to do it.  Some people order out of catalogs that act like the network-accessible shops you might be used to, but most people figure if they're going to get all old-timey, they're going to do it right.  In-person sales are pretty popular.  It only pays minimum wage - that's an hour per hour - but that'll extend you quite a bit."\u000a\u000aHe leaned back against the wall and people-watched for a while, which mostly forced me to do the same.  Shoppers here seemed focused and uninclined to talk, despite all the babble I heard in the air.\u000a\u000a"Okay," Samahd was apparently done.  "enough regular people.  Let's go to the Arts District"\u000a\u000a* [[Follow him|arts_exterior]]\u000a<<else>>\u000a* [[Make your way to the Arts District|arts_exterior]]\u000a* [[Go to the Hub|Hub]]\u000a* [[Go to Church|church_exterior]]\u000a<<endif>>\u000a
+p598
+sg20
+(lp599
+sg22
+g23
+((I2013
+I11
+I3
+I18
+I18
+I6
+I6
+I307
+I0
+tp600
+(dp601
+tp602
+Rp603
+sg28
+g603
+sg29
+Vshopping_exterior
+p604
+sbsa(dp605
+g12
+I00
+sg13
+(lp606
+F4210.0
+aF5750.0
+asg15
+(itiddlywiki
+Tiddler
+p607
+(dp608
+g18
+VThe Arts District was Broadway.  As it turned out, that wasn't a metaphor - someone had taken the entire cityscape of New York's theater district, scaled down the fidelity, mixed it up a bit, and placed it in New Detroit.\u000a\u000aI wasn't sure which, if any, of the details they'd gotten correct, but the neon lights were in fact bright.\u000a\u000a<<if $tourInProgress>>\u000a"Shopping's a good pastime, but if you want more classy sort of entertainment - well, as classy as you're likely to find in this city - the arts district here is the best place to do it." Samahd was standing in front of the Park Theater, which I'd been pretty sure had burned down centuries ago.  People were apparently not the only things that got afterlives.\u000a\u000a"Prices here are pretty reasonable.  Your real theater snobs are all up in New Amsterdam at a far better rendition of this building.  This is bottom floor for artists of all stripes, so you can even catch free shows."\u000a\u000aFinally, after what felt like hours of false starts, I got a word in edgewise.  "I suppose you can get hired on as an usher?"\u000a\u000aSamahd laughed.  "Yes, actually.  Most people here are actors, painters, musicians.  Being an usher would be better work if you could get it.  Everyone wants to start a band but, well, you know the phrase 'starving artist'?  It somehow manages to be true even in a place where you can't possibly starve."\u000a\u000a"Once you're finished with what passes for 'upscale' around here, I'll take you to where the real fun happens."\u000a\u000a* [[Follow him|games_exterior]]\u000a<<else>>\u000a* [[Head toward the Games District|games_exterior]]\u000a* [[Go to the Hub|Hub]]\u000a* [[Go shopping|shopping_exterior]]\u000a<<endif>>
+p609
+sg20
+(lp610
+sg22
+g23
+((I2013
+I11
+I3
+I18
+I19
+I39
+I6
+I307
+I0
+tp611
+(dp612
+tp613
+Rp614
+sg28
+g614
+sg29
+Varts_exterior
+p615
+sbsa(dp616
+g12
+I00
+sg13
+(lp617
+F3930.0
+aF6450.0
+asg15
+(itiddlywiki
+Tiddler
+p618
+(dp619
+g18
+VThe Games District was obvious - it was surrounded by golf courses.  The sudden lack of buildings hanging over me gave me the strange fleeting feeling of agoraphobia.\u000a\u000a<<if $tourInProgress>>\u000a"If you haven't guessed why this is separate from the arts district yet," Samahd said, gesturing to the greens, "it's because it's about three times bigger."\u000a\u000aWe passed a few voleyball courts and a soccer field.  "Every sport on the planet is represented here, and some new ones that you can't do in the real world.  I wouldn't recommend starting with those, by the way."  He pointed to a three-story tall translucent cube that apparently featured rapidly changing gravity as a core game mechanic.\u000a\u000a"You mostly see sports-style games because those take the most room."  He pointed toward a small building off the main road.  "That leads to the arcades, underground.  Every video game we could licence - and with the kind of money the architects were throwing around, it was a lot - is available there, 15 minutes per play.  It ranges from some of the more recent full-immersion games - much easier to play here than in the real world, you don't need a sim implant or anything - to old-style mechanical pinball."\u000a\u000a"Take it from me," he came to a halt at the intersection, "your video game skills, if any, will carry over into this world, but your athletic skills won't.  I was a researcher but played softball on the side.  Couldn't play it at all once I got uploaded.  Game's the same, but you kinda have to re-learn your proprioception."\u000a\u000aThat explained why my reflexes were terrible, at least.\u000a\u000a"Come on, we've got a train to catch."\u000a\u000a* [[Follow him|train_exterior]]\u000a<<else>>\u000a* [[Head toward the train station|train_exterior]]\u000a* [[Go to the Hub|Hub]]\u000a* [[Visit the Arts District|arts_exterior]]\u000a<<endif>>\u000a
+p620
+sg20
+(lp621
+sg22
+g23
+((I2013
+I11
+I3
+I18
+I22
+I18
+I6
+I307
+I0
+tp622
+(dp623
+tp624
+Rp625
+sg28
+g625
+sg29
+Vgames_exterior
+p626
+sbsa(dp627
+g12
+I00
+sg13
+(lp628
+F3370.0
+aF7010.0
+asg15
+(itiddlywiki
+Tiddler
+p629
+(dp630
+g18
+VThe train station consisted entirely of an awning over the waiting area by the tracks and a ticketing station manned by one supremely bored person.\u000a\u000aA chalkboard featured the current transit prices:\u000a* ''Metaverse:'' 8.45 centuries\u000a* ''Satya Yuga:'' 3.10 centuries\u000a* ''Valhalla:'' 1.20 centuries\u000a* ''New Olympus:  You are here.''\u000a\u000a<<if $tourInProgress>>\u000a"I mentioned earlier how the elevator doesn't take you off-grid." Samahd ignored the ticketing agent, and was ignored in return.  "Well this does.  If you wanted to visit any of the other sims we're networked to, this is the place."\u000a\u000aHe walked up to the chalkboard.  "Of course, moving all the data that makes up a human being isn't exactly cheap, as you can see, and those prices don't include however much it'll cost to simulate you once you're there.  If you want my advice, save up for a day trip to New Amsterdam, see the beaches.  As expensive as that is, it's way more worth it."\u000a* [[Follow him|asylum_exterior]]\u000a<<else>>\u000aConspicuously absent from your tour was the fact that a road goes over the tracks and leads on to another part of the city.\u000a\u000a* [[Head toward the Retirement Home|asylum_exterior]]\u000a* [[Cross the tracks|pvp_entrance]]\u000a* [[Go to the Hub|Hub]]\u000a* [[Visit the Games District|games_exterior]]\u000a<<endif>>
+p631
+sg20
+(lp632
+sg22
+g23
+((I2013
+I11
+I3
+I18
+I24
+I44
+I6
+I307
+I0
+tp633
+(dp634
+tp635
+Rp636
+sg28
+g636
+sg29
+Vtrain_exterior
+p637
+sbsa(dp638
+g12
+I00
+sg13
+(lp639
+F1970.0
+aF7010.0
+asg15
+(itiddlywiki
+Tiddler
+p640
+(dp641
+g18
+VA sign outlined in brick proclaimed the building behind the thick iron fence to be the "Shady Acres Retirement Home".  The building itself wasn't exactly welcoming, either.  It looked like a cross between a cheap hotel and a hospital.\u000a\u000a<<if $tourInProgress>>\u000a"You can't get in here without an invite" Samahd leaned up against the also-thick-iron gate.  "And trust me, that's for your own good, not theirs."\u000a\u000aHe gestured to one of the windows.  "Those are the only windows in the city that are one-way.  Special dispensation from Athena, because what's going on in there is not pleasant.\u000a\u000a"Sorry, don't mean to get all spookhouse on you, it's just the place has a bad reputation.  For the most part, it's full of people who've been in the simulation for a very long time, but for whatever reasons don't want to go into Storage.  Lots of people who were in the first wave of uploads, way back when.  It was more experimental in those days, and it didn't always work right.  Plus you've got the people who've got the double bad luck to have died bad and remember their deaths.  Physical trauma is a thing of the past if you stay on the right side of the tracks, but PTSD is forever."\u000a\u000aHe shook his head sadly.  "So yeah, the hospital look is not an accident."\u000a\u000aJust as quickly, though, he seemed to come out of his reverie.  "Well, isn't that a high note to go out on.  Come on, tour's almost over, time to show you your new digs."\u000a\u000a* [[Follow him|apartment_exterior]]\u000a<<else>>\u000a* [[Go home|apartment_exterior]]\u000a* [[Go to the Hub|Hub]]\u000a* [[Visit the Train Station|train_exterior]]\u000a<<endif>>\u000a
+p642
+sg20
+(lp643
+sg22
+g23
+((I2013
+I11
+I3
+I18
+I27
+I58
+I6
+I307
+I0
+tp644
+(dp645
+tp646
+Rp647
+sg28
+g647
+sg29
+Vasylum_exterior
+p648
+sbsa(dp649
+g12
+I01
+sg13
+(lp650
+F430.0
+aF7010.0
+asg15
+(itiddlywiki
+Tiddler
+p651
+(dp652
+g18
+V741 McGraw St, Apartment #1336 - I knew it was my home without having to consult any notes, or even having to be told.  And it was a good thing, too - the apartment complex was one of dozens, exactly alike, copied-and-pasted like the insurance waiting room furniture on a massive scale.\u000a\u000a<<if $tourInProgress>><<silently>>\u000a<<set $tourInProgress=0>>\u000a<<set $ferroInPerson=0>>\u000a<<endsilently>>\u000aSamahd smiled and gestured magnificently to the particular grey slab that was my building.  "And here we have nearly come full circle.  This is your home, and where our tour ends."\u000a\u000aHe turned to face down the road.  "For reference, this way leads back to the insurance offices, and over there leads to the neighborhood people around here call "The Hub".  It's an easy way to get across the city without having to walk through half the districts, but it's not on the tour because it's boring.  Keep in mind that this is a tour that features an insurance company, so when I say 'boring', I mean //boring//.\u000a\u000a"And finally," with a deft twist of his hand, he produced a business card like the one Guillory had given me.  "Here's my card.  I like to keep in touch with the people I show around, and I'm always willing to answer questions.  Feel free to call anytime."<<set $cardFerro=1>>\u000a\u000aWith a hearty wave goodbye, Tour Guide Samahd Ferro walked away down the street.\u000a<<endif>>\u000a* [[Head indoors|apartment_interior]]\u000a* [[Go to the Insurance building|insurance_exterior]]\u000a* [[Go to the Hub|Hub]]\u000a* [[Visit the Retirement Home|asylum_exterior]]\u000a
+p653
+sg20
+(lp654
+sg22
+g23
+((I2013
+I11
+I3
+I18
+I29
+I7
+I6
+I307
+I0
+tp655
+(dp656
+tp657
+Rp658
+sg28
+g658
+sg29
+Vapartment_exterior
+p659
+sbsa(dp660
+g12
+I00
+sg13
+(lp661
+F3370.0
+aF7570.0
+asg15
+(itiddlywiki
+Tiddler
+p662
+(dp663
+g18
+VTODO
+p664
+sg20
+(lp665
+sg22
+g23
+((I2013
+I11
+I3
+I20
+I26
+I52
+I6
+I307
+I0
+tp666
+(dp667
+tp668
+Rp669
+sg28
+g669
+sg29
+Vpvp_entrance
+p670
+sbsa(dp671
+g12
+I00
+sg13
+(lp672
+F430.0
+aF7430.0
+asg15
+(itiddlywiki
+Tiddler
+p673
+(dp674
+g18
+V\u000a* [[Go out on the streets|apartment_exterior]]\u000a
+p675
+sg20
+(lp676
+sg22
+g23
+((I2013
+I11
+I3
+I20
+I46
+I31
+I6
+I307
+I0
+tp677
+(dp678
+tp679
+Rp680
+sg28
+g680
+sg29
+Vapartment_interior
+p681
+sbsasS'scale'
+p682
+F1.0
 ss.
