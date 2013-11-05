@@ -181,9 +181,29 @@ If Guillory noticed my reaction, he didn't say anything.  Instead, he gestured t
 
 
 :: Wallet
-<<if state.history[1].passage.tags.indexOf("conversation") eq -1>><<set $walletReturn=state.history[1].passage.title>><<endif>>I looked into my wallet.  I had <<print $money>> days' worth of money.  It bore little resemblance to the cash I'd been familiar with all my life, but the small strange bills were obviously made to be currency.
+I looked into my wallet.  I had <<print $money>> days' worth of money.  It bore little resemblance to the cash I'd been familiar with all my life, but the small strange bills were obviously made to be currency.
 
-<<if $guilloryInPerson>>I could have called Guillory, but it'd be strange considering I was talking to him right now.<<else>>[[Call Guillory|convo_guillory]]<<endif>>
+<<if state.history[1].passage.tags.indexOf("conversation") eq -1>><<set $walletReturn=state.history[1].passage.title>><<endif>>
+<<if state.history[1].passage.tags.indexOf("nocall") eq -1>>
+[[Call Alex Guillory|convo_guillory]]
+<<if $cardFerro and (not $ferroInPerson)>>[[Call Samahd Ferro|convo_ferro]]<<endif>>
+<<if $cardKoloman eq 1>>
+Koloman's card couldn't be used as a phone, but it was the only card in my wallet with an address:
+
+<html><div class="center">
+Nickolai Koloman<br/>
+CEO, Koloman Industries<br/>
+1 Prometheus Lane, New Providence
+</div></html>
+<<else>>
+  <<if $cardKoloman eq 2>>
+[[Call Nickolai Koloman|convo_koloman]]
+  <<endif>>
+<<endif>>
+<<else>>
+I couldn't call anyone at the moment.
+<<endif>>
+<<if $sleepy>>I was getting somewhat drowsy; heading home didn't seem like a bad idea.<<endif>>
 
 <<print "* [[Stop looking through your wallet|" + $walletReturn + "]]">>
 
@@ -268,10 +288,15 @@ I stood in front of the Life Preservers Insurance building - a middling grey cub
 <<if not $wasOfferedTour>>
 <<display "ferro_offer_tour">>
 <<else>>
+<<if $acceptingTour>>
+Samahd was standing in front of the building, as promised.  He smiled and waved broadly as he saw me coming.  "You made the right call.  One week will buy you the best tour in town."
+
+<<display "ferro_tour_accept">>
+<<else>>
 * [[Head to the Power of Two|power_of_two_exterior]]
 * [[Head to the Hub|Hub]]
 * [[Go home|apartment_exterior]]
-<<endif>>
+<<endif>><<endif>>
 
 
 
@@ -331,7 +356,7 @@ I frowned at the last observation.  The room was lit perfectly - there weren't e
 
 
 :: ferro_tour_accept
-<<set $money = $money - 7>><<set $tourInProgress = 1>><<set $ferroInPerson=1>><<set $wasOfferedTour=1>>I looked through my wallet and discovered I had exact change.  Hoping this worked like it did in the real world, I took seven days worth of bills out and handed it over to Samahd.  He smiled and took it, so I must have done something right.
+<<set $money = $money - 7>><<set $tourInProgress = 1>><<set $ferroInPerson=1>>I looked through my wallet and discovered I had exact change.  Hoping this worked like it did in the real world, I took seven days worth of bills out and handed it over to Samahd.  He smiled and took it, so I must have done something right.
 
 "All right, let's get started!  Let's see, basic information you need to know:  This is New Detroit, the lowest level of the simulation.  You've probably noticed all the lack of amenities - no shadows, no smells, no heat or cold, sounds don't travel far, lots of things lack texture - you get used to it.  You probably wouldn't even have noticed if I hadn't pointed them out." He grinned prankishly and started numbering things on his hand.
 
@@ -375,7 +400,7 @@ He finally seemed to get the message that I wasn't feeling like playing his game
 <<display "real_convo_guillory">>
 
 
-:: guillory_whatnext [conversation]
+:: guillory_whatnext [conversation nocall]
 Guillory smiled widely.  "That's entirely up to you.  You have most of another whole life ahead of you.  Many of our clients dedicate themselves to art, or mastering a skill that they lacked in life.  Many others simply lie back and relax, treating this as an extended retirement."
 
 He gestured down to the sheaf of paper on his desk that was my insurance policy.  "The policy you purchased in life gives you fifty years of New Detroit time - more specifically, a little over three million seconds subjectively.  Time flows a little bit differently from city to city, but nothing you'll notice unless you spend a while there, and should you be able to afford that you'll likely have more time than you need anyway."
@@ -387,7 +412,7 @@ He gestured down to the sheaf of paper on his desk that was my insurance policy.
 * [[You have more questions|convo_guillory]]
 
 
-:: guillory_upload [conversation]
+:: guillory_upload [conversation nocall]
 "The process is very technical" Guillory literally handwaved the response.  At least he had the decency to almost immediately realize that I wasn't going to find that a satisfactory answer.
 
 "Well," he began again, "your soulkeeper <<set $heardOfSoulkeeper=1>>is extracted after your death.  Its patterns are fed into the large banks of machinery that make up this world, and those computers then add your mind to its simulation."
@@ -400,7 +425,7 @@ He gestured down to the sheaf of paper on his desk that was my insurance policy.
 * [[You have more questions|convo_guillory]]
 
 
-:: real_convo_guillory
+:: real_convo_guillory [nocall]
 <<set $guilloryInPerson=1>><<display "convo_guillory">>
 
 
@@ -416,7 +441,7 @@ There were three exits here:  The door to Alex Guillory's office at least attemp
 
 
 
-:: guillory_soulkeeper [conversation]
+:: guillory_soulkeeper [conversation nocall]
 "The Soulkeeper is you - at least, the you that you are now."
 
 Guillory saw my nonplussed expression.
@@ -434,7 +459,7 @@ Guillory nodded.  "Exactly!"
 * [[You have more questions|convo_guillory]]
 
 
-:: guillory_insurance [conversation]
+:: guillory_insurance [conversation nocall]
 The question made Guillory smile.  "That's somewhat of our mission statement."
 
 "Life Preservers Insurance," he said with the same air of rehearsed speech he'd had earlier, "was founded to provide people with policies that could be used to keep them alive in this simulation after they'd passed on.
@@ -446,7 +471,7 @@ The question made Guillory smile.  "That's somewhat of our mission statement."
 * [[You have more questions|convo_guillory]]
 
 
-:: convo_guillory [conversation]
+:: convo_guillory [conversation nocall]
 Guillory was every bit the model of an attentive insurance agent.  "What questions do you have for me?"
 
 <<sugarchoice "guillory_cause_of_death" "How did I die?">>
@@ -464,7 +489,7 @@ Guillory was every bit the model of an attentive insurance agent.  "What questio
 <<if $guilloryInPerson>>* [[You have no more questions|guillory_exit]]<<else>>* [[End the phone call|Wallet]]<<endif>>
 
 
-:: guillory_exit
+:: guillory_exit [nocall]
 <<if not $hasWallet>>"Oh, one more thing.  For the most part, items here keep their old-world uses.  The same goes for abstract concepts like 'time is money'<<set $heardTimeIsMoney=1>>."  He handed me a leather wallet.  "This is where your time is kept, as well as my card - it looks like a business card, but it'll act like a phone.  Full audio, holography, standard operation as far as phone calls go, but it can only contact me."
 <<set $hasWallet=1>><<set $money=18250>><<update>><<endif>>
 
@@ -493,7 +518,7 @@ TODO
 
 
 :: ferro_offer_tour
-I noticed almost immediately that one of the people here on the outside wasn't one of the city's commuters on their way to some dreary destination.  His gaze wasn't on the thin asphalt road like theirs; rather he was watching the insurance building carefully.
+<<set $wasOfferedTour=1>>I noticed almost immediately that one of the people here on the outside wasn't one of the city's commuters on their way to some dreary destination.  His gaze wasn't on the thin asphalt road like theirs; rather he was watching the insurance building carefully.
 
 He smiled welcomingly as he caught my gaze, and had closed the gap between us before I could even say a word.
 
@@ -506,7 +531,7 @@ He smiled welcomingly as he caught my gaze, and had closed the gap between us be
 
 
 
-:: guillory_preserve [conversation]
+:: guillory_preserve [conversation nocall]
 "Not exactly."  Now that a less professional topic such as religion had come up, Guillory looked a lot less comfortable.  "This company was founded by the Preservationist movement, of course, and a fair amount of stock is still owned by the church.  But-" he held up a finger to stress the point "we don't require that our clients adopt, share, or even entertain such beliefs.
 
 "Obviously, believing that people should be preserved after they die and working at an agency like this are quite compatible.  Similarly, those that believe in a non-digitizable soul that they will take with them to a true afterlife are unlikely to sign up for our services.  Still, we are open to all."
@@ -515,7 +540,7 @@ He smiled welcomingly as he caught my gaze, and had closed the gap between us be
 
 
 
-:: guillory_broke [conversation]
+:: guillory_broke [conversation nocall]
 A vague grimace game over Guillory's face.  "It's not a scenario we like to discuss - nothing terrible!" He rushed to reassure me despite the fact that I hadn't appeared surprised at all.  "Anyone who runs out of time is simply downgraded to Storage.  We're Preservers, after all<<set $heardOfPreservationists=1>>, we're not going to just delete someone."
 
 Despite the calming tone, I didn't like the sound of Storage.
@@ -540,13 +565,13 @@ Samahd nodded quickly.  "Of course, there's nothing like the thrill of discovery
 
 
 
-:: guillory_janitor [conversation]
+:: guillory_janitor [conversation nocall]
 Guillory looks confused for a moment.  "Janitor's closet?  Oh!  You must mean the filing room, of course.  Yes, there's a fair amount of proprietary information there, it's not open to the general public."
 <<if $investigating>>* [[Tell him it's for the investigation|guillory_janitor_ok]]<<else>>* [[You have more questions|convo_guillory]]<<endif>>
 
 
 
-:: guillory_janitor_ok [conversation]
+:: guillory_janitor_ok [conversation nocall]
 Guillory glanced at Koloman's card and nodded.  It was hard to tell given his professional demeanor, but I could have sworn I'd seen a new respect in the insurance agent's gaze.
 
 "That changes things.  I'll grant you entry permissions immediately - you won't need a key or anything, the door will simply open for you.  I'll make sure our greeters are similarly informed."
@@ -557,7 +582,7 @@ He paused for a moment.  "As I said before, however, there is a great deal of pr
 
 
 
-:: guillory_cause_of_death [conversation]
+:: guillory_cause_of_death [conversation nocall]
 Guillory consults his notes.  "Looks like you were struck by a car?"  his voice radiates confusion.  
 
 "I got run over?"  I asked.  It was absurd - cars had dozens of redundant systems designed to prevent the computers that drove them from hitting people.  You could walk across a busy freeway in complete safety, provided you didn't mind heading to court afterward and paying a hefty fine for disrupting traffic.
@@ -597,11 +622,35 @@ He shook his head.  "Too rich for our blood, in other words.  Come on, let me sh
 
 
 
-:: guillory_tour [conversation]
+:: guillory_tour [conversation nocall]
 "That depends heavily on the person."  Guillory answered unhelpfully.  "If you're talking about Mr. Ferro - that's the man who practically camps outside our doorstep - he is a legitimate guide.  One of the more respectable ones, I've heard, but that is not a particularly high bar to pass"
 
 * [[You have more questions|convo_guillory]]
 
+
+
+:: convo_ferro [conversation nocall]
+Ferro nodded at me.  "Long time no see!"
+
+<<if not $hasHadTour>>
+[[I've changed my mind about the tour|ferro_tour_accept_later]]
+<<else>>
+
+<<endif>>
+
+<<if $ferroInPerson>>* [[You have no more questions|ferro_exit]]<<else>>* [[End the phone call|Wallet]]<<endif>>
+
+
+:: ferro_exit [nocall]
+<<set $ferroInPerson=0>>Samahd shrugs and smiles.  "You know where to find me!.
+
+
+
+
+:: ferro_tour_accept_later [conversation nocall]
+<<set $acceptingTour=1>>"Oh, hey, great!  Head over to the insurance building, that's where it usually starts.  I'll meet you there."
+
+<<if $ferroInPerson>>* [[You'll be on your way|ferro_exit]]<<else>>* [[End the phone call|Wallet]]<<endif>>
 
 
 :: courthouse_exterior
@@ -695,6 +744,121 @@ Samahd laughed.  "Yes, actually.  Most people here are actors, painters, musicia
 <<endif>>
 
 
+:: recruitment_sleep [nocall]
+"I'm very sorry about that, <<print $gender>> Hallivert.  And you are correct in assuming it is an extremely rude thing to do.  But I assure you - it really is that important."
+
+* [[You have more questions|recruitment_hub]]
+
+
+
+:: recruitment_details [nocall]
+Koloman's voice became hushed.  "Have you seen the news?  Before yesterday, I would have trusted this system and its security implicitly.  Now I cannot do so.  I'll not talk details of the case over the phone; instead I ask that you come in person.  I will, of course, foot the bill for your visit."
+
+* [[You have more questions|recruitment_hub]]
+
+
+
+
+:: recruitment_death [nocall]
+There was silence on the other end of the line for a long time.  Naturally, Koloman started talking right as I was about to speak up to ask if he was still there.
+
+"Yes." he said, the stress and heartbreak obvious in his voice to even an untrained listener.  "She was my daughter."
+
+There was another silence.
+
+* [[You have more questions|recruitment_hub]]
+
+
+
+:: recruitment [nocall]
+<<silently>>
+<<set $hasHadRecruitmentCall=1>>
+<<set $cardKoloman=1>>
+<<endsilently>>A business card slipped through a mail slot that my apartment hadn't previously possessed and, now that I looked again, still didn't.  The card slid across the floor toward me, as though on the nonexistant breeze.
+
+<<if $flagRejected>>
+I stood up and took a few steps away from the thing, determined not to touch or accept it.  After a few moments of inactivity, it vanished.  I was about to breathe a sigh of relief before I realized that not only could I not breathe, but I hadn't checked my wallet.
+
+The card had nestled itself next to those of the people I might want to actually talk to.  Bastard!
+
+Oblivious to all of this, Koloman kept talking.
+/%%/
+<<else>>
+I leaned over and caught the card with my free hand, slipping it into my wallet before turning my attention back to the phone.
+<<endif>>
+"The card cannot be used as a phone - as I said, I do not trust the security of the system nowadays - but it can be used as a pass.  Bring it to the elevator and show it to the guard on duty.  He'll ensure your trip to New Providence is paid for by my accounts."
+
+With that, he hung up.  <<if $attemptedHangup>>Whatever force was keeping the phone glued to my ear instantly let go, and I nearly threw the receiver across the room.  /%%/<<endif>>Before I could return the phone to its cradle, it too had vanished, along with the nightstand.
+
+Every time I got used to this world, I found myself thinking, it got a little bit stranger.
+
+<<if not $attemptedEscape>>
+* [[Head out|floor_13]]
+<<else>>
+* [[Attempt to leave the apartment|apartment_leave_succeed]]
+<<endif>>
+
+
+
+
+:: recruitment_stuck [nocall]
+Koloman sounds honestly confused by the question.  "Why wouldn't I let you leave your apartment?  I want to meet you in person, <<print $gender>> Hallivert.  That requires you leave your apartment."
+
+* [[You have more questions|recruitment_hub]]
+
+
+
+:: recruitment_hub [nocall]
+"I will answer what I can" Koloman said.
+
+<<sugarchoice "recruitment_sleep" "Why did you let this phone keep ringing?  Couldn't you have let me sleep?">>
+<<sugarchoice "recruitment_details" "How much will this pay?">>
+<<sugarchoice "recruitment_details" "Tell me about the job">>
+<<if $heardOfDeath>><<sugarchoice "recruitment_death" "Wait, Koloman?  Any relation to the late Iva Koloman?">>
+/%%/<<endif>><<if $attemptedEscape>><<sugarchoice "recruitment_stuck" "Why won't you let me leave the apartment?">>
+/%%/<<endif>>
+
+* [[Tell him you'll think about it|recruitment_accept]]
+* [[--I'm done listening to you|recruitment_reject]]
+
+
+
+:: recruitment_accept [nocall]
+"Fine." I found myself agreeing without really wanting to.  But it was a case, and I'd had a soft spot for dead women even before <<if $gender eq "Ms.">>I'd become one<<else>>I'd died myself<<endif>>.
+
+"Thank you <<print $gender>> Hallivert."  The relief was practically palpable in Koloman's voice.<<set $flagRejected=0>>
+
+<<display "recruitment">>
+
+
+:: apartment_leave_succeed
+The front door opened like it'd never even considered being closed.
+
+<<display "floor_13">>
+
+
+:: recruitment_offer [nocall]
+"My name is Nickolai Koloman.  I do not expect you to recognize the name, as you are recently arrived in New Olympus.  However, your friends - should you have made any - will know my name.  So you can verify when I tell you the following:  I am a very rich, very influential man.  I can provide you with any sort of afterlife you could dream of.  I'm sure you noticed the... austerity of New Detroit?  That would be a thing of the past, should you choose to accept my offer."
+
+* [[I have questions|recruitment_hub]]
+* [[--I'm done listening to you|recruitment_reject]]
+
+
+
+:: hangup_fail [nocall]
+<<set $attemptedHangup=1>>The receiver might as well have been glued to my hand.  I couldn't even move my arm to put it down.  This was really starting to piss me off.
+
+The man on the other end of the phone didn't even react to the attempt.<<display "recruitment_offer">>
+
+
+:: recruitment_reject [nocall]
+"Listen, Koloman," I snapped, "I just got here.  I'm confused and pissed off and I just had my very first night of sleep interrupted by some antique with a megaphone ringer and some guy who already wants something from me.  So no, whatever it is, the answer is no."<<set $flagRejected=1>>
+
+"Please, <<print $gender>> Hallivert, at least take my business card."
+
+<<display "recruitment">>
+
+
 :: games_exterior
 The Games District was obvious - it was surrounded by golf courses.  The sudden lack of buildings hanging over me gave me the strange fleeting feeling of agoraphobia.
 
@@ -720,12 +884,89 @@ That explained why my reflexes were terrible, at least.
 
 
 
+:: apartment_window_fail_2
+My first thought was to solve one problem with another - I moved to pick up the cast-iron phone and throw it through the window, but naturally the phone wouldn't budge.
+
+That wasn't going to stop me.  I grabbed the television, lifted, and threw.
+
+Naturally, it bounced off of the window pane like rubber.  The one time furniture was indestructible, and it somehow managed to bite me in the ass.
+
+* [[Answer the phone|recruitment_call]]
+* [[Fine, FINE!  I'll answer the goddamn phone!|recruitment_call]]
+
+
+
+:: recruitment_call [nocall]
+I'd only ever seen non-holo phone calls in movies, so I copied what I'd seen there.  I picked up the receiver and held what I hoped was the correct end up to my mouth.<<set $hasHadRecruitmentCall=1>>
+
+<<if $attemptedEscape>>"What the hell do you want?"<<else>>"Hallivert."<<endif>>
+
+The voice on the other end of the line seemed perfectly professional.  "Detective Sam Hallivert?"
+
+"Yes.  Who is this?  Why the hell did you put a phone in my apartment and then call me on it?"
+
+"Put a phone in your-" the man on the other end of the line was confused for a moment.  "Oh!  The cardless call, I apologize for that.  The phone you're holding is an artifact of the sort of call I'm placing to you.  I don't have your card, so I'm making a direct call.  It's often intrusive, and I apologize, but this is important.  I have an offer for you, detective."
+
+* [[Listen to the offer|recruitment_offer]]
+* [[--I'm hanging up now|hangup_fail]]
+
+
+
+:: apartment_window_fail [nocall]
+I wasn't going to give the mysterious phone prankster the satisfaction of an answer.  I was getting out of here, one way or another.  I turned to the window and pulled upward.
+
+As I should have expected, it also didn't move.
+
+* [[Answer the phone|recruitment_call]]
+* [[--Break the damn window open, I don't care|apartment_window_fail_2]]
+
+
+
+:: wake [nocall]
+<<set $sleepy=0>>Sleep in the sim was an abrupt thing.  I was awake, then I was awake again, and it was morning.  Of course, the darkness of the skies outside hadn't diminished, but I apparently wore a wristwatch now.  It hadn't even occurred to me to set an alarm, but they didn't seem necessary in this world.
+
+<<if not $hasHadRecruitmentCall>>
+Of course, a more likely cause of my waking was the cast iron rotary phone sitting on the nightstand.  I was reasonably certain that neither the phone nor the nightstand had been present the evening before, but I couldn't really think very hard on the topic.  My thoughts were disrupted by the noise the thing was making, a noise I hadn't heard since I was a kid.  The phone was ringing.
+
+* [[Answer the phone|recruitment_call]]
+* [[--I'm getting up|apartment_interior_phone]]
+<<else>>
+* [[Get up|apartment_interior]]
+<<endif>>
+
+
+:: apartment_interior_phone [nocall]
+The apartment was probably spacious by studio standards, but it seemed incredibly small now that I was trapped inside with a jangling metal phone.
+
+* [[Answer the phone|recruitment_call]]
+* [[--I'm out of here|apartment_leave_fail]]
+
+
+
+:: apartment_leave_fail [nocall]
+Clearly, getting the hell out of here was a better option than either putting up with the noise or dealing with whoever'd planted it in my apartment while I slept.  I put my hand on the doorknob and turned.
+
+It didn't budge.
+
+Well, shit.<<set $attemptedEscape=1>>
+
+* [[Answer the phone|recruitment_call]]
+* [[--Try to open a window|apartment_window_fail]]
+
+
+
+:: sleep [nocall]
+<<set $money = $money - 1>><<display "wake">>
+
+
 :: apartment_exterior
 741 McGraw St, Apartment #1336 - I knew it was my home without having to consult any notes, or even having to be told.  And it was a good thing, too - the apartment complex was one of dozens, exactly alike, copied-and-pasted like the insurance waiting room furniture on a massive scale.
 
 <<if $tourInProgress>><<silently>>
 <<set $tourInProgress=0>>
+<<set $hasHadTour=1>>
 <<set $ferroInPerson=0>>
+<<set $sleepy=1>>
 <<endsilently>>
 Samahd smiled and gestured magnificently to the particular grey slab that was my building.  "And here we have nearly come full circle.  This is your home, and where our tour ends."
 
@@ -735,7 +976,9 @@ He turned to face down the road.  "For reference, this way leads back to the ins
 
 With a hearty wave goodbye, Tour Guide Samahd Ferro walked away down the street.
 <<endif>>
-* [[Head indoors|apartment_interior]]
+<<if $sleepy>>I was getting somewhat drowsy; heading up to the apartment didn't seem like a bad idea.<<endif>>
+
+* [[Head indoors|apartment_bldg_interior]]
 * [[Go to the Insurance building|insurance_exterior]]
 * [[Go to the Hub|Hub]]
 * [[Visit the Retirement Home|asylum_exterior]]
@@ -789,9 +1032,87 @@ Conspicuously absent from your tour was the fact that a road goes over the track
 <<endif>>
 
 
-:: apartment_interior
+:: bed
+The cot was, as I'd already guessed, exactly as featureless as the chairs in the waiting room had been.  I made a mental note to try lying on the floor some time to see if it felt any different whatsoever.
 
+Still, I'd gotten sleep in worse places.
+
+* [[Go to sleep|sleep]]
+* [[Get back up|apartment_interior]]
+
+
+
+:: apartment_interior
+Apartment 1336 was a 55-square-meter studio apartment.  It was sparsely decorated, as I'd assumed an apartment that nobody lived in until now would be, but it was at least furnished.
+
+A leather-colored [[couch]] took the center stage, sitting across from an irritatingly small 50cm [[television]] that looked like something out of the black-and-white era.  If it didn't get color I was prepared to call bullshit on the entire idea of retrotechnology.
+
+The kitchen nook featured a [[refrigerator]] and a few empty cupboards.  So far as I could tell, there was no laundry or bathroom - hopefully they weren't necessities in this world.
+
+A [[bed]] that seemed barely a step up from a cot was shoved into the far corner.  <<if $sleepy>>Despite the fact that it is the very minimum required for an object to be called a 'bed', it was possibly the most inviting space I'd seen all day.  All I wanted to do was [[sleep]].<<endif>>
+
+* [[Go out into the hallway|floor_13]]
+
+
+
+:: floor_13
+My floor was, I highly suspected, exactly the same as all the others.  Room 36 was all the way to one end, and it was fortunate that they were all labeled.  The slightly garish false-gold numbers looked incredibly cheap; I could only hope that they were as indestructible as most everything else had thus far proven to be, or else I was very likely going to become lost in a maze of blank doors.
+
+* [[Enter your apartment|apartment_interior]]
+* [[Go back down the stairs|apartment_bldg_interior]]
+
+
+
+
+
+
+:: apartment_bldg_interior
+The apartment interior featured more of the famed wood paneling.  Likely the exact same paneling, I reflected, if the copy-paste temperment was as pervasive inside as out.
+
+A large glass double-door lead out to the streets, and a permanently propped open metal door pointed the way to the concrete stairway.  Whoever architected this must have figured an elevator was pointless when you can't possibly become exhausted.  I wanted to punch him.
+
+<<if $sleepy>>First, though, I was going to need some sleep.<<endif>>
+* [[Start the tedious climb upward|floor_13]]
 * [[Go out on the streets|apartment_exterior]]
+
+
+
+:: television
+Turning on the television was a lot faster once I realized there wasn't a remote control and I'd have to fiddle with the dials on the machine.
+
+The television network in the afterlife was far worse than its real-world equivalent, mainly because for some reason there were no real-world shows.  Most channels appeared to be live feeds of various stages in the Arts District, and most of those were not active at the moment.
+<<if not $heardOfDeath>>
+<<set $heardOfDeath=1>>
+One channel was news.  I was about to change the channel again when the headline at the bottom caught my eye:
+
+''Iva Koloman Dead''
+
+The announcer was doing his best to sound professional, but I could tell - he was at least a little bit rattled.
+
+"To repeat, Athena has just confirmed with Motor News One that Iva Koloman is in fact dead.  Such a thing hasn't happened since the early days of our world, of course, and Athena stressed that - while she is still investigating - this is almost certainly an isolated incident.  Iva Koloman, 34, was found yesterday morning in her apartment by her fiancé.  The unresponsive state of her body and the system's inability to contact her lead many to speculate that she had died.  Moments ago, Athena confirmed this was the case."
+
+Great, I'd died just in time for mortality to come to the afterlife.
+<<else>>
+/%%/
+The news was continuing its coverage of the Koloman case, and little else.  It made me wonder what they did on days nobody died.  I hoped I'd have the chance to find out.
+<<endif>>
+
+* [[Stop watching TV|apartment_interior]]
+
+
+
+:: couch
+The couch didn't feel like leather.  It felt exactly the same as the chairs in the insurance building had - supportive, but otherwise barely present.  It wasn't exactly an //un//comfortable situation, but it was a far cry from comfort.
+
+[[Stand back up|apartment_interior]]
+
+
+:: refrigerator
+My refrigerator was empty.  I supposed, given the fact that things in this world generally worked like the outside only with strange edge cases, that it was for storing food (as opposed to the cupboards?).
+
+It made me wonder if I needed to eat.  I didn't feel hungry and I hadn't eaten all day.  Then again, I clearly needed sleep, so could the other necessities be that far behind?
+
+* [[Go back to the living room|apartment_interior]]
 
 
 
