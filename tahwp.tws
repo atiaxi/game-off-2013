@@ -34,7 +34,7 @@ p16
 (dp17
 S'text'
 p18
-VThe afterlife had wood paneling.\u000a\u000aIt'd ordinarily be an absurd thing to notice.  I was dead, after all, in the hereafter's own waiting room.  You'd think there'd be pearly gates, or at least a hint of brimstone, but instead?\u000a\u000aIt was a waiting room.  Wood paneling on the walls, an oblong receptionist counter complete with bored-looking [[receptionist]] doing her best not to make eye contact... it was only missing some out of date magazines and it'd be perfect.  I'd have to mention it to whoever ran the place.\u000a\u000a* [[Wait|intro_wait]]
+VThe afterlife had wood paneling.\u000a\u000aIt'd ordinarily be an absurd thing to notice.  I was dead, after all, in the hereafter's own waiting room.  You'd think there'd be pearly gates, or at least a hint of brimstone, but instead?\u000a\u000aIt was a waiting room.  Wood paneling on the walls, an oblong receptionist counter complete with bored-looking [[receptionist]] doing her best not to make eye contact... it was only missing some out of date magazines and it'd be perfect.  I'd have to mention it to whoever ran the place.\u000a[[Debug]]\u000a* [[Wait|intro_wait]]
 p19
 sS'created'
 p20
@@ -815,15 +815,15 @@ g12
 I00
 sg13
 (lp255
-I570
-aI150
+F570.0
+aF150.0
 asg15
 (itiddlywiki
 Tiddler
 p256
 (dp257
 g18
-VTEST
+V<<silently>>\u000a<<set $gender="Ms.">>\u000a<<set $money=18000>>\u000a\u000a<<set $cardFerro=1>>\u000a<<set $cardKoloman=1>>\u000a\u000a<<set $hasWallet=1>>\u000a<<set $hasHadTour=1>>\u000a<<set $hasHadRecruitmentCall=1>>\u000a<<update>>\u000a<<endsilently>>DEBUG ENABLED\u000a\u000a<<display "elevator_interior">>
 p258
 sg20
 g21
@@ -841,7 +841,7 @@ tp259
 tp261
 Rp262
 sg26
-VTest
+VDebug
 p263
 sg28
 g262
@@ -1173,10 +1173,10 @@ Vnocall
 p366
 asbsa(dp367
 g12
-I01
+I00
 sg13
 (lp368
-F570.0
+F710.0
 aF290.0
 asg15
 (itiddlywiki
@@ -1213,8 +1213,8 @@ g12
 I00
 sg13
 (lp379
-I710
-aI290
+F570.0
+aF290.0
 asg15
 (itiddlywiki
 Tiddler
@@ -1868,7 +1868,7 @@ Tiddler
 p576
 (dp577
 g18
-VEvery other building in New Detroit seemed to have been cut from the same block of concrete.  The Elevator was different.  A sleek blue steel column, it started from ground level and stretched upward into the sky.  I couldn't tell where - if anywhere - it stopped.\u000a\u000a<<if $tourInProgress>>\u000a"Yeah."  Samahd nodded.  "That's the Elevator, it's how you get to other cities in the same simulation.  It could have been an airport or something, but I think the people who designed it liked the Elevator metaphor.  They're above us that way."\u000a\u000aHe turned back to me.  "Like I said at the beginning, this sim's workable but missing some amenities.  Nothing here takes your breath away, right?"\u000a\u000aI knew he used that phrase on purpose, because I noticed then that I wasn't breathing.  I hadn't been breathing the entire time.  I didn't think I //could// breathe and, most strange of all, this fact did not trigger a panicked choking for survival.\u000a\u000a"Yeah, this stage of the sim, the city we call New Detroit, it's just above the brain-in-a-jar level.  You get most of your brain simulated but almost none of your internal organs.  Cuts down on the overhead of the sim, you can fit more people in cheaply.\u000a\u000a"Ever have a dream that, when you wake up, you realize was utterly absurd?" Again, without waiting for an answer, he continued, "Why didn't you realize it in the dream?  I mean, four-armed gorilla monsters from space aren't even remotely real, but your dream-self doesn't question it.  It's the same thing here.  There's a part of your brain dedicated to constantly asking the question 'does this make any damn sense at all?'.  In dreams, it's shut off.  Here?  It's not even simulated."\u000a\u000aHe gestured back to the column.  "That's not the case everywhere.  The next city up is New Phoenix.  They've got shadows, better physics, more texture, better sound, but still no internals.  It's the same sim, keep in mind that this isn't taking you off-grid or anything, it's just that they dedicate a lot more computing power to NPX.  It costs a lot more too, though - the ratio of New Detroit time to New Phoenix time is about 50:1.  One day's vacation would cost you a couple months.  That scale's just about the same all the way up, too.  Next city's New Amsterdam, and that's fifty times more expensive than New Phoenix.  Top of the pack is New Providence.  It's fifty times more expensive than NA.  I don't know if you've done the math, but that means you could spend a lifetime in a few minutes."\u000a\u000aHe shook his head.  "Too rich for our blood, in other words.  Come on, let me show you the courthouse."\u000a\u000a* [[Follow him|courthouse_exterior]]\u000a<<else>>\u000a* [[Walk to the Courthouse|courthouse_exterior]]\u000a* [[Go to the Hub|Hub]]\u000a* [[Visit Bar Ocho|bar_ocho_exterior]]\u000a<<endif>>\u000a
+VEvery other building in New Detroit seemed to have been cut from the same block of concrete.  The Elevator was different.  A sleek blue steel column, it started from ground level and stretched upward into the sky.  I couldn't tell where - if anywhere - it stopped.\u000a<<if $cardKoloman>>\u000a* [[Enter the elevator|elevator_interior]]\u000a<<endif>><<if $tourInProgress>>\u000a"Yeah."  Samahd nodded.  "That's the Elevator, it's how you get to other cities in the same simulation.  It could have been an airport or something, but I think the people who designed it liked the Elevator metaphor.  They're above us that way."\u000a\u000aHe turned back to me.  "Like I said at the beginning, this sim's workable but missing some amenities.  Nothing here takes your breath away, right?"\u000a\u000aI knew he used that phrase on purpose, because I noticed then that I wasn't breathing.  I hadn't been breathing the entire time.  I didn't think I //could// breathe and, most strange of all, this fact did not trigger a panicked choking for survival.\u000a\u000a"Yeah, this stage of the sim, the city we call New Detroit, it's just above the brain-in-a-jar level.  You get most of your brain simulated but almost none of your internal organs.  Cuts down on the overhead of the sim, you can fit more people in cheaply.\u000a\u000a"Ever have a dream that, when you wake up, you realize was utterly absurd?" Again, without waiting for an answer, he continued, "Why didn't you realize it in the dream?  I mean, four-armed gorilla monsters from space aren't even remotely real, but your dream-self doesn't question it.  It's the same thing here.  There's a part of your brain dedicated to constantly asking the question 'does this make any damn sense at all?'.  In dreams, it's shut off.  Here?  It's not even simulated."\u000a\u000aHe gestured back to the column.  "That's not the case everywhere.  The next city up is New Phoenix.  They've got shadows, better physics, more texture, better sound, but still no internals.  It's the same sim, keep in mind that this isn't taking you off-grid or anything, it's just that they dedicate a lot more computing power to NPX.  It costs a lot more too, though - the ratio of New Detroit time to New Phoenix time is about 50:1.  One day's vacation would cost you a couple months.  That scale's just about the same all the way up, too.  Next city's New Amsterdam, and that's fifty times more expensive than New Phoenix.  Top of the pack is New Providence.  It's fifty times more expensive than NA.  I don't know if you've done the math, but that means you could spend a lifetime in a few minutes."\u000a\u000aHe shook his head.  "Too rich for our blood, in other words.  Come on, let me show you the courthouse."\u000a\u000a* [[Follow him|courthouse_exterior]]\u000a<<else>>\u000a* [[Walk to the Courthouse|courthouse_exterior]]\u000a* [[Go to the Hub|Hub]]\u000a* [[Visit Bar Ocho|bar_ocho_exterior]]\u000a<<endif>>\u000a
 p578
 sg20
 g21
@@ -3240,7 +3240,7 @@ Tiddler
 p992
 (dp993
 g18
-V<<silently>>\u000a<<set $hasHadRecruitmentCall=1>>\u000a<<set $cardKoloman=1>>\u000a<<endsilently>>A business card slipped through a mail slot that my apartment hadn't previously possessed and, now that I looked again, still didn't.  The card slid across the floor toward me, as though on the nonexistant breeze.\u000a\u000a<<if $flagRejected>>\u000aI stood up and took a few steps away from the thing, determined not to touch or accept it.  After a few moments of inactivity, it vanished.  I was about to breathe a sigh of relief before I realized that not only could I not breathe, but I hadn't checked my wallet.\u000a\u000aThe card had nestled itself next to those of the people I might want to actually talk to.  Bastard!\u000a\u000aOblivious to all of this, Koloman kept talking.\u000a/%%/\u000a<<else>>\u000aI leaned over and caught the card with my free hand, slipping it into my wallet before turning my attention back to the phone.\u000a<<endif>>\u000a"The card cannot be used as a phone - as I said, I do not trust the security of the system nowadays - but it can be used as a pass.  Bring it to the elevator and show it to the guard on duty.  He'll ensure your trip to New Providence is paid for by my accounts."\u000a\u000aWith that, he hung up.  <<if $attemptedHangup>>Whatever force was keeping the phone glued to my ear instantly let go, and I nearly threw the receiver across the room.  /%%/<<endif>>Before I could return the phone to its cradle, it too had vanished, along with the nightstand.\u000a\u000aEvery time I got used to this world, I found myself thinking, it got a little bit stranger.\u000a\u000a<<if not $attemptedEscape>>\u000a* [[Head out|floor_13]]\u000a<<else>>\u000a* [[Attempt to leave the apartment|apartment_leave_succeed]]\u000a<<endif>>\u000a\u000a
+V<<silently>>\u000a<<set $hasHadRecruitmentCall=1>>\u000a<<set $cardKoloman=1>>\u000a<<endsilently>>A business card slipped through a mail slot that my apartment hadn't previously possessed and, now that I looked again, still didn't.  The card slid across the floor toward me, as though on the nonexistant breeze.\u000a\u000a<<if $flagRejected>>\u000aI stood up and took a few steps away from the thing, determined not to touch or accept it.  After a few moments of inactivity, it vanished.  I was about to breathe a sigh of relief before I realized that not only could I not breathe, but I hadn't checked my wallet.\u000a\u000aThe card had nestled itself next to those of the people I might want to actually talk to.  Bastard!\u000a\u000aOblivious to all of this, Koloman kept talking.\u000a/%%/\u000a<<else>>\u000aI leaned over and caught the card with my free hand, slipping it into my wallet before turning my attention back to the phone.\u000a<<endif>>\u000a"The card cannot be used as a phone - as I said, I do not trust the security of the system nowadays - but it can be used as a pass.  Bring it to the elevator and show it to the guard on duty.  He'll ensure your trip to New Providence is paid for by my accounts."\u000a\u000aWith that, he hung up.  <<if $attemptedHangup>>Whatever force was keeping the phone glued to my ear instantly let go, and I nearly threw the receiver across the room.  /%%/<<endif>>Before I could return the phone to its cradle, it too had vanished, along with the nightstand.\u000a\u000aEvery time I got used to this world, it got a little bit stranger.\u000a\u000a<<if not $attemptedEscape>>\u000a* [[Head out|floor_13]]\u000a<<else>>\u000a* [[Attempt to leave the apartment|apartment_leave_succeed]]\u000a<<endif>>\u000a\u000a
 p994
 sg29
 (lp995
@@ -3303,7 +3303,1254 @@ g1011
 sg26
 Vapartment_leave_succeed
 p1012
+sbsa(dp1013
+g12
+I00
+sg13
+(lp1014
+F3370.0
+aF1830.0
+asg15
+(itiddlywiki
+Tiddler
+p1015
+(dp1016
+g18
+VI hadn't noticed it the first time I'd been here, but there was no place to buy a ticket.  No salespeople, no kiosk, not even a vending machine.  Instead, each had been replaced with a guard.\u000a\u000a<<if not $nftElevator>><<set $nftElevator=1>>I found out why when I tried to get into the elevator - one of the more intimidating-looking of them stepped in front of me.\u000a\u000a"<<if $gender eq "Mr.">>Sir,<<else>>Miss,<<endif>> I'm going to have to ask you to step back.  The elevator's closed due to investigation."\u000a\u000aI decided to see exactly how much clout Koloman purportedly had.  I pulled out the card for display.  "I've got an urgent appointment with Nikolai Koloman."\u000a\u000aWhatever his faults - and waking me up in the morning still ranked pretty heinously - Koloman had not been a liar.  The guard visibly stiffened and almost seemed like he was about to salute me.  "Of course, my apologies, go right ahead."\u000a<<else>>\u000aThe guard who initially stopped me was this time nodding politely.  It was good to have connections.<<endif>>\u000a\u000aI stepped into the elevator.\u000a\u000a<<display "elevator_choices_nd">>
+p1017
+sg29
+(lp1018
+sg20
+g21
+((I2013
+I11
+I5
+I19
+I18
+I57
+I1
+I309
+I0
+tp1019
+(dp1020
+tp1021
+Rp1022
+sg28
+g1022
+sg26
+Velevator_interior
+p1023
+sbsa(dp1024
+g12
+I00
+sg13
+(lp1025
+F3650.0
+aF2110.0
+asg15
+(itiddlywiki
+Tiddler
+p1026
+(dp1027
+g18
+VAbsolutely nothing happened - There must have been something to safeguard me from going places I couldn't afford.
+p1028
+sg29
+(lp1029
+sg20
+g21
+((I2013
+I11
+I5
+I19
+I30
+I43
+I1
+I309
+I0
+tp1030
+(dp1031
+tp1032
+Rp1033
+sg28
+g1033
+sg26
+Velevator_fail
+p1034
+sbsa(dp1035
+g12
+I00
+sg13
+(lp1036
+F3510.0
+aF1830.0
+asg15
+(itiddlywiki
+Tiddler
+p1037
+(dp1038
+g18
+V* [[Press 'Olympus'|olympus_from_nd]]\u000a* [[Press 'New Providence'|elevator_to_npr]]\u000a* [[Press 'New Amsterdam'|elevator_fail_nd]]\u000a* [[Press 'New Phoenix'|elevator_fail_nd]]\u000a* [[Exit the elevator at New Detroit|elevator_exterior]]\u000a
+p1039
+sg29
+(lp1040
+sg20
+g21
+((I2013
+I11
+I5
+I19
+I30
+I55
+I1
+I309
+I0
+tp1041
+(dp1042
+tp1043
+Rp1044
+sg28
+g1044
+sg26
+Velevator_choices_nd
+p1045
+sbsa(dp1046
+g12
+I00
+sg13
+(lp1047
+I150
+aF2110.0
+asg15
+(itiddlywiki
+Tiddler
+p1048
+(dp1049
+g18
+S''
+p1050
+sg29
+(lp1051
+sg20
+g21
+((I2013
+I11
+I5
+I19
+I32
+I54
+I1
+I309
+I0
+tp1052
+(dp1053
+tp1054
+Rp1055
+sg28
+g1055
+sg26
+S'Untitled Passage 1'
+p1056
+sbsa(dp1057
+g12
+I00
+sg13
+(lp1058
+F3510.0
+aF1970.0
+asg15
+(itiddlywiki
+Tiddler
+p1059
+(dp1060
+g18
+V<<display "elevator_fail">>\u000a\u000a<<display "elevator_choices_nd">>
+p1061
+sg29
+(lp1062
+sg20
+g21
+((I2013
+I11
+I5
+I19
+I32
+I56
+I1
+I309
+I0
+tp1063
+(dp1064
+tp1065
+Rp1066
+sg28
+g1066
+sg26
+Velevator_fail_nd
+p1067
+sbsa(dp1068
+g12
+I00
+sg13
+(lp1069
+F3370.0
+aF1970.0
+asg15
+(itiddlywiki
+Tiddler
+p1070
+(dp1071
+g18
+V<<if $hasOlympusInvite>>\u000aTODO\u000a<<else>>\u000a<<display "elevator_fail_nd">>\u000a<<endif>>
+p1072
+sg29
+(lp1073
+sg20
+g21
+((I2013
+I11
+I5
+I19
+I34
+I43
+I1
+I309
+I0
+tp1074
+(dp1075
+tp1076
+Rp1077
+sg28
+g1077
+sg26
+Volympus_from_nd
+p1078
+sbsa(dp1079
+g12
+I00
+sg13
+(lp1080
+F3650.0
+aF1830.0
+asg15
+(itiddlywiki
+Tiddler
+p1081
+(dp1082
+g18
+VI pressed the button for New Providence and the doors closed silently.  There was no noise, no sense of motion, and barely any time at all before the doors opened back up again.\u000a\u000a<<display "elevator_choices_npr">>\u000a
+p1083
+sg29
+(lp1084
+sg20
+g21
+((I2013
+I11
+I5
+I19
+I37
+I50
+I1
+I309
+I0
+tp1085
+(dp1086
+tp1087
+Rp1088
+sg28
+g1088
+sg26
+Velevator_to_npr
+p1089
+sbsa(dp1090
+g12
+I00
+sg13
+(lp1091
+F3790.0
+aF1830.0
+asg15
+(itiddlywiki
+Tiddler
+p1092
+(dp1093
+g18
+V* [[Press 'Olympus'|olympus_from_npr]]\u000a* [[Press 'New Amsterdam'|elevator_fail_npr]]\u000a* [[Press 'New Phoenix'|elevator_fail_npr]]\u000a* [[Press 'New Detroit'|elevator_to_nd]]\u000a* [[Exit the elevator at New Providence|elevator_npr]]\u000a
+p1094
+sg29
+(lp1095
+sg20
+g21
+((I2013
+I11
+I5
+I19
+I39
+I26
+I1
+I309
+I0
+tp1096
+(dp1097
+tp1098
+Rp1099
+sg28
+g1099
+sg26
+Velevator_choices_npr
+p1100
+sbsa(dp1101
+g12
+I00
+sg13
+(lp1102
+F3650.0
+aF1970.0
+asg15
+(itiddlywiki
+Tiddler
+p1103
+(dp1104
+g18
+V<<if $hasOlympusInvite>>\u000aTODO\u000a<<else>>\u000a<<display "elevator_fail_npr">>\u000a<<endif>>
+p1105
+sg29
+(lp1106
+sg20
+g21
+((I2013
+I11
+I5
+I19
+I41
+I1
+I1
+I309
+I0
+tp1107
+(dp1108
+tp1109
+Rp1110
+sg28
+g1110
+sg26
+Volympus_from_npr
+p1111
+sbsa(dp1112
+g12
+I00
+sg13
+(lp1113
+I10
+aF2250.0
+asg15
+(itiddlywiki
+Tiddler
+p1114
+(dp1115
+g18
+g1050
+sg29
+(lp1116
+sg20
+g21
+((I2013
+I11
+I5
+I19
+I41
+I27
+I1
+I309
+I0
+tp1117
+(dp1118
+tp1119
+Rp1120
+sg28
+g1120
+sg26
+S'Untitled Passage 2'
+p1121
+sbsa(dp1122
+g12
+I00
+sg13
+(lp1123
+I290
+aF2250.0
+asg15
+(itiddlywiki
+Tiddler
+p1124
+(dp1125
+g18
+g1050
+sg29
+(lp1126
+sg20
+g21
+((I2013
+I11
+I5
+I19
+I41
+I29
+I1
+I309
+I0
+tp1127
+(dp1128
+tp1129
+Rp1130
+sg28
+g1130
+sg26
+S'Untitled Passage 3'
+p1131
+sbsa(dp1132
+g12
+I00
+sg13
+(lp1133
+I430
+aF2250.0
+asg15
+(itiddlywiki
+Tiddler
+p1134
+(dp1135
+g18
+g1050
+sg29
+(lp1136
+sg20
+g21
+((I2013
+I11
+I5
+I19
+I41
+I31
+I1
+I309
+I0
+tp1137
+(dp1138
+tp1139
+Rp1140
+sg28
+g1140
+sg26
+S'Untitled Passage 4'
+p1141
+sbsa(dp1142
+g12
+I00
+sg13
+(lp1143
+F3790.0
+aF1970.0
+asg15
+(itiddlywiki
+Tiddler
+p1144
+(dp1145
+g18
+V<<display "elevator_fail">>\u000a\u000a<<display "elevator_choices_npr">>
+p1146
+sg29
+(lp1147
+sg20
+g21
+((I2013
+I11
+I5
+I19
+I41
+I40
+I1
+I309
+I0
+tp1148
+(dp1149
+tp1150
+Rp1151
+sg28
+g1151
+sg26
+Velevator_fail_npr
+p1152
+sbsa(dp1153
+g12
+I00
+sg13
+(lp1154
+F3650.0
+aF1690.0
+asg15
+(itiddlywiki
+Tiddler
+p1155
+(dp1156
+g18
+VI pressed the button for New Detroit with trepidation.  It wasn't likely I'd enjoy the sim nearly as much now that I knew what I was missing.\u000a\u000aBefore I could complete the thought, the doors had opened again.\u000a\u000a<<display "elevator_choices_nd">>
+p1157
+sg29
+(lp1158
+sg20
+g21
+((I2013
+I11
+I5
+I19
+I43
+I59
+I1
+I309
+I0
+tp1159
+(dp1160
+tp1161
+Rp1162
+sg28
+g1162
+sg26
+Velevator_to_nd
+p1163
+sbsa(dp1164
+g12
+I00
+sg13
+(lp1165
+F3930.0
+aF1830.0
+asg15
+(itiddlywiki
+Tiddler
+p1166
+(dp1167
+g18
+V<<if $nftNpr>>\u000aNew Providence continued to be startling.  Even though I'd been here before, the sheer contrast between it and New Detroit was going to take longer to get used to than I could afford.\u000a\u000aThe guard must have been part-time, as he was nowhere to be seen.  I didn't miss him.\u000a* [[Head down the street|pr_intersection]]\u000a<<display elevator_choices_npr>>\u000a<<else>>\u000a<<set $nftNpr=1>>New Providence took my breath away.  It did this by first giving me the ability to breathe.  Air, real air, filled my lungs as I inhaled for the first time since I'd died.  And then I saw the scenery.\u000a\u000aIt was a cool autumn afternoon - a setting sun threw intricate shadows through the thinning trees.  Colorful leaves dominated the landscape except for the lone road leading from the elevator, and even that had a few stragglers that refused to budge.  As I looked, the slight breeze I heard rustling through the trees picked a few of the leaves and tossed them about.\u000a\u000aI stepped forward and almost fell - I could hear //everything//.  The feel and noise of my clothes moving against my body was so unfamiliar as to be startling.  I could feel my muscles tense and relax as I moved them, my legs wobbling just a little bit from disuse.  I think I might have even been hungry.\u000a\u000aThe upper end of the elevator was not as zealously guarded as the lower - there was only one man here, and he looked somewhat surprised to see anyone arriving.  "Can I help you?"\u000a\u000aHe clearly did not want to help.\u000a\u000a* [[Show him your card|guard_help]]\u000a* [[--To hell with him, I'm walking|guard_evade]]\u000a<<endif>>\u000a
+p1168
+sg29
+(lp1169
+sg20
+g21
+((I2013
+I11
+I5
+I19
+I45
+I59
+I1
+I309
+I0
+tp1170
+(dp1171
+tp1172
+Rp1173
+sg28
+g1173
+sg26
+Velevator_npr
+p1174
+sbsa(dp1175
+g12
+I00
+sg13
+(lp1176
+F4070.0
+aF1690.0
+asg15
+(itiddlywiki
+Tiddler
+p1177
+(dp1178
+g18
+V"Sure," I managed to keep a straight face as I presented the business card that'd gotten me this far.  "I'm looking for a Mr. Koloman?  Does he live around here?"\u000a\u000aWhoever had hired the guards had apparently chosen nearly identical personalities, because this one reacted the same way his New Detroit counterpart had.  The don't-give-a-damn expression and posture vanished, replaced with a stiff spine and a near salute.\u000a\u000a"Oh, yes!  He's right down this road - take a right at the Prometheus Lane and he'll be the first house you see, can't miss it."\u000a\u000a"Thanks." I managed to say with slightly more politeness than I felt.\u000a\u000a* [[Walk down the road|pr_intersection]]\u000a
+p1179
+sg29
+(lp1180
+sg20
+g21
+((I2013
+I11
+I5
+I20
+I6
+I33
+I1
+I309
+I0
+tp1181
+(dp1182
+tp1183
+Rp1184
+sg28
+g1184
+sg26
+Vguard_help
+p1185
+sbsa(dp1186
+g12
+I00
+sg13
+(lp1187
+I430
+aF1970.0
+asg15
+(itiddlywiki
+Tiddler
+p1188
+(dp1189
+g18
+g1050
+sg29
+(lp1190
+sg20
+g21
+((I2013
+I11
+I5
+I20
+I10
+I54
+I1
+I309
+I0
+tp1191
+(dp1192
+tp1193
+Rp1194
+sg28
+g1194
+sg26
+S'Untitled Passage 5'
+p1195
+sbsa(dp1196
+g12
+I00
+sg13
+(lp1197
+I150
+aF1970.0
+asg15
+(itiddlywiki
+Tiddler
+p1198
+(dp1199
+g18
+g1050
+sg29
+(lp1200
+sg20
+g21
+((I2013
+I11
+I5
+I20
+I10
+I55
+I1
+I309
+I0
+tp1201
+(dp1202
+tp1203
+Rp1204
+sg28
+g1204
+sg26
+S'Untitled Passage 6'
+p1205
+sbsa(dp1206
+g12
+I00
+sg13
+(lp1207
+F4070.0
+aF1830.0
+asg15
+(itiddlywiki
+Tiddler
+p1208
+(dp1209
+g18
+VI didn't say a word, simply walked past him like I had all the time in the world and still couldn't be bothered to spare any for him.\u000a\u000aHis reaction was a shrug and a muttered "Your funeral, pal."  Not exactly what I was expecting, but I supposed the problem of tresspassers in New Providence was somewhat self-limiting.  I didn't dare think of how much time my trip would have already cost me had it not been paid for.\u000a\u000a* [[Walk down the street|pr_intersection]]\u000a
+p1210
+sg29
+(lp1211
+sg20
+g21
+((I2013
+I11
+I5
+I20
+I10
+I57
+I1
+I309
+I0
+tp1212
+(dp1213
+tp1214
+Rp1215
+sg28
+g1215
+sg26
+Vguard_evade
+p1216
+sbsa(dp1217
+g12
+I00
+sg13
+(lp1218
+I290
+aF1970.0
+asg15
+(itiddlywiki
+Tiddler
+p1219
+(dp1220
+g18
+g1050
+sg29
+(lp1221
+sg20
+g21
+((I2013
+I11
+I5
+I20
+I19
+I51
+I1
+I309
+I0
+tp1222
+(dp1223
+tp1224
+Rp1225
+sg28
+g1225
+sg26
+S'Untitled Passage 7'
+p1226
+sbsa(dp1227
+g12
+I00
+sg13
+(lp1228
+F4210.0
+aF1830.0
+asg15
+(itiddlywiki
+Tiddler
+p1229
+(dp1230
+g18
+VThe forest remained a close companion for the walk, only occasionally breaking to reveal dirt roads vanishing into their depths.  Mailboxes ranging from immaculate to rusty adorned each road, though clearly those suffering from rust were doing so by intention of their owner.  Nobody who could afford living here would have to settle for rusty mailboxes.\u000a\u000aAn sign declared the road I was walking toward to be an intersection between Central and Prometheus.\u000a\u000a* [[Walk to the elevator|elevator_npr]]\u000a* [[Walk toward Koloman's House|koloman_exterior]]\u000a
+p1231
+sg29
+(lp1232
+sg20
+g21
+((I2013
+I11
+I5
+I20
+I19
+I53
+I1
+I309
+I0
+tp1233
+(dp1234
+tp1235
+Rp1236
+sg28
+g1236
+sg26
+Vpr_intersection
+p1237
+sbsa(dp1238
+g12
+I00
+sg13
+(lp1239
+F4350.0
+aF1830.0
+asg15
+(itiddlywiki
+Tiddler
+p1240
+(dp1241
+g18
+VKoloman's "house" was a three-story tall log cabin that was bigger than my apartment building.\u000a\u000aGranted, that could not have possibly been true, but it was my first impression and it stuck.  It also gave me insight as to why wood paneling was so ubiquitous throughout New Detroit:  Bringing the real thing down to the motor city level of quality would have left little difference between the two.\u000a\u000aAn older man, burly but greying, stood anxiously outside the door.<<set $kolomanInPerson=0>>\u000a\u000a* [[Talk to Koloman|convo_koloman_intro]]\u000a* [[Walk away|pr_intersection]]\u000a
+p1242
+sg29
+(lp1243
+sg20
+g21
+((I2013
+I11
+I5
+I20
+I27
+I29
+I1
+I309
+I0
+tp1244
+(dp1245
+tp1246
+Rp1247
+sg28
+g1247
+sg26
+Vkoloman_exterior
+p1248
+sbsa(dp1249
+g12
+I00
+sg13
+(lp1250
+F4490.0
+aF1970.0
+asg15
+(itiddlywiki
+Tiddler
+p1251
+(dp1252
+g18
+VKoloman nodded at me as I approached.  "Sam Hallivert.  I am glad you came."<<set $kolomanInPerson=1>>\u000a\u000a<<if not $nftKoloman>><<set $nftKoloman=1>>I stood next to the man and looked him in the eye.  "Why am I here?" seemed as good a place to start as any.\u000a\u000aHe didn't answer immediately, instead walking to a wooden bench and sitting down heavily upon it.  He gestured for me to join him and I kept standing.\u000a<<else>>Koloman again sat down at the bench, and I again elected to keep standing up.  This was only slightly due to a fear of realistically simulated splinters.<<endif>>\u000a\u000a<<display "convo_koloman">>
+p1253
+sg29
+(lp1254
+Vnocall
+p1255
+asg20
+g21
+((I2013
+I11
+I5
+I20
+I31
+I40
+I1
+I309
+I0
+tp1256
+(dp1257
+tp1258
+Rp1259
+sg28
+g1259
+sg26
+Vconvo_koloman_intro
+p1260
+sbsa(dp1261
+g12
+I00
+sg13
+(lp1262
+F4490.0
+aF1690.0
+asg15
+(itiddlywiki
+Tiddler
+p1263
+(dp1264
+g18
+VNickolai Koloman betrayed no emotions whatsoever.  "You must have many questions for me"\u000a\u000a<<sugarchoice "koloman_pitch" "Why am I here?">>\u000a<<if $attemptedEscape>><<sugarchoice "koloman_noescape" "Why did you lock me in my apartment for your little phone call?>>\u000a/%%/<<endif>><<sugarchoice "koloman_whyme" "Why me?"|koloman_whyme]]\u000a<<sugarchoice "koloman_coincidence" "So you needed a detective, and the next day I'm conveniently killed and uploaded?">>\u000a<<sugarchoice "koloman_payment" "What does the job pay?">>\u000a<<if $investigating>>TODO: Investigating choices\u000a\u000a<<if $kolomanInPerson>>* [[You have no more questions|koloman_exterior]]<<else>>* [[End the phone call|Wallet]]<<endif>>\u000a/%%/<<else>>[[I'll take the case|koloman_accept]]\u000a[[Let me think about it|koloman_reject]]\u000a<<endif>>
+p1265
+sg29
+(lp1266
+Vconversation
+p1267
+aVnocall
+p1268
+asg20
+g21
+((I2013
+I11
+I5
+I20
+I36
+I44
+I1
+I309
+I0
+tp1269
+(dp1270
+tp1271
+Rp1272
+sg28
+g1272
+sg26
+Vconvo_koloman
+p1273
+sbsa(dp1274
+g12
+I00
+sg13
+(lp1275
+I570
+aF2110.0
+asg15
+(itiddlywiki
+Tiddler
+p1276
+(dp1277
+g18
+g1050
+sg29
+(lp1278
+sg20
+g21
+((I2013
+I11
+I5
+I20
+I39
+I51
+I1
+I309
+I0
+tp1279
+(dp1280
+tp1281
+Rp1282
+sg28
+g1282
+sg26
+S'Untitled Passage 8'
+p1283
+sbsa(dp1284
+g12
+I00
+sg13
+(lp1285
+F4630.0
+aF1970.0
+asg15
+(itiddlywiki
+Tiddler
+p1286
+(dp1287
+g18
+V<<set $kolomanPitched=1>>"You are here because my daughter is dead."  Nickolai stated this bluntly and emotionlessly.\u000a\u000a<<if $heardOfDeath>>"I saw on the news."  I answered.\u000a\u000aHe nodded.  "They did not wait a moment before they began calling me.  Vultures, all of them."  He said the words by rote, without rancor.\u000a<<else>><<set $heardOfDeath=1>>"Dead?  People can't die here."  Or so I thought.  I was new, I had to remind myself.\u000a\u000a"I am sure that is what my dear Iva thought as well." Koloman answered bitterly.  "It was a lie."\u000a<<endif>>\u000a\u000a"I brought you here to discuss my daughter's murder.  I do not care how it was done, impossible though it is claimed to be.  I only care who did it.  That is why I wish to hire you.  Bring me the name of my Iva's killer."\u000a\u000aI blinked.  I hadn't really given much thought of the idea of continuing on as a detective in my new life, much less having my first case be patently impossible.\u000a\u000a* [[You have more questions|convo_koloman]]\u000a
+p1288
+sg29
+(lp1289
+Vconversation
+p1290
+aVnocall
+p1291
+asg20
+g21
+((I2013
+I11
+I5
+I20
+I39
+I53
+I1
+I309
+I0
+tp1292
+(dp1293
+tp1294
+Rp1295
+sg28
+g1295
+sg26
+Vkoloman_pitch
+p1296
+sbsa(dp1297
+g12
+I00
+sg13
+(lp1298
+F4770.0
+aF1830.0
+asg15
+(itiddlywiki
+Tiddler
+p1299
+(dp1300
+g18
+VI considered myself a good judge of character.  The ability to tell who's lying and who thinks they're telling the truth was a cornerstone of my business.  So it confused the hell out of me when Koloman appeared genuinely confused.\u000a\u000a"I would not have done such a thing."  he said finally.  "I cannot speak with authority on what happened to you during our call, and I do not wish to call your judgement into question - that would bode ill for the both of us - but many who are recent uploads into our world suffer adjustment symptoms.  It may have been that."\u000a\u000aWhen that answer didn't appear to satisfy me (because it didn't), he continued solemnly.  "I swear to you, <<print $gender>> Hallivert, I did not lock you in your room.  I want to hire a detective who is willing to take the case - more, who demands that justice be done.  If you are not that person, I'll not make you agree."\u000a\u000a* [[You have more questions|convo_koloman]]\u000a
+p1301
+sg29
+(lp1302
+Vconversation
+p1303
+aVnocall
+p1304
+asg20
+g21
+((I2013
+I11
+I5
+I20
+I53
+I29
+I1
+I309
+I0
+tp1305
+(dp1306
+tp1307
+Rp1308
+sg28
+g1308
+sg26
+Vkoloman_noescape
+p1309
+sbsa(dp1310
+g12
+I00
+sg13
+(lp1311
+I710
+aF2110.0
+asg15
+(itiddlywiki
+Tiddler
+p1312
+(dp1313
+g18
+g1050
+sg29
+(lp1314
+sg20
+g21
+((I2013
+I11
+I5
+I21
+I1
+I2
+I1
+I309
+I0
+tp1315
+(dp1316
+tp1317
+Rp1318
+sg28
+g1318
+sg26
+S'Untitled Passage 9'
+p1319
+sbsa(dp1320
+g12
+I00
+sg13
+(lp1321
+F4770.0
+aF1970.0
+asg15
+(itiddlywiki
+Tiddler
+p1322
+(dp1323
+g18
+VNickolai nodded at the question.  "A reasonable thing to ask.  There must be, you are thinking, many other detectives with more experience, and more knowledge of how the system functions."\u000a\u000aI'd more been wondering which of my specific virtues he'd thought of when he called me.\u000a\u000aKoloman continued talking.  "This is true.  You are inexperienced in this world and, compared to some of those here who have been investigators for over a century total, inexperienced at the job.  It is precisely for these reasons that I wish to hire you."\u000a\u000aThis was not a very good pep speech.\u000a\u000a"I am not sure if you have noticed, but police presense in New Detroit is... nil, to put it nicely.  There are men who used to be police in their former lives, but most of them have retired.  There is no need to police when the simulation can do so automatically, with far greater coverage and effectiveness.  Hmph.\u000a\u000a"What I am saying is that any overly-visible response such as hiring an expensive investigator would bring these men out of their retirement.  They have even less experience than you, but wield considerable clout.  They would make a show out of the investigation - moreso than it already is - and, I suspect, be ineffective at the actual investigating. \u000a\u000a"You, on the other hand, can ask questions in nearly complete freedom.  You are new to the system, it is expected that you will not understand it and will need to ask questions.  You have been assured of your immortality and yet seen someone stripped of that very guarantee.  Every act of investigation will be expected of you naturally."\u000a\u000aI frowned.  "So does this mean I won't officially be on the case?"  I'd already seen what dropping Koloman's name could do in terms of getting people to co-operate; it was a powerful weapon I'd rather not be without.\u000a\u000a"You will very much be on this case, <<print $gender>> Hallivert."  Koloman answered stonily.  "It will appear to the officials and gossips of this town that I am not taking my daughter's death seriously with your hire, and I am prepared to endure such accusations because I believe you will find me answers."\u000a\u000a* [[You have more questions|convo_koloman]]\u000a
+p1324
+sg29
+(lp1325
+Vconversation
+p1326
+aVnocall
+p1327
+asg20
+g21
+((I2013
+I11
+I5
+I21
+I1
+I4
+I1
+I309
+I0
+tp1328
+(dp1329
+tp1330
+Rp1331
+sg28
+g1331
+sg26
+Vkoloman_whyme
+p1332
+sbsa(dp1333
+g12
+I00
+sg13
+(lp1334
+F4770.0
+aF1690.0
+asg15
+(itiddlywiki
+Tiddler
+p1335
+(dp1336
+g18
+V"I am sure you hear this answer far more often than it is the truth, <<print $gender>> Hallivert, but it is indeed a coincidence."\u000a\u000aKoloman produced a manilla folder similar to the one Guillory had.  "This is the police report on your death.  You were struck and killed by a hundred and twenty year old man with fading eyesight who should have relinquished his vehicle long ago, not an assassin.  You can check these records at the courthouse should you doubt me."\u000a\u000a* [[You have more questions|convo_koloman]]\u000a
+p1337
+sg29
+(lp1338
+Vconversation
+p1339
+aVnocall
+p1340
+asg20
+g21
+((I2013
+I11
+I5
+I21
+I16
+I16
+I1
+I309
+I0
+tp1341
+(dp1342
+tp1343
+Rp1344
+sg28
+g1344
+sg26
+Vkoloman_coincidence
+p1345
+sbsa(dp1346
+g12
+I00
+sg13
+(lp1347
+F4770.0
+aF1550.0
+asg15
+(itiddlywiki
+Tiddler
+p1348
+(dp1349
+g18
+VKoloman nodded reluctantly, as though simultaneously acknowledging that this was going to cost him and hating me for asking.  It was a reaction I was well used to.\u000a\u000a"You'll have an expense account - you'll be able to travel freely here in New Providence to give reports to me, and should you require anything else you may simply call and have me approve it.  This includes travel to other cities or even off-grid.\u000a\u000a"If you provide me the name of Iva's killer and sufficient evidence, you will be rewarded with fifty years of New Amsterdam time.  That's thousands of years in New Phoenix, tens of thousands should you stay in New Detroit.  You will be set for life - lives, should you choose."\u000a\u000a* [[You have more questions|convo_koloman]]\u000a
+p1350
+sg29
+(lp1351
+Vconversation
+p1352
+aVnocall
+p1353
+asg20
+g21
+((I2013
+I11
+I5
+I21
+I20
+I42
+I1
+I309
+I0
+tp1354
+(dp1355
+tp1356
+Rp1357
+sg28
+g1357
+sg26
+Vkoloman_payment
+p1358
+sbsa(dp1359
+g12
+I00
+sg13
+(lp1360
+F4490.0
+aF1410.0
+asg15
+(itiddlywiki
+Tiddler
+p1361
+(dp1362
+g18
+VNickolai attempted to not visibly react, but it is easy for me to tell that this was not exactly the response he was hoping for.   "Very well.  Keep my card; Now that we are in person I can add my own security protocols to it so calling is safe.  Call me should you change your mind."<<set $cardKoloman=2>>\u000a\u000a* [[Walk away|koloman_exterior]]\u000a
+p1363
+sg29
+(lp1364
+Vconversation
+p1365
+aVnocall
+p1366
+asg20
+g21
+((I2013
+I11
+I5
+I21
+I28
+I26
+I1
+I309
+I0
+tp1367
+(dp1368
+tp1369
+Rp1370
+sg28
+g1370
+sg26
+Vkoloman_reject
+p1371
+sbsa(dp1372
+g12
+I00
+sg13
+(lp1373
+F4350.0
+aF1410.0
+asg15
+(itiddlywiki
+Tiddler
+p1374
+(dp1375
+g18
+V<<set $investigating=1>>Nickolai attempted to not visibly react, but it is easy for me to tell that this was exactly the response he was hoping for.  "Thank you, <<print $gender>> Hallivert.  You are doing more than helping an old man find peace and becoming rich in the process, you are seeing justice done."\u000a\u000aHe pulled out a business card identical to the one I already had.  "I have added my own security protocols to this card so it will be safe for us to talk via phone.  Call me any time you need questions answered or to approve an expense.  The card will serve as proof that you are working for me as well, should anyone require it."  I took hold of the card and it vanished in my hand, presumably to replace the old one in my wallet.<<set $cardKoloman=2>>\u000a\u000a* [[You have more questions|convo_koloman]]\u000a* [[You're done for now|koloman_exterior]]\u000a
+p1376
+sg29
+(lp1377
+Vconversation
+p1378
+aVnocall
+p1379
+asg20
+g21
+((I2013
+I11
+I5
+I21
+I30
+I15
+I1
+I309
+I0
+tp1380
+(dp1381
+tp1382
+Rp1383
+sg28
+g1383
+sg26
+Vkoloman_accept
+p1384
 sbsasS'scale'
-p1013
-F1.0
+p1385
+F0.6001300390117035
 ss.
