@@ -413,6 +413,85 @@ He finally seemed to get the message that I wasn't feeling like playing his game
 <<display "real_convo_guillory">>
 
 
+:: Untitled Passage 2
+
+
+
+:: Untitled Passage 3
+
+
+
+:: koloman_storage [conversation nocall]
+"Oh, no, you misunderstand, she was not a criminal or anything."  Koloman explained.
+
+"I thought storage was a one-way street."  I replied neutrally.  If there was a way out of the afterlife's simulated purgatory, I didn't want to appear too eager to learn about it and scare the guy off.
+
+"Ordinarily, yes.  These circumstances were different - the contract I'd written up for our placement into the simulation, it covered both of us, but only //both// of us.  We had to arrive at the same time.
+
+A slow frown came over his face.  "I anticipated that I would die first.  I did not want to spend an eternity waiting in a simulated world for my daughter to join me.  It seemed... unseemly to silently hope for her death so that she might live with me again."  He scoffed.  "So the contract stated that the first to die would be placed in storage."
+
+"And it was her."  I tried to say this as neutrally as I possibly could.  In truth, I was reeling from the fact that he'd not only lost his daughter recently, he was losing her for the second time.
+
+"It was."  He replied quietly.  He'd slipped into the somber mood I'd noticed whenever we got on the topic of how his daughter had been in life.  "Undiscovered heart valve problem.  I spent fifteen years in the outside world, waiting for my time to come so that I might join her."
+
+He sighed, then looked back up at me.  "When I did, when I came here, the first face I saw was hers.  She told me about her dreams in Storage, how she'd seen the simulation for what it truly was, and it was beautiful and horrible, awful in the old sense of the term, like a fire that could consume a city."
+
+"I thought Storage was just... storage."  Once again, my newness to the situation was showing.  "You're shipped to some tape backup under a mountain or something."
+
+"It is."  Koloman confirmed.  "Not exactly as you described, but near enough.  You cannot dream in storage, because there is no 'you' to dream!  These were earlier days of the simulation.  I worried that my Iva had been one of those afflicted by the upload.  But aside from her newfound passion for art, there were no signs."
+
+* [[You have more questions|convo_koloman]]
+
+
+
+:: koloman_others [conversation nocall]
+"I hired two other investigators, but they are no longer employed by me."  Nickolai answered simply.
+
+"There are many retired policemen in the city, but thus far only one has decided to become involved.  He is the one who moved my daughter's body to the courthouse - so far as I know, that's where he lives.  Feel free to talk to him, though he's under no obligation to answer either you or me and he is well aware of that fact."
+
+* [[You have more questions|convo_koloman]]
+
+
+
+:: koloman_enemies [conversation nocall]
+"My daughter was an artist.  She had her professional rivals, though there were not many.  She did not seriously compete for their attention, you see.  She was independently - independent even of me - wealthy, she had no need to attract a patron as most in the community did.
+
+"Those few who did compete with her did so out of a desire, I believe, to humble or humiliate.  They saw her as an interloper, a trust-fund dropout slumming for fun.
+
+"I am no doubt biased in my estimation, but I do not believe this was so.  She believed genuinely that the limited palette of a place like New Detroit gave her an artistic canvas unlike anything in the real world.  Her work stood on its own."
+
+* [[You have more questions|convo_koloman]]
+
+
+
+:: koloman_suspects_nobody [conversation nocall]
+"It is for the best."  Koloman sat back down just as abruptly as he'd stood up.  The manic energy that had infused him just moments before had seemingly fanished.
+
+"So, that suspect must be for now eliminated by virtue of us being unable to investigate.  Still, that is not my only suspect."
+
+He sighed, then smiled.  "This is one of the instances in which I am glad you are new to the system, <<print $gender>> Hallivert.  If I were to say that I suspected hackers, a more savvy citizen would laugh in my face."
+
+I shrugged.  "Sounds like the sort of thing hackers could do."
+
+"And indeed they could, if there were such a thing."  Koloman agreed.  "Anyone who first arrives in the simulation believes that potential hackers are everywhere.  People who would grift time from innocents, perform miracles, do the impossible.  A decade or two of experience and they realize the truth:  There are only ordinary grifters.  Miracles were pre-programmed into the simulation before it even started.  The impossible is mundane.
+
+"Hackers now have the reputation of being a fairy tale, but I'm mentioning them for a reason.  A few months ago, my daughter got involved with their kind.  I don't mean hackers themselves, of course, but gamers.  Wannabes.  People interested in exploring the forbidden edges of the simulation.  She was looking for them because they seemed her best bet to find a real hacker, someone who could actually change the system.
+
+"Be careful, <<print $gender>> Hallivert.  It is my fear that she found one, and it cost her her life."
+
+* [[You have more questions|convo_koloman]]
+
+
+:: koloman_suspects [conversation nocall]
+"Yes."  Koloman replied bitterly.  "There are very few capable of such an action."
+
+He stood suddenly, pacing rather than sitting still.  "This is something I have given much thought.  There is the obvious answer, yes?  Someone who I will not name, because to name the devil is to summon her."  He pointed upward briefly as he said this.  "But you know who I mean, yes?"
+
+[[Answer "Athena"|koloman_suspects_athena]]
+[[Do not answer|koloman_suspects_nobody]]
+
+
+
 :: guillory_whatnext [conversation nocall]
 Guillory smiled widely.  "That's entirely up to you.  You have most of another whole life ahead of you.  Many of our clients dedicate themselves to art, or mastering a skill that they lacked in life.  Many others simply lie back and relax, treating this as an extended retirement."
 
@@ -454,6 +533,17 @@ There were three exits here:  The door to Alex Guillory's office at least attemp
 
 
 
+:: koloman_body [conversation nocall]
+"Her body is stored at the courthouse for the time being, but it was found at her apartment in the arts district."
+
+Koloman didn't meet my gaze, only waved dismissively.  "You now have the key.  Feel free to enter and make note of whatever you will, it is all as the police left it.  I... I haven't had the heart yet to visit and clean it out."
+
+He sighed.  "I have much work to do once this investigation is complete."  His mood shifted suddenly, the defeated hunched-over posture becoming ramrod straight, the frown intensifying into a teeth-gritting grimace.  "Once I know the criminal's name, yes... much to do."
+
+* [[You have more questions|convo_koloman]]
+
+
+
 :: koloman_accept [conversation nocall]
 <<set $investigating=1>>Nickolai attempted to not visibly react, but it is easy for me to tell that this was exactly the response he was hoping for.  "Thank you, <<print $gender>> Hallivert.  You are doing more than helping an old man find peace and becoming rich in the process, you are seeing justice done."
 
@@ -469,6 +559,46 @@ Nickolai attempted to not visibly react, but it is easy for me to tell that this
 
 * [[Walk away|koloman_exterior]]
 
+
+
+:: koloman_verify [conversation nocall]
+Koloman presented another business card.  <<if $kolomanInPerson>>He handed it to me without comment.<<else>>He made a gesture with his other hand that I didn't recognize, but the card he was holding vanished.  I didn't have to look to know it was in my wallet now.<<endif>>  "Try it."
+
+I looked at the card, bearing only a calligraphied "Iva Koloman".  I turned it over to see a blank back.
+
+Shrugging, I decided to try it.  I'd activated the other business cards by holding them up in my palm like an ordinary holo-phone, and I didn't think this would be any different.  Only, this didn't work.  The card was paper, and nothing more.
+
+<<if $kolomanInPerson>>Koloman took the card back.<<else>>Koloman made another gesture and the card vanished from my hand.<<endif>>  "You see, now, the system does not recognize she is there.  I have tried other means, too.  Locator programs which would ordinarily easily find someone instead run forever or crash.  Even the cardless-call I interrupted your sleep with behaves as though I am attempting to contact nothing.
+
+"As well, I have seen..." he faltered for a moment, then resumed.  "her body.  It is utterly still and utterly unresponsive.  She is gone, <<print $gender>> Hallivert.
+
+"Gone...."
+
+* [[You have more questions|convo_koloman]]
+
+
+
+:: koloman_failure [conversation nocall]
+"I am not sure what you have heard of me, <<print $gender>> Hallivert, so I will tell you myself.  I am a man who does not brook failure.  In life, I asked of my people only slightly more than they believed they could deliver, and in many cases they lived up to my expectations.
+
+"I got what I wanted."  he elaborated.  "I did not resort to bribery or thuggery as some have alleged, but neither am I a saint.  Jobs have been lost, careers destroyed, because of the decisions I have made.  I do not regret any of it.
+
+"You may think me a hard man, and you are correct.  But I am also a reasonable man.  I know that I am asking the impossible.  Should you fail to show any progress for a month, you will be reimbursed for that month of time and I will find another detective to take up the mantle."
+
+"Am I the first?"  I found myself asking before wondering if it was a good idea.
+
+"No."  Koloman answered.  "I approached two people before you.  One refused abjectly, and the other spent only a day on the case before declaring it unsolveable."
+
+* [[You have more questions|convo_koloman]]
+
+
+
+:: koloman_suspects_athena [conversation nocall]
+I got as far as "Ath" before Koloman's face was suddenly inches away from mine, jaws clenched.  His hand had already taken hold of my shirt and the slight pull there threatened of greater violence.  I found myself wondering how realistically I could be hurt on this level of the simulation.
+
+"Do not speak her name."  Koloman hissed.  There was a moment when he watched me to make sure I understood while I tried not to appear as rattled as I felt.  Whatever he saw in that moment, he appeared satisfied:  He let go of me and backed away.  "For both our safety.
+
+<<display "koloman_suspects_nobody">>
 
 
 :: guillory_soulkeeper [conversation nocall]
@@ -515,7 +645,10 @@ Guillory was every bit the model of an attentive insurance agent.  "What questio
 <<if $heardTimeIsMoney>><<sugarchoice "guillory_broke" "What happens if I run out of time?">>
 /%%/<<endif>><<if $heardNeedsJanitorPermission>><<sugarchoice "guillory_janitor" "Your receptionist won't let me into the janitor's closet">>
 /%%/<<endif>><<if $wasOfferedTour>><<sugarchoice "guillory_tour" "Someone offered to be a 'tour guide' for me.  Is it a scam?">>
+/%%/<<endif>><<if $attemptedEscape>><<sugarchoice "guillory_locked" "I was locked in my apartment earlier.">>
+/%%/<<endif>><<if $hasHadRecruitmentCall>><<sugarchoice "guillory_jobofer" "I got a job offer from Nickolai Koloman">>
 /%%/<<endif>>
+
 <<if $guilloryInPerson>>* [[You have no more questions|guillory_exit]]<<else>>* [[End the phone call|Wallet]]<<endif>>
 
 
@@ -561,6 +694,13 @@ He smiled welcomingly as he caught my gaze, and had closed the gap between us be
 
 
 
+:: koloman_witnesses [conversation nocall]
+"Not that I know of, though my information on the topic is minimal - this is the sort of thing I'll expect you to find.  Her body was discovered by her boyfriend," his sneer of contempt at the thought of the man his daughter had been dating seemed nearly automatic, "but as ill a match as he was for her he seemed to genuinely care about her.  I do not think he did this."
+
+* [[You have more questions|convo_koloman]]
+
+
+
 :: koloman_payment [conversation nocall]
 Koloman nodded reluctantly, as though simultaneously acknowledging that this was going to cost him and hating me for asking.  It was a reaction I was well used to.
 
@@ -570,6 +710,24 @@ Koloman nodded reluctantly, as though simultaneously acknowledging that this was
 
 * [[You have more questions|convo_koloman]]
 
+
+
+:: koloman_nd [conversation nocall]
+"No offense taken, it was a question I asked her many times."  His tone indicated he hadn't gotten a particularly compelling explanation himself.
+
+"She was an artist, fascinated by the medium that is the simulation.  I don't mean that she was fascinated by working within the simulation, I mean that she found the simulation //itself// to be a medium.
+
+"She was not the first to think so, of course, the idea of reality as a canvas pre-dates realities as mutable as this one.  And the restrictions placed on this simulation at all levels mean it is much less mutable than one would hope.  Still, she worked to express this idea through the more mundane mediums.
+
+"Why New Detroit?  She believed it to be somehow more authentic.  New Providence is the most detailed of the simulated realities, but Iva did not find it to be //real//.  The least realistic level of the simulation was closest to the computer, and thus more resembling the reality of the fact that we are living inside a machine."
+
+"I'm not sure I follow."  I replied.  
+
+"Neither did I."  Nickolai did not seem the artistic sort.  "It is so strange.  Before her death - her... first death, I suppose I should say -she was an accountant, she dealt in the concrete of numbers.  She preferred it to the less definable careers, kept at it even after the advent of GAAAI meant machines could do her job better than she could."
+
+He shrugged.  "Then?  She is awoken from Storage with new inspiration.  And from that point on she is an artist."<<set $heardIvaStorage=1>>
+
+* [[You have more questions|convo_koloman]]
 
 
 :: guillory_preserve [conversation nocall]
@@ -589,6 +747,24 @@ Despite the calming tone, I didn't like the sound of Storage.
 Guillory had anticipated my next question.  "Yes, Storage is what it sounds like.  Your patterns that are currently in simulation now are stored on disk - and also redundantly backed up, of course.  You will no longer be simulated, but of course it's the Preservationist belief that eventually simulation costs will be so low that everyone can be revived for free.  At that point, you'll be returned, likely to this very office."
 
 * [[You have more questions|convo_guillory]]
+
+
+
+:: guillory_joboffer [conversation nocall]
+Guillory's sole reaction was a slight raising of one of his eyebrows.  "That is a very influential person who contacted you."
+
+"So can I trust him?"  It was the most important question.  Of course, if Koloman was as important as Guillory had just said, it was possibly I couldn't trust anyone's answer to that question.
+
+"He strikes me as a mostly reputable businessman" was the eventual answer.  "I only have access to public records, of course, but he doesn't seem to be particularly cutthroat.  His manufacturing concerns are simply more efficient than his competitors, likely due to proprietary techniques.  Koloman Industries applied for 1500 patents last year alone."
+
+"Thanks."  I replied.  It was probably the most I was going to get from someone who was himself answerable to a corporation.
+
+"<<print $gender>> Hallivert," he cut in before I could end the conversation, "a word of caution:  Men like Koloman are not used to disappointment."
+
+"Thanks." I replied again.  I didn't sound nearly as thankful this time.
+
+* [[You have more questions|convo_guillory]]
+
 
 
 :: ferro_tour_decline
@@ -635,8 +811,15 @@ Nickolai Koloman betrayed no emotions whatsoever.  "You must have many questions
 /%%/<<endif>><<sugarchoice "koloman_whyme" "Why me?"|koloman_whyme]]
 <<sugarchoice "koloman_coincidence" "So you needed a detective, and the next day I'm conveniently killed and uploaded?">>
 <<sugarchoice "koloman_payment" "What does the job pay?">>
-<<if $investigating>>TODO: Investigating choices
-
+<<sugarchoice "koloman_others" "Who else is investigating the crime?">>
+<<sugarchoice "koloman_failure" "What happens if I can't solve the case?">>
+<<if $investigating>>
+<<sugarchoice "koloman_verify" "If nobody can die here, how do you know she's dead?">>
+<<sugarchoice "koloman_body" "Where is her body?">>
+<<sugarchoice "koloman_enemies" "Did your daughter have any enemies?">>
+<<sugarchoice "koloman_friends" "What about friends?">>
+<<sugarchoice "koloman_nd" "No offense, but why did she spend her time in New Detroit?">>
+<<sugarchoice "koloman_storage" "Wait, did you say she'd been in Storage?  What happened?">>
 <<if $kolomanInPerson>>* [[You have no more questions|koloman_exterior]]<<else>>* [[End the phone call|Wallet]]<<endif>>
 /%%/<<else>>[[I'll take the case|koloman_accept]]
 [[Let me think about it|koloman_reject]]
@@ -647,6 +830,21 @@ Nickolai Koloman betrayed no emotions whatsoever.  "You must have many questions
 "I am sure you hear this answer far more often than it is the truth, <<print $gender>> Hallivert, but it is indeed a coincidence."
 
 Koloman produced a manilla folder similar to the one Guillory had.  "This is the police report on your death.  You were struck and killed by a hundred and twenty year old man with fading eyesight who should have relinquished his vehicle long ago, not an assassin.  You can check these records at the courthouse should you doubt me."
+
+* [[You have more questions|convo_koloman]]
+
+
+
+:: koloman_Friends [conversation nocall]
+"She did."  He smiled fondly.  "All artists, of course, but they were genuinely enthusiastic for her work.  She'd always had the knack of being able to steer away from those who were only after her money.  What she was left with were genuine friends.
+
+"She was dating... someone."  he waved dismissively.  "I do not remember his name.  I met him once, he seemed truly affectionate but..." his face screwed up in concentration.  "I am trying to find a diplomatic way of saying he was not good enough for her.  I am failing."
+
+"You think he had anything to do with-" I started.
+
+"No.  He was //unambitious//."  Koloman said this as though he'd finally found the word he was looking for.  "He truly cared for her, but he was satisfied in his tiny New Detroit apartment, with his small artistic career that barely sustained his time.
+
+"This is the case for all her friends.  They believed in her work - I believe most recently they'd become a theater troupe under her direction - but none of them had aspirations higher than performing plays."  Koloman shook his head.  "It is not something I can understand."
 
 * [[You have more questions|convo_koloman]]
 
@@ -679,6 +877,10 @@ Guillory nods.  "Ah, here it is, you were struck by a //non-automatic// car.  No
 I'd been under the impression that dumb-cars had been finally outlawed years ago.  I hadn't really cared about the issue at the time, and now it was quite obviously too late.
 
 * [[You have more questions|convo_guillory]]
+
+
+
+:: Untitled Passage 1
 
 
 
@@ -826,15 +1028,18 @@ When that answer didn't appear to satisfy me (because it didn't), he continued s
 
 
 
-:: Untitled Passage 6
+:: guillory_locked [conversation nocall]
+Guillory frowned.  "That does sound strange indeed.  You hadn't arranged for that, had you?"
 
+"Why would I lock myself in?"  I asked.
 
+The insurance agent shrugged.  "You can arrange for privacy - designate that certain people not be allowed through your doors.  It's supposed to be impossible to put yourself on that list, but through various miscommunications in the past, it has happened."
 
-:: Untitled Passage 7
+"I don't even know how to do that."
 
+"Still - something to keep in mind.  If you find yourself unable to enter or exit your apartment in the future, don't hesitate to contact me.  We may be able to track down the reason if we can catch it while it's happening."
 
-
-:: Untitled Passage 5
+* [[You have more questions|convo_guillory]]
 
 
 
@@ -919,41 +1124,113 @@ I frowned.  "So does this mean I won't officially be on the case?"  I'd already 
 
 
 
-:: Untitled Passage 1
-
-
-
-:: Untitled Passage 8
-
-
-
-:: Untitled Passage 9
-
-
-
 :: elevator_fail
 Absolutely nothing happened - There must have been something to safeguard me from going places I couldn't afford.
 
 
-:: Untitled Passage 2
+:: ferro_joboffer [conversation nocall]
+I found myself wishing that Samahd had been drinking something when I said that - his reaction indicated I'd have witnessed an actual spit-take.
+
+"Koloman?  As in Nickolai 'more money than God himself' Koloman?"
+
+I smiled a bit.  I hadn't thought I'd ever have been able to surprise Samahd.  "Or so he claimed.  This is his card."
+
+The tour guide took Koloman's card and turned it over.  "Holy hell, that's his actual card!"  He didn't hand it back, instead it disappeared.  I resisted the urge to check my wallet to make sure it had returned there.  Hadn't Samahd himself said I couldn't be robbed?
+
+"I take it he's a bigshot?"
+
+Samahd nodded.  "The biggest of shots, my friend.  Koloman Industries owns and operates the fabs that make half the hardware these sims run on.  Note that - sims.  Plural.  He lives up in New Providence on a //lifetime pass//.  And that's his new, non-mortal lifetime."
+
+"I should take the job, then?"  I didn't think I really needed to ask the question, but Samahd surprised me.
+
+"No.  Well, you should definitely go up there and listen.  If he's sponsoring you a free trip to New Providence?  Go just to experience it.  New Detroit will never seem the same.  But accept the job?  I wouldn't be so fast.  If someone rich as the king of bankers wants something from you and is willing to pay accordingly, it's going to be damn near impossible to actually do.  And you do not want to piss a man like Koloman off."
+
+* [[You have more questions|convo_ferro]]
 
 
 
-:: Untitled Passage 3
+
+:: ferro_realworld [conversation nocall]
+"I was a neurobiologist."
+
+I'd been lied to plenty in my life, but this one very nearly took the cake.  "Bullshit."  I replied.
+
+Samahd hoisted his glass.  "I swear upon this beer, I was a neurobiologist in life."  I was't sure whether his drinking the object of his vow invalidated it, but it didn't seem to stop him.
+
+"But you're a tour guide."  I stated.  I began considering the idea that Samahd was actually independently wealthy and just showing newbies around as a form of slumming.
+
+"I don't know if you follow the trade," Samahd replied in a tone that indicated he knew exactly how much I followed his trade, "but neurobiology is on the outs."
+
+He started counting off reasons on his fingers.  "One:  The biology part.  The only part of biology you need is the part that makes the sensors for the brain-upload machines.
+
+"Two:  The 'neuro' part.  All of that is done by computers pretty much exactly like the one you're currently in.  If you want to do research, you just get consent from someone who's already been uploaded and watch their brain do their thing.  You barely have to know anything about neurons or how they're connected because the machines take care of that.
+
+"Three:  You can't do it from inside the machine.  At least not here in New Olympus; got outlawed sometime back, probably because someone wrecked someone else's brain or something.
+
+"Four:  There's no money in it.  Once the technology got good enough to do a full simulation, why bother doing anything else?  You've got your AI researchers making better machine intelligences, but that kinda rules out biology by definition."
+
+Samahd's omnipresent smile had actually dampened somewhat at this point, and he seemed to take a moment to put it back into place.  "Sorry if I sound cynical.  The ghosts of factory workers everywhere are laughing at me for being replaced by a machine, especially now that I am one.  I can't be too angry - the field used to be decently paying if not lucrative, and I could afford a few decades of afterlife, so it's not too bad."
+
+* [[You have more questions|convo_ferro]]
 
 
 
-:: Untitled Passage 4
+:: ferro_locked [conversation nocall]
+Samahd looks dumbfounded.  "What, you'd been locked //in//?  So far as I know, that's impossible.  Well, it's impossible to get stuck either way when it comes to your own property.  Only person who could do that is Athena herself, and I doubt her holiness bothers slumming it on this level just to pull a few pranks."
+
+"It happened."  I replied tersely.  I was getting a little tired of people not believing something I'd rather vividly lived through.
+
+Samahd just shrugged.  "I've got an answer you're not going to like:  noob fever."
+
+"What," I enunciated, "the hell," I added for emphasis, "is noob fever?"
+
+My tour guide looked like he was debating between cracking up at this question and sparing me some dignity.  Fortunately for both of us, he chose the second option.
+
+"Kinda a slang term, in case you hadn't figured it out.  And like I said, you're not going to like it.  But not everyone who uploads uploads... whole.  Used to happen a lot more often, when the system was new and parts were still experimental.  Still happens from time to time, though.  There are patterns in the brain that take a while to adapt to a simulated experience.  Like you've probably slept since you got here, right?  You don't need sleep, but it's so hardwired into your brain that it'll take you a few months to realize it."
+
+"So sleeping makes you crazy?"  It was the most reasonable of the various ridiculous ideas floating through my head.
+
+"Not what I'm saying, it was just an example of something that holds over from life.  Some folks, they still get hungry or thirsty for awhile.  But in some cases, it's worse.  Schizophrenia sets in for some folks.  Psychosis, agoraphobia, mania - depression too, but that's pretty treatable."
+
+"So I'm crazy."  I was pretty sure I wasn't crazy, but wasn't that what all crazy people thought?
+
+"Also not what I'm saying.  I'm saying it's a spectrum, okay?  It's called noob //fever// because, like a fever, it goes away.  People've come in to the sim ranting that the lizard people are the true masters of the world, and a few weeks down the line they're be laughing about how utterly crazy that all seems now."
+
+Even though I was utterly certain that I'd endured that strange episode in my apartment, it was still relieving to hear that, even if it was in my head, it was probably temporary.
+
+* [[You have more questions|convo_ferro]]
+
+
+
+:: ferro_tour_accept_later [conversation nocall]
+<<set $acceptingTour=1>>"Oh, hey, great!  Head over to the insurance building, that's where it usually starts.  I'll meet you there."
+
+<<if $ferroInPerson>>* [[You'll be on your way|ferro_exit]]<<else>>* [[End the phone call|Wallet]]<<endif>>
+
+
+:: ferro_pi [conversation nocall]
+Samahd shrugged.  "I mean, technically the answer to that is 'yes'.  Cheating spouses are still a thing in here, believe it or not.  But it's very much like the artist situation:  You have to start the business, you have to find clients yourself, you basically have to do all the work and most of the time you're going to end up with nothing to show for it.
+
+"Sorry."
+
+
+* [[You have more questions|convo_ferro]]
 
 
 
 :: convo_ferro [conversation nocall]
 Ferro nodded at me.  "Long time no see!"
 
+<<sugarchoice "ferro_tourguide" "How do you become a tour guide?">>
+<<if $hasHadRecruitmentCall>><<sugarchoice "ferro_joboffer" "I got a job offer call from Nickolai Koloman">>
+/%%/<<endif>><<if $attemptedEscape>><<sugarchoice "ferro_locked" "When I was on a call earlier, I couldn't leave my apartment.  What's the deal with that?">>
 <<if not $hasHadTour>>
 [[I've changed my mind about the tour|ferro_tour_accept_later]]
 <<else>>
-
+<<sugarchoice "ferro_nottour" "So what's not on the tour?">>
+<<sugarchoice "ferro_pi" "I was a private investigator in real life, is that a job here?">>
+<<sugarchoice "ferro_food" "You mentioned that starving artists don't actually starve.  Do I need to eat here?">>
+<<sugarchoice "ferro_realworld" "What did you do in the real world?">>
 <<endif>>
 
 <<if $ferroInPerson>>* [[You have no more questions|ferro_exit]]<<else>>* [[End the phone call|Wallet]]<<endif>>
@@ -965,10 +1242,49 @@ Ferro nodded at me.  "Long time no see!"
 
 
 
-:: ferro_tour_accept_later [conversation nocall]
-<<set $acceptingTour=1>>"Oh, hey, great!  Head over to the insurance building, that's where it usually starts.  I'll meet you there."
+:: ferro_nottour [nocall conversation]
+Samahd grinned at the question.  "That.  That right there, that's what I like.  When people wait until my off-hours and ask the //real// questions.
 
-<<if $ferroInPerson>>* [[You'll be on your way|ferro_exit]]<<else>>* [[End the phone call|Wallet]]<<endif>>
+"The hub's not on the tour, but I covered that.  None of the upper cities is on the tour because it'd be a shitload more expensive.  Ditto off-grid - besides, real world tour guides don't take you to other cities either, right?"
+
+He shook his head, still grinning.  Then, eyebrows cocked, he leaned in.  "No, the //real// answer that nobody else will talk about is the wrong side of the tracks."
+
+I replied with my most bland look.  It's a trick in my arsenal that communicates a sentiment roughly equivalent to "you have given me so little information I can't even start being interested in what you're going on about."
+
+"I know, I know, you want the real info.  And I know, I'm off hours.  But this one?  It would cost me my job.  Lemme just tell you that there's a reason the area has that name, and it's not just because it's across some railroad tracks."
+
+"So what, it's forbidden?"  I was new to the whole simulated reality thing, but it seemed like they could just wall off anything they didn't want people going to.
+
+"If you're a respectable citizen, sure.  And even if you're not so respectable, like you and I.  Anyone can cross the tracks, it's the people who //want// to you have to look out for."
+
+"You're being splendidly helpful."  I also had a bland tone of voice.
+
+Samahd shrugged.  "Yep, it's what I do.  Listen, I'm not going to tell you not to go.  Well, actually, I am going to tell you that.  Don't go.  But I know someone like you isn't going to listen.  So when you come back, having experienced the graciousness and exhuberant personality of the people there, remember that I told you so.
+
+"Actually," he continued, "you won't need to remember.  I'll remind you."<<set $askedAboutPvP=1>>
+
+* [[You have more questions|convo_ferro]]
+
+
+
+:: ferro_tourguide [conversation nocall]
+"Well, first you need to live here for about thirty years." he laughed.  "While you're doing that, become really good at walking backward.
+
+"Sorry if you were hoping to get that as a first job, but the tour agency tends to want less - how to put this delicately - blisteringly ignorant people."
+
+* [[You have more questions|convo_ferro]]
+
+
+
+:: ferro_food [conversation nocall]
+"Nah," Samahd waved the question away.  "How long's it been since you ate something?  Or, for that matter, drank?"
+
+<<if $ferroInPerson>>He signaled the bartender for another drink.<<else>>He made a signaling motion to someone I couldn't see through the phone.  Probably the bartender.<<endif>>
+
+"You don't //need// to eat or drink or anything else for that matter.  But people want to.  The booze here isn't very good by real-world standards, but it tastes mostly right and burns on the way down like it ought to.  Same for the food.  Well, the burning might be because the chef here kinda sucks, but you get my meaning.  It's a pleasant experience and, hey, you can't gain weight so why not?"
+
+* [[You have more questions|convo_ferro]]
+
 
 
 :: courthouse_exterior
