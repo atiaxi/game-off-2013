@@ -1,5 +1,8 @@
 ﻿:: Start
-The afterlife had wood paneling.
+<<silently>>
+<<set $dreams=0>>
+<<set $emilNervous=0>>
+<<endsilently>>The afterlife had wood paneling.
 
 It'd ordinarily be an absurd thing to notice.  I was dead, after all, in the hereafter's own waiting room.  You'd think there'd be pearly gates, or at least a hint of brimstone, but instead?
 
@@ -85,7 +88,9 @@ The point was, I was dead and I ought to be upset by it, but I couldn't find it 
 <<set $money=18000>>
 
 <<set $cardFerro=1>>
-<<set $cardKoloman=1>>
+<<set $cardKoloman=2>>
+<<set $cardClub=1>>
+<<set $investigating=1>>
 
 <<set $hasWallet=1>>
 <<set $hasHadTour=1>>
@@ -93,7 +98,7 @@ The point was, I was dead and I ought to be upset by it, but I couldn't find it 
 <<update>>
 <<endsilently>>DEBUG ENABLED
 
-<<display "elevator_interior">>
+<<display "games_exterior">>
 
 
 :: sugarchoice script [script]
@@ -141,6 +146,18 @@ try {
 } catch(e) {
     throwError( place, "Error setting up sugarcane choices macro: " + e.message );
 } 
+
+
+:: else if [script]
+version.extensions.ifMacros={major:2,minor:0,revision:0};macros["if"]={handler:function(place,macroName,params,parser){
+var conditions=[],clauses=[],srcOffset=parser.source.indexOf(">>",parser.matchStart)+2,src=parser.source.slice(srcOffset),endPos=-1,currentCond=parser.fullArgs(),currentClause="",t=0,nesting=0;
+for(var i=0;i<src.length;i++){if(src.substr(i,9)=="<<endif>>"){nesting--;if(nesting<0){endPos=srcOffset+i+9;
+conditions.push(currentCond);clauses.push(currentClause);break;}}if((src.substr(i,6)=="<<else")&&nesting==0){conditions.push(currentCond);
+clauses.push(currentClause);currentClause="";t=src.indexOf(">>",i+6);if(src.substr(i+6,4)==" if "){currentCond=Wikifier.parse(src.slice(i+10,t));
+}else{currentCond="true";}i=t+2;}if(src.substr(i,5)=="<<if "){nesting++;}currentClause+=src.charAt(i);
+}try{if(endPos!=-1){parser.nextMatch=endPos;for(i=0;i<clauses.length;i++){if(eval(conditions.shift())){new Wikifier(place,clauses[i ].trim());
+break;}}}else{throwError(place,"can't find matching endif");}}catch(e){throwError(place,"bad condition: "+e.message);
+}}};
 
 
 :: power_of_two_exterior
@@ -216,6 +233,9 @@ CEO, Koloman Industries<br/>
   <<if $cardKoloman eq 2>>
 [[Call Nickolai Koloman|convo_koloman]]
   <<endif>>
+<<endif>>
+<<if $cardClub>>
+[[Call the Hacker's Club|convo_club]]
 <<endif>>
 <<else>>
 I couldn't call anyone at the moment.
@@ -413,20 +433,12 @@ He finally seemed to get the message that I wasn't feeling like playing his game
 <<display "real_convo_guillory">>
 
 
-:: Untitled Passage 2
-
-
-
-:: Untitled Passage 3
-
-
-
 :: koloman_storage [conversation nocall]
 "Oh, no, you misunderstand, she was not a criminal or anything."  Koloman explained.
 
 "I thought storage was a one-way street."  I replied neutrally.  If there was a way out of the afterlife's simulated purgatory, I didn't want to appear too eager to learn about it and scare the guy off.
 
-"Ordinarily, yes.  These circumstances were different - the contract I'd written up for our placement into the simulation, it covered both of us, but only //both// of us.  We had to arrive at the same time.
+"Ordinarily, yes.  These circumstances were different - the contract I'd written up for our placement into the simulation, it covered both of us, but only //both// of us.  We had to arrive at the same time."
 
 A slow frown came over his face.  "I anticipated that I would die first.  I did not want to spend an eternity waiting in a simulated world for my daughter to join me.  It seemed... unseemly to silently hope for her death so that she might live with me again."  He scoffed.  "So the contract stated that the first to die would be placed in storage."
 
@@ -447,7 +459,7 @@ He sighed, then looked back up at me.  "When I did, when I came here, the first 
 :: koloman_others [conversation nocall]
 "I hired two other investigators, but they are no longer employed by me."  Nickolai answered simply.
 
-"There are many retired policemen in the city, but thus far only one has decided to become involved.  He is the one who moved my daughter's body to the courthouse - so far as I know, that's where he lives.  Feel free to talk to him, though he's under no obligation to answer either you or me and he is well aware of that fact."
+"There are many retired policemen in the city, but thus far only one has decided to become involved.  She is the one who moved my daughter's body to the courthouse - so far as I know, that's where she lives.  Feel free to talk to her, though she's under no obligation to answer either you or me and - believe me - she is well aware of that fact."
 
 * [[You have more questions|convo_koloman]]
 
@@ -536,7 +548,7 @@ There were three exits here:  The door to Alex Guillory's office at least attemp
 :: koloman_body [conversation nocall]
 "Her body is stored at the courthouse for the time being, but it was found at her apartment in the arts district."
 
-Koloman didn't meet my gaze, only waved dismissively.  "You now have the key.  Feel free to enter and make note of whatever you will, it is all as the police left it.  I... I haven't had the heart yet to visit and clean it out."
+Koloman didn't meet my gaze, only waved dismissively.  "You now have the key, and directions should be printed on my card.  Feel free to enter and make note of whatever you will, it is all as the police left it.  I... I haven't had the heart yet to visit and clean it out."
 
 He sighed.  "I have much work to do once this investigation is complete."  His mood shifted suddenly, the defeated hunched-over posture becoming ramrod straight, the frown intensifying into a teeth-gritting grimace.  "Once I know the criminal's name, yes... much to do."
 
@@ -646,7 +658,13 @@ Guillory was every bit the model of an attentive insurance agent.  "What questio
 /%%/<<endif>><<if $heardNeedsJanitorPermission>><<sugarchoice "guillory_janitor" "Your receptionist won't let me into the janitor's closet">>
 /%%/<<endif>><<if $wasOfferedTour>><<sugarchoice "guillory_tour" "Someone offered to be a 'tour guide' for me.  Is it a scam?">>
 /%%/<<endif>><<if $attemptedEscape>><<sugarchoice "guillory_locked" "I was locked in my apartment earlier.">>
-/%%/<<endif>><<if $hasHadRecruitmentCall>><<sugarchoice "guillory_jobofer" "I got a job offer from Nickolai Koloman">>
+/%%/<<endif>><<if $hasHadRecruitmentCall>><<sugarchoice "guillory_joboffer" "I got a job offer from Nickolai Koloman">>
+/%%/<<endif>><<if $mugged>>
+<<sugarchoice "guillory_how_teleport" "How did get me out of that mugging?">>
+<<sugarchoice "guillory_pvp" "What the hell happened back there?">>
+<<sugarchoice "guillory_warn" "Why didn't you warn me about that place?">>
+/%%/<<endif>><<if $accidentallyTeleported>>
+<<sugarchoice "guillory_tp" "I had a dream last night... and woke up somewhere else">>
 /%%/<<endif>>
 
 <<if $guilloryInPerson>>* [[You have no more questions|guillory_exit]]<<else>>* [[End the phone call|Wallet]]<<endif>>
@@ -695,7 +713,7 @@ He smiled welcomingly as he caught my gaze, and had closed the gap between us be
 
 
 :: koloman_witnesses [conversation nocall]
-"Not that I know of, though my information on the topic is minimal - this is the sort of thing I'll expect you to find.  Her body was discovered by her boyfriend," his sneer of contempt at the thought of the man his daughter had been dating seemed nearly automatic, "but as ill a match as he was for her he seemed to genuinely care about her.  I do not think he did this."
+"Not that I know of, though my information on the topic is minimal - this is the sort of thing I'll expect you to find.  Her body was discovered by her boyfriend," his sneer of contempt at the thought of the man his daughter had been dating seemed nearly automatic rather than heartfelt, "but as ill a match as he was he seemed to genuinely care about her.  I do not think he did this."
 
 * [[You have more questions|convo_koloman]]
 
@@ -753,7 +771,7 @@ Guillory had anticipated my next question.  "Yes, Storage is what it sounds like
 :: guillory_joboffer [conversation nocall]
 Guillory's sole reaction was a slight raising of one of his eyebrows.  "That is a very influential person who contacted you."
 
-"So can I trust him?"  It was the most important question.  Of course, if Koloman was as important as Guillory had just said, it was possibly I couldn't trust anyone's answer to that question.
+"So can I trust him?"  It was the most important question.  Of course, if Koloman was as important as Guillory had just said, it was possible I couldn't trust anyone's answer to that question.
 
 "He strikes me as a mostly reputable businessman" was the eventual answer.  "I only have access to public records, of course, but he doesn't seem to be particularly cutthroat.  His manufacturing concerns are simply more efficient than his competitors, likely due to proprietary techniques.  Koloman Industries applied for 1500 patents last year alone."
 
@@ -762,6 +780,17 @@ Guillory's sole reaction was a slight raising of one of his eyebrows.  "That is 
 "<<print $gender>> Hallivert," he cut in before I could end the conversation, "a word of caution:  Men like Koloman are not used to disappointment."
 
 "Thanks." I replied again.  I didn't sound nearly as thankful this time.
+
+* [[You have more questions|convo_guillory]]
+
+
+
+:: guillory_how_teleport [conversation nocall]
+"It is one of the functions of the card."  Guillory explained simply.  "In emergency, it can bring you here to this office.  Keep in mind that only the first such use is free - it becomes increasingly expensive after that to prevent abuse.  It's not natural for things to teleport around."
+
+"Not natural?"  I gestured to the office.  "This whole place isn't natural."
+
+"True.  But it is designed to simulate the natural and, as such, has a limit on the amount of un-naturality that it can withstand."
 
 * [[You have more questions|convo_guillory]]
 
@@ -835,7 +864,7 @@ Koloman produced a manilla folder similar to the one Guillory had.  "This is the
 
 
 
-:: koloman_Friends [conversation nocall]
+:: koloman_friends [conversation nocall]
 "She did."  He smiled fondly.  "All artists, of course, but they were genuinely enthusiastic for her work.  She'd always had the knack of being able to steer away from those who were only after her money.  What she was left with were genuine friends.
 
 "She was dating... someone."  he waved dismissively.  "I do not remember his name.  I met him once, he seemed truly affectionate but..." his face screwed up in concentration.  "I am trying to find a diplomatic way of saying he was not good enough for her.  I am failing."
@@ -880,7 +909,18 @@ I'd been under the impression that dumb-cars had been finally outlawed years ago
 
 
 
-:: Untitled Passage 1
+:: guillory_pvp [conversation nocall]
+"You crossed the tracks an entered a 'player-vs-player', or 'PvP' zone."  He didn't put air quotes around the word, but I could tell he'd wanted to.
+
+"Player?  That was no game back there."  Despite the fact that I'd been safely transported to Guillory's office, I could still feel each and every one of my injuries.
+
+"It's an old term, a hold-over from when the only immersive environments //were// games.  In such zones, players could fight each other rather than computer-created enemies."
+
+"Wonderful."  I said.  "So I wandered into a game I could be hurt in."
+
+"It's not a game.  Rather, it is a part of the main simulation with slightly more fideltiy, enough to enable injuries and pain.  But yes, as you discovered, you could be hurt."
+
+* [[You have more questions|convo_guillory]]
 
 
 
@@ -1043,6 +1083,32 @@ The insurance agent shrugged.  "You can arrange for privacy - designate that cer
 
 
 
+:: guillory_warn [conversation nocall]
+"<<print $gender>> Hallivert, the PvP zones aren't spoken of in polite company.  They're havens for deviants and perverts, people who not only want pain but seek it out."
+
+He met my gaze briefly.  "More to the point, we've found that when we describe an area as full of deviants and perverts, that only makes people want to seek it out all the more.  Outright warning people not to go there has much the same effect.  It took us a long time and many harmed newcomers before we decided on our current stance of silence."
+
+He made a vague gesture in my direction.  "Additionally, this is why we enable a free teleportation for cardholders.  We know that some people will wander into a situation whether it's good for them or not."
+
+* [[You have more questions|convo_guillory]]
+
+
+
+:: guillory_tp [conversation nocall]
+Guillory didn't seem surprised by this at all, though at this point I was beginning to wonder what //would// surprise him.
+
+"That's perfectly normal"  he assured me.  "Sleepwalking is common for people new to the simulation - even for people who have never walked in their sleep before."
+
+I frowned.  "I woke up at the train station."  It was a minor lie, and the PvP zones seemed like a tender subject.  "That's quite a hike from my apartment."
+
+Guillory just nodded at this.  "That's far from the furthest that people have walked.  I once had someone come into my very office without realizing it.  It will pass, <<print $gender>> Hallivert."
+
+I had to concede that Guillory was the expert in these matters... though I didn't have to like it.
+
+* [[You have other questions|convo_guillory]]
+
+
+
 :: olympus_from_nd
 <<if $hasOlympusInvite>>
 TODO
@@ -1110,7 +1176,7 @@ Koloman continued talking.  "This is true.  You are inexperienced in this world 
 
 This was not a very good pep speech.
 
-"I am not sure if you have noticed, but police presense in New Detroit is... nil, to put it nicely.  There are men who used to be police in their former lives, but most of them have retired.  There is no need to police when the simulation can do so automatically, with far greater coverage and effectiveness.  Hmph.
+"I am not sure if you have noticed, but police presense in New Detroit is... nil, to put it nicely.  There are men and women who used to be police in their former lives, but most of them have retired.  There is no need to police when the simulation can do so automatically, with far greater coverage and effectiveness.  Hmph.
 
 "What I am saying is that any overly-visible response such as hiring an expensive investigator would bring these men out of their retirement.  They have even less experience than you, but wield considerable clout.  They would make a show out of the investigation - moreso than it already is - and, I suspect, be ineffective at the actual investigating. 
 
@@ -1135,7 +1201,7 @@ I found myself wishing that Samahd had been drinking something when I said that 
 
 I smiled a bit.  I hadn't thought I'd ever have been able to surprise Samahd.  "Or so he claimed.  This is his card."
 
-The tour guide took Koloman's card and turned it over.  "Holy hell, that's his actual card!"  He didn't hand it back, instead it disappeared.  I resisted the urge to check my wallet to make sure it had returned there.  Hadn't Samahd himself said I couldn't be robbed?
+The tour guide examined Koloman's card.  "Holy hell, that's his actual card!"
 
 "I take it he's a bigshot?"
 
@@ -1194,7 +1260,7 @@ My tour guide looked like he was debating between cracking up at this question a
 
 "So I'm crazy."  I was pretty sure I wasn't crazy, but wasn't that what all crazy people thought?
 
-"Also not what I'm saying.  I'm saying it's a spectrum, okay?  It's called noob //fever// because, like a fever, it goes away.  People've come in to the sim ranting that the lizard people are the true masters of the world, and a few weeks down the line they're be laughing about how utterly crazy that all seems now."
+"Also not what I'm saying.  I'm saying it's a spectrum, okay?  It's called noob //fever// because, like a fever, it goes away.  People've come in to the sim ranting that the lizard people are the true masters of the world, and a few weeks down the line they'll be laughing about how utterly crazy that all seems now."
 
 Even though I was utterly certain that I'd endured that strange episode in my apartment, it was still relieving to hear that, even if it was in my head, it was probably temporary.
 
@@ -1224,13 +1290,18 @@ Ferro nodded at me.  "Long time no see!"
 <<sugarchoice "ferro_tourguide" "How do you become a tour guide?">>
 <<if $hasHadRecruitmentCall>><<sugarchoice "ferro_joboffer" "I got a job offer call from Nickolai Koloman">>
 /%%/<<endif>><<if $attemptedEscape>><<sugarchoice "ferro_locked" "When I was on a call earlier, I couldn't leave my apartment.  What's the deal with that?">>
-<<if not $hasHadTour>>
+/%%/<<endif>><<if not $hasHadTour>>
 [[I've changed my mind about the tour|ferro_tour_accept_later]]
 <<else>>
 <<sugarchoice "ferro_nottour" "So what's not on the tour?">>
 <<sugarchoice "ferro_pi" "I was a private investigator in real life, is that a job here?">>
 <<sugarchoice "ferro_food" "You mentioned that starving artists don't actually starve.  Do I need to eat here?">>
 <<sugarchoice "ferro_realworld" "What did you do in the real world?">>
+<<if $mugged>>
+<<sugarchoice "ferro_mugged" "I just got my ass kicked.">>
+/%%/<<endif>><<if $accidentallyTeleported>>
+<<sugarchoice "ferro_tp" "I went to sleep and woke up somewhere else.">>
+/%%/<<endif>>
 <<endif>>
 
 <<if $ferroInPerson>>* [[You have no more questions|ferro_exit]]<<else>>* [[End the phone call|Wallet]]<<endif>>
@@ -1287,6 +1358,65 @@ Samahd shrugged.  "Yep, it's what I do.  Listen, I'm not going to tell you not t
 
 
 
+:: ferro_mugged [conversation nocall]
+<<if $askedAboutPvP>>
+"I told you so."  Samahd looked more amused at my terrible condition than scared.
+<<endif>>
+"What the hell?"  I demanded.  I was in no mood for Samahd's careless facade.  "Why didn't you warn me about the PvP zones?"
+
+<<if $askedAboutPvP>>
+"I seem to recall doing exactly that."  Ferro sipped a drink.  "Something along the lines of "don't go", if I recall correctly.
+
+"You couldn't tell me //why//?"
+/%%/
+<<endif>>"No, I couldn't!  It'd cost me my job.  Tour guide training specifically says not to talk about the zones.  And do you know why?"
+
+"Because it's funny to them when someone gets mugged?"  I ventured.  "They're getting kickbacks from the robbers?"
+
+"No."  Samahd replied.  "Because they want to project an image of family-friendliness onto this place."
+
+"The very first place you took me to was a whorehouse, Samahd."
+
+"It's a particular kind of friendliness, but you get what I mean.  The Power of Two's clean, everyone's there of their own volition, it's a good place."
+
+He continued.  "The wrong side of the tracks, on the other hand, is full of people who want to hurt people and //know// that those people are getting hurt.  Also pain junkies, but those people just go to another bordello.
+
+"You see what I'm saying?  Telling someone not to go into the PvP zone is pretty much like telling you not to go into the adult novelty shop and start hitting people with dildos.  It just ain't done in polite company."
+
+* [[You have more questions|convo_ferro]]
+
+
+
+
+:: ferro_tp [conversation nocall]
+Samahd lauged heartily.  "Lemme guess, people told you you're 'sleepwalking', right?"
+
+I didn't bother trying to answer, because as usual Samahd had no intention of giving me time to.
+
+"In their defense," he said, inventing imaginary virtues for the people he assumed had been talking to me, "they honestly believe that."
+
+"And I take it that you don't?"
+
+Samahd leaned in.  At this point I'd learned that this meant he was either going to tell me a secret or bullshit me, possibly both.
+
+"It's not sleep //walking//, Hallivert.  It's sleep //teleporting//."
+
+"Bullshit." That was an easy call.
+
+"Oh?  How far did you walk?"
+
+"Train station."  I wasn't about to confess to ending up in the PvP zones.
+
+"That's not exactly sleepwalking into the kitchen, now is it?"
+
+"Seems more plausible than teleporting directly there."  I countered.
+
+Samahd shook his head.  "Does it?  This isn't the real world.  That's what you have to realize.  Your current location is just a couple of numbers in a computer somewhere - change those and boom!  You're somewhere else."
+
+* [[You have more questions|convo_ferro]]
+
+
+
 :: courthouse_exterior
 The architects who created New Detroit clearly had an extremely generic template - the Courthouse could not have looked any more the part.  Faux-marble stairs, textured columns, even a statue of justice out front.
 
@@ -1306,10 +1436,261 @@ He shrugged.  "You really do get used to it.  Anyway, come on, let's go get reli
 
 * [[Follow him|church_exterior]]
 <<else>>
+* [[Enter the Courthouse|courthouse_interior]]
 * [[Visit the Church|church_exterior]]
 * [[Go to the Hub|Hub]]
 * [[See the elevator|elevator_exterior]]
 <<endif>>
+
+
+:: courthouse_interior
+The fake-marble floor had no sheen and the supposedly regal-looking columns ended up looking more like oversized plastic toys.  The interior of the courthouse was little better than a stage set.  Come to think of it, I was pretty sure I'd seen plays with better production values.
+
+A [[bored-looking man]] stood behind a plexiglass window with a speaker in it.  Seemed overkill for a universe in which he couldn't be hurt.
+
+<<if $clerkApproved>>
+* [[Head downstairs|courthouse_basement]]
+<<endif>>
+* [[Leave the Courthouse|courthouse_exterior]]
+
+
+
+:: courthouse_basement
+The basement of the courthouse looked more like the basement of a hospital than a police department or, for that matter, a courthouse.  A flat grey floor, walls tiled with those small square ceramics, foam drop ceilings.  I suspected that if I were in a better simulation that the old-style florescent lights would be buzzing.
+
+A [[surly-looking woman]] was leaning against the wall.  Despite the fact that she was very clearly looking into the open door that lead into the morgue, I got the distinct impression she was watching my every move.
+
+* [[Go to the morgue|morgue]]
+* [[Head back upstairs|courthouse_interior]]
+
+
+
+:: morgue
+The morgue was somewhat small, understandably.  It consisted of tile covering the walls, floors, and ceilings, and a single operating table in the middle of the room.
+
+The utterly still body of Iva Koloman was on top of the table.<<set $seenIva=1>>
+<<if $seenComaCarl>>I'd only ever seen one body as completely inert as this one - Coma Carl.  And Iva had been a regular visitor to the man.  My thoughts changed from the assumed homicide to virus.  Were computer viruses still a thing inside simulated realities?  Had Iva contracted something from Carl?
+
+The fact that the uncooperative cop outside the morgue hadn't ended up in this state was a blow to the 'virus' theory, though.
+<<endif>><<display "morgue_actions">>
+
+
+:: bored-looking man
+The man quirked an eyebrow at me as I approached. His expression cycled through its previous boredom, faint hope that I was going to relieve his monotony, and vague fear that I was going to be a pain in his ass.
+
+<<display "convo_courthouse">>
+
+
+:: convo_courthouse
+"What do you need?" The clerk asked me, his voice tinged just slightly with suspicion.
+
+<<sugarchoice "clerk_hello" "How's things?">>
+<<sugarchoice "clerk_job" "I'm looking for a job">>
+<<if $heardOfDeath>>>
+<<sugarchoice "clerk_death" "I heard someone died">>
+<<endif>><<if $investigating>>
+<<sugarchoice "clerk_investigate" "Koloman hired me to investigate this">>
+<<endif>>
+
+* [[You have no more questions|courthouse_interior]]
+
+
+
+:: clerk_investigate
+"Yeah, and I'm-"
+
+I never got to find out what imaginary historical figure he was going to compare himself to, because I'd held out the card and he shut up the moment he saw it.  I still had no idea how these people were verifying that these things were real; it seemed I could just get a blank business card of my own and write whatever I wanted.  Maybe it was just that nobody wanted to get on the bad side of someone like Koloman by forging their card.
+
+"Holy shit!" the clerk let out a rare show of actual emotion.  "I mean, when the cops started coming out of retirement it was one thing, but Koloman himself is hiring people."  He let out a low whistle of appreciation.  "Man, better you than me."
+
+He reached down and pressed a button on his desk.  There was a loud 'click' of unlocking from an otherwise completely unremarkable door at the other side of the lobby.  I was starting to understand the simulation enough to know that it hadn't actually unlocked, I'd just been given permission to go through it.  I bet that if I checked my keyring I'd find another bit of metal there.
+
+"You can head downstairs to the cop shop if you want."  The clerk said.  "The... body is down there."<<set $clerkApproved=1>>
+
+* [[You have more questions|convo_courthouse]]
+
+
+
+:: surly-looking woman
+"I can only assume" the woman spoke without even looking at me "that Simon let you down here for a good reason.  Unless he's trying to get fired.  Given his job, that's still a good reason."
+
+<<display "convo_cop">>
+
+
+:: convo_cop
+"So what do you want?"
+
+<<sugarchoice "cop_intro" "Who are you?">>
+<<sugarchoice "cop_obvious" "Are you a cop?">>
+<<sugarchoice "cop_details" "So what happened?">>
+<<sugarchoice "cop_koloman"  "I'm working for Nickolai Koloman">>
+<<sugarchoice "cop_partner" "We should work together.">>
+<<sugarchoice "cop_attitude" "What's with the attitude?">>
+<<sugarchoice "cop_morgue" "I'm going to see the body.">>
+
+* [[You have no more questions|courthouse_basement]]
+
+
+
+
+:: cop_partner
+A bemused smile twitched on her face briefly.  "I can't decide whether to laugh my ass of or club you until I get tired."
+
+"So that's a-"
+
+"No.  Hell no."
+
+* [[You have more questions|convo_cop]]
+
+
+
+:: morgue_actions
+* [[Examine the body|morgue_body]]
+* [[Try to talk to her|morgue_talk]]
+* [[Try to move her|morgue_move]]
+* [[Exit the morgue|courthouse_basement]]
+
+
+
+:: morgue_body
+Iva's body was still in a way I'd never seen anything behave before<<if $seenComaCarl>>, other than Coma Carl<<endif>>.  She was like a photograph - not only was her body not moving, but nothing about her moved.  Even the dress she was wearing was suspended in place.
+
+I turned the seldom-used forensic portions of my brain on.  There were no cuts or bruises.  No sign of a struggle.  That said, she also didn't appear to have died in her sleep - her eyes were wide open and I didn't want to touch her to try to close them.  Her legs were ramrod straight next to each other and her arms had adopted a similar posture at her sides.  She looked like the most realistic mannequin ever invented.
+<<display "morgue_actions">>
+
+
+:: clerk_death
+The clerk shuddered - one of the few genuine reactions I'd seen from him.  "You heard right.  The dead girl's in the police department."
+
+He clarified after I gave him one of my trademark blank looks.  "Downstairs.  Courthouse is also a cop shop, not that there's much need for cops.  Point is, there's also a morgue down there.  Before this week I'd have told you there's not much need for that, too, but..." he trailed off, shuddering again.
+
+"Can I-"
+
+<<if $clerkApproved>>
+"Yeah, yeah," the man waved me away emphatically.  "The less I know about it, the better, go on."
+<<else>>
+"No." he interrupted.  "Listen, today with this empty lobby and the one crazy guy who won't shut up - that's you - that's every day for me.  And as much as I hate it, I hated earlier this week even more.  There's one news channel on the TV because nobody cared enough to make more than one, but someone dies and suddenly everyone's a journalist."
+
+"You looked bored."  I countered.
+
+"To tears.  But I'm much happier dealing with one person than with a room full of wannabe reporters all trying to head downstairs.  Now I'm not saying you're some amateur like them, but I am saying you're not getting any further than they did."<<endif>>
+
+* [[You have more questions|convo_courthouse]]
+
+
+
+:: clerk_hello
+"Peachy" the clerk replied.  There was a moment of silence.
+
+"I'm sorry bud, but if you don't have official business I have to ask you to leave" he sounded genuinely apologetic.  I got the impression that this conversation, as bare-bones as it had been, had been a high-point of interaction for him.  "You're holding up the line."
+
+I glanced back at a room entirely devoid of people other than myself.
+
+"Yeah, I know." the clerk said.
+
+* [[You have more questions|convo_courthouse]]
+
+
+
+:: clerk_job
+The clerk leaned in.  "I can see why you'd want this job.  It's a very stimulating and challenging position.  Why just this morning I walked a lap of my entire office!"
+
+The entire office was, maybe, four square meters.  At least his sarcasm seemed good-natured.
+
+"I don't mean I want your job." I clarified.  "A job."
+
+The clerk shrugged.  "They're all like this.  Courthouse here is mostly records and they're filed automatically.  I'm just up front because visitors like to talk to a human instead of a computer."
+
+* [[You have more questions|convo_courthouse]]
+
+
+
+:: cop_intro
+"Who am I?" this time she did look at me.  "Who the fuck are you?"
+
+It took me a moment to realize this was not a rhetorical question.  "Sam Hallivert.  I'm a PI investigating the Koloman case."
+
+The woman snorted derisively and went back to her previous stance of not looking my way.  "PI, shit."  She shook her head and did not explain her comment further.  I was pretty sure I wouldn't have liked the explanation anyway.
+
+* [[You have more questions|convo_cop]]
+
+
+
+:: cop_obvious
+"Not for long, what with brilliant people like you gunning for the detective spot"
+
+Clearly this woman and the clerk had graduated from the same school of sarcasm.  I decided to play dumb.
+
+"What's a cop for in a place where you can't commit crime?"  I asked.
+
+The policewoman rolled her eyes.  "Yeah, the dead girl in there must have just flipped her switch to 'off', what was I thinking?"
+
+"People aren't dropping in the streets, this isn't like the real world, why are you here?"  I persisted.
+
+"I came out of retirement because a girl's dead.  What more do you want?"
+
+* [[You have more questions|convo_cop]]
+
+
+
+:: cop_koloman
+"I bet you get people shaking in their boots when you mention that name."  She did not let me answer.  "Fuck you.  I don't care if you're working for the computer-incarnated ghost of King fucking Arthur."  She met my gaze.  "You're a pissant.  You're a con-man taking advantage of a desperate father."
+
+"And you're solving the case just standing there?"  I normally didn't let people get under my skin, but I couldn't resist needling her.
+
+"Yeah, that's all I do, stand here waiting for idiots to come by."  Her eyes moved back to the interior of the morgue.  "I come here when I need to think.  When I need to remind myself why I'm doing this job.  I don't expect you to understand."
+
+* [[You have more questions|convo_cop]]
+
+
+
+:: morgue_talk
+"Iva".  I said.
+
+"Yeah," the sarcastic voice of the policewoman in the hall drifted into the room.  "Talk to her.  Maybe clap really hard next to her ear.  That'll wake her up."
+
+I ignored her.  "Iva, your father hired me to find out what happened to you."
+
+Iva didn't respond at all - her eyes stared straight forward, her body didn't so much as twitch.  I'd seen real-life dead people be more responsive.
+<<display "morgue_actions">>
+
+
+:: morgue_move
+I put my hand on Iva's arm carefully.  It felt neither warm nor cold - instead it radiated the same textureless presence that I'd felt from the furniture.  Whatever had happened to Iva, the simulation was treating her body as little more than an object, and a poorly simulated one at that.
+
+I tried to bend her arm up at the elbow and got no response.  I suspected that if I'd tried to push the wall the feeling would be exactly the same.  Her body was utterly immobile.  I didn't know how they'd moved it from her apartment to here and I didn't think the policewoman in the hallway would tell me.  It didn't matter - clearly, whatever happened to Iva, it was not natural.
+<<display "morgue_actions">>
+
+
+:: cop_details
+"I swear to God," the policewoman spoke through grit teeth, "if Simon let a reporter down here I am going to hurt him.  I am going to haul him out of that dingy little office, drag his ass over the tracks, and punch him until he chokes."
+
+I wasn't exactly sure how to respond to that, or even if it had been directed at me.  "I'm not a reporter.  I just want to get to the bottom of this."
+
+"You want this case solved?  Stop interrupting me when I'm trying to solve it."
+
+* [[You have more questions|convo_cop]]
+
+
+
+:: cop_attitude
+"Gee, what could it be?  Maybe it was the part where I got gut-shot by some punk stealing a car and left to bleed out until I died?  Or perhaps it was when this low-res cough-syrup-dream of an afterlife told me it didn't need me anymore."
+
+Her hands had balled up into fists, I hoped unconciously.
+
+"Or maybe it's that some innocent girl got killed because everyone thought it couldn't happen, and when someone actually tried to make a goddamn difference, they got nowhere.
+
+"Or maybe I just hate your face."
+
+* [[You have more questions|convo_cop]]
+
+
+
+:: cop_morgue
+"Go right ahead.  I'm sure you'll be able to pick up on something that me or all the other investigators or the New Amsterdam techs couldn't find."
+
+* [[You have more questions|convo_cop]]
+
 
 
 :: church_exterior
@@ -1354,6 +1735,302 @@ He leaned back against the wall and people-watched for a while, which mostly for
 
 
 
+:: bfhouse_exterior
+<<if $nftEmil>>
+I was pleased to find that the door opened for me this time; at least I wouldn't have to announce myself whenever I came by to visit.
+
+<<display "convo_emil">>
+<<else>>
+<<set $nftEmil=1>>Making my way to Emil's apartment proved to be easy, and only having to climb to the second floor was a refreshing change of pace.  I knocked on the door, but got no answer.
+
+I listened.  I wasn't sure that sound would even carry through the doors, but it couldn't hurt.  After a while, I knocked again, to no response.
+
+"Emil?"  I said, hoping that sound would at least travel from the outside of the door inside.  "My name's Sam Hallivert.  I'm investigating what happened to Iva."
+
+As though the door had been password-protected by just those words, it swung open.  A short olive-skinned man with dark hair and bleary eyes regarded me from the other side of the threshold.  "You're not a cop, are you?"
+
+"No." I replied.  "Private investigator.  Iva's father hired me."
+
+Emil nodded.  "I talked to a cop earlier this week.  I didn't like her much."
+
+"I don't doubt it."
+
+Emil gestured for me to come in and I followed, the door closing itself behind us.
+
+* [[Ask some questions|convo_emil]]
+<<endif>>
+
+
+:: convo_emil
+Emil was seated in a wooden chair, similar to the one Iva had in her apartment.  His workdesk was immaculate, though it seemed to me that this was probably because he'd never used it rather than him being the cleaning type.
+
+"What can I do to help?"
+
+<<sugarchoice "emil_accuse" "Did you do this, Emil?">>
+<<sugarchoice "emil_last" "When was the last time you saw Iva?">>
+<<sugarchoice "emil_rivals" "Is there anyone you can think of that would wish her harm?">>
+<<sugarchoice "emil_play" "What was the play all about?">>
+<<if $emilNervous gte 2 and $emilLast>>
+Emil seemed <<sugarchoice "emil_nervous" "visibly nervous">> about something.
+<<endif>>
+
+* [[You have no more questions|arts_exterior]]
+
+
+
+:: emil_nervous
+<<set $sleepy=1>>"What's wrong, Emil?"  I finally ventured.
+
+"Listen, I have more to tell."
+
+I made a gesture.  "I'm listening."
+
+Emil nodded but didn't seem to hear me.  "You're not like the cop, you actually seem to care about what I have to say, but this... it's weird."
+
+"I've been here less than a month."  I replied.  "Everything's weird to me."
+
+"Yeah, but..." Emil changed tactics.  "Have you sleepwalked?"
+
+<<if $accidentallyTeleported>>I nodded.  "I woke up in the PvP zone, of all places."
+
+Emil cringed.
+<<else>>
+I shrugged.  "When I was a kid, a few times-"
+
+"No, I mean, since you got here?  A lot of people, when they first get uploaded and they're still in the habit of sleeping, they sleepwalk."
+<<endif>>
+
+"Yeah."  I said.
+
+Emil nodded.  "Iva sleepwalked //all the time//.  I mean, every single night that she slept - and she slept every night too, never broke the habit - she ended up somewhere other than where she started."
+
+Was that the weird thing Emil was going to tell me?  It didn't seem that far-fetched.
+
+"I'm not done."  Emil seemed intent on answering my questions before I asked them.  "She'd often call me when it happened.  I started getting suspicious one night when she called me from Bar Ocho."
+
+"She was sneaking out to the bars?"  It wouldn't be the first time I'd seen that happen, but it didn't seem quite right for the simulation.
+
+Emil shook his head.  "No, that's it.  She was in bed next to me.  I got up to go to the kitchen, and when I got back she's gone.  And seconds - literally seconds - later, she calls me."
+
+"Bar Ocho's across town."  I stated the obvious just to make sure I understood.
+
+"Yes, it is.  And it wasn't a prank call, she was really there, I went there and picked her up.  I cut across the hub and it still took me half an hour."
+
+I nodded.  "I see how that's strange, but-"
+
+"It wasn't the last time that happened.  I started paying attention to when she'd disappear and when she'd turn up, and it seemed like it took her almost no time at all.  So one night, as an experiment, I changed the door permissions so she couldn't leave."
+
+I wasn't sure I liked the sound of that, but I motioned for him to continue.
+
+"She knew."  he explained.  "I told her about the sleepwalking and she was excited, can you believe that?  She thought she'd stumbled on some truth of the system.  So she was on-board with the experiment, almost too excited about it to sleep so it could start."
+
+"Let me guess."  I could see where this was going.  "The door didn't stop her."
+
+"Nope."  Emil's nervousness seemed to increase as he told the story.  "She walked right out.  But that's the strange thing, I don't think she did walk out.  I mean, I remember that she walked out the door, but it doesn't seem right.  Not after what I saw later."
+
+"So she got past your door security."  I tried to placate him and understand what the hell he'd just said at the same time.  "She'd hung out with hackers, maybe she picked up a thing or to, that's not so weird-"
+
+"That wasn't the weird thing." he interrupted bluntly.
+
+* [[Tell him to go on|emil_nervous_2]]
+
+
+
+:: emil_nervous_2
+"Go on, then." I said.  Now he really had me wondering.
+
+"Over the next few nights we repeated the experiment.  She couldn't get into my apartment, the door would keep her out.  She couldn't leave the apartment if she was awake.  Just when she was sleepwalking.  And every time she did, my memory of her leaving the apartment gets a little fuzzier.  Once I opened the door after her to follow, and she wasn't there.  She was already at the insurance building."
+
+"Okay, this is getting weirder."
+
+"I told you about the last night I saw her, the night before she died."  it wasn't a question.  "I didn't tell you all of it."
+
+"You were running the experiment?" I ventured.
+
+"We were going to, but it didn't get that far.  That night, when we were going to bed, she said the last words she ever said to me:  "Wait, I think I've got this.""
+
+I didn't comment.  If Iva had simply walked out on him right then it wouldn't have been that strange; he was going somewhere with this.
+
+"She disappeared."  He held up a hand to forestall the objection I wasn't going to raise.  "I don't mean she walked out the door, I mean //disappeared//.  One moment she was standing there and the next she wasn't.  And when I remembered all the other times she'd sleepwalked... it was like I'd made them up.  Like they weren't real.  What I remembered now was that, every single time she'd gone out, she'd actually vanished.
+
+"I didn't know what to think."  He added after a pause.  "I thought maybe she'd found some trick to make herself fall asleep instantly.  But she never called.  After a while I started looking..."
+
+"And you found her at her apartment."
+
+"It was the first place I stopped at." he acknowledged.  "And she was dead.  Completely still."  He looked up again at me, then away, as though he couldn't bear to look me in the eyes.  "I tell myself it wasn't my fault, my experiment didn't do it.  And lots of people sleepwalk, right?  I think the disappearing is a new wrinkle but on the other hand I think the 'walking' part might be something people's minds make up because the disappearing makes no sense."
+
+He was right about one thing.  That was weird.
+
+* [[You have more questions|convo_emil]]
+
+
+
+:: emil_accuse
+<<set $emilNervous = $emilNervous+1>>"No."  Emil replied dejectedly.  It was not the protestation of innocence I'd expected.
+
+When I didn't say anything in reply, he elaborated:  "That's the first thing that lady cop asked me.  Second thing she asked me, too.  Third and fourth thing she asked me.  Sixth thing she asked me - the fifth thing she asked was 'you really think you can get away with this?'."
+
+"Sounds like a bear."  I replied.  "Bear" was not the word I wanted to use, but for all I knew the cop was right.
+
+Emil nodded, then looked up to meet my gaze.  "I love Iva.  I've loved her ever since I met her.  I'd never do anything to hurt her."
+
+He looked away and shrugged.  "Believe me or don't, it won't change the facts."
+
+* [[You have more questions|convo_emil]]
+
+
+
+:: emil_last
+<<silently>>
+<<set $emilNervous = $emilNervous+1>>
+<<set $emilLast=1>>
+<<endsilently>>"I was the last person to see Iva alive.  It was the night before she died, she came home with me."
+
+"That's it?"  I asked.
+
+Emil blushed.  "There were other activites.  My point is, she left in the early morning.  When I came over to her house the next day, I found her like..." he paused, unwilling to continue.
+
+"You don't know if she met anyone on the way..." It didn't sound likely, but I figured I'd ask.
+
+Emil shook his head.  "No, she didn't meet anyone on the way."
+
+* [[You have more questions|convo_emil]]
+
+
+
+:: emil_rivals
+<<set $emilNervous = $emilNervous+1>>"She didn't have many real rivals."  Emil replied.  "A few people, like the woman who ran the theater next door to the troupe's, wanted to embarass her or otherwise get her to 'run back home', but nobody who would do this."  he shook his head.
+
+"Who //would// do this?"  Emil was suddenly plaintive.  "I mean, why?  Nobody's died in this place in fifty years, and the first victim has to be my girlfriend?"
+
+"In fifty years?  What happened before that?"  I asked.  I'd been under the impression that nobody had died, period.
+
+"Iva told me."  He replied.  "She'd done a lot of research on the history of the sim.  She volunteered at the old folks' home, I think half to just get stories out of them.  Apparently things weren't stable in the early days and people could die due to glitches in the system."
+
+* [[You have more questions|convo_emil]]
+
+
+
+:: emil_play
+<<set $emilNervous = $emilNervous+1>>"She had a script at her house."  Emil said.  "It was pretty good.  Atlantis is real and has a king that can do miracles.  But it turns out that it's not actually him, it's the people who are dreaming."
+
+He smiles.  "It's her story, you know."
+
+"Iva wrote it, yes."  I replied.  I wasn't sure why that was important.
+
+"No, I mean it's //her// story.  The evil king is Athena, and she's the dreamer.  She dreamed in Storage, she always said.  Nobody believed her, but I did.  It's what inspired her to make this play."
+
+He chuckled.  "Don't tell the troupe I told you this.  They don't want people to know the 'secret message' of the play.  Iva thought it was dangerous somehow."  His laughter died.  "Maybe it was."
+
+* [[You have more questions|convo_emil]]
+
+
+
+:: Untitled Passage 26
+
+
+
+:: Untitled Passage 27
+
+
+
+:: Untitled Passage 28
+
+
+
+:: Untitled Passage 29
+
+
+
+:: theater
+"Koloman Theater" had obviously been built using Iva's funds rather than Nickolai's - it was a small and humble area.  If it had two dozen rows of seats I'd have been surprised.  Posters lined the walls - the same posters I'd seen back at Iva's house.  "Atlantis Rising" outnumbered the rest two to one.
+
+On stage there was a worried group of kids - well, not //kids//, but that's the impression I got.  They were like kittens that had lost their mother - vaguely searching for something that had always been within reach, not yet realizing it was gone forever.
+
+* [[Talk to the troupe|troupe_intro]]
+* [[Leave the theater|arts_exterior]]
+
+
+
+:: troupe_intro
+<<if $nftTroupe>>
+The theater troop's reaction to my reappearance seemed divided.  On the one hand, most were happy to see me.  On the other, some were afraid.  Maybe because the fact that I was here meant that what had happened to Iva was real.  Maybe they just feared I was bringing them more bad news.  Either way, they were talkative.
+<<else>>
+<<set $nftTroupe=1>>
+I made my way up to the stage.  The actors and actresses who made up the troupe seemed torn between practicing their play and the reality of what had happened to the woman who wrote it.  They didn't notice me until I hefted myself on to the stage.
+
+"Who-"  The one I'd figured was the leading man spoke up.  His word broke everyone else's trance and suddenly the entire group was huddled together, watching me warily.
+
+"My name's Sam Hallivert."  I said.  "I'm a private investigator working for Nickolai Koloman"
+
+Their guard lowered, but not as much as that news usually did.  "Is this about what happened to Iva?" one of the women said from the back of the group.
+
+"Yes."  I replied.  "I'm here to find out who did it, and how to stop it from happening again."  Brave words that I wasn't entirely sure that I could back up, but it didn't matter - the kids needed reassurance.
+
+With that the group's guard lowered entirely, and they all spoke up in a babble; half directed at me and half among themselves.
+<<endif>>
+
+<<display "convo_troupe">>
+
+
+
+:: convo_troupe
+I had to speak up to be heard over the chatter of the group.
+
+<<sugarchoice "troupe_who" "So who are all you people?">>
+<<sugarchoice "troupe_iva" "Tell me about Iva">>
+<<sugarchoice "troupe_bf" "Who was she dating?">>
+<<sugarchoice "troupe_last" "When did you last see her?">>
+<<sugarchoice "troupe_rivals" "Anyone you can think of that'd want her out of the way?">>
+<<sugarchoice "troupe_play" "What's the play about?">>
+
+* [[You have no more questions|theater]]
+
+
+
+:: troupe_who
+The troupe introduced themselves at the same time, then tried to not introduce themselves at the same time, which resulted in a lot of people talking over each other.  It didn't really matter, it was easy to tell the relative hierarchy by who shut up when someone else talked.  I'd been right about the leading man, at least.
+
+Eventually they got to the meat of my question.
+
+"We're Iva's theater troupe."  The leading man said.  "She put us together a month ago after her trip off-grid, but most of us knew her before that.  I met her at the hacker's club."
+
+"I was in her last play" the leading lady spoke up.
+
+Again, a babble.  The group was all from the arts district, all New Detroit natives insofar as the term applied.
+
+* [[You have more questions|convo_troupe]]
+
+
+
+:: troupe_last
+At least this time when the troupe answered all at once it was almost immediately understandable:  They'd seen Iva the week before she died, during rehearsal.  She'd left with her boyfriend, and she hadn't come back to the theater again.
+
+"At first we weren't that worried."  The leading woman was easiest to hear at the moment.  "But then we saw the news...."
+
+* [[You have more questions|convo_troupe]]
+
+
+
+:: Untitled Passage 24
+
+
+
+:: recruitment_sleep [nocall]
+"I'm very sorry about that, <<print $gender>> Hallivert.  And you are correct in assuming it is an extremely rude thing to do.  But I assure you - it really is that important."
+
+* [[You have more questions|recruitment_hub]]
+
+
+
+:: recruitment_details [nocall]
+Koloman's voice became hushed.  "Have you seen the news?  Before yesterday, I would have trusted this system and its security implicitly.  Now I cannot do so.  I'll not talk details of the case over the phone; instead I ask that you come in person.  I will, of course, foot the bill for your visit."
+
+* [[You have more questions|recruitment_hub]]
+
+
+
+
 :: arts_exterior
 The Arts District was Broadway.  As it turned out, that wasn't a metaphor - someone had taken the entire cityscape of New York's theater district, scaled down the fidelity, mixed it up a bit, and placed it in New Detroit.
 
@@ -1372,24 +2049,75 @@ Samahd laughed.  "Yes, actually.  Most people here are actors, painters, musicia
 
 * [[Follow him|games_exterior]]
 <<else>>
+<<if $investigating>>
+Iva had lived here in the arts district - if I was going to find out what happened to her, chances were good I'd be looking around here.
+
+[[Iva's house|ivahouse_exterior]] was the obvious first choice of destination.
+
+<<if $hasTroupeAddress>>
+Iva had made friends of her [[acting troupe|theater]]; they might have a few answers.
+/%%/<<endif>><<if $hasBoyfriendAddress>>
+Iva's [[boyfriend|bfhouse_exterior]] was an obvious person of interest.
+/%%/<<endif>>
+
+<<endif>>
 * [[Head toward the Games District|games_exterior]]
 * [[Go to the Hub|Hub]]
 * [[Go shopping|shopping_exterior]]
 <<endif>>
 
 
-:: recruitment_sleep [nocall]
-"I'm very sorry about that, <<print $gender>> Hallivert.  And you are correct in assuming it is an extremely rude thing to do.  But I assure you - it really is that important."
+:: ivahouse_exterior
+I followed the directions on Koloman's card to his daughter's apartment.  The arts district was almost uniformly full of people better dressed and less suspicious looking than I was, but I somehow managed to avoid attracting attention on my way.
 
-* [[You have more questions|recruitment_hub]]
+Iva's apartment was in a building similar to my own, though only half as tall.
+
+* [[Enter the apartment|ivahouse_interior]]
+* [[Head back to the arts district|arts_exterior]]
 
 
 
-:: recruitment_details [nocall]
-Koloman's voice became hushed.  "Have you seen the news?  Before yesterday, I would have trusted this system and its security implicitly.  Now I cannot do so.  I'll not talk details of the case over the phone; instead I ask that you come in person.  I will, of course, foot the bill for your visit."
+:: ivahouse_bedroom
+I felt like a voyeur, even though the woman whose bedroom I was peeping into was dead.  In contrast to the living room, the bedroom was clean and well-kept.  The bed was made, the clothes were in the closet rather than scattered about the floor.  I suspected that Koloman or someone else had tried to clean up a little - either that or the reason the bedroom appeared unused was that Iva had simply never used it.
 
-* [[You have more questions|recruitment_hub]]
+I spent a few moments rifling through various drawers in search of a diary or something similar, but came up empty-handed.
 
+* [[Return to the living room|ivahouse_interior]]
+
+
+
+:: ivahouse_posters
+The posters were for a number of well-known plays:  "Fiddler on the Roof", "Romeo and Juliet", "Babel is Ruined".
+
+The fourth and largest poster represented a play I'd never seen headlining anywhere:  "Atlantis Risen".  Given that the poster proclaimed that it was to be presented by the "Koloman Theater Troupe", I didn't find it hard to believe that this was Iva's personal project.
+
+More importantly, the poster had the address of the theater Iva's troupe was working out of.<<set $hasTroupeAddress=1>>
+
+* [[Turn your attention back to the living room|ivahouse_interior]]
+
+
+
+:: troupe_iva
+I'd thought the group had been effusive before, but clearly I hadn't found the right topic - until now.  Each member of the group shared their opinion of their producer, all at once.
+
+"She was our stage manager" I managed to hear.  This was interspersed with "wrote the script", "artistic vision", and "kinda a tightass about scheduling" (though the last was said with a smile).
+
+If Iva's killer had come from this group, they were by far the most capable liars I'd ever seen.
+
+* [[You have more questions|convo_troupe]]
+
+
+
+:: troupe_rivals
+Absolutely everyone in the group named someone different.  Theories ranged from the generic "people in charge" to the specific "that bitch from the Holloway theater next door" to the crackpot "her dad, for the insurance money".
+
+"We don't know."  The leading man finally said.  "I can't imagine anyone actually wanting to hurt her.  She had her rivals, yes, but even Holloway wouldn't //really// hurt her.  She just wanted to embarass her."
+
+"Besides, Holloway got picked up by a patron two weeks ago.  She's been in New Amsterdam the whole time." another understudy said.
+
+Damn alibis.
+
+* [[You have more questions|convo_troupe]]
 
 
 
@@ -1435,6 +2163,103 @@ Every time I got used to this world, it got a little bit stranger.
 
 
 
+:: ivahouse_interior
+Iva's apartment was laid out almost identially to mine, with the exception that where my bed would have been, there was instead a door leading to a bedroom.
+
+Another corner of the apartment featured a [[wooden desk|ivahouse_desk]] and chair - the sort of workstation I'd have set up if I'd known I was going back into the detectiving business.
+
+The walls of the room were covered in [[posters|ivahouse_posters]].
+
+The place was a mess, but there were no signs of a struggle.  Given the precarious pilings of books, papers, and other materials that littered the floor, such signs would have been extremely obvious.
+
+* [[Go into the bedroom|ivahouse_bedroom]]
+* [[Head back outside|arts_exterior]]
+
+
+
+:: ivahouse_desk
+There was not a single square inch of Iva's workdesk that did not host at least one paper.  Piles of looseleaf [[notes|ivahouse_notes]] made up the bulk of the mess.  A few books, scattered in no particular order or strata, were hidden beneath the notes.
+
+The notes were hand-written and disorganized, but atop the pile of debris was a typewritten and loosely bound collection of paper.  It only took me a moment to recognize it as a [[script|ivahouse_script]]
+
+* [[Turn your attention back to the living room|ivahouse_interior]]
+
+
+
+:: ivahouse_script
+The script was named "Atlantis Rising" <<if $hasTroupeAddress>> - clearly the play that the poster was created to promote<<endif>>.
+
+I glanced through the pages:  The vague impression I got of the play was that its title was literal - Atlantis was a city "kept aloft by dreamers", but its corrupt king had convinced the populace that he was the one doing all the work.
+
+I'd only been skimming the script, but as I went further more and more passages were blurred as through by a spill.  Some pages were entirely blank.  The script ended shortly after the intermission, with a dozen blank pages.
+
+There was something vaguely unsettling about the missing portions.  They //should// have been there.  It was an assertion I had no way of proving.  For all I knew Iva had a bad habit of going up to the New Amsterdam beaches and making a mess of her script.  She might have inserted blank pages at spots she felt needed more work.
+
+My mind came up with a dozen innocuous reasons for the script to be the way it was, and I knew all of them were wrong.
+
+* [[Examine the desk further|ivahouse_desk]]
+* [[Turn your attention back to the living room|ivahouse_interior]]
+
+
+
+:: troupe_bf
+"Emil" the leading man said.  For once only one person had answered the question.  "He's not part of the cast, he's crew."  He glanced back to the group.  "We haven't seen him all week."
+
+Before I could ask the requisite follow-up, one of the understudies spoke.  "He didn't do this."
+
+The previous lack of babble and discourse ceased, and I was again awash in the sound of a dozen people talking over each other.  I got the gist very quickly:  Emil genuinely cared for Iva, he was happy being crew, he had no reason to hurt her.
+
+"Can I talk to him?" I didn't yell, precisely, but this wasn't my first time on a stage.  I knew how to project.
+
+The group seemed somewhat nervous about answering my question, as though they weren't confident that their words had swayed me.  If I hadn't had a character reference from Nickolai himself they probably wouldn't have, but in this case they were backing up what the old man had already told me.
+
+Finally, they seemed to come to some sort of consensus.  The leading man faced me and answered:  "He lives in the next building down the street from Iva.  His apartment is 222."<<set $hasBoyfriendAddress=1>>
+
+* [[You have more questions|convo_troupe]]
+
+
+
+:: troupe_play
+The portions of the troupe that had been sitting on the stage stood up at this, joining the rest of the group in trying to describe what the play was, until the leading man spoke over all of them:  "Storage."<<set $hasStorageReason=1>>
+
+The quiet that came over the group was sudden and shocked, as though he'd broken some taboo.
+
+"Nathan!" the harsh whisper came from the leading woman.
+
+"I know, but it's important."  The leading man, apparently Nathan, replied.  He turned away from me to address the group.  "I know we're not supposed to talk about how that's the theme.  Iva even told us it was dangerous.  Well you know what?  Maybe she was right.  That's why the detective needs to know."
+
+The group didn't seem entirely swayed, but they didn't voice any objections.  Nathan turned back to me.
+
+I'd been glancing at the seafaring-themed posters of "Atlantis Rising".  "I don't see the word 'Atlantis' and think of Storage".  I said.
+
+"It's a metaphor.  Atlantis is 'kept aloft by the dreamers', but a corrupt king takes all the credit.  Sound like anything you know?"
+
+I shrugged.  I didn't see what any of this had to do with Storage.
+
+Nathan failed to stifle a sigh.  "The dreamers are the people in Storage.  The corrupt king is you-know-who"  He pointed upward to indicate the upper levels.
+
+"Nickolai?"  I played dumb.
+
+He grit his teeth.  "No.  The goddess, the AI that runs this place."
+
+"Oh, you mean Ath-"
+
+"Shh!" he cut me off with more energy than I'd seen from anyone in the group.  "She can hear you."
+
+I had no reason to doubt him, so I didn't press it. Instead I asked the other question that'd been bothering me.  "How do dreamers represent Storage?"
+
+Nathan hesitated.  The leading woman spoke up.  "You might as well say it, it's not like you haven't been blabbing secrets so far."
+
+"Right."  Nathan agreed.  "The people in Storage dream.  That's what Iva always said, that her knowledge of the nature of the system came from her time in Storage, while she dreamed."
+
+"Okay, I get that the play's a metaphor, but how is anyone else supposed to get that?  Everyone thinks that storage is inert."
+
+Nathan shrugged.  "Not everyone.  Other people have come back from storage, and some of them dreamed, too.  To be honest, I don't think that Iva meant to convince anyone.  I think her aim was to //find// them.  Anyone who'd dreamed while stored would recognize the message of the play."
+
+* [[You have more questions|convo_troupe]]
+
+
+
 :: recruitment_stuck [nocall]
 Koloman sounds honestly confused by the question.  "Why wouldn't I let you leave your apartment?  I want to meet you in person, <<print $gender>> Hallivert.  That requires you leave your apartment."
 
@@ -1471,6 +2296,31 @@ The front door opened like it'd never even considered being closed.
 <<display "floor_13">>
 
 
+:: Untitled Passage 18
+
+
+
+:: Untitled Passage 21
+
+
+
+:: Untitled Passage 25
+
+
+
+:: ivahouse_notes
+The many, many scattered notes were hand-written and exhibited no organization whatsoever.  A selection of them included notes from her various trips:  An off-grid journey to Metaverse, a meeting in the Hacker's Club.  Strangely, some parts of the notes were blurred into unreadability, as though water had been spilled on them.  That scenario would have been more likely if I'd seen so much as a single drop of water in the entire simulation.
+
+One vaguely-related pile was a dream diary - worryingly, she described walking home from the destinations in her dreams, as though she'd somehow actually ended up there.  <<if $accidentallyTeleported>>Of course, the exact same thing had happened to me.  /%%/<<endif>>Iva seems to have come to the conclusion that she'd teleported somehow rather than walking.
+
+In the lowest strata of mess was a small business card belonging to "Emil Ormonde".  It had no information other than his address, but that was enough for me.  I tried to take the card and failed - it simply refused to go into my wallet.  Apparently they wouldn't work unless they were given.  It was an annoying quirk but one I could work around:  Ormonde apparently lived one building down from the one I was in, and it wasn't as though "Apartment 222" was hard to memorize.<<set $hasBoyfriendAddress=1>>
+
+* [[Examine the desk further|ivahouse_desk]]
+* [[Turn your attention back to the living room|ivahouse_interior]]
+
+
+
+
 :: recruitment_offer [nocall]
 "My name is Nickolai Koloman.  I do not expect you to recognize the name, as you are recently arrived in New Olympus.  However, your friends - should you have made any - will know my name.  So you can verify when I tell you the following:  I am a very rich, very influential man.  I can provide you with any sort of afterlife you could dream of.  I'm sure you noticed the... austerity of New Detroit?  That would be a thing of the past, should you choose to accept my offer."
 
@@ -1493,28 +2343,15 @@ The man on the other end of the phone didn't even react to the attempt.<<display
 <<display "recruitment">>
 
 
-:: games_exterior
-The Games District was obvious - it was surrounded by golf courses.  The sudden lack of buildings hanging over me gave me the strange fleeting feeling of agoraphobia.
+:: Untitled Passage 19
 
-<<if $tourInProgress>>
-"If you haven't guessed why this is separate from the arts district yet," Samahd said, gesturing to the greens, "it's because it's about three times bigger."
 
-We passed a few voleyball courts and a soccer field.  "Every sport on the planet is represented here, and some new ones that you can't do in the real world.  I wouldn't recommend starting with those, by the way."  He pointed to a three-story tall translucent cube that apparently featured rapidly changing gravity as a core game mechanic.
 
-"You mostly see sports-style games because those take the most room."  He pointed toward a small building off the main road.  "That leads to the arcades, underground.  Every video game we could licence - and with the kind of money the architects were throwing around, it was a lot - is available there, 15 minutes per play.  It ranges from some of the more recent full-immersion games - much easier to play here than in the real world, you don't need a sim implant or anything - to old-style mechanical pinball."
+:: Untitled Passage 20
 
-"Take it from me," he came to a halt at the intersection, "your video game skills, if any, will carry over into this world, but your athletic skills won't.  I was a researcher but played softball on the side.  Couldn't play it at all once I got uploaded.  Game's the same, but you kinda have to re-learn your proprioception."
 
-That explained why my reflexes were terrible, at least.
 
-"Come on, we've got a train to catch."
-
-* [[Follow him|train_exterior]]
-<<else>>
-* [[Head toward the train station|train_exterior]]
-* [[Go to the Hub|Hub]]
-* [[Visit the Arts District|arts_exterior]]
-<<endif>>
+:: Untitled Passage 22
 
 
 
@@ -1527,6 +2364,10 @@ Naturally, it bounced off of the window pane like rubber.  The one time furnitur
 
 * [[Answer the phone|recruitment_call]]
 * [[Fine, FINE!  I'll answer the goddamn phone!|recruitment_call]]
+
+
+
+:: Untitled Passage 23
 
 
 
@@ -1556,17 +2397,129 @@ As I should have expected, it also didn't move.
 
 
 
-:: wake [nocall]
-<<set $sleepy=0>>Sleep in the sim was an abrupt thing.  I was awake, then I was awake again, and it was morning.  Of course, the darkness of the skies outside hadn't diminished, but I apparently wore a wristwatch now.  It hadn't even occurred to me to set an alarm, but they didn't seem necessary in this world.
+:: games_exterior
+The Games District was obvious - it was surrounded by golf courses.  The sudden lack of buildings hanging over me gave me the strange fleeting feeling of agoraphobia.
 
-<<if not $hasHadRecruitmentCall>>
-Of course, a more likely cause of my waking was the cast iron rotary phone sitting on the nightstand.  I was reasonably certain that neither the phone nor the nightstand had been present the evening before, but I couldn't really think very hard on the topic.  My thoughts were disrupted by the noise the thing was making, a noise I hadn't heard since I was a kid.  The phone was ringing.
+<<if $tourInProgress>>
+"If you haven't guessed why this is separate from the arts district yet," Samahd said, gesturing to the greens, "it's because it's about three times bigger."
 
-* [[Answer the phone|recruitment_call]]
-* [[--I'm getting up|apartment_interior_phone]]
+We passed a few voleyball courts and a soccer field.  "Every sport on the planet is represented here, and some new ones that you can't do in the real world.  I wouldn't recommend starting with those, by the way."  He pointed to a three-story tall translucent cube that apparently featured rapidly changing gravity as a core game mechanic.
+
+"You mostly see sports-style games because those take the most room."  He pointed toward a small building off the main road.  "That leads to the arcades, underground.  Every video game we could licence - and with the kind of money the architects were throwing around, it was a lot - is available there, 15 minutes per play.  It ranges from some of the more recent full-immersion games - much easier to play here than in the real world, you don't need a sim implant or anything - to old-style mechanical pinball."
+
+"Take it from me," he came to a halt at the intersection, "your video game skills, if any, will carry over into this world, but your athletic skills won't.  I was a researcher but played softball on the side.  Couldn't play it at all once I got uploaded.  Game's the same, but you kinda have to re-learn your proprioception."
+
+That explained why my reflexes were terrible, at least.
+
+"Come on, we've got a train to catch."
+
+* [[Follow him|train_exterior]]
 <<else>>
-* [[Get up|apartment_interior]]
+* [[Enter the Arcade|games_interior]]
+* [[Head toward the train station|train_exterior]]
+* [[Go to the Hub|Hub]]
+* [[Visit the Arts District|arts_exterior]]
 <<endif>>
+
+
+
+:: games_interior
+To call the outdoors 'sunny' or even 'well-lit' was of course a drastic overstatement, but the phrases didn't seem as wrong when compared to the grey interior of the Arcade.
+
+The top level - which I was on - featured a lot of posters, maps, directions, and double doors.  It seemed almost like an airport:  advertisements for destinations and the companies that made them on every surface.  The hurry-up-and-wait pace of the many lines I'd seen formed only reinforced this idea.
+
+A vertical slab of otherwise undecorated surface in the center of the room served as a map.  According to it, the lines were for the full-immersion games (a great deal cheaper here than on the outside, given that everyone was effectively already in one).
+
+Beyond the crowds, toward the back of the arcade, was an elevator.  It was near-abandoned in comparison to the crush elsewhere.
+
+* [[Enter the elevator|games_elevator]]
+* [[Exit the Arcade|games_exterior]]
+
+
+
+:: games_b1
+The arcade's top floor had been mostly open area with a large number of side-rooms.  The professional gamer arena was entirely open.  Plain tables held computers ranging from ones so high-tech they'd possibly been invented after I'd entered the simulation to turn-of-the-century relics that I'd have expected to see in the museum one floor down.
+
+Absolutely every chair was occupied.  Lining the walls were immersion pods - apparently if you were a pro-gamer you didn't have to wait in line above.  Every one of those was full as well.
+
+<<if $investigating>>I spent some time walking around, looking for someone to talk to about the case, but reactions started at none whatsoever and got progressively more rude from there.  I quickly ascertained that nobody here had known Iva or even cared that someone was dead.  If she'd fallen in with a dangerous crowd, this was not it.<<endif>>
+
+* [[Return to the Elevator|games_elevator]]
+
+
+
+:: games_b2
+The gaming museum was chock-full of interactive exhibits.  I saw far more people playing games than taking the tour.
+
+<<if $investigating>>Some quick questions lead me to the fact that the only regulars were the people interested in the older machines (in one case, pinball).  They'd heard of Iva and seen her a few times, but her interest was in the more modern, cutting edge technology.  She was ahead of their time.<<endif>>
+
+* [[Head back to the elevator|games_elevator]]
+
+
+
+:: games_b3
+The "Hacker's Club" was a cramped lobby area that looked to have been copy-pasted from the insurance office's waiting room, complete with horrible wood paneling.  The only difference was that the friendly doorway to Guillory's office had been replaced with a large metal doorway with a sign reading "MEMBERS ONLY".
+
+There was nobody else here.<<set $clubInPerson=0>>
+
+<<if $investigating>>
+  <<if $hasClubOk>>
+* [[Open the door|club_interior]]
+  <<else>>
+* [[Announce yourself|games_announce]]
+  <<endif>>
+<<endif>>
+* [[Head back to the elevator|games_elevator]]
+
+
+
+:: club_interior [nocall]
+<<set $clubInPerson=1>>The Hacker's Club was a basement for some reason.  Folding chairs surrounded several folding tables.  Few electronic games were being played; instead I saw a number of board or dice games.  At least one group was involved in what I was pretty sure was some kind of pre-immersion Dungeons and Dragons game.  Two people off to the side were playing Chess, and not even the newer select-your-own-army version.
+
+Chivaly stood on the bottom step, surveying the group.  Everyone seemed to be too enthralled by their gaming to notice.
+
+* [[Talk to Chivalry|convo_club]]
+* [[Leave the club|games_b3]]
+
+
+
+:: convo_club [conversation nocall]
+Chivalry had a good-natured attitude, but her look was serious.  "I want to help this investigation, detective.  Iva wasn't just my friend, she was a friend to everyone here.  I'll answer whatever questions you have."
+
+<<sugarchoice "chivalry_who_are_you" "So who are you?">>
+<<sugarchoice "chivalry_club" "What's your club do?">>
+<<if $heardNoHacking>>
+<<sugarchoice "chivalry_nohack" "Wait, the Hacker's Club doesn't hack?">>
+/%%/<<endif>><<sugarchoice "chivalry_iva" "How did you know Iva?">>
+<<if $heardIvaQuitClub>>
+<<sugarchoice "chivalry_why_quit" "Why did Iva quit the club?">>
+/%%/<<endif>><<sugarchoice "chivalry_whathapened" "Do you know what happened to Iva>">>
+
+<<if $clubInPerson>>
+* [[You have no more questions|club_interior]]
+<<else>>
+* [[End the phone call|Wallet]]
+<<endif>>
+
+
+
+:: chivalry_club [conversation nocall]
+"The Hacker's Club is almost as old as the simulation itself."  Chivalry seemed proud of this, though given her apparent age she probably hadn't even been conceived at the time.  "Back then it was more dedicated to its name, of course.
+
+"Nowadays we're more of a social group.  We keep the older forms of gaming alive -" she gestured to the chess players, "and some of us come up with new things."  With that she indicated the roleplaying group.<<set $heardNoHacking=1>>
+
+* [[You have more questions|convo_club]]
+
+
+
+:: chivalry_who_are_you [conversation nocall]
+"As in, who am I, or who are we?"  She gestured to include the rest of the club.
+
+I shrugged.  "Take your pick."
+
+"Both, then."  She replied.  "Well, like I already said, I'm Chivalry.  I'm currently president of the hacker's club, five terms in a row, mostly because nobody else wants the job.  It's a lot of administrative work - running the cameras, keeping our paperwork intact, collecting dues.  Everyone's in this club because they want to game, not push paper."
+
+<<display "chivalry_club">>
 
 
 :: apartment_interior_phone [nocall]
@@ -1589,8 +2542,214 @@ Well, shit.<<set $attemptedEscape=1>>
 
 
 
+:: games_elevator
+There were several floors:
+
+* [[Exit on the top floor: "Full Immersion"|games_interior]]
+* [[Exit on B1: "Professional Gamers"|games_b1]]
+* [[Exit on B2: "Gaming Museum"|games_b2]]
+* [[Exit on B3: "Hacker's Club (Members Only)"|games_b3]]
+
+
+
+:: games_announce
+"Hey!" I shouted at the door.  There didn't appear to be any security cameras in the lobby here, but somehow I suspected that actual cameras weren't required to see and hear somewhere else.
+
+I took Koloman's card out of my wallet and held it up to the 'MEMBERS ONLY" sign.
+
+"See this?" I said.  "I'm working for Nickolai Koloman, investigating his daughter's death."
+
+There continued to be no reply.
+
+"He thinks you did it."
+
+The door opened.
+
+* [[Enter the club|club_intro]]
+
+
+
+:: club_intro [nocall]
+Two large, angry-looking people were on the other side of the door to greet me.  Non-physical-world Gamers had a stereotype of weakness for over a century, but these two were doing their best to make up for lost time.  They were taller and stronger-looking than I was, and I'd been no slouch in life.
+
+A woman stood between them, ignoring their presense entirely, instead looking at me.
+
+"We didn't do it." she stated simply.
+
+"I hope you realize I can't exactly take your word for it."  I replied.
+
+She nodded and gave the bouncers a look.  They walked back into the somewhat larger room that formed the foyer of the club, but didn't take their eyes off of me.
+
+"As a show of good faith." she said, handing me a card.  It read simply: "Hacker's Club".
+
+<<set $cardHackers=1>>"My name's Chivalry." she motioned for me to follow her further into the club as she walked.  The greeters did not follow.
+
+"Is that your actual name or like a gamer name?"  I asked.  My life had been a detective story, I hadn't found much of a need to play one in a game and so didn't know much about the culture.
+
+Chivalry laughed quietly.  "Actual name, I'm afraid.  I think my parents meant to name me 'Chastity' or 'Charity' or something and got it wrong."
+
+We walked for a bit.  The hacker's club was a long, nearly featureless, hallway so far.  Other than the greeters sitting on a bench by the entrance and Chivalry, I hadn't seen anyone else.
+
+"Here we are." she said, pushing open a door I hadn't noticed.  Wooden stairs lead downward.
+
+* [[Go down the stairs|club_interior]]
+
+
+
+:: chivalry_nohack [conversation nocall]
+Before Chivalry could answer the question, someone from the back of the room spoke up.  "Give him the flyer!"  A chorus of muted laughter went through the room.
+
+Chivalry rolled her eyes, then explained.  "Sorry about that.  He's referring to our recruitment materials.  I don't think I actually have one with me, but one of the headers is "Why doesn't the Hacker's Club hack?""
+
+"And why doesn't it?"
+
+Chivalry smiled.  "Because it's illegal.  Something big went down early on in the sim's history - hacker's club wasn't even involved - and ever since then the gal upstairs has been restricting programming activity.  Got it all labeled as 'hacking'.  They say it 'undermines the stability of the simulation'."
+
+"Wait, you can't even program?  Who makes the games?"  I gestured upward.
+
+"Metaverse, mostly."  Before I could ask for clarification, she filled me in.  "That's another sim, full of programming types.  It's all allowed over there, but it's not exactly cheap.  Preservers will Store you for free, and getting a policy to set you up in New Detroit  for a few years is actually pretty cheap if you're not going to die for a while."
+
+"Why not change the name?"  I asked.
+
+Chivalry looked into the distance where the initial heckler's voice had come from as though to pre-emptively silence it.  Then she turned back to me.  "Yeah, that's in the flyer too."  She shrugged.  "The name's got a history.  We're not the same as we were, but it still means something to be a member of the Hacker's Club."
+
+* [[You have more questions|convo_club]]
+
+
+
+:: chivalry_iva [conversation nocall]
+Chivalry smiled wistfully.  "She came down here same as you did, banging on the door saying she wanted in.  Didn't name-drop, though."
+
+"Sorry." I wasn't, really.
+
+"Don't be.  After what happened with her we haven't really been recruiting.  We wouldn't have let you in if you hadn't said who you were working for."
+
+"Her death hit you that hard?"  I asked sympathetically.
+
+"Yes, but that's not what I'm referring to.  She quit the club a month ago."<<set $heardIvaQuitClub=1>>
+
+* [[You have more questions|convo_club]]
+
+
+
+:: chivalry_why_quit [conversation nocall]
+Chivalry's smile quirked.  "She didn't believe us about the hacking.  She came to the club thinking the whole "we don't hack" thing was a cover."<<set $heardNoHacking=1>>
+"How long did it take her to realize you weren't kidding?"  I still wasn't entirely sure the excuse wasn't a cover myself.
+
+"A few months.  By then, she'd made friends with everyone here.  It was a unique experience - we're a club for people who like to play games, and in comes a person who's incredibly creative but who's never so much as played checkers.  The old grognard types didn't like it, but everyone else?  Nothing they like more than showing a newbie the ropes."
+
+"So what happened?"
+
+"She arranged a field trip to Metaverse, and nobody wanted to go."
+
+"Wait, nobody?"  I frowned.  Given the low production values of New Detroit, I'd figured anyone given a chance to get out would jump at it.  "I know it's pricey, but-"
+
+"It's not the cost."  Chivalry said.  "Iva wasn't the kind of person who lorded their money over you.  She was the kind of person who wanted to use it to make things a bit better.  Paid more than her fair share for the club dues, bought rare games from off-grid, those sort of things.  So when she suggested the field trip, she made it clear she was footing the bill for everyone."
+
+"And you didn't want to take a trip?"  I was aware that most gamers weren't exactly overflowing with wanderlust, but there was something else here.
+
+"If she'd said Valhalla or Satya Yuga, I'm sure she'd have takers.  But Metaverse..." Chivalry made an uncertain gesture.  "It's got a reputation.  It's full of programming types, sure, but that includes the unsavory element, the people who think it's a blast to take down the whole system and make everyone have to get restored from backup.  It's bad enough we have to include 'not real hackers' in all our literature, to actually go to Metaverse where they all live and come back?  We'd probably lose our lease on this place, and that's for starters."
+
+* [[You have more questions|convo_club]]
+
+
+
+:: wake [nocall]
+<<set $sleepy=0>>There was no transition between sleep and waking in the sim - instead  I was simply awake again, and it was morning.  Of course, the darkness of the skies outside hadn't diminished, but I apparently wore a wristwatch now.  It hadn't even occurred to me to set an alarm, but they didn't seem necessary in this world.
+
+<<if not $hasHadRecruitmentCall>>
+Of course, a more likely cause of my waking was the cast iron rotary phone sitting on the nightstand.  I was reasonably certain that neither the phone nor the nightstand had been present the evening before, but I couldn't really think very hard on the topic.  My thoughts were disrupted by the noise the thing was making, a noise I hadn't heard since I was a kid.  The phone was ringing.
+
+* [[Answer the phone|recruitment_call]]
+* [[--I'm getting up|apartment_interior_phone]]
+<<else>>
+* [[Get up|apartment_interior]]
+<<endif>>
+
+
+:: dream_1 [nocall]
+I dreamt I was in a city devoid of all life.  Grey and unyielding though it was, at least New Detroit had people.  As I walked through the city, it grew larger and I grew smaller, until I fell through the holes in the asphalt.
+
+* [[Wake up|wake]]
+
+
+
+:: dream_3 [nocall]
+I dreamed the last moments of my life - pinned between the unyielding metal bumper of the car that'd killed me and the building it'd crashed into.  My lungs were crushed and useless, my ribs destroyed, but I needed to breathe, I couldn't //breathe//
+
+* [[Wake up|wake]]
+
+
+
+:: Untitled Passage 17
+
+
+
+:: chivalry_whathappened [conversation nocall]
+Chivalry shook her head.  "No, I don't.  I'd never heard of anything like that happening before.  You can't die in here, it's been a rule my entire life inside."
+
+* [[You have more questions|convo_club]]
+
+
+
+:: dream_2 [nocall]
+In the dream, New Detroit's streets were filled with vehicles.  Bumper-to-bumper, they stood stock-still, filling every available inch of the asphalt with their hulking metal frames.
+
+As one, their engines started.
+
+* [[Wake up|wake]]
+
+
+
+:: dream_4 [nocall]
+This time the dream wasn't nearly as distinct as the others.  I had an impression of impossibly tall buildings outlined in neon, flying cars, dying dozens of times.  Any time I tried to take an action, the dream shifted and I was someone and somewhere else.
+
+* [[Wake up|wake]]
+
+
+
+:: pvp_teleport
+<<set $accidentallyTeleported=1>>I woke up just as suddenly as I always did, but I knew something was wrong this time.  The feeling of danger from my dream hadn't left me.
+
+I sat up from my bed and nearly fell over - I hadn't been in my bed.  I wasn't even in my room.  I scrambled to my feet, looking around, but despite my brain's insistence, I didn't seem to be in peril.
+
+It only took me a few moments to realize where I was, because the scenery from my dream hadn't changed.
+
+I was in the PvP zones.
+
+* [[Find your way back to the train station|train_exterior]]
+
+
+
 :: sleep [nocall]
-<<set $money = $money - 1>><<display "wake">>
+<<silently>>
+<<set $money = $money - 1>>
+<<set $dreams = $dreams + 1>>
+<<if $dreams gt 4>>
+  <<set $dreams = 1>>
+<<endif>>
+<<endsilently>><<if $dreams eq 1>>
+<<display "dream_1">>
+<<else if $dreams eq 2>>
+<<display "dream_2">>
+<<else if $dreams eq 3>>
+<<display "dream_3">>
+<<else if $mugged>>
+<<display "dream_mugged">>
+<<else if $dreams eq 4>>
+<<display "dream_4">>
+<<endif>>
+
+
+:: dream_mugged [nocall]
+I dreamed I was back in the PvP zones.  A mob of people, all bald, all armed, surrounded me.  They didn't have to beat me - though they would - their simple presence was meanacing enough, and the constant feeling of doom that pervaded the zone was crushing down on me.
+
+<<if $accidentallyTeleported>>
+* [[Wake up|wake]]
+<<else>>
+* [[Wake up|pvp_teleport]]
+<<endif>>
+
 
 
 :: apartment_exterior
@@ -1657,13 +2816,71 @@ A chalkboard featured the current transit prices:
 He walked up to the chalkboard.  "Of course, moving all the data that makes up a human being isn't exactly cheap, as you can see, and those prices don't include however much it'll cost to simulate you once you're there.  If you want my advice, save up for a day trip to New Amsterdam, see the beaches.  As expensive as that is, it's way more worth it."
 * [[Follow him|asylum_exterior]]
 <<else>>
-Conspicuously absent from your tour was the fact that a road goes over the tracks and leads on to another part of the city.
+Conspicuously absent from my tour was the fact that a road went over the tracks and lead on to another part of the city.
 
 * [[Head toward the Retirement Home|asylum_exterior]]
 * [[Cross the tracks|pvp_entrance]]
 * [[Go to the Hub|Hub]]
 * [[Visit the Games District|games_exterior]]
 <<endif>>
+
+
+:: pvp_entrance
+<<if $mugged>>
+I crossed the tracks and the trademark dread of the PvP zone settled over my mind.  Now that I knew what it was it was a lot easier to handle.  The fear I'd first felt on entering was a dull sensation of unease in the back of my mind.  I could deal with that.
+
+* [[Continue down the street|pvp_street_normal]]<<else>>
+The moment I crossed the tracks, I knew I'd made a mistake.  Somewhere in the back of my mind, fear started to creep in.  It was formless, aimless, and sourceless, but it was real and suddenly almost overpowering.  I wasn't someone who scared easily, but this was something else.
+
+The streets around me were empty.  There was absolutely no reason to feel this way.
+
+* [[Continue down the street|pvp_mugging]]
+<<endif>>
+
+* [[Go back to the train station|train_exterior]]
+
+
+
+:: pvp_street_normal
+TODO
+
+
+:: pvp_mugging_force [nocall]
+"N-" my defiance wasn't even fully articulated before it earned me a punch in the gut by the bald man.  I fell to the ground.
+
+There were three of them that I could see - my hairless assailant and two others who must have come from behind as soon as I'd walked into their trap.
+
+I clutched my arm around my stomach, trying to think and not vomit at the same time.  How the hell could this even hurt?  I was supposedly invulnerable.
+
+"Ready to give it up, new meat, or do we get to hit you some more?"  Baldie's voice clearly communicated that either option was just as entertaining.
+
+* [[Refuse|pvp_mugging_rob]]
+* [[Give in|pvp_mugging_ok]]
+
+
+
+:: pvp_mugging_rob [nocall]
+"Fuck protocol, man" one of the assailants from behind me said.  "I wanna see what this asshole's got that they're so eager to get the shit kicked out of them for it."
+
+This was punctuated with an actual kick to my ribs, laying me out on my side.  This was far from the first fight I'd been in, or even the worst, but my in-sim reflexes and heard-earned real-life combat skills had yet to meet.
+
+The man behind me took my wallet, which was another thing I'd been pretty sure wasn't possible, and started flipping through it.
+
+<<display "pvp_wallet">>
+
+
+
+:: pvp_wallet [nocall]
+"Oh man, we bagged someone that's only spent a few-"
+
+"Is that a fucking card?" Baldie said.  His voice had gone from its jovial kick-your-ass tone to an ice cold kick-your-ass tone that was at least this time not directed at me.  I glanced over at the thug with my wallet to see him holding the card that the insurance company had given me.
+
+The third assailant hadn't said anything, but I saw surprise and sudden fear on his face.  He leapt toward me, his hand darting toward my mouth, but unfortunately for him I realized why.
+
+The card acted like a normal holo-phone.  That meant it could be voice activated.
+
+* [[Call Guillory|pvp_guillory]]
+
 
 
 :: bed
@@ -1711,6 +2928,47 @@ A large glass double-door lead out to the streets, and a permanently propped ope
 
 
 
+:: pvp_mugging [nocall]
+The sensation of danger in no way faded as I continued down the street.  I looked around me, but saw nothing but the usual dark streets.
+
+I didn't see my attackers until it was far too late.
+
+The man in front of me had emerged from an alleyway.  He was bald and had a swastika tatooed on the top of his head.  His scars were both aged and recent, and he regarded me with the sort of smile that I knew from experience meant he was going to enjoy beating the shit out of me.
+
+"Hand it over, newbie."
+
+* [[Refuse|pvp_mugging_force]]
+* [[Ask what the hell this is about|pvp_mugging_questions]]
+
+
+
+:: pvp_mugging_ok [nocall]
+"Fine." I spat.  "Take it."  I pulled out the wallet and threw it at their feet.  One of the thugs who'd been behind me picked it up and started thumbing through it.
+
+<<display "pvp_wallet">>
+
+
+:: pvp_guillory [nocall]
+"Guillory" the insurance man looked as calm and impeccably dressed as ever.
+
+The meaty hand over my mouth prevented me from replying, but the nice thing about holo-phones in this situation is that they work both ways.  Guillory could clearly see what was happening.
+
+"Ah, you crossed the tracks." he didn't look at all concerned about the situation.  "One moment."
+<<silently>>
+<<set $mugged=1>>
+<<set $guilloryInPerson=1>>
+<<set $sleepy=1>>
+<<endsilently>>
+There was a lurch and I was suddenly falling sideways.  The world dissolved around me just as quickly and then was immediately pressed back into place with a different locale.
+
+I was in Guillory's office, my wallet in my hand.
+
+"You probably have some questions."  Guillory said.
+
+* [[Ask him|convo_guillory]]
+
+
+
 :: television
 Turning on the television was a lot faster once I realized there wasn't a remote control and I'd have to fiddle with the dials on the machine.
 
@@ -1750,7 +3008,29 @@ It made me wonder if I needed to eat.  I didn't feel hungry and I hadn't eaten a
 
 
 
+:: pvp_mugging_questions [nocall]
+"Wh-" was as far as I got before I felt an impact and explosive pain from my kidney.  A set of hands from behind me grabbed me by the collar and held me up.
+
+The neo-nazi still in front of me shook his head amusedly.  "I love the smell of newbie in the morning.  Your wallet, that's what.  Hand it over."
+
+* [[Refuse|pvp_mugging_force]]
+* [[Give in|pvp_mugging_ok]]
+
+
+
 :: pvp_entrance
-TODO
+<<if $mugged>>
+I crossed the tracks and the trademark dread of the PvP zone settled over my mind.  Now that I knew what it was it was a lot easier to handle.  The fear I'd first felt on entering was a dull sensation of unease in the back of my mind.  I could deal with that.
+
+* [[Continue down the street|pvp_street_normal]]<<else>>
+The moment I crossed the tracks, I knew I'd made a mistake.  Somewhere in the back of my mind, fear started to creep in.  It was formless, aimless, and sourceless, but it was real and suddenly almost overpowering.  I wasn't someone who scared easily, but this was something else.
+
+The streets around me were empty.  There was absolutely no reason to feel this way.
+
+* [[Continue down the street|pvp_mugging]]
+<<endif>>
+
+* [[Go back to the train station|train_exterior]]
+
 
 

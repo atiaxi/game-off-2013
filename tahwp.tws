@@ -34,7 +34,7 @@ p16
 (dp17
 S'text'
 p18
-VThe afterlife had wood paneling.\u000a\u000aIt'd ordinarily be an absurd thing to notice.  I was dead, after all, in the hereafter's own waiting room.  You'd think there'd be pearly gates, or at least a hint of brimstone, but instead?\u000a\u000aIt was a waiting room.  Wood paneling on the walls, an oblong receptionist counter complete with bored-looking [[receptionist]] doing her best not to make eye contact... it was only missing some out of date magazines and it'd be perfect.  I'd have to mention it to whoever ran the place.\u000a[[Debug]]\u000a* [[Wait|intro_wait]]
+V<<silently>>\u000a<<set $dreams=0>>\u000a<<set $emilNervous=0>>\u000a<<endsilently>>The afterlife had wood paneling.\u000a\u000aIt'd ordinarily be an absurd thing to notice.  I was dead, after all, in the hereafter's own waiting room.  You'd think there'd be pearly gates, or at least a hint of brimstone, but instead?\u000a\u000aIt was a waiting room.  Wood paneling on the walls, an oblong receptionist counter complete with bored-looking [[receptionist]] doing her best not to make eye contact... it was only missing some out of date magazines and it'd be perfect.  I'd have to mention it to whoever ran the place.\u000a[[Debug]]\u000a* [[Wait|intro_wait]]
 p19
 sS'created'
 p20
@@ -782,7 +782,7 @@ Tiddler
 p243
 (dp244
 g18
-VGuillory was every bit the model of an attentive insurance agent.  "What questions do you have for me?"\u000a\u000a<<sugarchoice "guillory_cause_of_death" "How did I die?">>\u000a<<sugarchoice "guillory_insurance" "What does an insurance company have to do with my death?">>\u000a<<if $heardOfPreservationists>><<sugarchoice "guillory_preserve" "So you're Preservationists?">>\u000a/%%/<<else>><<sugarchoice "guillory_preserve" "Life Preservers, huh?  Any relation to the Preservationists?">>\u000a/%%/<<endif>><<if $heardOfSoulkeeper>>\u000a<<sugarchoice "guillory_soulkeeper" "What's a 'soulkeeper'?">>\u000a/%%/<<endif>><<sugarchoice "guillory_upload" "How exactly did I end up here?">>\u000a<<sugarchoice "guillory_whatnext" "Where do I go now?">>\u000a<<if $heardTimeIsMoney>><<sugarchoice "guillory_broke" "What happens if I run out of time?">>\u000a/%%/<<endif>><<if $heardNeedsJanitorPermission>><<sugarchoice "guillory_janitor" "Your receptionist won't let me into the janitor's closet">>\u000a/%%/<<endif>><<if $wasOfferedTour>><<sugarchoice "guillory_tour" "Someone offered to be a 'tour guide' for me.  Is it a scam?">>\u000a/%%/<<endif>><<if $attemptedEscape>><<sugarchoice "guillory_locked" "I was locked in my apartment earlier.">>\u000a/%%/<<endif>><<if $hasHadRecruitmentCall>><<sugarchoice "guillory_joboffer" "I got a job offer from Nickolai Koloman">>\u000a/%%/<<endif>>\u000a\u000a<<if $guilloryInPerson>>* [[You have no more questions|guillory_exit]]<<else>>* [[End the phone call|Wallet]]<<endif>>
+VGuillory was every bit the model of an attentive insurance agent.  "What questions do you have for me?"\u000a\u000a<<sugarchoice "guillory_cause_of_death" "How did I die?">>\u000a<<sugarchoice "guillory_insurance" "What does an insurance company have to do with my death?">>\u000a<<if $heardOfPreservationists>><<sugarchoice "guillory_preserve" "So you're Preservationists?">>\u000a/%%/<<else>><<sugarchoice "guillory_preserve" "Life Preservers, huh?  Any relation to the Preservationists?">>\u000a/%%/<<endif>><<if $heardOfSoulkeeper>>\u000a<<sugarchoice "guillory_soulkeeper" "What's a 'soulkeeper'?">>\u000a/%%/<<endif>><<sugarchoice "guillory_upload" "How exactly did I end up here?">>\u000a<<sugarchoice "guillory_whatnext" "Where do I go now?">>\u000a<<if $heardTimeIsMoney>><<sugarchoice "guillory_broke" "What happens if I run out of time?">>\u000a/%%/<<endif>><<if $heardNeedsJanitorPermission>><<sugarchoice "guillory_janitor" "Your receptionist won't let me into the janitor's closet">>\u000a/%%/<<endif>><<if $wasOfferedTour>><<sugarchoice "guillory_tour" "Someone offered to be a 'tour guide' for me.  Is it a scam?">>\u000a/%%/<<endif>><<if $attemptedEscape>><<sugarchoice "guillory_locked" "I was locked in my apartment earlier.">>\u000a/%%/<<endif>><<if $hasHadRecruitmentCall>><<sugarchoice "guillory_joboffer" "I got a job offer from Nickolai Koloman">>\u000a/%%/<<endif>><<if $mugged>>\u000a<<sugarchoice "guillory_how_teleport" "How did get me out of that mugging?">>\u000a<<sugarchoice "guillory_pvp" "What the hell happened back there?">>\u000a<<sugarchoice "guillory_warn" "Why didn't you warn me about that place?">>\u000a/%%/<<endif>><<if $accidentallyTeleported>>\u000a<<sugarchoice "guillory_tp" "I had a dream last night... and woke up somewhere else">>\u000a/%%/<<endif>>\u000a\u000a<<if $guilloryInPerson>>* [[You have no more questions|guillory_exit]]<<else>>* [[End the phone call|Wallet]]<<endif>>
 p245
 sg20
 g21
@@ -823,7 +823,7 @@ Tiddler
 p256
 (dp257
 g18
-V<<silently>>\u000a<<set $gender="Ms.">>\u000a<<set $money=18000>>\u000a\u000a<<set $cardFerro=1>>\u000a<<set $cardKoloman=1>>\u000a\u000a<<set $hasWallet=1>>\u000a<<set $hasHadTour=1>>\u000a<<set $hasHadRecruitmentCall=1>>\u000a<<update>>\u000a<<endsilently>>DEBUG ENABLED\u000a\u000a<<display "elevator_interior">>
+V<<silently>>\u000a<<set $gender="Ms.">>\u000a<<set $money=18000>>\u000a\u000a<<set $cardFerro=1>>\u000a<<set $cardKoloman=2>>\u000a<<set $cardClub=1>>\u000a<<set $investigating=1>>\u000a\u000a<<set $hasWallet=1>>\u000a<<set $hasHadTour=1>>\u000a<<set $hasHadRecruitmentCall=1>>\u000a<<update>>\u000a<<endsilently>>DEBUG ENABLED\u000a\u000a<<display "games_exterior">>
 p258
 sg20
 g21
@@ -1184,7 +1184,7 @@ Tiddler
 p369
 (dp370
 g18
-VI looked into my wallet.  I had <<print $money>> days' worth of money.  It bore little resemblance to the cash I'd been familiar with all my life, but the small strange bills were obviously made to be currency.\u000a\u000a<<if state.history[1].passage.tags.indexOf("conversation") eq -1>><<set $walletReturn=state.history[1].passage.title>><<endif>>\u000a<<if state.history[1].passage.tags.indexOf("nocall") eq -1>>\u000a[[Call Alex Guillory|convo_guillory]]\u000a<<if $cardFerro and (not $ferroInPerson)>>[[Call Samahd Ferro|convo_ferro]]<<endif>>\u000a<<if $cardKoloman eq 1>>\u000aKoloman's card couldn't be used as a phone, but it was the only card in my wallet with an address:\u000a\u000a<html><div class="center">\u000aNickolai Koloman<br/>\u000aCEO, Koloman Industries<br/>\u000a1 Prometheus Lane, New Providence\u000a</div></html>\u000a<<else>>\u000a  <<if $cardKoloman eq 2>>\u000a[[Call Nickolai Koloman|convo_koloman]]\u000a  <<endif>>\u000a<<endif>>\u000a<<else>>\u000aI couldn't call anyone at the moment.\u000a<<endif>>\u000a<<if $sleepy>>I was getting somewhat drowsy; heading home didn't seem like a bad idea.<<endif>>\u000a\u000a<<print "* [[Stop looking through your wallet|" + $walletReturn + "]]">>\u000a
+VI looked into my wallet.  I had <<print $money>> days' worth of money.  It bore little resemblance to the cash I'd been familiar with all my life, but the small strange bills were obviously made to be currency.\u000a\u000a<<if state.history[1].passage.tags.indexOf("conversation") eq -1>><<set $walletReturn=state.history[1].passage.title>><<endif>>\u000a<<if state.history[1].passage.tags.indexOf("nocall") eq -1>>\u000a[[Call Alex Guillory|convo_guillory]]\u000a<<if $cardFerro and (not $ferroInPerson)>>[[Call Samahd Ferro|convo_ferro]]<<endif>>\u000a<<if $cardKoloman eq 1>>\u000aKoloman's card couldn't be used as a phone, but it was the only card in my wallet with an address:\u000a\u000a<html><div class="center">\u000aNickolai Koloman<br/>\u000aCEO, Koloman Industries<br/>\u000a1 Prometheus Lane, New Providence\u000a</div></html>\u000a<<else>>\u000a  <<if $cardKoloman eq 2>>\u000a[[Call Nickolai Koloman|convo_koloman]]\u000a  <<endif>>\u000a<<endif>>\u000a<<if $cardClub>>\u000a[[Call the Hacker's Club|convo_club]]\u000a<<endif>>\u000a<<else>>\u000aI couldn't call anyone at the moment.\u000a<<endif>>\u000a<<if $sleepy>>I was getting somewhat drowsy; heading home didn't seem like a bad idea.<<endif>>\u000a\u000a<<print "* [[Stop looking through your wallet|" + $walletReturn + "]]">>\u000a
 p371
 sg20
 g21
@@ -1905,7 +1905,7 @@ Tiddler
 p587
 (dp588
 g18
-VThe architects who created New Detroit clearly had an extremely generic template - the Courthouse could not have looked any more the part.  Faux-marble stairs, textured columns, even a statue of justice out front.\u000a\u000a<<if $tourInProgress>>\u000a"You probably will never see the inside of this place unless you decide to become a history buff." \u000aSamahd said.  "Used to be the center of law and order in this place, trials and everything, but it turns out it's easier just to make the sim so crimes can't be committed."\u000a\u000aHe pointed to the flat wall of a convenience store.  "For instance, say you had a spraycan and you felt like tagging your name all over that thing."  He rummaged through his pockets for a moment.  "Damn, I don't have one.  I usually bring one for this demonstration.  Anyway, it wouldn't work.  You don't own that store, you don't have permission to modify it, you can't do anything to it."\u000a\u000aAfter a few more moments he pulled an ordinary-looking keyring from his pocket.  "I'd say 'at least I remembered these' but as it happens they're always with you.  They look like keys - old metal style keys, you've probably noticed the taste for antiques around here - and they act like them, letting you into doors, opening whatever you've locked, that kind of thing.  You've likely got one for your apartment."\u000a\u000aDubiously, I reached into my pocket and pulled out a keyring.  It had one key, featuring the number "1336" emblazoned on it.  I let go and the ring and key vanished.  Patting the outside of my pocket revealed nothing, but reaching in again resulted in the same key.  I hadn't even felt it there.\u000a\u000a"A lot of abstractions work like that - your entry permissions being actual keys, the time-is-money concept being made into real bills.  New Detroit's got an old-time asthetic because there's no point in having it look technological.  We're not only surrounded by technology, we //are// technology.  No need to lug around a holographic projector for your phone when old-fasioned business cards can do the same thing."\u000a\u000aHe shrugged.  "You really do get used to it.  Anyway, come on, let's go get religion."\u000a\u000a* [[Follow him|church_exterior]]\u000a<<else>>\u000a* [[Visit the Church|church_exterior]]\u000a* [[Go to the Hub|Hub]]\u000a* [[See the elevator|elevator_exterior]]\u000a<<endif>>
+VThe architects who created New Detroit clearly had an extremely generic template - the Courthouse could not have looked any more the part.  Faux-marble stairs, textured columns, even a statue of justice out front.\u000a\u000a<<if $tourInProgress>>\u000a"You probably will never see the inside of this place unless you decide to become a history buff." \u000aSamahd said.  "Used to be the center of law and order in this place, trials and everything, but it turns out it's easier just to make the sim so crimes can't be committed."\u000a\u000aHe pointed to the flat wall of a convenience store.  "For instance, say you had a spraycan and you felt like tagging your name all over that thing."  He rummaged through his pockets for a moment.  "Damn, I don't have one.  I usually bring one for this demonstration.  Anyway, it wouldn't work.  You don't own that store, you don't have permission to modify it, you can't do anything to it."\u000a\u000aAfter a few more moments he pulled an ordinary-looking keyring from his pocket.  "I'd say 'at least I remembered these' but as it happens they're always with you.  They look like keys - old metal style keys, you've probably noticed the taste for antiques around here - and they act like them, letting you into doors, opening whatever you've locked, that kind of thing.  You've likely got one for your apartment."\u000a\u000aDubiously, I reached into my pocket and pulled out a keyring.  It had one key, featuring the number "1336" emblazoned on it.  I let go and the ring and key vanished.  Patting the outside of my pocket revealed nothing, but reaching in again resulted in the same key.  I hadn't even felt it there.\u000a\u000a"A lot of abstractions work like that - your entry permissions being actual keys, the time-is-money concept being made into real bills.  New Detroit's got an old-time asthetic because there's no point in having it look technological.  We're not only surrounded by technology, we //are// technology.  No need to lug around a holographic projector for your phone when old-fasioned business cards can do the same thing."\u000a\u000aHe shrugged.  "You really do get used to it.  Anyway, come on, let's go get religion."\u000a\u000a* [[Follow him|church_exterior]]\u000a<<else>>\u000a* [[Enter the Courthouse|courthouse_interior]]\u000a* [[Visit the Church|church_exterior]]\u000a* [[Go to the Hub|Hub]]\u000a* [[See the elevator|elevator_exterior]]\u000a<<endif>>
 p589
 sg20
 g21
@@ -2016,7 +2016,7 @@ Tiddler
 p620
 (dp621
 g18
-VThe Arts District was Broadway.  As it turned out, that wasn't a metaphor - someone had taken the entire cityscape of New York's theater district, scaled down the fidelity, mixed it up a bit, and placed it in New Detroit.\u000a\u000aI wasn't sure which, if any, of the details they'd gotten correct, but the neon lights were in fact bright.\u000a\u000a<<if $tourInProgress>>\u000a"Shopping's a good pastime, but if you want more classy sort of entertainment - well, as classy as you're likely to find in this city - the arts district here is the best place to do it." Samahd was standing in front of the Park Theater, which I'd been pretty sure had burned down centuries ago.  People were apparently not the only things that got afterlives.\u000a\u000a"Prices here are pretty reasonable.  Your real theater snobs are all up in New Amsterdam at a far better rendition of this building.  This is bottom floor for artists of all stripes, so you can even catch free shows."\u000a\u000aFinally, after what felt like hours of false starts, I got a word in edgewise.  "I suppose you can get hired on as an usher?"\u000a\u000aSamahd laughed.  "Yes, actually.  Most people here are actors, painters, musicians.  Being an usher would be better work if you could get it.  Everyone wants to start a band but, well, you know the phrase 'starving artist'?  It somehow manages to be true even in a place where you can't possibly starve."\u000a\u000a"Once you're finished with what passes for 'upscale' around here, I'll take you to where the real fun happens."\u000a\u000a* [[Follow him|games_exterior]]\u000a<<else>>\u000a* [[Head toward the Games District|games_exterior]]\u000a* [[Go to the Hub|Hub]]\u000a* [[Go shopping|shopping_exterior]]\u000a<<endif>>
+VThe Arts District was Broadway.  As it turned out, that wasn't a metaphor - someone had taken the entire cityscape of New York's theater district, scaled down the fidelity, mixed it up a bit, and placed it in New Detroit.\u000a\u000aI wasn't sure which, if any, of the details they'd gotten correct, but the neon lights were in fact bright.\u000a\u000a<<if $tourInProgress>>\u000a"Shopping's a good pastime, but if you want more classy sort of entertainment - well, as classy as you're likely to find in this city - the arts district here is the best place to do it." Samahd was standing in front of the Park Theater, which I'd been pretty sure had burned down centuries ago.  People were apparently not the only things that got afterlives.\u000a\u000a"Prices here are pretty reasonable.  Your real theater snobs are all up in New Amsterdam at a far better rendition of this building.  This is bottom floor for artists of all stripes, so you can even catch free shows."\u000a\u000aFinally, after what felt like hours of false starts, I got a word in edgewise.  "I suppose you can get hired on as an usher?"\u000a\u000aSamahd laughed.  "Yes, actually.  Most people here are actors, painters, musicians.  Being an usher would be better work if you could get it.  Everyone wants to start a band but, well, you know the phrase 'starving artist'?  It somehow manages to be true even in a place where you can't possibly starve."\u000a\u000a"Once you're finished with what passes for 'upscale' around here, I'll take you to where the real fun happens."\u000a\u000a* [[Follow him|games_exterior]]\u000a<<else>>\u000a<<if $investigating>>\u000aIva had lived here in the arts district - if I was going to find out what happened to her, chances were good I'd be looking around here.\u000a\u000a[[Iva's house|ivahouse_exterior]] was the obvious first choice of destination.\u000a\u000a<<if $hasTroupeAddress>>\u000aIva had made friends of her [[acting troupe|theater]]; they might have a few answers.\u000a/%%/<<endif>><<if $hasBoyfriendAddress>>\u000aIva's [[boyfriend|bfhouse_exterior]] was an obvious person of interest.\u000a/%%/<<endif>>\u000a\u000a<<endif>>\u000a* [[Head toward the Games District|games_exterior]]\u000a* [[Go to the Hub|Hub]]\u000a* [[Go shopping|shopping_exterior]]\u000a<<endif>>
 p622
 sg20
 g21
@@ -2053,7 +2053,7 @@ Tiddler
 p631
 (dp632
 g18
-VThe Games District was obvious - it was surrounded by golf courses.  The sudden lack of buildings hanging over me gave me the strange fleeting feeling of agoraphobia.\u000a\u000a<<if $tourInProgress>>\u000a"If you haven't guessed why this is separate from the arts district yet," Samahd said, gesturing to the greens, "it's because it's about three times bigger."\u000a\u000aWe passed a few voleyball courts and a soccer field.  "Every sport on the planet is represented here, and some new ones that you can't do in the real world.  I wouldn't recommend starting with those, by the way."  He pointed to a three-story tall translucent cube that apparently featured rapidly changing gravity as a core game mechanic.\u000a\u000a"You mostly see sports-style games because those take the most room."  He pointed toward a small building off the main road.  "That leads to the arcades, underground.  Every video game we could licence - and with the kind of money the architects were throwing around, it was a lot - is available there, 15 minutes per play.  It ranges from some of the more recent full-immersion games - much easier to play here than in the real world, you don't need a sim implant or anything - to old-style mechanical pinball."\u000a\u000a"Take it from me," he came to a halt at the intersection, "your video game skills, if any, will carry over into this world, but your athletic skills won't.  I was a researcher but played softball on the side.  Couldn't play it at all once I got uploaded.  Game's the same, but you kinda have to re-learn your proprioception."\u000a\u000aThat explained why my reflexes were terrible, at least.\u000a\u000a"Come on, we've got a train to catch."\u000a\u000a* [[Follow him|train_exterior]]\u000a<<else>>\u000a* [[Head toward the train station|train_exterior]]\u000a* [[Go to the Hub|Hub]]\u000a* [[Visit the Arts District|arts_exterior]]\u000a<<endif>>\u000a
+VThe Games District was obvious - it was surrounded by golf courses.  The sudden lack of buildings hanging over me gave me the strange fleeting feeling of agoraphobia.\u000a\u000a<<if $tourInProgress>>\u000a"If you haven't guessed why this is separate from the arts district yet," Samahd said, gesturing to the greens, "it's because it's about three times bigger."\u000a\u000aWe passed a few voleyball courts and a soccer field.  "Every sport on the planet is represented here, and some new ones that you can't do in the real world.  I wouldn't recommend starting with those, by the way."  He pointed to a three-story tall translucent cube that apparently featured rapidly changing gravity as a core game mechanic.\u000a\u000a"You mostly see sports-style games because those take the most room."  He pointed toward a small building off the main road.  "That leads to the arcades, underground.  Every video game we could licence - and with the kind of money the architects were throwing around, it was a lot - is available there, 15 minutes per play.  It ranges from some of the more recent full-immersion games - much easier to play here than in the real world, you don't need a sim implant or anything - to old-style mechanical pinball."\u000a\u000a"Take it from me," he came to a halt at the intersection, "your video game skills, if any, will carry over into this world, but your athletic skills won't.  I was a researcher but played softball on the side.  Couldn't play it at all once I got uploaded.  Game's the same, but you kinda have to re-learn your proprioception."\u000a\u000aThat explained why my reflexes were terrible, at least.\u000a\u000a"Come on, we've got a train to catch."\u000a\u000a* [[Follow him|train_exterior]]\u000a<<else>>\u000a* [[Enter the Arcade|games_interior]]\u000a* [[Head toward the train station|train_exterior]]\u000a* [[Go to the Hub|Hub]]\u000a* [[Visit the Arts District|arts_exterior]]\u000a<<endif>>\u000a
 p633
 sg20
 g21
@@ -2090,7 +2090,7 @@ Tiddler
 p642
 (dp643
 g18
-VThe train station consisted entirely of an awning over the waiting area by the tracks and a ticketing station manned by one supremely bored person.\u000a\u000aA chalkboard featured the current transit prices:\u000a* ''Metaverse:'' 8.45 centuries\u000a* ''Satya Yuga:'' 3.10 centuries\u000a* ''Valhalla:'' 1.20 centuries\u000a* ''New Olympus:  You are here.''\u000a\u000a<<if $tourInProgress>>\u000a"I mentioned earlier how the elevator doesn't take you off-grid." Samahd ignored the ticketing agent, and was ignored in return.  "Well this does.  If you wanted to visit any of the other sims we're networked to, this is the place."\u000a\u000aHe walked up to the chalkboard.  "Of course, moving all the data that makes up a human being isn't exactly cheap, as you can see, and those prices don't include however much it'll cost to simulate you once you're there.  If you want my advice, save up for a day trip to New Amsterdam, see the beaches.  As expensive as that is, it's way more worth it."\u000a* [[Follow him|asylum_exterior]]\u000a<<else>>\u000aConspicuously absent from your tour was the fact that a road goes over the tracks and leads on to another part of the city.\u000a\u000a* [[Head toward the Retirement Home|asylum_exterior]]\u000a* [[Cross the tracks|pvp_entrance]]\u000a* [[Go to the Hub|Hub]]\u000a* [[Visit the Games District|games_exterior]]\u000a<<endif>>
+VThe train station consisted entirely of an awning over the waiting area by the tracks and a ticketing station manned by one supremely bored person.\u000a\u000aA chalkboard featured the current transit prices:\u000a* ''Metaverse:'' 8.45 centuries\u000a* ''Satya Yuga:'' 3.10 centuries\u000a* ''Valhalla:'' 1.20 centuries\u000a* ''New Olympus:  You are here.''\u000a\u000a<<if $tourInProgress>>\u000a"I mentioned earlier how the elevator doesn't take you off-grid." Samahd ignored the ticketing agent, and was ignored in return.  "Well this does.  If you wanted to visit any of the other sims we're networked to, this is the place."\u000a\u000aHe walked up to the chalkboard.  "Of course, moving all the data that makes up a human being isn't exactly cheap, as you can see, and those prices don't include however much it'll cost to simulate you once you're there.  If you want my advice, save up for a day trip to New Amsterdam, see the beaches.  As expensive as that is, it's way more worth it."\u000a* [[Follow him|asylum_exterior]]\u000a<<else>>\u000aConspicuously absent from my tour was the fact that a road went over the tracks and lead on to another part of the city.\u000a\u000a* [[Head toward the Retirement Home|asylum_exterior]]\u000a* [[Cross the tracks|pvp_entrance]]\u000a* [[Go to the Hub|Hub]]\u000a* [[Visit the Games District|games_exterior]]\u000a<<endif>>
 p644
 sg20
 g21
@@ -2275,7 +2275,7 @@ Tiddler
 p697
 (dp698
 g18
-VFerro nodded at me.  "Long time no see!"\u000a\u000a<<sugarchoice "ferro_tourguide" "How do you become a tour guide?">>\u000a<<if $hasHadRecruitmentCall>><<sugarchoice "ferro_joboffer" "I got a job offer call from Nickolai Koloman">>\u000a/%%/<<endif>><<if $attemptedEscape>><<sugarchoice "ferro_locked" "When I was on a call earlier, I couldn't leave my apartment.  What's the deal with that?">>\u000a/%%/<<endif>><<if not $hasHadTour>>\u000a[[I've changed my mind about the tour|ferro_tour_accept_later]]\u000a<<else>>\u000a<<sugarchoice "ferro_nottour" "So what's not on the tour?">>\u000a<<sugarchoice "ferro_pi" "I was a private investigator in real life, is that a job here?">>\u000a<<sugarchoice "ferro_food" "You mentioned that starving artists don't actually starve.  Do I need to eat here?">>\u000a<<sugarchoice "ferro_realworld" "What did you do in the real world?">>\u000a<<endif>>\u000a\u000a<<if $ferroInPerson>>* [[You have no more questions|ferro_exit]]<<else>>* [[End the phone call|Wallet]]<<endif>>
+VFerro nodded at me.  "Long time no see!"\u000a\u000a<<sugarchoice "ferro_tourguide" "How do you become a tour guide?">>\u000a<<if $hasHadRecruitmentCall>><<sugarchoice "ferro_joboffer" "I got a job offer call from Nickolai Koloman">>\u000a/%%/<<endif>><<if $attemptedEscape>><<sugarchoice "ferro_locked" "When I was on a call earlier, I couldn't leave my apartment.  What's the deal with that?">>\u000a/%%/<<endif>><<if not $hasHadTour>>\u000a[[I've changed my mind about the tour|ferro_tour_accept_later]]\u000a<<else>>\u000a<<sugarchoice "ferro_nottour" "So what's not on the tour?">>\u000a<<sugarchoice "ferro_pi" "I was a private investigator in real life, is that a job here?">>\u000a<<sugarchoice "ferro_food" "You mentioned that starving artists don't actually starve.  Do I need to eat here?">>\u000a<<sugarchoice "ferro_realworld" "What did you do in the real world?">>\u000a<<if $mugged>>\u000a<<sugarchoice "ferro_mugged" "I just got my ass kicked.">>\u000a/%%/<<endif>><<if $accidentallyTeleported>>\u000a<<sugarchoice "ferro_tp" "I went to sleep and woke up somewhere else.">>\u000a/%%/<<endif>>\u000a<<endif>>\u000a\u000a<<if $ferroInPerson>>* [[You have no more questions|ferro_exit]]<<else>>* [[End the phone call|Wallet]]<<endif>>
 p699
 sg20
 g21
@@ -2581,7 +2581,7 @@ Tiddler
 p790
 (dp791
 g18
-V<<set $money = $money - 1>><<display "wake">>
+V<<silently>>\u000a<<set $money = $money - 1>>\u000a<<set $dreams = $dreams + 1>>\u000a<<if $dreams gt 4>>\u000a  <<set $dreams = 1>>\u000a<<endif>>\u000a<<endsilently>><<if $dreams eq 1>>\u000a<<display "dream_1">>\u000a<<else if $dreams eq 2>>\u000a<<display "dream_2">>\u000a<<else if $dreams eq 3>>\u000a<<display "dream_3">>\u000a<<else if $mugged>>\u000a<<display "dream_mugged">>\u000a<<else if $dreams eq 4>>\u000a<<display "dream_4">>\u000a<<endif>>
 p792
 sg20
 g21
@@ -2613,14 +2613,14 @@ I00
 sg13
 (lp801
 F10.0
-aF6870.0
+aF6730.0
 asg15
 (itiddlywiki
 Tiddler
 p802
 (dp803
 g18
-V<<set $sleepy=0>>Sleep in the sim was an abrupt thing.  I was awake, then I was awake again, and it was morning.  Of course, the darkness of the skies outside hadn't diminished, but I apparently wore a wristwatch now.  It hadn't even occurred to me to set an alarm, but they didn't seem necessary in this world.\u000a\u000a<<if not $hasHadRecruitmentCall>>\u000aOf course, a more likely cause of my waking was the cast iron rotary phone sitting on the nightstand.  I was reasonably certain that neither the phone nor the nightstand had been present the evening before, but I couldn't really think very hard on the topic.  My thoughts were disrupted by the noise the thing was making, a noise I hadn't heard since I was a kid.  The phone was ringing.\u000a\u000a* [[Answer the phone|recruitment_call]]\u000a* [[--I'm getting up|apartment_interior_phone]]\u000a<<else>>\u000a* [[Get up|apartment_interior]]\u000a<<endif>>
+V<<set $sleepy=0>>There was no transition between sleep and waking in the sim - instead  I was simply awake again, and it was morning.  Of course, the darkness of the skies outside hadn't diminished, but I apparently wore a wristwatch now.  It hadn't even occurred to me to set an alarm, but they didn't seem necessary in this world.\u000a\u000a<<if not $hasHadRecruitmentCall>>\u000aOf course, a more likely cause of my waking was the cast iron rotary phone sitting on the nightstand.  I was reasonably certain that neither the phone nor the nightstand had been present the evening before, but I couldn't really think very hard on the topic.  My thoughts were disrupted by the noise the thing was making, a noise I hadn't heard since I was a kid.  The phone was ringing.\u000a\u000a* [[Answer the phone|recruitment_call]]\u000a* [[--I'm getting up|apartment_interior_phone]]\u000a<<else>>\u000a* [[Get up|apartment_interior]]\u000a<<endif>>
 p804
 sg20
 g21
@@ -2651,8 +2651,8 @@ g12
 I00
 sg13
 (lp813
-F150.0
-aF6870.0
+F10.0
+aF6590.0
 asg15
 (itiddlywiki
 Tiddler
@@ -2690,8 +2690,8 @@ g12
 I00
 sg13
 (lp825
-F290.0
-aF6870.0
+F150.0
+aF6590.0
 asg15
 (itiddlywiki
 Tiddler
@@ -2730,7 +2730,7 @@ I00
 sg13
 (lp837
 F10.0
-aF6730.0
+aF6450.0
 asg15
 (itiddlywiki
 Tiddler
@@ -2769,7 +2769,7 @@ I00
 sg13
 (lp849
 F290.0
-aF6730.0
+aF6450.0
 asg15
 (itiddlywiki
 Tiddler
@@ -2808,7 +2808,7 @@ I00
 sg13
 (lp861
 F290.0
-aF6590.0
+aF6310.0
 asg15
 (itiddlywiki
 Tiddler
@@ -2882,7 +2882,7 @@ I00
 sg13
 (lp883
 F150.0
-aF6450.0
+aF6170.0
 asg15
 (itiddlywiki
 Tiddler
@@ -2921,7 +2921,7 @@ I00
 sg13
 (lp895
 F10.0
-aF6450.0
+aF6170.0
 asg15
 (itiddlywiki
 Tiddler
@@ -2960,7 +2960,7 @@ I00
 sg13
 (lp907
 F150.0
-aF6310.0
+aF6030.0
 asg15
 (itiddlywiki
 Tiddler
@@ -2999,7 +2999,7 @@ I00
 sg13
 (lp919
 F290.0
-aF6450.0
+aF6170.0
 asg15
 (itiddlywiki
 Tiddler
@@ -3038,7 +3038,7 @@ I00
 sg13
 (lp931
 F290.0
-aF6310.0
+aF6030.0
 asg15
 (itiddlywiki
 Tiddler
@@ -3077,7 +3077,7 @@ I00
 sg13
 (lp943
 F150.0
-aF6030.0
+aF5750.0
 asg15
 (itiddlywiki
 Tiddler
@@ -3116,7 +3116,7 @@ I00
 sg13
 (lp955
 F290.0
-aF6030.0
+aF5750.0
 asg15
 (itiddlywiki
 Tiddler
@@ -3155,7 +3155,7 @@ I00
 sg13
 (lp967
 F290.0
-aF6170.0
+aF5890.0
 asg15
 (itiddlywiki
 Tiddler
@@ -3194,7 +3194,7 @@ I00
 sg13
 (lp979
 F10.0
-aF6310.0
+aF6030.0
 asg15
 (itiddlywiki
 Tiddler
@@ -3233,7 +3233,7 @@ I00
 sg13
 (lp991
 F430.0
-aF6170.0
+aF5890.0
 asg15
 (itiddlywiki
 Tiddler
@@ -3272,7 +3272,7 @@ I00
 sg13
 (lp1003
 F430.0
-aF6310.0
+aF6030.0
 asg15
 (itiddlywiki
 Tiddler
@@ -4033,7 +4033,7 @@ Tiddler
 p1231
 (dp1232
 g18
-VNickolai nodded at the question.  "A reasonable thing to ask.  There must be, you are thinking, many other detectives with more experience, and more knowledge of how the system functions."\u000a\u000aI'd more been wondering which of my specific virtues he'd thought of when he called me.\u000a\u000aKoloman continued talking.  "This is true.  You are inexperienced in this world and, compared to some of those here who have been investigators for over a century total, inexperienced at the job.  It is precisely for these reasons that I wish to hire you."\u000a\u000aThis was not a very good pep speech.\u000a\u000a"I am not sure if you have noticed, but police presense in New Detroit is... nil, to put it nicely.  There are men who used to be police in their former lives, but most of them have retired.  There is no need to police when the simulation can do so automatically, with far greater coverage and effectiveness.  Hmph.\u000a\u000a"What I am saying is that any overly-visible response such as hiring an expensive investigator would bring these men out of their retirement.  They have even less experience than you, but wield considerable clout.  They would make a show out of the investigation - moreso than it already is - and, I suspect, be ineffective at the actual investigating. \u000a\u000a"You, on the other hand, can ask questions in nearly complete freedom.  You are new to the system, it is expected that you will not understand it and will need to ask questions.  You have been assured of your immortality and yet seen someone stripped of that very guarantee.  Every act of investigation will be expected of you naturally."\u000a\u000aI frowned.  "So does this mean I won't officially be on the case?"  I'd already seen what dropping Koloman's name could do in terms of getting people to co-operate; it was a powerful weapon I'd rather not be without.\u000a\u000a"You will very much be on this case, <<print $gender>> Hallivert."  Koloman answered stonily.  "It will appear to the officials and gossips of this town that I am not taking my daughter's death seriously with your hire, and I am prepared to endure such accusations because I believe you will find me answers."\u000a\u000a* [[You have more questions|convo_koloman]]\u000a
+VNickolai nodded at the question.  "A reasonable thing to ask.  There must be, you are thinking, many other detectives with more experience, and more knowledge of how the system functions."\u000a\u000aI'd more been wondering which of my specific virtues he'd thought of when he called me.\u000a\u000aKoloman continued talking.  "This is true.  You are inexperienced in this world and, compared to some of those here who have been investigators for over a century total, inexperienced at the job.  It is precisely for these reasons that I wish to hire you."\u000a\u000aThis was not a very good pep speech.\u000a\u000a"I am not sure if you have noticed, but police presense in New Detroit is... nil, to put it nicely.  There are men and women who used to be police in their former lives, but most of them have retired.  There is no need to police when the simulation can do so automatically, with far greater coverage and effectiveness.  Hmph.\u000a\u000a"What I am saying is that any overly-visible response such as hiring an expensive investigator would bring these men out of their retirement.  They have even less experience than you, but wield considerable clout.  They would make a show out of the investigation - moreso than it already is - and, I suspect, be ineffective at the actual investigating. \u000a\u000a"You, on the other hand, can ask questions in nearly complete freedom.  You are new to the system, it is expected that you will not understand it and will need to ask questions.  You have been assured of your immortality and yet seen someone stripped of that very guarantee.  Every act of investigation will be expected of you naturally."\u000a\u000aI frowned.  "So does this mean I won't officially be on the case?"  I'd already seen what dropping Koloman's name could do in terms of getting people to co-operate; it was a powerful weapon I'd rather not be without.\u000a\u000a"You will very much be on this case, <<print $gender>> Hallivert."  Koloman answered stonily.  "It will appear to the officials and gossips of this town that I am not taking my daughter's death seriously with your hire, and I am prepared to endure such accusations because I believe you will find me answers."\u000a\u000a* [[You have more questions|convo_koloman]]\u000a
 p1233
 sg29
 (lp1234
@@ -4555,7 +4555,7 @@ Vguillory_locked
 p1397
 sbsa(dp1398
 g12
-I01
+I00
 sg13
 (lp1399
 F290.0
@@ -4648,7 +4648,7 @@ Tiddler
 p1426
 (dp1427
 g18
-V"Her body is stored at the courthouse for the time being, but it was found at her apartment in the arts district."\u000a\u000aKoloman didn't meet my gaze, only waved dismissively.  "You now have the key.  Feel free to enter and make note of whatever you will, it is all as the police left it.  I... I haven't had the heart yet to visit and clean it out."\u000a\u000aHe sighed.  "I have much work to do once this investigation is complete."  His mood shifted suddenly, the defeated hunched-over posture becoming ramrod straight, the frown intensifying into a teeth-gritting grimace.  "Once I know the criminal's name, yes... much to do."\u000a\u000a* [[You have more questions|convo_koloman]]\u000a
+V"Her body is stored at the courthouse for the time being, but it was found at her apartment in the arts district."\u000a\u000aKoloman didn't meet my gaze, only waved dismissively.  "You now have the key, and directions should be printed on my card.  Feel free to enter and make note of whatever you will, it is all as the police left it.  I... I haven't had the heart yet to visit and clean it out."\u000a\u000aHe sighed.  "I have much work to do once this investigation is complete."  His mood shifted suddenly, the defeated hunched-over posture becoming ramrod straight, the frown intensifying into a teeth-gritting grimace.  "Once I know the criminal's name, yes... much to do."\u000a\u000a* [[You have more questions|convo_koloman]]\u000a
 p1428
 sg29
 (lp1429
@@ -4730,7 +4730,7 @@ Tiddler
 p1452
 (dp1453
 g18
-V"Not that I know of, though my information on the topic is minimal - this is the sort of thing I'll expect you to find.  Her body was discovered by her boyfriend," his sneer of contempt at the thought of the man his daughter had been dating seemed nearly automatic, "but as ill a match as he was for her he seemed to genuinely care about her.  I do not think he did this."\u000a\u000a* [[You have more questions|convo_koloman]]\u000a
+V"Not that I know of, though my information on the topic is minimal - this is the sort of thing I'll expect you to find.  Her body was discovered by her boyfriend," his sneer of contempt at the thought of the man his daughter had been dating seemed nearly automatic rather than heartfelt, "but as ill a match as he was he seemed to genuinely care about her.  I do not think he did this."\u000a\u000a* [[You have more questions|convo_koloman]]\u000a
 p1454
 sg29
 (lp1455
@@ -4771,7 +4771,7 @@ Tiddler
 p1465
 (dp1466
 g18
-V"I hired two other investigators, but they are no longer employed by me."  Nickolai answered simply.\u000a\u000a"There are many retired policemen in the city, but thus far only one has decided to become involved.  He is the one who moved my daughter's body to the courthouse - so far as I know, that's where he lives.  Feel free to talk to him, though he's under no obligation to answer either you or me and he is well aware of that fact."\u000a\u000a* [[You have more questions|convo_koloman]]\u000a
+V"I hired two other investigators, but they are no longer employed by me."  Nickolai answered simply.\u000a\u000a"There are many retired policemen in the city, but thus far only one has decided to become involved.  She is the one who moved my daughter's body to the courthouse - so far as I know, that's where she lives.  Feel free to talk to her, though she's under no obligation to answer either you or me and - believe me - she is well aware of that fact."\u000a\u000a* [[You have more questions|convo_koloman]]\u000a
 p1467
 sg29
 (lp1468
@@ -5086,7 +5086,3629 @@ g1565
 sg26
 Vkoloman_friends
 p1566
+sbsa(dp1567
+g12
+I00
+sg13
+(lp1568
+F3930.0
+aF2810.0
+asg15
+(itiddlywiki
+Tiddler
+p1569
+(dp1570
+g18
+VThe fake-marble floor had no sheen and the supposedly regal-looking columns ended up looking more like oversized plastic toys.  The interior of the courthouse was little better than a stage set.  Come to think of it, I was pretty sure I'd seen plays with better production values.\u000a\u000aA [[bored-looking man]] stood behind a plexiglass window with a speaker in it.  Seemed overkill for a universe in which he couldn't be hurt.\u000a\u000a<<if $clerkApproved>>\u000a* [[Head downstairs|courthouse_basement]]\u000a<<endif>>\u000a* [[Leave the Courthouse|courthouse_exterior]]\u000a
+p1571
+sg29
+(lp1572
+sg20
+g21
+((I2013
+I11
+I15
+I12
+I55
+I48
+I4
+I319
+I0
+tp1573
+(dp1574
+tp1575
+Rp1576
+sg28
+g1576
+sg26
+Vcourthouse_interior
+p1577
+sbsa(dp1578
+g12
+I00
+sg13
+(lp1579
+F3930.0
+aF2950.0
+asg15
+(itiddlywiki
+Tiddler
+p1580
+(dp1581
+g18
+VThe man quirked an eyebrow at me as I approached. His expression cycled through its previous boredom, faint hope that I was going to relieve his monotony, and vague fear that I was going to be a pain in his ass.\u000a\u000a<<display "convo_courthouse">>
+p1582
+sg29
+(lp1583
+sg20
+g21
+((I2013
+I11
+I15
+I12
+I59
+I6
+I4
+I319
+I0
+tp1584
+(dp1585
+tp1586
+Rp1587
+sg28
+g1587
+sg26
+Vbored-looking man
+p1588
+sbsa(dp1589
+g12
+I00
+sg13
+(lp1590
+F4070.0
+aF2950.0
+asg15
+(itiddlywiki
+Tiddler
+p1591
+(dp1592
+g18
+V"What do you need?" The clerk asked me, his voice tinged just slightly with suspicion.\u000a\u000a<<sugarchoice "clerk_hello" "How's things?">>\u000a<<sugarchoice "clerk_job" "I'm looking for a job">>\u000a<<if $heardOfDeath>>>\u000a<<sugarchoice "clerk_death" "I heard someone died">>\u000a<<endif>><<if $investigating>>\u000a<<sugarchoice "clerk_investigate" "Koloman hired me to investigate this">>\u000a<<endif>>\u000a\u000a* [[You have no more questions|courthouse_interior]]\u000a
+p1593
+sg29
+(lp1594
+sg20
+g21
+((I2013
+I11
+I15
+I13
+I1
+I28
+I4
+I319
+I0
+tp1595
+(dp1596
+tp1597
+Rp1598
+sg28
+g1598
+sg26
+Vconvo_courthouse
+p1599
+sbsa(dp1600
+g12
+I00
+sg13
+(lp1601
+F4490.0
+aF3230.0
+asg15
+(itiddlywiki
+Tiddler
+p1602
+(dp1603
+g18
+V"Gee, what could it be?  Maybe it was the part where I got gut-shot by some punk stealing a car and left to bleed out until I died?  Or perhaps it was when this low-res cough-syrup-dream of an afterlife told me it didn't need me anymore."\u000a\u000aHer hands had balled up into fists, I hoped unconciously.\u000a\u000a"Or maybe it's that some innocent girl got killed because everyone thought it couldn't happen, and when someone actually tried to make a goddamn difference, they got nowhere.\u000a\u000a"Or maybe I just hate your face."\u000a\u000a* [[You have more questions|convo_cop]]\u000a
+p1604
+sg29
+(lp1605
+sg20
+g21
+((I2013
+I11
+I15
+I13
+I4
+I44
+I4
+I319
+I0
+tp1606
+(dp1607
+tp1608
+Rp1609
+sg28
+g1609
+sg26
+Vcop_attitude
+p1610
+sbsa(dp1611
+g12
+I00
+sg13
+(lp1612
+F4070.0
+aF3090.0
+asg15
+(itiddlywiki
+Tiddler
+p1613
+(dp1614
+g18
+V"Peachy" the clerk replied.  There was a moment of silence.\u000a\u000a"I'm sorry bud, but if you don't have official business I have to ask you to leave" he sounded genuinely apologetic.  I got the impression that this conversation, as bare-bones as it had been, had been a high-point of interaction for him.  "You're holding up the line."\u000a\u000aI glanced back at a room entirely devoid of people other than myself.\u000a\u000a"Yeah, I know." the clerk said.\u000a\u000a* [[You have more questions|convo_courthouse]]\u000a
+p1615
+sg29
+(lp1616
+sg20
+g21
+((I2013
+I11
+I15
+I13
+I4
+I47
+I4
+I319
+I0
+tp1617
+(dp1618
+tp1619
+Rp1620
+sg28
+g1620
+sg26
+Vclerk_hello
+p1621
+sbsa(dp1622
+g12
+I00
+sg13
+(lp1623
+F4630.0
+aF3230.0
+asg15
+(itiddlywiki
+Tiddler
+p1624
+(dp1625
+g18
+V"Go right ahead.  I'm sure you'll be able to pick up on something that me or all the other investigators or the New Amsterdam techs couldn't find."\u000a\u000a* [[You have more questions|convo_cop]]\u000a
+p1626
+sg29
+(lp1627
+sg20
+g21
+((I2013
+I11
+I15
+I13
+I9
+I8
+I4
+I319
+I0
+tp1628
+(dp1629
+tp1630
+Rp1631
+sg28
+g1631
+sg26
+Vcop_morgue
+p1632
+sbsa(dp1633
+g12
+I00
+sg13
+(lp1634
+F4210.0
+aF3090.0
+asg15
+(itiddlywiki
+Tiddler
+p1635
+(dp1636
+g18
+VThe clerk leaned in.  "I can see why you'd want this job.  It's a very stimulating and challenging position.  Why just this morning I walked a lap of my entire office!"\u000a\u000aThe entire office was, maybe, four square meters.  At least his sarcasm seemed good-natured.\u000a\u000a"I don't mean I want your job." I clarified.  "A job."\u000a\u000aThe clerk shrugged.  "They're all like this.  Courthouse here is mostly records and they're filed automatically.  I'm just up front because visitors like to talk to a human instead of a computer."\u000a\u000a* [[You have more questions|convo_courthouse]]\u000a
+p1637
+sg29
+(lp1638
+sg20
+g21
+((I2013
+I11
+I15
+I13
+I9
+I9
+I4
+I319
+I0
+tp1639
+(dp1640
+tp1641
+Rp1642
+sg28
+g1642
+sg26
+Vclerk_job
+p1643
+sbsa(dp1644
+g12
+I00
+sg13
+(lp1645
+F4770.0
+aF3090.0
+asg15
+(itiddlywiki
+Tiddler
+p1646
+(dp1647
+g18
+V"Iva".  I said.\u000a\u000a"Yeah," the sarcastic voice of the policewoman in the hall drifted into the room.  "Talk to her.  Maybe clap really hard next to her ear.  That'll wake her up."\u000a\u000aI ignored her.  "Iva, your father hired me to find out what happened to you."\u000a\u000aIva didn't respond at all - her eyes stared straight forward, her body didn't so much as twitch.  I'd seen real-life dead people be more responsive.\u000a<<display "morgue_actions">>
+p1648
+sg29
+(lp1649
+sg20
+g21
+((I2013
+I11
+I15
+I13
+I15
+I20
+I4
+I319
+I0
+tp1650
+(dp1651
+tp1652
+Rp1653
+sg28
+g1653
+sg26
+Vmorgue_talk
+p1654
+sbsa(dp1655
+g12
+I00
+sg13
+(lp1656
+F3930.0
+aF3090.0
+asg15
+(itiddlywiki
+Tiddler
+p1657
+(dp1658
+g18
+VThe clerk shuddered - one of the few genuine reactions I'd seen from him.  "You heard right.  The dead girl's in the police department."\u000a\u000aHe clarified after I gave him one of my trademark blank looks.  "Downstairs.  Courthouse is also a cop shop, not that there's much need for cops.  Point is, there's also a morgue down there.  Before this week I'd have told you there's not much need for that, too, but..." he trailed off, shuddering again.\u000a\u000a"Can I-"\u000a\u000a<<if $clerkApproved>>\u000a"Yeah, yeah," the man waved me away emphatically.  "The less I know about it, the better, go on."\u000a<<else>>\u000a"No." he interrupted.  "Listen, today with this empty lobby and the one crazy guy who won't shut up - that's you - that's every day for me.  And as much as I hate it, I hated earlier this week even more.  There's one news channel on the TV because nobody cared enough to make more than one, but someone dies and suddenly everyone's a journalist."\u000a\u000a"You looked bored."  I countered.\u000a\u000a"To tears.  But I'm much happier dealing with one person than with a room full of wannabe reporters all trying to head downstairs.  Now I'm not saying you're some amateur like them, but I am saying you're not getting any further than they did."<<endif>>\u000a\u000a* [[You have more questions|convo_courthouse]]\u000a
+p1659
+sg29
+(lp1660
+sg20
+g21
+((I2013
+I11
+I15
+I13
+I15
+I21
+I4
+I319
+I0
+tp1661
+(dp1662
+tp1663
+Rp1664
+sg28
+g1664
+sg26
+Vclerk_death
+p1665
+sbsa(dp1666
+g12
+I00
+sg13
+(lp1667
+F4210.0
+aF2950.0
+asg15
+(itiddlywiki
+Tiddler
+p1668
+(dp1669
+g18
+V"Yeah, and I'm-"\u000a\u000aI never got to find out what imaginary historical figure he was going to compare himself to, because I'd held out the card and he shut up the moment he saw it.  I still had no idea how these people were verifying that these things were real; it seemed I could just get a blank business card of my own and write whatever I wanted.  Maybe it was just that nobody wanted to get on the bad side of someone like Koloman by forging their card.\u000a\u000a"Holy shit!" the clerk let out a rare show of actual emotion.  "I mean, when the cops started coming out of retirement it was one thing, but Koloman himself is hiring people."  He let out a low whistle of appreciation.  "Man, better you than me."\u000a\u000aHe reached down and pressed a button on his desk.  There was a loud 'click' of unlocking from an otherwise completely unremarkable door at the other side of the lobby.  I was starting to understand the simulation enough to know that it hadn't actually unlocked, I'd just been given permission to go through it.  I bet that if I checked my keyring I'd find another bit of metal there.\u000a\u000a"You can head downstairs to the cop shop if you want."  The clerk said.  "The... body is down there."<<set $clerkApproved=1>>\u000a\u000a* [[You have more questions|convo_courthouse]]\u000a
+p1670
+sg29
+(lp1671
+sg20
+g21
+((I2013
+I11
+I15
+I13
+I26
+I55
+I4
+I319
+I0
+tp1672
+(dp1673
+tp1674
+Rp1675
+sg28
+g1675
+sg26
+Vclerk_investigate
+p1676
+sbsa(dp1677
+g12
+I00
+sg13
+(lp1678
+F4350.0
+aF2810.0
+asg15
+(itiddlywiki
+Tiddler
+p1679
+(dp1680
+g18
+VThe basement of the courthouse looked more like the basement of a hospital than a police department or, for that matter, a courthouse.  A flat grey floor, walls tiled with those small square ceramics, foam drop ceilings.  I suspected that if I were in a better simulation that the old-style florescent lights would be buzzing.\u000a\u000aA [[surly-looking woman]] was leaning against the wall.  Despite the fact that she was very clearly looking into the open door that lead into the morgue, I got the distinct impression she was watching my every move.\u000a\u000a* [[Go to the morgue|morgue]]\u000a* [[Head back upstairs|courthouse_interior]]\u000a
+p1681
+sg29
+(lp1682
+sg20
+g21
+((I2013
+I11
+I15
+I13
+I55
+I7
+I4
+I319
+I0
+tp1683
+(dp1684
+tp1685
+Rp1686
+sg28
+g1686
+sg26
+Vcourthouse_basement
+p1687
+sbsa(dp1688
+g12
+I00
+sg13
+(lp1689
+F4350.0
+aF2950.0
+asg15
+(itiddlywiki
+Tiddler
+p1690
+(dp1691
+g18
+V"I can only assume" the woman spoke without even looking at me "that Simon let you down here for a good reason.  Unless he's trying to get fired.  Given his job, that's still a good reason."\u000a\u000a<<display "convo_cop">>
+p1692
+sg29
+(lp1693
+sg20
+g21
+((I2013
+I11
+I15
+I14
+I0
+I23
+I4
+I319
+I0
+tp1694
+(dp1695
+tp1696
+Rp1697
+sg28
+g1697
+sg26
+Vsurly-looking woman
+p1698
+sbsa(dp1699
+g12
+I00
+sg13
+(lp1700
+F4490.0
+aF2950.0
+asg15
+(itiddlywiki
+Tiddler
+p1701
+(dp1702
+g18
+V"So what do you want?"\u000a\u000a<<sugarchoice "cop_intro" "Who are you?">>\u000a<<sugarchoice "cop_obvious" "Are you a cop?">>\u000a<<sugarchoice "cop_details" "So what happened?">>\u000a<<sugarchoice "cop_koloman"  "I'm working for Nickolai Koloman">>\u000a<<sugarchoice "cop_partner" "We should work together.">>\u000a<<sugarchoice "cop_attitude" "What's with the attitude?">>\u000a<<sugarchoice "cop_morgue" "I'm going to see the body.">>\u000a\u000a* [[You have no more questions|courthouse_basement]]\u000a\u000a
+p1703
+sg29
+(lp1704
+sg20
+g21
+((I2013
+I11
+I15
+I14
+I1
+I44
+I4
+I319
+I0
+tp1705
+(dp1706
+tp1707
+Rp1708
+sg28
+g1708
+sg26
+Vconvo_cop
+p1709
+sbsa(dp1710
+g12
+I00
+sg13
+(lp1711
+F4770.0
+aF2810.0
+asg15
+(itiddlywiki
+Tiddler
+p1712
+(dp1713
+g18
+VThe morgue was somewhat small, understandably.  It consisted of tile covering the walls, floors, and ceilings, and a single operating table in the middle of the room.\u000a\u000aThe utterly still body of Iva Koloman was on top of the table.<<set $seenIva=1>>\u000a<<if $seenComaCarl>>I'd only ever seen one body as completely inert as this one - Coma Carl.  And Iva had been a regular visitor to the man.  My thoughts changed from the assumed homicide to virus.  Were computer viruses still a thing inside simulated realities?  Had Iva contracted something from Carl?\u000a\u000aThe fact that the uncooperative cop outside the morgue hadn't ended up in this state was a blow to the 'virus' theory, though.\u000a<<endif>><<display "morgue_actions">>
+p1714
+sg29
+(lp1715
+sg20
+g21
+((I2013
+I11
+I15
+I14
+I4
+I5
+I4
+I319
+I0
+tp1716
+(dp1717
+tp1718
+Rp1719
+sg28
+g1719
+sg26
+Vmorgue
+p1720
+sbsa(dp1721
+g12
+I00
+sg13
+(lp1722
+F4770.0
+aF2950.0
+asg15
+(itiddlywiki
+Tiddler
+p1723
+(dp1724
+g18
+V* [[Examine the body|morgue_body]]\u000a* [[Try to talk to her|morgue_talk]]\u000a* [[Try to move her|morgue_move]]\u000a* [[Exit the morgue|courthouse_basement]]\u000a
+p1725
+sg29
+(lp1726
+sg20
+g21
+((I2013
+I11
+I15
+I14
+I4
+I6
+I4
+I319
+I0
+tp1727
+(dp1728
+tp1729
+Rp1730
+sg28
+g1730
+sg26
+Vmorgue_actions
+p1731
+sbsa(dp1732
+g12
+I00
+sg13
+(lp1733
+F4910.0
+aF3090.0
+asg15
+(itiddlywiki
+Tiddler
+p1734
+(dp1735
+g18
+VI put my hand on Iva's arm carefully.  It felt neither warm nor cold - instead it radiated the same textureless presence that I'd felt from the furniture.  Whatever had happened to Iva, the simulation was treating her body as little more than an object, and a poorly simulated one at that.\u000a\u000aI tried to bend her arm up at the elbow and got no response.  I suspected that if I'd tried to push the wall the feeling would be exactly the same.  Her body was utterly immobile.  I didn't know how they'd moved it from her apartment to here and I didn't think the policewoman in the hallway would tell me.  It didn't matter - clearly, whatever happened to Iva, it was not natural.\u000a<<display "morgue_actions">>
+p1736
+sg29
+(lp1737
+sg20
+g21
+((I2013
+I11
+I15
+I14
+I4
+I8
+I4
+I319
+I0
+tp1738
+(dp1739
+tp1740
+Rp1741
+sg28
+g1741
+sg26
+Vmorgue_move
+p1742
+sbsa(dp1743
+g12
+I00
+sg13
+(lp1744
+F4350.0
+aF3090.0
+asg15
+(itiddlywiki
+Tiddler
+p1745
+(dp1746
+g18
+V"Who am I?" this time she did look at me.  "Who the fuck are you?"\u000a\u000aIt took me a moment to realize this was not a rhetorical question.  "Sam Hallivert.  I'm a PI investigating the Koloman case."\u000a\u000aThe woman snorted derisively and went back to her previous stance of not looking my way.  "PI, shit."  She shook her head and did not explain her comment further.  I was pretty sure I wouldn't have liked the explanation anyway.\u000a\u000a* [[You have more questions|convo_cop]]\u000a
+p1747
+sg29
+(lp1748
+sg20
+g21
+((I2013
+I11
+I15
+I14
+I4
+I10
+I4
+I319
+I0
+tp1749
+(dp1750
+tp1751
+Rp1752
+sg28
+g1752
+sg26
+Vcop_intro
+p1753
+sbsa(dp1754
+g12
+I00
+sg13
+(lp1755
+F4350.0
+aF3230.0
+asg15
+(itiddlywiki
+Tiddler
+p1756
+(dp1757
+g18
+V"I swear to God," the policewoman spoke through grit teeth, "if Simon let a reporter down here I am going to hurt him.  I am going to haul him out of that dingy little office, drag his ass over the tracks, and punch him until he chokes."\u000a\u000aI wasn't exactly sure how to respond to that, or even if it had been directed at me.  "I'm not a reporter.  I just want to get to the bottom of this."\u000a\u000a"You want this case solved?  Stop interrupting me when I'm trying to solve it."\u000a\u000a* [[You have more questions|convo_cop]]\u000a
+p1758
+sg29
+(lp1759
+sg20
+g21
+((I2013
+I11
+I15
+I14
+I10
+I17
+I4
+I319
+I0
+tp1760
+(dp1761
+tp1762
+Rp1763
+sg28
+g1763
+sg26
+Vcop_details
+p1764
+sbsa(dp1765
+g12
+I00
+sg13
+(lp1766
+F4630.0
+aF3090.0
+asg15
+(itiddlywiki
+Tiddler
+p1767
+(dp1768
+g18
+V"I bet you get people shaking in their boots when you mention that name."  She did not let me answer.  "Fuck you.  I don't care if you're working for the computer-incarnated ghost of King fucking Arthur."  She met my gaze.  "You're a pissant.  You're a con-man taking advantage of a desperate father."\u000a\u000a"And you're solving the case just standing there?"  I normally didn't let people get under my skin, but I couldn't resist needling her.\u000a\u000a"Yeah, that's all I do, stand here waiting for idiots to come by."  Her eyes moved back to the interior of the morgue.  "I come here when I need to think.  When I need to remind myself why I'm doing this job.  I don't expect you to understand."\u000a\u000a* [[You have more questions|convo_cop]]\u000a
+p1769
+sg29
+(lp1770
+sg20
+g21
+((I2013
+I11
+I15
+I14
+I10
+I24
+I4
+I319
+I0
+tp1771
+(dp1772
+tp1773
+Rp1774
+sg28
+g1774
+sg26
+Vcop_koloman
+p1775
+sbsa(dp1776
+g12
+I00
+sg13
+(lp1777
+F4490.0
+aF3090.0
+asg15
+(itiddlywiki
+Tiddler
+p1778
+(dp1779
+g18
+V"Not for long, what with brilliant people like you gunning for the detective spot"\u000a\u000aClearly this woman and the clerk had graduated from the same school of sarcasm.  I decided to play dumb.\u000a\u000a"What's a cop for in a place where you can't commit crime?"  I asked.\u000a\u000aThe policewoman rolled her eyes.  "Yeah, the dead girl in there must have just flipped her switch to 'off', what was I thinking?"\u000a\u000a"People aren't dropping in the streets, this isn't like the real world, why are you here?"  I persisted.\u000a\u000a"I came out of retirement because a girl's dead.  What more do you want?"\u000a\u000a* [[You have more questions|convo_cop]]\u000a
+p1780
+sg29
+(lp1781
+sg20
+g21
+((I2013
+I11
+I15
+I14
+I10
+I25
+I4
+I319
+I0
+tp1782
+(dp1783
+tp1784
+Rp1785
+sg28
+g1785
+sg26
+Vcop_obvious
+p1786
+sbsa(dp1787
+g12
+I00
+sg13
+(lp1788
+F4630.0
+aF2950.0
+asg15
+(itiddlywiki
+Tiddler
+p1789
+(dp1790
+g18
+VA bemused smile twitched on her face briefly.  "I can't decide whether to laugh my ass of or club you until I get tired."\u000a\u000a"So that's a-"\u000a\u000a"No.  Hell no."\u000a\u000a* [[You have more questions|convo_cop]]\u000a
+p1791
+sg29
+(lp1792
+sg20
+g21
+((I2013
+I11
+I15
+I14
+I15
+I19
+I4
+I319
+I0
+tp1793
+(dp1794
+tp1795
+Rp1796
+sg28
+g1796
+sg26
+Vcop_partner
+p1797
+sbsa(dp1798
+g12
+I00
+sg13
+(lp1799
+F4910.0
+aF2950.0
+asg15
+(itiddlywiki
+Tiddler
+p1800
+(dp1801
+g18
+VIva's body was still in a way I'd never seen anything behave before<<if $seenComaCarl>>, other than Coma Carl<<endif>>.  She was like a photograph - not only was her body not moving, but nothing about her moved.  Even the dress she was wearing was suspended in place.\u000a\u000aI turned the seldom-used forensic portions of my brain on.  There were no cuts or bruises.  No sign of a struggle.  That said, she also didn't appear to have died in her sleep - her eyes were wide open and I didn't want to touch her to try to close them.  Her legs were ramrod straight next to each other and her arms had adopted a similar posture at her sides.  She looked like the most realistic mannequin ever invented.\u000a<<display "morgue_actions">>
+p1802
+sg29
+(lp1803
+sg20
+g21
+((I2013
+I11
+I15
+I14
+I56
+I21
+I4
+I319
+I0
+tp1804
+(dp1805
+tp1806
+Rp1807
+sg28
+g1807
+sg26
+Vmorgue_body
+p1808
+sbsa(dp1809
+g12
+I00
+sg13
+(lp1810
+F4070.0
+aF6450.0
+asg15
+(itiddlywiki
+Tiddler
+p1811
+(dp1812
+g18
+VTo call the outdoors 'sunny' or even 'well-lit' was of course a drastic overstatement, but the phrases didn't seem as wrong when compared to the grey interior of the Arcade.\u000a\u000aThe top level - which I was on - featured a lot of posters, maps, directions, and double doors.  It seemed almost like an airport:  advertisements for destinations and the companies that made them on every surface.  The hurry-up-and-wait pace of the many lines I'd seen formed only reinforced this idea.\u000a\u000aA vertical slab of otherwise undecorated surface in the center of the room served as a map.  According to it, the lines were for the full-immersion games (a great deal cheaper here than on the outside, given that everyone was effectively already in one).\u000a\u000aBeyond the crowds, toward the back of the arcade, was an elevator.  It was near-abandoned in comparison to the crush elsewhere.\u000a\u000a* [[Enter the elevator|games_elevator]]\u000a* [[Exit the Arcade|games_exterior]]\u000a
+p1813
+sg29
+(lp1814
+sg20
+g21
+((I2013
+I11
+I15
+I18
+I22
+I10
+I4
+I319
+I0
+tp1815
+(dp1816
+tp1817
+Rp1818
+sg28
+g1818
+sg26
+Vgames_interior
+p1819
+sbsa(dp1820
+g12
+I00
+sg13
+(lp1821
+F4210.0
+aF6590.0
+asg15
+(itiddlywiki
+Tiddler
+p1822
+(dp1823
+g18
+VThere were several floors:\u000a\u000a* [[Exit on the top floor: "Full Immersion"|games_interior]]\u000a* [[Exit on B1: "Professional Gamers"|games_b1]]\u000a* [[Exit on B2: "Gaming Museum"|games_b2]]\u000a* [[Exit on B3: "Hacker's Club (Members Only)"|games_b3]]\u000a
+p1824
+sg29
+(lp1825
+sg20
+g21
+((I2013
+I11
+I15
+I18
+I39
+I34
+I4
+I319
+I0
+tp1826
+(dp1827
+tp1828
+Rp1829
+sg28
+g1829
+sg26
+Vgames_elevator
+p1830
+sbsa(dp1831
+g12
+I00
+sg13
+(lp1832
+F290.0
+aF6870.0
+asg15
+(itiddlywiki
+Tiddler
+p1833
+(dp1834
+g18
+VThis time the dream wasn't nearly as distinct as the others.  I had an impression of impossibly tall buildings outlined in neon, flying cars, dying dozens of times.  Any time I tried to take an action, the dream shifted and I was someone and somewhere else.\u000a\u000a* [[Wake up|wake]]\u000a
+p1835
+sg29
+(lp1836
+Vnocall
+p1837
+asg20
+g21
+((I2013
+I11
+I15
+I18
+I43
+I48
+I4
+I319
+I0
+tp1838
+(dp1839
+tp1840
+Rp1841
+sg28
+g1841
+sg26
+Vdream_4
+p1842
+sbsa(dp1843
+g12
+I00
+sg13
+(lp1844
+F150.0
+aF6870.0
+asg15
+(itiddlywiki
+Tiddler
+p1845
+(dp1846
+g18
+VIn the dream, New Detroit's streets were filled with vehicles.  Bumper-to-bumper, they stood stock-still, filling every available inch of the asphalt with their hulking metal frames.\u000a\u000aAs one, their engines started.\u000a\u000a* [[Wake up|wake]]\u000a
+p1847
+sg29
+(lp1848
+Vnocall
+p1849
+asg20
+g21
+((I2013
+I11
+I15
+I18
+I43
+I50
+I4
+I319
+I0
+tp1850
+(dp1851
+tp1852
+Rp1853
+sg28
+g1853
+sg26
+Vdream_2
+p1854
+sbsa(dp1855
+g12
+I00
+sg13
+(lp1856
+F4210.0
+aF6450.0
+asg15
+(itiddlywiki
+Tiddler
+p1857
+(dp1858
+g18
+VThe arcade's top floor had been mostly open area with a large number of side-rooms.  The professional gamer arena was entirely open.  Plain tables held computers ranging from ones so high-tech they'd possibly been invented after I'd entered the simulation to turn-of-the-century relics that I'd have expected to see in the museum one floor down.\u000a\u000aAbsolutely every chair was occupied.  Lining the walls were immersion pods - apparently if you were a pro-gamer you didn't have to wait in line above.  Every one of those was full as well.\u000a\u000a<<if $investigating>>I spent some time walking around, looking for someone to talk to about the case, but reactions started at none whatsoever and got progressively more rude from there.  I quickly ascertained that nobody here had known Iva or even cared that someone was dead.  If she'd fallen in with a dangerous crowd, this was not it.<<endif>>\u000a\u000a* [[Return to the Elevator|games_elevator]]\u000a
+p1859
+sg29
+(lp1860
+sg20
+g21
+((I2013
+I11
+I15
+I18
+I43
+I51
+I4
+I319
+I0
+tp1861
+(dp1862
+tp1863
+Rp1864
+sg28
+g1864
+sg26
+Vgames_b1
+p1865
+sbsa(dp1866
+g12
+I00
+sg13
+(lp1867
+F150.0
+aF6730.0
+asg15
+(itiddlywiki
+Tiddler
+p1868
+(dp1869
+g18
+VI dreamt I was in a city devoid of all life.  Grey and unyielding though it was, at least New Detroit had people.  As I walked through the city, it grew larger and I grew smaller, until I fell through the holes in the asphalt.\u000a\u000a* [[Wake up|wake]]\u000a
+p1870
+sg29
+(lp1871
+Vnocall
+p1872
+asg20
+g21
+((I2013
+I11
+I15
+I18
+I49
+I29
+I4
+I319
+I0
+tp1873
+(dp1874
+tp1875
+Rp1876
+sg28
+g1876
+sg26
+Vdream_1
+p1877
+sbsa(dp1878
+g12
+I00
+sg13
+(lp1879
+F3510.0
+aF7010.0
+asg15
+(itiddlywiki
+Tiddler
+p1880
+(dp1881
+g18
+V<<if $mugged>>\u000aI crossed the tracks and the trademark dread of the PvP zone settled over my mind.  Now that I knew what it was it was a lot easier to handle.  The fear I'd first felt on entering was a dull sensation of unease in the back of my mind.  I could deal with that.\u000a\u000a* [[Continue down the street|pvp_street_normal]]<<else>>\u000aThe moment I crossed the tracks, I knew I'd made a mistake.  Somewhere in the back of my mind, fear started to creep in.  It was formless, aimless, and sourceless, but it was real and suddenly almost overpowering.  I wasn't someone who scared easily, but this was something else.\u000a\u000aThe streets around me were empty.  There was absolutely no reason to feel this way.\u000a\u000a* [[Continue down the street|pvp_mugging]]\u000a<<endif>>\u000a\u000a* [[Go back to the train station|train_exterior]]\u000a
+p1882
+sg29
+(lp1883
+sg20
+g21
+((I2013
+I11
+I15
+I18
+I49
+I30
+I4
+I319
+I0
+tp1884
+(dp1885
+tp1886
+Rp1887
+sg28
+g1887
+sg26
+Vpvp_entrance
+p1888
+sbsa(dp1889
+g12
+I00
+sg13
+(lp1890
+F4350.0
+aF6450.0
+asg15
+(itiddlywiki
+Tiddler
+p1891
+(dp1892
+g18
+VThe gaming museum was chock-full of interactive exhibits.  I saw far more people playing games than taking the tour.\u000a\u000a<<if $investigating>>Some quick questions lead me to the fact that the only regulars were the people interested in the older machines (in one case, pinball).  They'd heard of Iva and seen her a few times, but her interest was in the more modern, cutting edge technology.  She was ahead of their time.<<endif>>\u000a\u000a* [[Head back to the elevator|games_elevator]]\u000a
+p1893
+sg29
+(lp1894
+sg20
+g21
+((I2013
+I11
+I15
+I18
+I49
+I56
+I4
+I319
+I0
+tp1895
+(dp1896
+tp1897
+Rp1898
+sg28
+g1898
+sg26
+Vgames_b2
+p1899
+sbsa(dp1900
+g12
+I00
+sg13
+(lp1901
+F3650.0
+aF7150.0
+asg15
+(itiddlywiki
+Tiddler
+p1902
+(dp1903
+g18
+VThe sensation of danger in no way faded as I continued down the street.  I looked around me, but saw nothing but the usual dark streets.\u000a\u000aI didn't see my attackers until it was far too late.\u000a\u000aThe man in front of me had emerged from an alleyway.  He was bald and had a swastika tatooed on the top of his head.  His scars were both aged and recent, and he regarded me with the sort of smile that I knew from experience meant he was going to enjoy beating the shit out of me.\u000a\u000a"Hand it over, newbie."\u000a\u000a* [[Refuse|pvp_mugging_force]]\u000a* [[Ask what the hell this is about|pvp_mugging_questions]]\u000a
+p1904
+sg29
+(lp1905
+Vnocall
+p1906
+asg20
+g21
+((I2013
+I11
+I15
+I18
+I52
+I20
+I4
+I319
+I0
+tp1907
+(dp1908
+tp1909
+Rp1910
+sg28
+g1910
+sg26
+Vpvp_mugging
+p1911
+sbsa(dp1912
+g12
+I00
+sg13
+(lp1913
+F3790.0
+aF7010.0
+asg15
+(itiddlywiki
+Tiddler
+p1914
+(dp1915
+g18
+V"N-" my defiance wasn't even fully articulated before it earned me a punch in the gut by the bald man.  I fell to the ground.\u000a\u000aThere were three of them that I could see - my hairless assailant and two others who must have come from behind as soon as I'd walked into their trap.\u000a\u000aI clutched my arm around my stomach, trying to think and not vomit at the same time.  How the hell could this even hurt?  I was supposedly invulnerable.\u000a\u000a"Ready to give it up, new meat, or do we get to hit you some more?"  Baldie's voice clearly communicated that either option was just as entertaining.\u000a\u000a* [[Refuse|pvp_mugging_rob]]\u000a* [[Give in|pvp_mugging_ok]]\u000a
+p1916
+sg29
+(lp1917
+Vnocall
+p1918
+asg20
+g21
+((I2013
+I11
+I15
+I18
+I52
+I22
+I4
+I319
+I0
+tp1919
+(dp1920
+tp1921
+Rp1922
+sg28
+g1922
+sg26
+Vpvp_mugging_force
+p1923
+sbsa(dp1924
+g12
+I00
+sg13
+(lp1925
+F4490.0
+aF6450.0
+asg15
+(itiddlywiki
+Tiddler
+p1926
+(dp1927
+g18
+VThe "Hacker's Club" was a cramped lobby area that looked to have been copy-pasted from the insurance office's waiting room, complete with horrible wood paneling.  The only difference was that the friendly doorway to Guillory's office had been replaced with a large metal doorway with a sign reading "MEMBERS ONLY".\u000a\u000aThere was nobody else here.<<set $clubInPerson=0>>\u000a\u000a<<if $investigating>>\u000a  <<if $hasClubOk>>\u000a* [[Open the door|club_interior]]\u000a  <<else>>\u000a* [[Announce yourself|games_announce]]\u000a  <<endif>>\u000a<<endif>>\u000a* [[Head back to the elevator|games_elevator]]\u000a
+p1928
+sg29
+(lp1929
+sg20
+g21
+((I2013
+I11
+I15
+I18
+I52
+I23
+I4
+I319
+I0
+tp1930
+(dp1931
+tp1932
+Rp1933
+sg28
+g1933
+sg26
+Vgames_b3
+p1934
+sbsa(dp1935
+g12
+I00
+sg13
+(lp1936
+F4910.0
+aF6730.0
+asg15
+(itiddlywiki
+Tiddler
+p1937
+(dp1938
+g18
+VChivalry shook her head.  "No, I don't.  I'd never heard of anything like that happening before.  You can't die in here, it's been a rule my entire life inside."\u000a\u000a* [[You have more questions|convo_club]]\u000a
+p1939
+sg29
+(lp1940
+Vconversation
+p1941
+aVnocall
+p1942
+asg20
+g21
+((I2013
+I11
+I15
+I19
+I1
+I20
+I4
+I319
+I0
+tp1943
+(dp1944
+tp1945
+Rp1946
+sg28
+g1946
+sg26
+Vchivalry_whathappened
+p1947
+sbsa(dp1948
+g12
+I00
+sg13
+(lp1949
+F5190.0
+aF6590.0
+asg15
+(itiddlywiki
+Tiddler
+p1950
+(dp1951
+g18
+VChivalry's smile quirked.  "She didn't believe us about the hacking.  She came to the club thinking the whole "we don't hack" thing was a cover."<<set $heardNoHacking=1>>\u000a"How long did it take her to realize you weren't kidding?"  I still wasn't entirely sure the excuse wasn't a cover myself.\u000a\u000a"A few months.  By then, she'd made friends with everyone here.  It was a unique experience - we're a club for people who like to play games, and in comes a person who's incredibly creative but who's never so much as played checkers.  The old grognard types didn't like it, but everyone else?  Nothing they like more than showing a newbie the ropes."\u000a\u000a"So what happened?"\u000a\u000a"She arranged a field trip to Metaverse, and nobody wanted to go."\u000a\u000a"Wait, nobody?"  I frowned.  Given the low production values of New Detroit, I'd figured anyone given a chance to get out would jump at it.  "I know it's pricey, but-"\u000a\u000a"It's not the cost."  Chivalry said.  "Iva wasn't the kind of person who lorded their money over you.  She was the kind of person who wanted to use it to make things a bit better.  Paid more than her fair share for the club dues, bought rare games from off-grid, those sort of things.  So when she suggested the field trip, she made it clear she was footing the bill for everyone."\u000a\u000a"And you didn't want to take a trip?"  I was aware that most gamers weren't exactly overflowing with wanderlust, but there was something else here.\u000a\u000a"If she'd said Valhalla or Satya Yuga, I'm sure she'd have takers.  But Metaverse..." Chivalry made an uncertain gesture.  "It's got a reputation.  It's full of programming types, sure, but that includes the unsavory element, the people who think it's a blast to take down the whole system and make everyone have to get restored from backup.  It's bad enough we have to include 'not real hackers' in all our literature, to actually go to Metaverse where they all live and come back?  We'd probably lose our lease on this place, and that's for starters."\u000a\u000a* [[You have more questions|convo_club]]\u000a
+p1952
+sg29
+(lp1953
+Vconversation
+p1954
+aVnocall
+p1955
+asg20
+g21
+((I2013
+I11
+I15
+I19
+I1
+I22
+I4
+I319
+I0
+tp1956
+(dp1957
+tp1958
+Rp1959
+sg28
+g1959
+sg26
+Vchivalry_why_quit
+p1960
+sbsa(dp1961
+g12
+I00
+sg13
+(lp1962
+F3650.0
+aF7010.0
+asg15
+(itiddlywiki
+Tiddler
+p1963
+(dp1964
+g18
+VTODO
+p1965
+sg29
+(lp1966
+sg20
+g21
+((I2013
+I11
+I15
+I19
+I1
+I23
+I4
+I319
+I0
+tp1967
+(dp1968
+tp1969
+Rp1970
+sg28
+g1970
+sg26
+Vpvp_street_normal
+p1971
+sbsa(dp1972
+g12
+I00
+sg13
+(lp1973
+F4630.0
+aF6590.0
+asg15
+(itiddlywiki
+Tiddler
+p1974
+(dp1975
+g18
+V"Hey!" I shouted at the door.  There didn't appear to be any security cameras in the lobby here, but somehow I suspected that actual cameras weren't required to see and hear somewhere else.\u000a\u000aI took Koloman's card out of my wallet and held it up to the 'MEMBERS ONLY" sign.\u000a\u000a"See this?" I said.  "I'm working for Nickolai Koloman, investigating his daughter's death."\u000a\u000aThere continued to be no reply.\u000a\u000a"He thinks you did it."\u000a\u000aThe door opened.\u000a\u000a* [[Enter the club|club_intro]]\u000a
+p1976
+sg29
+(lp1977
+sg20
+g21
+((I2013
+I11
+I15
+I19
+I1
+I25
+I4
+I319
+I0
+tp1978
+(dp1979
+tp1980
+Rp1981
+sg28
+g1981
+sg26
+Vgames_announce
+p1982
+sbsa(dp1983
+g12
+I00
+sg13
+(lp1984
+F4770.0
+aF6590.0
+asg15
+(itiddlywiki
+Tiddler
+p1985
+(dp1986
+g18
+VTwo large, angry-looking people were on the other side of the door to greet me.  Non-physical-world Gamers had a stereotype of weakness for over a century, but these two were doing their best to make up for lost time.  They were taller and stronger-looking than I was, and I'd been no slouch in life.\u000a\u000aA woman stood between them, ignoring their presense entirely, instead looking at me.\u000a\u000a"We didn't do it." she stated simply.\u000a\u000a"I hope you realize I can't exactly take your word for it."  I replied.\u000a\u000aShe nodded and gave the bouncers a look.  They walked back into the somewhat larger room that formed the foyer of the club, but didn't take their eyes off of me.\u000a\u000a"As a show of good faith." she said, handing me a card.  It read simply: "Hacker's Club".\u000a\u000a<<set $cardHackers=1>>"My name's Chivalry." she motioned for me to follow her further into the club as she walked.  The greeters did not follow.\u000a\u000a"Is that your actual name or like a gamer name?"  I asked.  My life had been a detective story, I hadn't found much of a need to play one in a game and so didn't know much about the culture.\u000a\u000aChivalry laughed quietly.  "Actual name, I'm afraid.  I think my parents meant to name me 'Chastity' or 'Charity' or something and got it wrong."\u000a\u000aWe walked for a bit.  The hacker's club was a long, nearly featureless, hallway so far.  Other than the greeters sitting on a bench by the entrance and Chivalry, I hadn't seen anyone else.\u000a\u000a"Here we are." she said, pushing open a door I hadn't noticed.  Wooden stairs lead downward.\u000a\u000a* [[Go down the stairs|club_interior]]\u000a
+p1987
+sg29
+(lp1988
+Vnocall
+p1989
+asg20
+g21
+((I2013
+I11
+I15
+I19
+I7
+I47
+I4
+I319
+I0
+tp1990
+(dp1991
+tp1992
+Rp1993
+sg28
+g1993
+sg26
+Vclub_intro
+p1994
+sbsa(dp1995
+g12
+I00
+sg13
+(lp1996
+F4770.0
+aF6450.0
+asg15
+(itiddlywiki
+Tiddler
+p1997
+(dp1998
+g18
+V<<set $clubInPerson=1>>The Hacker's Club was a basement for some reason.  Folding chairs surrounded several folding tables.  Few electronic games were being played; instead I saw a number of board or dice games.  At least one group was involved in what I was pretty sure was some kind of pre-immersion Dungeons and Dragons game.  Two people off to the side were playing Chess, and not even the newer select-your-own-army version.\u000a\u000aChivaly stood on the bottom step, surveying the group.  Everyone seemed to be too enthralled by their gaming to notice.\u000a\u000a* [[Talk to Chivalry|convo_club]]\u000a* [[Leave the club|games_b3]]\u000a
+p1999
+sg29
+(lp2000
+Vnocall
+p2001
+asg20
+g21
+((I2013
+I11
+I15
+I19
+I18
+I30
+I4
+I319
+I0
+tp2002
+(dp2003
+tp2004
+Rp2005
+sg28
+g2005
+sg26
+Vclub_interior
+p2006
+sbsa(dp2007
+g12
+I00
+sg13
+(lp2008
+F4910.0
+aF6450.0
+asg15
+(itiddlywiki
+Tiddler
+p2009
+(dp2010
+g18
+VChivalry had a good-natured attitude, but her look was serious.  "I want to help this investigation, detective.  Iva wasn't just my friend, she was a friend to everyone here.  I'll answer whatever questions you have."\u000a\u000a<<sugarchoice "chivalry_who_are_you" "So who are you?">>\u000a<<sugarchoice "chivalry_club" "What's your club do?">>\u000a<<if $heardNoHacking>>\u000a<<sugarchoice "chivalry_nohack" "Wait, the Hacker's Club doesn't hack?">>\u000a/%%/<<endif>><<sugarchoice "chivalry_iva" "How did you know Iva?">>\u000a<<if $heardIvaQuitClub>>\u000a<<sugarchoice "chivalry_why_quit" "Why did Iva quit the club?">>\u000a/%%/<<endif>><<sugarchoice "chivalry_whathapened" "Do you know what happened to Iva>">>\u000a\u000a<<if $clubInPerson>>\u000a* [[You have no more questions|club_interior]]\u000a<<else>>\u000a* [[End the phone call|Wallet]]\u000a<<endif>>\u000a
+p2011
+sg29
+(lp2012
+Vconversation
+p2013
+aVnocall
+p2014
+asg20
+g21
+((I2013
+I11
+I15
+I19
+I22
+I57
+I4
+I319
+I0
+tp2015
+(dp2016
+tp2017
+Rp2018
+sg28
+g2018
+sg26
+Vconvo_club
+p2019
+sbsa(dp2020
+g12
+I00
+sg13
+(lp2021
+F3930.0
+aF7010.0
+asg15
+(itiddlywiki
+Tiddler
+p2022
+(dp2023
+g18
+V"Fuck protocol, man" one of the assailants from behind me said.  "I wanna see what this asshole's got that they're so eager to get the shit kicked out of them for it."\u000a\u000aThis was punctuated with an actual kick to my ribs, laying me out on my side.  This was far from the first fight I'd been in, or even the worst, but my in-sim reflexes and heard-earned real-life combat skills had yet to meet.\u000a\u000aThe man behind me took my wallet, which was another thing I'd been pretty sure wasn't possible, and started flipping through it.\u000a\u000a<<display "pvp_wallet">>\u000a
+p2024
+sg29
+(lp2025
+Vnocall
+p2026
+asg20
+g21
+((I2013
+I11
+I15
+I19
+I45
+I45
+I4
+I319
+I0
+tp2027
+(dp2028
+tp2029
+Rp2030
+sg28
+g2030
+sg26
+Vpvp_mugging_rob
+p2031
+sbsa(dp2032
+g12
+I00
+sg13
+(lp2033
+F4910.0
+aF6590.0
+asg15
+(itiddlywiki
+Tiddler
+p2034
+(dp2035
+g18
+VBefore Chivalry could answer the question, someone from the back of the room spoke up.  "Give him the flyer!"  A chorus of muted laughter went through the room.\u000a\u000aChivalry rolled her eyes, then explained.  "Sorry about that.  He's referring to our recruitment materials.  I don't think I actually have one with me, but one of the headers is "Why doesn't the Hacker's Club hack?""\u000a\u000a"And why doesn't it?"\u000a\u000aChivalry smiled.  "Because it's illegal.  Something big went down early on in the sim's history - hacker's club wasn't even involved - and ever since then the gal upstairs has been restricting programming activity.  Got it all labeled as 'hacking'.  They say it 'undermines the stability of the simulation'."\u000a\u000a"Wait, you can't even program?  Who makes the games?"  I gestured upward.\u000a\u000a"Metaverse, mostly."  Before I could ask for clarification, she filled me in.  "That's another sim, full of programming types.  It's all allowed over there, but it's not exactly cheap.  Preservers will Store you for free, and getting a policy to set you up in New Detroit  for a few years is actually pretty cheap if you're not going to die for a while."\u000a\u000a"Why not change the name?"  I asked.\u000a\u000aChivalry looked into the distance where the initial heckler's voice had come from as though to pre-emptively silence it.  Then she turned back to me.  "Yeah, that's in the flyer too."  She shrugged.  "The name's got a history.  We're not the same as we were, but it still means something to be a member of the Hacker's Club."\u000a\u000a* [[You have more questions|convo_club]]\u000a
+p2036
+sg29
+(lp2037
+Vconversation
+p2038
+aVnocall
+p2039
+asg20
+g21
+((I2013
+I11
+I15
+I19
+I45
+I47
+I4
+I319
+I0
+tp2040
+(dp2041
+tp2042
+Rp2043
+sg28
+g2043
+sg26
+Vchivalry_nohack
+p2044
+sbsa(dp2045
+g12
+I00
+sg13
+(lp2046
+F5050.0
+aF6590.0
+asg15
+(itiddlywiki
+Tiddler
+p2047
+(dp2048
+g18
+VChivalry smiled wistfully.  "She came down here same as you did, banging on the door saying she wanted in.  Didn't name-drop, though."\u000a\u000a"Sorry." I wasn't, really.\u000a\u000a"Don't be.  After what happened with her we haven't really been recruiting.  We wouldn't have let you in if you hadn't said who you were working for."\u000a\u000a"Her death hit you that hard?"  I asked sympathetically.\u000a\u000a"Yes, but that's not what I'm referring to.  She quit the club a month ago."<<set $heardIvaQuitClub=1>>\u000a\u000a* [[You have more questions|convo_club]]\u000a
+p2049
+sg29
+(lp2050
+Vconversation
+p2051
+aVnocall
+p2052
+asg20
+g21
+((I2013
+I11
+I15
+I19
+I45
+I49
+I4
+I319
+I0
+tp2053
+(dp2054
+tp2055
+Rp2056
+sg28
+g2056
+sg26
+Vchivalry_iva
+p2057
+sbsa(dp2058
+g12
+I00
+sg13
+(lp2059
+F5190.0
+aF6450.0
+asg15
+(itiddlywiki
+Tiddler
+p2060
+(dp2061
+g18
+V"As in, who am I, or who are we?"  She gestured to include the rest of the club.\u000a\u000aI shrugged.  "Take your pick."\u000a\u000a"Both, then."  She replied.  "Well, like I already said, I'm Chivalry.  I'm currently president of the hacker's club, five terms in a row, mostly because nobody else wants the job.  It's a lot of administrative work - running the cameras, keeping our paperwork intact, collecting dues.  Everyone's in this club because they want to game, not push paper."\u000a\u000a<<display "chivalry_club">>
+p2062
+sg29
+(lp2063
+Vconversation
+p2064
+aVnocall
+p2065
+asg20
+g21
+((I2013
+I11
+I15
+I19
+I45
+I50
+I4
+I319
+I0
+tp2066
+(dp2067
+tp2068
+Rp2069
+sg28
+g2069
+sg26
+Vchivalry_who_are_you
+p2070
+sbsa(dp2071
+g12
+I00
+sg13
+(lp2072
+F3650.0
+aF7290.0
+asg15
+(itiddlywiki
+Tiddler
+p2073
+(dp2074
+g18
+V"Wh-" was as far as I got before I felt an impact and explosive pain from my kidney.  A set of hands from behind me grabbed me by the collar and held me up.\u000a\u000aThe neo-nazi still in front of me shook his head amusedly.  "I love the smell of newbie in the morning.  Your wallet, that's what.  Hand it over."\u000a\u000a* [[Refuse|pvp_mugging_force]]\u000a* [[Give in|pvp_mugging_ok]]\u000a
+p2075
+sg29
+(lp2076
+Vnocall
+p2077
+asg20
+g21
+((I2013
+I11
+I15
+I19
+I51
+I18
+I4
+I319
+I0
+tp2078
+(dp2079
+tp2080
+Rp2081
+sg28
+g2081
+sg26
+Vpvp_mugging_questions
+p2082
+sbsa(dp2083
+g12
+I00
+sg13
+(lp2084
+F4070.0
+aF7010.0
+asg15
+(itiddlywiki
+Tiddler
+p2085
+(dp2086
+g18
+V"Oh man, we bagged someone that's only spent a few-"\u000a\u000a"Is that a fucking card?" Baldie said.  His voice had gone from its jovial kick-your-ass tone to an ice cold kick-your-ass tone that was at least this time not directed at me.  I glanced over at the thug with my wallet to see him holding the card that the insurance company had given me.\u000a\u000aThe third assailant hadn't said anything, but I saw surprise and sudden fear on his face.  He leapt toward me, his hand darting toward my mouth, but unfortunately for him I realized why.\u000a\u000aThe card acted like a normal holo-phone.  That meant it could be voice activated.\u000a\u000a* [[Call Guillory|pvp_guillory]]\u000a
+p2087
+sg29
+(lp2088
+Vnocall
+p2089
+asg20
+g21
+((I2013
+I11
+I15
+I19
+I51
+I21
+I4
+I319
+I0
+tp2090
+(dp2091
+tp2092
+Rp2093
+sg28
+g2093
+sg26
+Vpvp_wallet
+p2094
+sbsa(dp2095
+g12
+I00
+sg13
+(lp2096
+F5050.0
+aF6450.0
+asg15
+(itiddlywiki
+Tiddler
+p2097
+(dp2098
+g18
+V"The Hacker's Club is almost as old as the simulation itself."  Chivalry seemed proud of this, though given her apparent age she probably hadn't even been conceived at the time.  "Back then it was more dedicated to its name, of course.\u000a\u000a"Nowadays we're more of a social group.  We keep the older forms of gaming alive -" she gestured to the chess players, "and some of us come up with new things."  With that she indicated the roleplaying group.<<set $heardNoHacking=1>>\u000a\u000a* [[You have more questions|convo_club]]\u000a
+p2099
+sg29
+(lp2100
+Vconversation
+p2101
+aVnocall
+p2102
+asg20
+g21
+((I2013
+I11
+I15
+I19
+I51
+I22
+I4
+I319
+I0
+tp2103
+(dp2104
+tp2105
+Rp2106
+sg28
+g2106
+sg26
+Vchivalry_club
+p2107
+sbsa(dp2108
+g12
+I00
+sg13
+(lp2109
+F290.0
+aF6730.0
+asg15
+(itiddlywiki
+Tiddler
+p2110
+(dp2111
+g18
+VI dreamed the last moments of my life - pinned between the unyielding metal bumper of the car that'd killed me and the building it'd crashed into.  My lungs were crushed and useless, my ribs destroyed, but I needed to breathe, I couldn't //breathe//\u000a\u000a* [[Wake up|wake]]\u000a
+p2112
+sg29
+(lp2113
+Vnocall
+p2114
+asg20
+g21
+((I2013
+I11
+I15
+I20
+I45
+I22
+I4
+I319
+I0
+tp2115
+(dp2116
+tp2117
+Rp2118
+sg28
+g2118
+sg26
+Vdream_3
+p2119
+sbsa(dp2120
+g12
+I00
+sg13
+(lp2121
+F150.0
+aF7010.0
+asg15
+(itiddlywiki
+Tiddler
+p2122
+(dp2123
+g18
+VI dreamed I was back in the PvP zones.  A mob of people, all bald, all armed, surrounded me.  They didn't have to beat me - though they would - their simple presence was meanacing enough, and the constant feeling of doom that pervaded the zone was crushing down on me.\u000a\u000a<<if $accidentallyTeleported>>\u000a* [[Wake up|wake]]\u000a<<else>>\u000a* [[Wake up|pvp_teleport]]\u000a<<endif>>\u000a
+p2124
+sg29
+(lp2125
+Vnocall
+p2126
+asg20
+g21
+((I2013
+I11
+I15
+I20
+I59
+I43
+I4
+I319
+I0
+tp2127
+(dp2128
+tp2129
+Rp2130
+sg28
+g2130
+sg26
+Vdream_mugged
+p2131
+sbsa(dp2132
+g12
+I00
+sg13
+(lp2133
+F850.0
+aF6730.0
+asg15
+(itiddlywiki
+Tiddler
+p2134
+(dp2135
+g18
+S''
+p2136
+sg29
+(lp2137
+sg20
+g21
+((I2013
+I11
+I15
+I21
+I18
+I14
+I4
+I319
+I0
+tp2138
+(dp2139
+tp2140
+Rp2141
+sg28
+g2141
+sg26
+S'Untitled Passage 17'
+p2142
+sbsa(dp2143
+g12
+I00
+sg13
+(lp2144
+F3930.0
+aF7150.0
+asg15
+(itiddlywiki
+Tiddler
+p2145
+(dp2146
+g18
+V"Fine." I spat.  "Take it."  I pulled out the wallet and threw it at their feet.  One of the thugs who'd been behind me picked it up and started thumbing through it.\u000a\u000a<<display "pvp_wallet">>
+p2147
+sg29
+(lp2148
+Vnocall
+p2149
+asg20
+g21
+((I2013
+I11
+I15
+I21
+I18
+I16
+I4
+I319
+I0
+tp2150
+(dp2151
+tp2152
+Rp2153
+sg28
+g2153
+sg26
+Vpvp_mugging_ok
+p2154
+sbsa(dp2155
+g12
+I00
+sg13
+(lp2156
+F4070.0
+aF7150.0
+asg15
+(itiddlywiki
+Tiddler
+p2157
+(dp2158
+g18
+V"Guillory" the insurance man looked as calm and impeccably dressed as ever.\u000a\u000aThe meaty hand over my mouth prevented me from replying, but the nice thing about holo-phones in this situation is that they work both ways.  Guillory could clearly see what was happening.\u000a\u000a"Ah, you crossed the tracks." he didn't look at all concerned about the situation.  "One moment."\u000a<<silently>>\u000a<<set $mugged=1>>\u000a<<set $guilloryInPerson=1>>\u000a<<set $sleepy=1>>\u000a<<endsilently>>\u000aThere was a lurch and I was suddenly falling sideways.  The world dissolved around me just as quickly and then was immediately pressed back into place with a different locale.\u000a\u000aI was in Guillory's office, my wallet in my hand.\u000a\u000a"You probably have some questions."  Guillory said.\u000a\u000a* [[Ask him|convo_guillory]]\u000a
+p2159
+sg29
+(lp2160
+Vnocall
+p2161
+asg20
+g21
+((I2013
+I11
+I15
+I21
+I21
+I0
+I4
+I319
+I0
+tp2162
+(dp2163
+tp2164
+Rp2165
+sg28
+g2165
+sg26
+Vpvp_guillory
+p2166
+sbsa(dp2167
+g12
+I00
+sg13
+(lp2168
+F430.0
+aF1690.0
+asg15
+(itiddlywiki
+Tiddler
+p2169
+(dp2170
+g18
+V"It is one of the functions of the card."  Guillory explained simply.  "In emergency, it can bring you here to this office.  Keep in mind that only the first such use is free - it becomes increasingly expensive after that to prevent abuse.  It's not natural for things to teleport around."\u000a\u000a"Not natural?"  I gestured to the office.  "This whole place isn't natural."\u000a\u000a"True.  But it is designed to simulate the natural and, as such, has a limit on the amount of un-naturality that it can withstand."\u000a\u000a* [[You have more questions|convo_guillory]]\u000a
+p2171
+sg29
+(lp2172
+Vconversation
+p2173
+aVnocall
+p2174
+asg20
+g21
+((I2013
+I11
+I15
+I21
+I28
+I36
+I4
+I319
+I0
+tp2175
+(dp2176
+tp2177
+Rp2178
+sg28
+g2178
+sg26
+Vguillory_how_teleport
+p2179
+sbsa(dp2180
+g12
+I00
+sg13
+(lp2181
+F430.0
+aF1830.0
+asg15
+(itiddlywiki
+Tiddler
+p2182
+(dp2183
+g18
+V"You crossed the tracks an entered a 'player-vs-player', or 'PvP' zone."  He didn't put air quotes around the word, but I could tell he'd wanted to.\u000a\u000a"Player?  That was no game back there."  Despite the fact that I'd been safely transported to Guillory's office, I could still feel each and every one of my injuries.\u000a\u000a"It's an old term, a hold-over from when the only immersive environments //were// games.  In such zones, players could fight each other rather than computer-created enemies."\u000a\u000a"Wonderful."  I said.  "So I wandered into a game I could be hurt in."\u000a\u000a"It's not a game.  Rather, it is a part of the main simulation with slightly more fideltiy, enough to enable injuries and pain.  But yes, as you discovered, you could be hurt."\u000a\u000a* [[You have more questions|convo_guillory]]\u000a
+p2184
+sg29
+(lp2185
+Vconversation
+p2186
+aVnocall
+p2187
+asg20
+g21
+((I2013
+I11
+I15
+I21
+I31
+I52
+I4
+I319
+I0
+tp2188
+(dp2189
+tp2190
+Rp2191
+sg28
+g2191
+sg26
+Vguillory_pvp
+p2192
+sbsa(dp2193
+g12
+I00
+sg13
+(lp2194
+F290.0
+aF1970.0
+asg15
+(itiddlywiki
+Tiddler
+p2195
+(dp2196
+g18
+V"<<print $gender>> Hallivert, the PvP zones aren't spoken of in polite company.  They're havens for deviants and perverts, people who not only want pain but seek it out."\u000a\u000aHe met my gaze briefly.  "More to the point, we've found that when we describe an area as full of deviants and perverts, that only makes people want to seek it out all the more.  Outright warning people not to go there has much the same effect.  It took us a long time and many harmed newcomers before we decided on our current stance of silence."\u000a\u000aHe made a vague gesture in my direction.  "Additionally, this is why we enable a free teleportation for cardholders.  We know that some people will wander into a situation whether it's good for them or not."\u000a\u000a* [[You have more questions|convo_guillory]]\u000a
+p2197
+sg29
+(lp2198
+Vconversation
+p2199
+aVnocall
+p2200
+asg20
+g21
+((I2013
+I11
+I15
+I21
+I38
+I18
+I4
+I319
+I0
+tp2201
+(dp2202
+tp2203
+Rp2204
+sg28
+g2204
+sg26
+Vguillory_warn
+p2205
+sbsa(dp2206
+g12
+I00
+sg13
+(lp2207
+F570.0
+aF2670.0
+asg15
+(itiddlywiki
+Tiddler
+p2208
+(dp2209
+g18
+V<<if $askedAboutPvP>>\u000a"I told you so."  Samahd looked more amused at my terrible condition than scared.\u000a<<endif>>\u000a"What the hell?"  I demanded.  I was in no mood for Samahd's careless facade.  "Why didn't you warn me about the PvP zones?"\u000a\u000a<<if $askedAboutPvP>>\u000a"I seem to recall doing exactly that."  Ferro sipped a drink.  "Something along the lines of "don't go", if I recall correctly.\u000a\u000a"You couldn't tell me //why//?"\u000a/%%/\u000a<<endif>>"No, I couldn't!  It'd cost me my job.  Tour guide training specifically says not to talk about the zones.  And do you know why?"\u000a\u000a"Because it's funny to them when someone gets mugged?"  I ventured.  "They're getting kickbacks from the robbers?"\u000a\u000a"No."  Samahd replied.  "Because they want to project an image of family-friendliness onto this place."\u000a\u000a"The very first place you took me to was a whorehouse, Samahd."\u000a\u000a"It's a particular kind of friendliness, but you get what I mean.  The Power of Two's clean, everyone's there of their own volition, it's a good place."\u000a\u000aHe continued.  "The wrong side of the tracks, on the other hand, is full of people who want to hurt people and //know// that those people are getting hurt.  Also pain junkies, but those people just go to another bordello.\u000a\u000a"You see what I'm saying?  Telling someone not to go into the PvP zone is pretty much like telling you not to go into the adult novelty shop and start hitting people with dildos.  It just ain't done in polite company."\u000a\u000a* [[You have more questions|convo_ferro]]\u000a\u000a
+p2210
+sg29
+(lp2211
+Vconversation
+p2212
+aVnocall
+p2213
+asg20
+g21
+((I2013
+I11
+I15
+I21
+I44
+I20
+I4
+I319
+I0
+tp2214
+(dp2215
+tp2216
+Rp2217
+sg28
+g2217
+sg26
+Vferro_mugged
+p2218
+sbsa(dp2219
+g12
+I00
+sg13
+(lp2220
+F850.0
+aF150.0
+asg15
+(itiddlywiki
+Tiddler
+p2221
+(dp2222
+g18
+Vversion.extensions.ifMacros={major:2,minor:0,revision:0};macros["if"]={handler:function(place,macroName,params,parser){\u000avar conditions=[],clauses=[],srcOffset=parser.source.indexOf(">>",parser.matchStart)+2,src=parser.source.slice(srcOffset),endPos=-1,currentCond=parser.fullArgs(),currentClause="",t=0,nesting=0;\u000afor(var i=0;i<src.length;i++){if(src.substr(i,9)=="<<endif>>"){nesting--;if(nesting<0){endPos=srcOffset+i+9;\u000aconditions.push(currentCond);clauses.push(currentClause);break;}}if((src.substr(i,6)=="<<else")&&nesting==0){conditions.push(currentCond);\u000aclauses.push(currentClause);currentClause="";t=src.indexOf(">>",i+6);if(src.substr(i+6,4)==" if "){currentCond=Wikifier.parse(src.slice(i+10,t));\u000a}else{currentCond="true";}i=t+2;}if(src.substr(i,5)=="<<if "){nesting++;}currentClause+=src.charAt(i);\u000a}try{if(endPos!=-1){parser.nextMatch=endPos;for(i=0;i<clauses.length;i++){if(eval(conditions.shift())){new Wikifier(place,clauses[i ].trim());\u000abreak;}}}else{throwError(place,"can't find matching endif");}}catch(e){throwError(place,"bad condition: "+e.message);\u000a}}};
+p2223
+sg29
+(lp2224
+Vscript
+p2225
+asg20
+g21
+((I2013
+I11
+I16
+I13
+I36
+I22
+I5
+I320
+I0
+tp2226
+(dp2227
+tp2228
+Rp2229
+sg28
+g2229
+sg26
+Velse if
+p2230
+sbsa(dp2231
+g12
+I00
+sg13
+(lp2232
+F3790.0
+aF6870.0
+asg15
+(itiddlywiki
+Tiddler
+p2233
+(dp2234
+g18
+V<<set $accidentallyTeleported=1>>I woke up just as suddenly as I always did, but I knew something was wrong this time.  The feeling of danger from my dream hadn't left me.\u000a\u000aI sat up from my bed and nearly fell over - I hadn't been in my bed.  I wasn't even in my room.  I scrambled to my feet, looking around, but despite my brain's insistence, I didn't seem to be in peril.\u000a\u000aIt only took me a few moments to realize where I was, because the scenery from my dream hadn't changed.\u000a\u000aI was in the PvP zones.\u000a\u000a* [[Find your way back to the train station|train_exterior]]\u000a
+p2235
+sg29
+(lp2236
+sg20
+g21
+((I2013
+I11
+I16
+I13
+I48
+I0
+I5
+I320
+I0
+tp2237
+(dp2238
+tp2239
+Rp2240
+sg28
+g2240
+sg26
+Vpvp_teleport
+p2241
+sbsa(dp2242
+g12
+I00
+sg13
+(lp2243
+F570.0
+aF1970.0
+asg15
+(itiddlywiki
+Tiddler
+p2244
+(dp2245
+g18
+VGuillory didn't seem surprised by this at all, though at this point I was beginning to wonder what //would// surprise him.\u000a\u000a"That's perfectly normal"  he assured me.  "Sleepwalking is common for people new to the simulation - even for people who have never walked in their sleep before."\u000a\u000aI frowned.  "I woke up at the train station."  It was a minor lie, and the PvP zones seemed like a tender subject.  "That's quite a hike from my apartment."\u000a\u000aGuillory just nodded at this.  "That's far from the furthest that people have walked.  I once had someone come into my very office without realizing it.  It will pass, <<print $gender>> Hallivert."\u000a\u000aI had to concede that Guillory was the expert in these matters... though I didn't have to like it.\u000a\u000a* [[You have other questions|convo_guillory]]\u000a
+p2246
+sg29
+(lp2247
+Vconversation
+p2248
+aVnocall
+p2249
+asg20
+g21
+((I2013
+I11
+I16
+I14
+I4
+I28
+I5
+I320
+I0
+tp2250
+(dp2251
+tp2252
+Rp2253
+sg28
+g2253
+sg26
+Vguillory_tp
+p2254
+sbsa(dp2255
+g12
+I00
+sg13
+(lp2256
+F150.0
+aF2810.0
+asg15
+(itiddlywiki
+Tiddler
+p2257
+(dp2258
+g18
+VSamahd lauged heartily.  "Lemme guess, people told you you're 'sleepwalking', right?"\u000a\u000aI didn't bother trying to answer, because as usual Samahd had no intention of giving me time to.\u000a\u000a"In their defense," he said, inventing imaginary virtues for the people he assumed had been talking to me, "they honestly believe that."\u000a\u000a"And I take it that you don't?"\u000a\u000aSamahd leaned in.  At this point I'd learned that this meant he was either going to tell me a secret or bullshit me, possibly both.\u000a\u000a"It's not sleep //walking//, Hallivert.  It's sleep //teleporting//."\u000a\u000a"Bullshit." That was an easy call.\u000a\u000a"Oh?  How far did you walk?"\u000a\u000a"Train station."  I wasn't about to confess to ending up in the PvP zones.\u000a\u000a"That's not exactly sleepwalking into the kitchen, now is it?"\u000a\u000a"Seems more plausible than teleporting directly there."  I countered.\u000a\u000aSamahd shook his head.  "Does it?  This isn't the real world.  That's what you have to realize.  Your current location is just a couple of numbers in a computer somewhere - change those and boom!  You're somewhere else."\u000a\u000a* [[You have more questions|convo_ferro]]\u000a
+p2259
+sg29
+(lp2260
+Vconversation
+p2261
+aVnocall
+p2262
+asg20
+g21
+((I2013
+I11
+I16
+I14
+I14
+I8
+I5
+I320
+I0
+tp2263
+(dp2264
+tp2265
+Rp2266
+sg28
+g2266
+sg26
+Vferro_tp
+p2267
+sbsa(dp2268
+g12
+I00
+sg13
+(lp2269
+F4630.0
+aF5750.0
+asg15
+(itiddlywiki
+Tiddler
+p2270
+(dp2271
+g18
+VI followed the directions on Koloman's card to his daughter's apartment.  The arts district was almost uniformly full of people better dressed and less suspicious looking than I was, but I somehow managed to avoid attracting attention on my way.\u000a\u000aIva's apartment was in a building similar to my own, though only half as tall.\u000a\u000a* [[Enter the apartment|ivahouse_interior]]\u000a* [[Head back to the arts district|arts_exterior]]\u000a
+p2272
+sg29
+(lp2273
+sg20
+g21
+((I2013
+I11
+I16
+I14
+I44
+I27
+I5
+I320
+I0
+tp2274
+(dp2275
+tp2276
+Rp2277
+sg28
+g2277
+sg26
+Vivahouse_exterior
+p2278
+sbsa(dp2279
+g12
+I00
+sg13
+(lp2280
+I570
+aF6030.0
+asg15
+(itiddlywiki
+Tiddler
+p2281
+(dp2282
+g18
+g2136
+sg29
+(lp2283
+sg20
+g21
+((I2013
+I11
+I16
+I14
+I48
+I56
+I5
+I320
+I0
+tp2284
+(dp2285
+tp2286
+Rp2287
+sg28
+g2287
+sg26
+S'Untitled Passage 18'
+p2288
+sbsa(dp2289
+g12
+I00
+sg13
+(lp2290
+F4630.0
+aF5890.0
+asg15
+(itiddlywiki
+Tiddler
+p2291
+(dp2292
+g18
+VIva's apartment was laid out almost identially to mine, with the exception that where my bed would have been, there was instead a door leading to a bedroom.\u000a\u000aAnother corner of the apartment featured a [[wooden desk|ivahouse_desk]] and chair - the sort of workstation I'd have set up if I'd known I was going back into the detectiving business.\u000a\u000aThe walls of the room were covered in [[posters|ivahouse_posters]].\u000a\u000aThe place was a mess, but there were no signs of a struggle.  Given the precarious pilings of books, papers, and other materials that littered the floor, such signs would have been extremely obvious.\u000a\u000a* [[Go into the bedroom|ivahouse_bedroom]]\u000a* [[Head back outside|arts_exterior]]\u000a
+p2293
+sg29
+(lp2294
+sg20
+g21
+((I2013
+I11
+I16
+I14
+I48
+I58
+I5
+I320
+I0
+tp2295
+(dp2296
+tp2297
+Rp2298
+sg28
+g2298
+sg26
+Vivahouse_interior
+p2299
+sbsa(dp2300
+g12
+I00
+sg13
+(lp2301
+F4770.0
+aF5750.0
+asg15
+(itiddlywiki
+Tiddler
+p2302
+(dp2303
+g18
+VI felt like a voyeur, even though the woman whose bedroom I was peeping into was dead.  In contrast to the living room, the bedroom was clean and well-kept.  The bed was made, the clothes were in the closet rather than scattered about the floor.  I suspected that Koloman or someone else had tried to clean up a little - either that or the reason the bedroom appeared unused was that Iva had simply never used it.\u000a\u000aI spent a few moments rifling through various drawers in search of a diary or something similar, but came up empty-handed.\u000a\u000a* [[Return to the living room|ivahouse_interior]]\u000a
+p2304
+sg29
+(lp2305
+sg20
+g21
+((I2013
+I11
+I16
+I14
+I53
+I46
+I5
+I320
+I0
+tp2306
+(dp2307
+tp2308
+Rp2309
+sg28
+g2309
+sg26
+Vivahouse_bedroom
+p2310
+sbsa(dp2311
+g12
+I00
+sg13
+(lp2312
+F4770.0
+aF5890.0
+asg15
+(itiddlywiki
+Tiddler
+p2313
+(dp2314
+g18
+VThere was not a single square inch of Iva's workdesk that did not host at least one paper.  Piles of looseleaf [[notes|ivahouse_notes]] made up the bulk of the mess.  A few books, scattered in no particular order or strata, were hidden beneath the notes.\u000a\u000aThe notes were hand-written and disorganized, but atop the pile of debris was a typewritten and loosely bound collection of paper.  It only took me a moment to recognize it as a [[script|ivahouse_script]]\u000a\u000a* [[Turn your attention back to the living room|ivahouse_interior]]\u000a
+p2315
+sg29
+(lp2316
+sg20
+g21
+((I2013
+I11
+I16
+I14
+I59
+I21
+I5
+I320
+I0
+tp2317
+(dp2318
+tp2319
+Rp2320
+sg28
+g2320
+sg26
+Vivahouse_desk
+p2321
+sbsa(dp2322
+g12
+I00
+sg13
+(lp2323
+I710
+aF6170.0
+asg15
+(itiddlywiki
+Tiddler
+p2324
+(dp2325
+g18
+g2136
+sg29
+(lp2326
+sg20
+g21
+((I2013
+I11
+I16
+I15
+I8
+I16
+I5
+I320
+I0
+tp2327
+(dp2328
+tp2329
+Rp2330
+sg28
+g2330
+sg26
+S'Untitled Passage 19'
+p2331
+sbsa(dp2332
+g12
+I00
+sg13
+(lp2333
+I850
+aF6170.0
+asg15
+(itiddlywiki
+Tiddler
+p2334
+(dp2335
+g18
+g2136
+sg29
+(lp2336
+sg20
+g21
+((I2013
+I11
+I16
+I15
+I8
+I17
+I5
+I320
+I0
+tp2337
+(dp2338
+tp2339
+Rp2340
+sg28
+g2340
+sg26
+S'Untitled Passage 20'
+p2341
+sbsa(dp2342
+g12
+I00
+sg13
+(lp2343
+I710
+aF6030.0
+asg15
+(itiddlywiki
+Tiddler
+p2344
+(dp2345
+g18
+g2136
+sg29
+(lp2346
+sg20
+g21
+((I2013
+I11
+I16
+I15
+I8
+I18
+I5
+I320
+I0
+tp2347
+(dp2348
+tp2349
+Rp2350
+sg28
+g2350
+sg26
+S'Untitled Passage 21'
+p2351
+sbsa(dp2352
+g12
+I00
+sg13
+(lp2353
+I990
+aF6170.0
+asg15
+(itiddlywiki
+Tiddler
+p2354
+(dp2355
+g18
+g2136
+sg29
+(lp2356
+sg20
+g21
+((I2013
+I11
+I16
+I15
+I8
+I20
+I5
+I320
+I0
+tp2357
+(dp2358
+tp2359
+Rp2360
+sg28
+g2360
+sg26
+S'Untitled Passage 22'
+p2361
+sbsa(dp2362
+g12
+I00
+sg13
+(lp2363
+F4910.0
+aF5750.0
+asg15
+(itiddlywiki
+Tiddler
+p2364
+(dp2365
+g18
+VThe posters were for a number of well-known plays:  "Fiddler on the Roof", "Romeo and Juliet", "Babel is Ruined".\u000a\u000aThe fourth and largest poster represented a play I'd never seen headlining anywhere:  "Atlantis Risen".  Given that the poster proclaimed that it was to be presented by the "Koloman Theater Troupe", I didn't find it hard to believe that this was Iva's personal project.\u000a\u000aMore importantly, the poster had the address of the theater Iva's troupe was working out of.<<set $hasTroupeAddress=1>>\u000a\u000a* [[Turn your attention back to the living room|ivahouse_interior]]\u000a
+p2366
+sg29
+(lp2367
+sg20
+g21
+((I2013
+I11
+I16
+I15
+I8
+I22
+I5
+I320
+I0
+tp2368
+(dp2369
+tp2370
+Rp2371
+sg28
+g2371
+sg26
+Vivahouse_posters
+p2372
+sbsa(dp2373
+g12
+I00
+sg13
+(lp2374
+I430
+aF6310.0
+asg15
+(itiddlywiki
+Tiddler
+p2375
+(dp2376
+g18
+g2136
+sg29
+(lp2377
+sg20
+g21
+((I2013
+I11
+I16
+I15
+I19
+I45
+I5
+I320
+I0
+tp2378
+(dp2379
+tp2380
+Rp2381
+sg28
+g2381
+sg26
+S'Untitled Passage 23'
+p2382
+sbsa(dp2383
+g12
+I00
+sg13
+(lp2384
+F4770.0
+aF6030.0
+asg15
+(itiddlywiki
+Tiddler
+p2385
+(dp2386
+g18
+VThe many, many scattered notes were hand-written and exhibited no organization whatsoever.  A selection of them included notes from her various trips:  An off-grid journey to Metaverse, a meeting in the Hacker's Club.  Strangely, some parts of the notes were blurred into unreadability, as though water had been spilled on them.  That scenario would have been more likely if I'd seen so much as a single drop of water in the entire simulation.\u000a\u000aOne vaguely-related pile was a dream diary - worryingly, she described walking home from the destinations in her dreams, as though she'd somehow actually ended up there.  <<if $accidentallyTeleported>>Of course, the exact same thing had happened to me.  /%%/<<endif>>Iva seems to have come to the conclusion that she'd teleported somehow rather than walking.\u000a\u000aIn the lowest strata of mess was a small business card belonging to "Emil Ormonde".  It had no information other than his address, but that was enough for me.  I tried to take the card and failed - it simply refused to go into my wallet.  Apparently they wouldn't work unless they were given.  It was an annoying quirk but one I could work around:  Ormonde apparently lived one building down from the one I was in, and it wasn't as though "Apartment 222" was hard to memorize.<<set $hasBoyfriendAddress=1>>\u000a\u000a* [[Examine the desk further|ivahouse_desk]]\u000a* [[Turn your attention back to the living room|ivahouse_interior]]\u000a\u000a
+p2387
+sg29
+(lp2388
+sg20
+g21
+((I2013
+I11
+I16
+I15
+I19
+I46
+I5
+I320
+I0
+tp2389
+(dp2390
+tp2391
+Rp2392
+sg28
+g2392
+sg26
+Vivahouse_notes
+p2393
+sbsa(dp2394
+g12
+I00
+sg13
+(lp2395
+F4910.0
+aF5890.0
+asg15
+(itiddlywiki
+Tiddler
+p2396
+(dp2397
+g18
+VThe script was named "Atlantis Rising" <<if $hasTroupeAddress>> - clearly the play that the poster was created to promote<<endif>>.\u000a\u000aI glanced through the pages:  The vague impression I got of the play was that its title was literal - Atlantis was a city "kept aloft by dreamers", but its corrupt king had convinced the populace that he was the one doing all the work.\u000a\u000aI'd only been skimming the script, but as I went further more and more passages were blurred as through by a spill.  Some pages were entirely blank.  The script ended shortly after the intermission, with a dozen blank pages.\u000a\u000aThere was something vaguely unsettling about the missing portions.  They //should// have been there.  It was an assertion I had no way of proving.  For all I knew Iva had a bad habit of going up to the New Amsterdam beaches and making a mess of her script.  She might have inserted blank pages at spots she felt needed more work.\u000a\u000aMy mind came up with a dozen innocuous reasons for the script to be the way it was, and I knew all of them were wrong.\u000a\u000a* [[Examine the desk further|ivahouse_desk]]\u000a* [[Turn your attention back to the living room|ivahouse_interior]]\u000a
+p2398
+sg29
+(lp2399
+sg20
+g21
+((I2013
+I11
+I16
+I15
+I48
+I12
+I5
+I320
+I0
+tp2400
+(dp2401
+tp2402
+Rp2403
+sg28
+g2403
+sg26
+Vivahouse_script
+p2404
+sbsa(dp2405
+g12
+I00
+sg13
+(lp2406
+F4630.0
+aF5610.0
+asg15
+(itiddlywiki
+Tiddler
+p2407
+(dp2408
+g18
+V"Koloman Theater" had obviously been built using Iva's funds rather than Nickolai's - it was a small and humble area.  If it had two dozen rows of seats I'd have been surprised.  Posters lined the walls - the same posters I'd seen back at Iva's house.  "Atlantis Rising" outnumbered the rest two to one.\u000a\u000aOn stage there was a worried group of kids - well, not //kids//, but that's the impression I got.  They were like kittens that had lost their mother - vaguely searching for something that had always been within reach, not yet realizing it was gone forever.\u000a\u000a* [[Talk to the troupe|troupe_intro]]\u000a* [[Leave the theater|arts_exterior]]\u000a
+p2409
+sg29
+(lp2410
+sg20
+g21
+((I2013
+I11
+I16
+I18
+I24
+I14
+I5
+I320
+I0
+tp2411
+(dp2412
+tp2413
+Rp2414
+sg28
+g2414
+sg26
+Vtheater
+p2415
+sbsa(dp2416
+g12
+I00
+sg13
+(lp2417
+F4770.0
+aF5610.0
+asg15
+(itiddlywiki
+Tiddler
+p2418
+(dp2419
+g18
+V<<if $nftTroupe>>\u000aThe theater troop's reaction to my reappearance seemed divided.  On the one hand, most were happy to see me.  On the other, some were afraid.  Maybe because the fact that I was here meant that what had happened to Iva was real.  Maybe they just feared I was bringing them more bad news.  Either way, they were talkative.\u000a<<else>>\u000a<<set $nftTroupe=1>>\u000aI made my way up to the stage.  The actors and actresses who made up the troupe seemed torn between practicing their play and the reality of what had happened to the woman who wrote it.  They didn't notice me until I hefted myself on to the stage.\u000a\u000a"Who-"  The one I'd figured was the leading man spoke up.  His word broke everyone else's trance and suddenly the entire group was huddled together, watching me warily.\u000a\u000a"My name's Sam Hallivert."  I said.  "I'm a private investigator working for Nickolai Koloman"\u000a\u000aTheir guard lowered, but not as much as that news usually did.  "Is this about what happened to Iva?" one of the women said from the back of the group.\u000a\u000a"Yes."  I replied.  "I'm here to find out who did it, and how to stop it from happening again."  Brave words that I wasn't entirely sure that I could back up, but it didn't matter - the kids needed reassurance.\u000a\u000aWith that the group's guard lowered entirely, and they all spoke up in a babble; half directed at me and half among themselves.\u000a<<endif>>\u000a\u000a<<display "convo_troupe">>\u000a
+p2420
+sg29
+(lp2421
+sg20
+g21
+((I2013
+I11
+I16
+I18
+I28
+I49
+I5
+I320
+I0
+tp2422
+(dp2423
+tp2424
+Rp2425
+sg28
+g2425
+sg26
+Vtroupe_intro
+p2426
+sbsa(dp2427
+g12
+I00
+sg13
+(lp2428
+F4910.0
+aF5610.0
+asg15
+(itiddlywiki
+Tiddler
+p2429
+(dp2430
+g18
+VI had to speak up to be heard over the chatter of the group.\u000a\u000a<<sugarchoice "troupe_who" "So who are all you people?">>\u000a<<sugarchoice "troupe_iva" "Tell me about Iva">>\u000a<<sugarchoice "troupe_bf" "Who was she dating?">>\u000a<<sugarchoice "troupe_last" "When did you last see her?">>\u000a<<sugarchoice "troupe_rivals" "Anyone you can think of that'd want her out of the way?">>\u000a<<sugarchoice "troupe_play" "What's the play about?">>\u000a\u000a* [[You have no more questions|theater]]\u000a
+p2431
+sg29
+(lp2432
+sg20
+g21
+((I2013
+I11
+I16
+I18
+I37
+I14
+I5
+I320
+I0
+tp2433
+(dp2434
+tp2435
+Rp2436
+sg28
+g2436
+sg26
+Vconvo_troupe
+p2437
+sbsa(dp2438
+g12
+I00
+sg13
+(lp2439
+F5190.0
+aF5610.0
+asg15
+(itiddlywiki
+Tiddler
+p2440
+(dp2441
+g18
+VThe troupe introduced themselves at the same time, then tried to not introduce themselves at the same time, which resulted in a lot of people talking over each other.  It didn't really matter, it was easy to tell the relative hierarchy by who shut up when someone else talked.  I'd been right about the leading man, at least.\u000a\u000aEventually they got to the meat of my question.\u000a\u000a"We're Iva's theater troupe."  The leading man said.  "She put us together a month ago after her trip off-grid, but most of us knew her before that.  I met her at the hacker's club."\u000a\u000a"I was in her last play" the leading lady spoke up.\u000a\u000aAgain, a babble.  The group was all from the arts district, all New Detroit natives insofar as the term applied.\u000a\u000a* [[You have more questions|convo_troupe]]\u000a
+p2442
+sg29
+(lp2443
+sg20
+g21
+((I2013
+I11
+I16
+I18
+I44
+I33
+I5
+I320
+I0
+tp2444
+(dp2445
+tp2446
+Rp2447
+sg28
+g2447
+sg26
+Vtroupe_who
+p2448
+sbsa(dp2449
+g12
+I00
+sg13
+(lp2450
+F5190.0
+aF5750.0
+asg15
+(itiddlywiki
+Tiddler
+p2451
+(dp2452
+g18
+VI'd thought the group had been effusive before, but clearly I hadn't found the right topic - until now.  Each member of the group shared their opinion of their producer, all at once.\u000a\u000a"She was our stage manager" I managed to hear.  This was interspersed with "wrote the script", "artistic vision", and "kinda a tightass about scheduling" (though the last was said with a smile).\u000a\u000aIf Iva's killer had come from this group, they were by far the most capable liars I'd ever seen.\u000a\u000a* [[You have more questions|convo_troupe]]\u000a
+p2453
+sg29
+(lp2454
+sg20
+g21
+((I2013
+I11
+I16
+I18
+I48
+I53
+I5
+I320
+I0
+tp2455
+(dp2456
+tp2457
+Rp2458
+sg28
+g2458
+sg26
+Vtroupe_iva
+p2459
+sbsa(dp2460
+g12
+I00
+sg13
+(lp2461
+F5190.0
+aF5890.0
+asg15
+(itiddlywiki
+Tiddler
+p2462
+(dp2463
+g18
+V"Emil" the leading man said.  For once only one person had answered the question.  "He's not part of the cast, he's crew."  He glanced back to the group.  "We haven't seen him all week."\u000a\u000aBefore I could ask the requisite follow-up, one of the understudies spoke.  "He didn't do this."\u000a\u000aThe previous lack of babble and discourse ceased, and I was again awash in the sound of a dozen people talking over each other.  I got the gist very quickly:  Emil genuinely cared for Iva, he was happy being crew, he had no reason to hurt her.\u000a\u000a"Can I talk to him?" I didn't yell, precisely, but this wasn't my first time on a stage.  I knew how to project.\u000a\u000aThe group seemed somewhat nervous about answering my question, as though they weren't confident that their words had swayed me.  If I hadn't had a character reference from Nickolai himself they probably wouldn't have, but in this case they were backing up what the old man had already told me.\u000a\u000aFinally, they seemed to come to some sort of consensus.  The leading man faced me and answered:  "He lives in the next building down the street from Iva.  His apartment is 222."<<set $hasBoyfriendAddress=1>>\u000a\u000a* [[You have more questions|convo_troupe]]\u000a
+p2464
+sg29
+(lp2465
+sg20
+g21
+((I2013
+I11
+I16
+I18
+I52
+I29
+I5
+I320
+I0
+tp2466
+(dp2467
+tp2468
+Rp2469
+sg28
+g2469
+sg26
+Vtroupe_bf
+p2470
+sbsa(dp2471
+g12
+I00
+sg13
+(lp2472
+I10
+aF5750.0
+asg15
+(itiddlywiki
+Tiddler
+p2473
+(dp2474
+g18
+g2136
+sg29
+(lp2475
+sg20
+g21
+((I2013
+I11
+I16
+I19
+I5
+I33
+I5
+I320
+I0
+tp2476
+(dp2477
+tp2478
+Rp2479
+sg28
+g2479
+sg26
+S'Untitled Passage 24'
+p2480
+sbsa(dp2481
+g12
+I00
+sg13
+(lp2482
+F5330.0
+aF5610.0
+asg15
+(itiddlywiki
+Tiddler
+p2483
+(dp2484
+g18
+VAt least this time when the troupe answered all at once it was almost immediately understandable:  They'd seen Iva the week before she died, during rehearsal.  She'd left with her boyfriend, and she hadn't come back to the theater again.\u000a\u000a"At first we weren't that worried."  The leading woman was easiest to hear at the moment.  "But then we saw the news...."\u000a\u000a* [[You have more questions|convo_troupe]]\u000a
+p2485
+sg29
+(lp2486
+sg20
+g21
+((I2013
+I11
+I16
+I19
+I5
+I35
+I5
+I320
+I0
+tp2487
+(dp2488
+tp2489
+Rp2490
+sg28
+g2490
+sg26
+Vtroupe_last
+p2491
+sbsa(dp2492
+g12
+I00
+sg13
+(lp2493
+F5330.0
+aF5750.0
+asg15
+(itiddlywiki
+Tiddler
+p2494
+(dp2495
+g18
+VAbsolutely everyone in the group named someone different.  Theories ranged from the generic "people in charge" to the specific "that bitch from the Holloway theater next door" to the crackpot "her dad, for the insurance money".\u000a\u000a"We don't know."  The leading man finally said.  "I can't imagine anyone actually wanting to hurt her.  She had her rivals, yes, but even Holloway wouldn't //really// hurt her.  She just wanted to embarass her."\u000a\u000a"Besides, Holloway got picked up by a patron two weeks ago.  She's been in New Amsterdam the whole time." another understudy said.\u000a\u000aDamn alibis.\u000a\u000a* [[You have more questions|convo_troupe]]\u000a
+p2496
+sg29
+(lp2497
+sg20
+g21
+((I2013
+I11
+I16
+I19
+I8
+I24
+I5
+I320
+I0
+tp2498
+(dp2499
+tp2500
+Rp2501
+sg28
+g2501
+sg26
+Vtroupe_rivals
+p2502
+sbsa(dp2503
+g12
+I00
+sg13
+(lp2504
+I850
+aF6030.0
+asg15
+(itiddlywiki
+Tiddler
+p2505
+(dp2506
+g18
+g2136
+sg29
+(lp2507
+sg20
+g21
+((I2013
+I11
+I16
+I19
+I12
+I14
+I5
+I320
+I0
+tp2508
+(dp2509
+tp2510
+Rp2511
+sg28
+g2511
+sg26
+S'Untitled Passage 25'
+p2512
+sbsa(dp2513
+g12
+I00
+sg13
+(lp2514
+F5330.0
+aF5890.0
+asg15
+(itiddlywiki
+Tiddler
+p2515
+(dp2516
+g18
+VThe portions of the troupe that had been sitting on the stage stood up at this, joining the rest of the group in trying to describe what the play was, until the leading man spoke over all of them:  "Storage."<<set $hasStorageReason=1>>\u000a\u000aThe quiet that came over the group was sudden and shocked, as though he'd broken some taboo.\u000a\u000a"Nathan!" the harsh whisper came from the leading woman.\u000a\u000a"I know, but it's important."  The leading man, apparently Nathan, replied.  He turned away from me to address the group.  "I know we're not supposed to talk about how that's the theme.  Iva even told us it was dangerous.  Well you know what?  Maybe she was right.  That's why the detective needs to know."\u000a\u000aThe group didn't seem entirely swayed, but they didn't voice any objections.  Nathan turned back to me.\u000a\u000aI'd been glancing at the seafaring-themed posters of "Atlantis Rising".  "I don't see the word 'Atlantis' and think of Storage".  I said.\u000a\u000a"It's a metaphor.  Atlantis is 'kept aloft by the dreamers', but a corrupt king takes all the credit.  Sound like anything you know?"\u000a\u000aI shrugged.  I didn't see what any of this had to do with Storage.\u000a\u000aNathan failed to stifle a sigh.  "The dreamers are the people in Storage.  The corrupt king is you-know-who"  He pointed upward to indicate the upper levels.\u000a\u000a"Nickolai?"  I played dumb.\u000a\u000aHe grit his teeth.  "No.  The goddess, the AI that runs this place."\u000a\u000a"Oh, you mean Ath-"\u000a\u000a"Shh!" he cut me off with more energy than I'd seen from anyone in the group.  "She can hear you."\u000a\u000aI had no reason to doubt him, so I didn't press it. Instead I asked the other question that'd been bothering me.  "How do dreamers represent Storage?"\u000a\u000aNathan hesitated.  The leading woman spoke up.  "You might as well say it, it's not like you haven't been blabbing secrets so far."\u000a\u000a"Right."  Nathan agreed.  "The people in Storage dream.  That's what Iva always said, that her knowledge of the nature of the system came from her time in Storage, while she dreamed."\u000a\u000a"Okay, I get that the play's a metaphor, but how is anyone else supposed to get that?  Everyone thinks that storage is inert."\u000a\u000aNathan shrugged.  "Not everyone.  Other people have come back from storage, and some of them dreamed, too.  To be honest, I don't think that Iva meant to convince anyone.  I think her aim was to //find// them.  Anyone who'd dreamed while stored would recognize the message of the play."\u000a\u000a* [[You have more questions|convo_troupe]]\u000a
+p2517
+sg29
+(lp2518
+sg20
+g21
+((I2013
+I11
+I16
+I19
+I12
+I16
+I5
+I320
+I0
+tp2519
+(dp2520
+tp2521
+Rp2522
+sg28
+g2522
+sg26
+Vtroupe_play
+p2523
+sbsa(dp2524
+g12
+I00
+sg13
+(lp2525
+F4630.0
+aF5330.0
+asg15
+(itiddlywiki
+Tiddler
+p2526
+(dp2527
+g18
+V<<if $nftEmil>>\u000aI was pleased to find that the door opened for me this time; at least I wouldn't have to announce myself whenever I came by to visit.\u000a\u000a<<display "convo_emil">>\u000a<<else>>\u000a<<set $nftEmil=1>>Making my way to Emil's apartment proved to be easy, and only having to climb to the second floor was a refreshing change of pace.  I knocked on the door, but got no answer.\u000a\u000aI listened.  I wasn't sure that sound would even carry through the doors, but it couldn't hurt.  After a while, I knocked again, to no response.\u000a\u000a"Emil?"  I said, hoping that sound would at least travel from the outside of the door inside.  "My name's Sam Hallivert.  I'm investigating what happened to Iva."\u000a\u000aAs though the door had been password-protected by just those words, it swung open.  A short olive-skinned man with dark hair and bleary eyes regarded me from the other side of the threshold.  "You're not a cop, are you?"\u000a\u000a"No." I replied.  "Private investigator.  Iva's father hired me."\u000a\u000aEmil nodded.  "I talked to a cop earlier this week.  I didn't like her much."\u000a\u000a"I don't doubt it."\u000a\u000aEmil gestured for me to come in and I followed, the door closing itself behind us.\u000a\u000a* [[Ask some questions|convo_emil]]\u000a<<endif>>
+p2528
+sg29
+(lp2529
+sg20
+g21
+((I2013
+I11
+I16
+I19
+I29
+I56
+I5
+I320
+I0
+tp2530
+(dp2531
+tp2532
+Rp2533
+sg28
+g2533
+sg26
+Vbfhouse_exterior
+p2534
+sbsa(dp2535
+g12
+I01
+sg13
+(lp2536
+F4770.0
+aF5330.0
+asg15
+(itiddlywiki
+Tiddler
+p2537
+(dp2538
+g18
+VEmil was seated in a wooden chair, similar to the one Iva had in her apartment.  His workdesk was immaculate, though it seemed to me that this was probably because he'd never used it rather than him being the cleaning type.\u000a\u000a"What can I do to help?"\u000a\u000a<<sugarchoice "emil_accuse" "Did you do this, Emil?">>\u000a<<sugarchoice "emil_last" "When was the last time you saw Iva?">>\u000a<<sugarchoice "emil_rivals" "Is there anyone you can think of that would wish her harm?">>\u000a<<sugarchoice "emil_play" "What was the play all about?">>\u000a<<if $emilNervous gte 2 and $emilLast>>\u000aEmil seemed <<sugarchoice "emil_nervous" "visibly nervous">> about something.\u000a<<endif>>\u000a\u000a* [[You have no more questions|arts_exterior]]\u000a
+p2539
+sg29
+(lp2540
+sg20
+g21
+((I2013
+I11
+I16
+I19
+I39
+I12
+I5
+I320
+I0
+tp2541
+(dp2542
+tp2543
+Rp2544
+sg28
+g2544
+sg26
+Vconvo_emil
+p2545
+sbsa(dp2546
+g12
+I00
+sg13
+(lp2547
+F4770.0
+aF5470.0
+asg15
+(itiddlywiki
+Tiddler
+p2548
+(dp2549
+g18
+V<<set $emilNervous = $emilNervous+1>>"No."  Emil replied dejectedly.  It was not the protestation of innocence I'd expected.\u000a\u000aWhen I didn't say anything in reply, he elaborated:  "That's the first thing that lady cop asked me.  Second thing she asked me, too.  Third and fourth thing she asked me.  Sixth thing she asked me - the fifth thing she asked was 'you really think you can get away with this?'."\u000a\u000a"Sounds like a bear."  I replied.  "Bear" was not the word I wanted to use, but for all I knew the cop was right.\u000a\u000aEmil nodded, then looked up to meet my gaze.  "I love Iva.  I've loved her ever since I met her.  I'd never do anything to hurt her."\u000a\u000aHe looked away and shrugged.  "Believe me or don't, it won't change the facts."\u000a\u000a* [[You have more questions|convo_emil]]\u000a
+p2550
+sg29
+(lp2551
+sg20
+g21
+((I2013
+I11
+I16
+I19
+I45
+I56
+I5
+I320
+I0
+tp2552
+(dp2553
+tp2554
+Rp2555
+sg28
+g2555
+sg26
+Vemil_accuse
+p2556
+sbsa(dp2557
+g12
+I00
+sg13
+(lp2558
+I10
+aF5610.0
+asg15
+(itiddlywiki
+Tiddler
+p2559
+(dp2560
+g18
+g2136
+sg29
+(lp2561
+sg20
+g21
+((I2013
+I11
+I16
+I19
+I53
+I19
+I5
+I320
+I0
+tp2562
+(dp2563
+tp2564
+Rp2565
+sg28
+g2565
+sg26
+S'Untitled Passage 26'
+p2566
+sbsa(dp2567
+g12
+I00
+sg13
+(lp2568
+I150
+aF5610.0
+asg15
+(itiddlywiki
+Tiddler
+p2569
+(dp2570
+g18
+g2136
+sg29
+(lp2571
+sg20
+g21
+((I2013
+I11
+I16
+I19
+I53
+I22
+I5
+I320
+I0
+tp2572
+(dp2573
+tp2574
+Rp2575
+sg28
+g2575
+sg26
+S'Untitled Passage 27'
+p2576
+sbsa(dp2577
+g12
+I00
+sg13
+(lp2578
+F4910.0
+aF5470.0
+asg15
+(itiddlywiki
+Tiddler
+p2579
+(dp2580
+g18
+V<<silently>>\u000a<<set $emilNervous = $emilNervous+1>>\u000a<<set $emilLast=1>>\u000a<<endsilently>>"I was the last person to see Iva alive.  It was the night before she died, she came home with me."\u000a\u000a"That's it?"  I asked.\u000a\u000aEmil blushed.  "There were other activites.  My point is, she left in the early morning.  When I came over to her house the next day, I found her like..." he paused, unwilling to continue.\u000a\u000a"You don't know if she met anyone on the way..." It didn't sound likely, but I figured I'd ask.\u000a\u000aEmil shook his head.  "No, she didn't meet anyone on the way."\u000a\u000a* [[You have more questions|convo_emil]]\u000a
+p2581
+sg29
+(lp2582
+sg20
+g21
+((I2013
+I11
+I16
+I19
+I53
+I23
+I5
+I320
+I0
+tp2583
+(dp2584
+tp2585
+Rp2586
+sg28
+g2586
+sg26
+Vemil_last
+p2587
+sbsa(dp2588
+g12
+I00
+sg13
+(lp2589
+I290
+aF5610.0
+asg15
+(itiddlywiki
+Tiddler
+p2590
+(dp2591
+g18
+g2136
+sg29
+(lp2592
+sg20
+g21
+((I2013
+I11
+I16
+I19
+I58
+I27
+I5
+I320
+I0
+tp2593
+(dp2594
+tp2595
+Rp2596
+sg28
+g2596
+sg26
+S'Untitled Passage 28'
+p2597
+sbsa(dp2598
+g12
+I00
+sg13
+(lp2599
+F5050.0
+aF5470.0
+asg15
+(itiddlywiki
+Tiddler
+p2600
+(dp2601
+g18
+V<<set $emilNervous = $emilNervous+1>>"She didn't have many real rivals."  Emil replied.  "A few people, like the woman who ran the theater next door to the troupe's, wanted to embarass her or otherwise get her to 'run back home', but nobody who would do this."  he shook his head.\u000a\u000a"Who //would// do this?"  Emil was suddenly plaintive.  "I mean, why?  Nobody's died in this place in fifty years, and the first victim has to be my girlfriend?"\u000a\u000a"In fifty years?  What happened before that?"  I asked.  I'd been under the impression that nobody had died, period.\u000a\u000a"Iva told me."  He replied.  "She'd done a lot of research on the history of the sim.  She volunteered at the old folks' home, I think half to just get stories out of them.  Apparently things weren't stable in the early days and people could die due to glitches in the system."\u000a\u000a* [[You have more questions|convo_emil]]\u000a
+p2602
+sg29
+(lp2603
+sg20
+g21
+((I2013
+I11
+I16
+I19
+I58
+I29
+I5
+I320
+I0
+tp2604
+(dp2605
+tp2606
+Rp2607
+sg28
+g2607
+sg26
+Vemil_rivals
+p2608
+sbsa(dp2609
+g12
+I00
+sg13
+(lp2610
+I430
+aF5610.0
+asg15
+(itiddlywiki
+Tiddler
+p2611
+(dp2612
+g18
+g2136
+sg29
+(lp2613
+sg20
+g21
+((I2013
+I11
+I16
+I20
+I3
+I27
+I5
+I320
+I0
+tp2614
+(dp2615
+tp2616
+Rp2617
+sg28
+g2617
+sg26
+S'Untitled Passage 29'
+p2618
+sbsa(dp2619
+g12
+I00
+sg13
+(lp2620
+F5190.0
+aF5470.0
+asg15
+(itiddlywiki
+Tiddler
+p2621
+(dp2622
+g18
+V<<set $emilNervous = $emilNervous+1>>"She had a script at her house."  Emil said.  "It was pretty good.  Atlantis is real and has a king that can do miracles.  But it turns out that it's not actually him, it's the people who are dreaming."\u000a\u000aHe smiles.  "It's her story, you know."\u000a\u000a"Iva wrote it, yes."  I replied.  I wasn't sure why that was important.\u000a\u000a"No, I mean it's //her// story.  The evil king is Athena, and she's the dreamer.  She dreamed in Storage, she always said.  Nobody believed her, but I did.  It's what inspired her to make this play."\u000a\u000aHe chuckled.  "Don't tell the troupe I told you this.  They don't want people to know the 'secret message' of the play.  Iva thought it was dangerous somehow."  His laughter died.  "Maybe it was."\u000a\u000a* [[You have more questions|convo_emil]]\u000a
+p2623
+sg29
+(lp2624
+sg20
+g21
+((I2013
+I11
+I16
+I20
+I3
+I29
+I5
+I320
+I0
+tp2625
+(dp2626
+tp2627
+Rp2628
+sg28
+g2628
+sg26
+Vemil_play
+p2629
+sbsa(dp2630
+g12
+I00
+sg13
+(lp2631
+F5190.0
+aF5330.0
+asg15
+(itiddlywiki
+Tiddler
+p2632
+(dp2633
+g18
+V<<set $sleepy=1>>"What's wrong, Emil?"  I finally ventured.\u000a\u000a"Listen, I have more to tell."\u000a\u000aI made a gesture.  "I'm listening."\u000a\u000aEmil nodded but didn't seem to hear me.  "You're not like the cop, you actually seem to care about what I have to say, but this... it's weird."\u000a\u000a"I've been here less than a month."  I replied.  "Everything's weird to me."\u000a\u000a"Yeah, but..." Emil changed tactics.  "Have you sleepwalked?"\u000a\u000a<<if $accidentallyTeleported>>I nodded.  "I woke up in the PvP zone, of all places."\u000a\u000aEmil cringed.\u000a<<else>>\u000aI shrugged.  "When I was a kid, a few times-"\u000a\u000a"No, I mean, since you got here?  A lot of people, when they first get uploaded and they're still in the habit of sleeping, they sleepwalk."\u000a<<endif>>\u000a\u000a"Yeah."  I said.\u000a\u000aEmil nodded.  "Iva sleepwalked //all the time//.  I mean, every single night that she slept - and she slept every night too, never broke the habit - she ended up somewhere other than where she started."\u000a\u000aWas that the weird thing Emil was going to tell me?  It didn't seem that far-fetched.\u000a\u000a"I'm not done."  Emil seemed intent on answering my questions before I asked them.  "She'd often call me when it happened.  I started getting suspicious one night when she called me from Bar Ocho."\u000a\u000a"She was sneaking out to the bars?"  It wouldn't be the first time I'd seen that happen, but it didn't seem quite right for the simulation.\u000a\u000aEmil shook his head.  "No, that's it.  She was in bed next to me.  I got up to go to the kitchen, and when I got back she's gone.  And seconds - literally seconds - later, she calls me."\u000a\u000a"Bar Ocho's across town."  I stated the obvious just to make sure I understood.\u000a\u000a"Yes, it is.  And it wasn't a prank call, she was really there, I went there and picked her up.  I cut across the hub and it still took me half an hour."\u000a\u000aI nodded.  "I see how that's strange, but-"\u000a\u000a"It wasn't the last time that happened.  I started paying attention to when she'd disappear and when she'd turn up, and it seemed like it took her almost no time at all.  So one night, as an experiment, I changed the door permissions so she couldn't leave."\u000a\u000aI wasn't sure I liked the sound of that, but I motioned for him to continue.\u000a\u000a"She knew."  he explained.  "I told her about the sleepwalking and she was excited, can you believe that?  She thought she'd stumbled on some truth of the system.  So she was on-board with the experiment, almost too excited about it to sleep so it could start."\u000a\u000a"Let me guess."  I could see where this was going.  "The door didn't stop her."\u000a\u000a"Nope."  Emil's nervousness seemed to increase as he told the story.  "She walked right out.  But that's the strange thing, I don't think she did walk out.  I mean, I remember that she walked out the door, but it doesn't seem right.  Not after what I saw later."\u000a\u000a"So she got past your door security."  I tried to placate him and understand what the hell he'd just said at the same time.  "She'd hung out with hackers, maybe she picked up a thing or to, that's not so weird-"\u000a\u000a"That wasn't the weird thing." he interrupted bluntly.\u000a\u000a* [[Tell him to go on|emil_nervous_2]]\u000a
+p2634
+sg29
+(lp2635
+sg20
+g21
+((I2013
+I11
+I16
+I20
+I6
+I30
+I5
+I320
+I0
+tp2636
+(dp2637
+tp2638
+Rp2639
+sg28
+g2639
+sg26
+Vemil_nervous
+p2640
+sbsa(dp2641
+g12
+I00
+sg13
+(lp2642
+F5330.0
+aF5330.0
+asg15
+(itiddlywiki
+Tiddler
+p2643
+(dp2644
+g18
+V"Go on, then." I said.  Now he really had me wondering.\u000a\u000a"Over the next few nights we repeated the experiment.  She couldn't get into my apartment, the door would keep her out.  She couldn't leave the apartment if she was awake.  Just when she was sleepwalking.  And every time she did, my memory of her leaving the apartment gets a little fuzzier.  Once I opened the door after her to follow, and she wasn't there.  She was already at the insurance building."\u000a\u000a"Okay, this is getting weirder."\u000a\u000a"I told you about the last night I saw her, the night before she died."  it wasn't a question.  "I didn't tell you all of it."\u000a\u000a"You were running the experiment?" I ventured.\u000a\u000a"We were going to, but it didn't get that far.  That night, when we were going to bed, she said the last words she ever said to me:  "Wait, I think I've got this.""\u000a\u000aI didn't comment.  If Iva had simply walked out on him right then it wouldn't have been that strange; he was going somewhere with this.\u000a\u000a"She disappeared."  He held up a hand to forestall the objection I wasn't going to raise.  "I don't mean she walked out the door, I mean //disappeared//.  One moment she was standing there and the next she wasn't.  And when I remembered all the other times she'd sleepwalked... it was like I'd made them up.  Like they weren't real.  What I remembered now was that, every single time she'd gone out, she'd actually vanished.\u000a\u000a"I didn't know what to think."  He added after a pause.  "I thought maybe she'd found some trick to make herself fall asleep instantly.  But she never called.  After a while I started looking..."\u000a\u000a"And you found her at her apartment."\u000a\u000a"It was the first place I stopped at." he acknowledged.  "And she was dead.  Completely still."  He looked up again at me, then away, as though he couldn't bear to look me in the eyes.  "I tell myself it wasn't my fault, my experiment didn't do it.  And lots of people sleepwalk, right?  I think the disappearing is a new wrinkle but on the other hand I think the 'walking' part might be something people's minds make up because the disappearing makes no sense."\u000a\u000aHe was right about one thing.  That was weird.\u000a\u000a* [[You have more questions|convo_emil]]\u000a
+p2645
+sg29
+(lp2646
+sg20
+g21
+((I2013
+I11
+I16
+I20
+I24
+I44
+I5
+I320
+I0
+tp2647
+(dp2648
+tp2649
+Rp2650
+sg28
+g2650
+sg26
+Vemil_nervous_2
+p2651
 sbsasS'scale'
-p1567
-F0.8001300390117034
+p2652
+F0.8
 ss.
