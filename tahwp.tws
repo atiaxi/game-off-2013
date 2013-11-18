@@ -34,7 +34,7 @@ p16
 (dp17
 S'text'
 p18
-V<<silently>>\u000a<<set $dreams=0>>\u000a<<set $emilNervous=0>>\u000a<<endsilently>>The afterlife had wood paneling.\u000a\u000aIt'd ordinarily be an absurd thing to notice.  I was dead, after all, in the hereafter's own waiting room.  You'd think there'd be pearly gates, or at least a hint of brimstone, but instead?\u000a\u000aIt was a waiting room.  Wood paneling on the walls, an oblong receptionist counter complete with bored-looking [[receptionist]] doing her best not to make eye contact... it was only missing some out of date magazines and it'd be perfect.  I'd have to mention it to whoever ran the place.\u000a[[Debug]]\u000a* [[Wait|intro_wait]]
+V<<silently>>\u000a<<set $dreams=0>>\u000a<<set $emilNervous=0>>\u000a<<set $ivaStorage=0>>\u000a<<endsilently>>The afterlife had wood paneling.\u000a\u000aIt'd ordinarily be an absurd thing to notice.  I was dead, after all, in the hereafter's own waiting room.  You'd think there'd be pearly gates, or at least a hint of brimstone, but instead?\u000a\u000aIt was a waiting room.  Wood paneling on the walls, an oblong receptionist counter complete with bored-looking [[receptionist]] doing her best not to make eye contact... it was only missing some out of date magazines and it'd be perfect.  I'd have to mention it to whoever ran the place.\u000a[[Debug]]\u000a* [[Wait|intro_wait]]
 p19
 sS'created'
 p20
@@ -2227,7 +2227,7 @@ sg29
 (lp683
 sbsa(dp684
 g12
-I00
+I01
 sg13
 (lp685
 F430.0
@@ -2238,7 +2238,7 @@ Tiddler
 p686
 (dp687
 g18
-VThe apartment interior featured more of the famed wood paneling.  Likely the exact same paneling, I reflected, if the copy-paste temperment was as pervasive inside as out.\u000a\u000aA large glass double-door lead out to the streets, and a permanently propped open metal door pointed the way to the concrete stairway.  Whoever architected this must have figured an elevator was pointless when you can't possibly become exhausted.  I wanted to punch him.\u000a\u000a<<if $sleepy>>First, though, I was going to need some sleep.<<endif>>\u000a* [[Start the tedious climb upward|floor_13]]\u000a* [[Go out on the streets|apartment_exterior]]\u000a
+VThe apartment interior featured more of the famed wood paneling.  Likely the exact same paneling, I reflected, if the copy-paste temperment was as pervasive inside as out.\u000a\u000aA large glass double-door lead out to the streets, and a permanently propped open metal door pointed the way to the concrete stairway.  Whoever architected this must have figured an elevator was pointless when you can't possibly become exhausted.  I wanted to punch him.\u000a\u000a<<if $sleepy>>First, though, I was going to need some sleep.\u000a/%%/<<endif>><<if $hasCounselorAddress>>\u000aKoloman had given me the address of an upload counselor that Iva had seen.  He lived on the [[twelfth floor|floor_12]].\u000a/%%/<<endif>>\u000a\u000a* [[Start the tedious climb to your home on the thirteenth floor|floor_13]]\u000a* [[Go out on the streets|apartment_exterior]]\u000a
 p688
 sg20
 g21
@@ -3910,7 +3910,7 @@ Tiddler
 p1192
 (dp1193
 g18
-VNickolai Koloman betrayed no emotions whatsoever.  "You must have many questions for me"\u000a\u000a<<sugarchoice "koloman_pitch" "Why am I here?">>\u000a<<if $attemptedEscape>><<sugarchoice "koloman_noescape" "Why did you lock me in my apartment for your little phone call?>>\u000a/%%/<<endif>><<sugarchoice "koloman_whyme" "Why me?"|koloman_whyme]]\u000a<<sugarchoice "koloman_coincidence" "So you needed a detective, and the next day I'm conveniently killed and uploaded?">>\u000a<<sugarchoice "koloman_payment" "What does the job pay?">>\u000a<<sugarchoice "koloman_others" "Who else is investigating the crime?">>\u000a<<sugarchoice "koloman_failure" "What happens if I can't solve the case?">>\u000a<<if $investigating>>\u000a<<sugarchoice "koloman_verify" "If nobody can die here, how do you know she's dead?">>\u000a<<sugarchoice "koloman_body" "Where is her body?">>\u000a<<sugarchoice "koloman_enemies" "Did your daughter have any enemies?">>\u000a<<sugarchoice "koloman_friends" "What about friends?">>\u000a<<sugarchoice "koloman_nd" "No offense, but why did she spend her time in New Detroit?">>\u000a<<sugarchoice "koloman_storage" "Wait, did you say she'd been in Storage?  What happened?">>\u000a<<if $kolomanInPerson>>* [[You have no more questions|koloman_exterior]]<<else>>* [[End the phone call|Wallet]]<<endif>>\u000a/%%/<<else>>[[I'll take the case|koloman_accept]]\u000a[[Let me think about it|koloman_reject]]\u000a<<endif>>
+VNickolai Koloman betrayed no emotions whatsoever.  "You must have many questions for me"\u000a\u000a<<sugarchoice "koloman_pitch" "Why am I here?">>\u000a<<if $attemptedEscape>><<sugarchoice "koloman_noescape" "Why did you lock me in my apartment for your little phone call?>>\u000a/%%/<<endif>><<sugarchoice "koloman_whyme" "Why me?"|koloman_whyme]]\u000a<<sugarchoice "koloman_coincidence" "So you needed a detective, and the next day I'm conveniently killed and uploaded?">>\u000a<<sugarchoice "koloman_payment" "What does the job pay?">>\u000a<<sugarchoice "koloman_others" "Who else is investigating the crime?">>\u000a<<sugarchoice "koloman_failure" "What happens if I can't solve the case?">>\u000a<<if $investigating>>\u000a<<sugarchoice "koloman_verify" "If nobody can die here, how do you know she's dead?">>\u000a<<sugarchoice "koloman_body" "Where is her body?">>\u000a<<sugarchoice "koloman_enemies" "Did your daughter have any enemies?">>\u000a<<sugarchoice "koloman_friends" "What about friends?">>\u000a<<sugarchoice "koloman_nd" "No offense, but why did she spend her time in New Detroit?">>\u000a<<sugarchoice "koloman_storage" "Wait, did you say she'd been in Storage?  What happened?">>\u000a<<if $ivaStorage gte 2>><<sugarchoice "koloman_play" "Iva's play was about her time in storage.">>\u000a/%%/<<endif>>\u000a<<if $kolomanInPerson>>* [[You have no more questions|koloman_exterior]]<<else>>* [[End the phone call|Wallet]]<<endif>>\u000a/%%/<<else>>[[I'll take the case|koloman_accept]]\u000a[[Let me think about it|koloman_reject]]\u000a<<endif>>
 p1194
 sg29
 (lp1195
@@ -5017,7 +5017,7 @@ Tiddler
 p1543
 (dp1544
 g18
-V"Oh, no, you misunderstand, she was not a criminal or anything."  Koloman explained.\u000a\u000a"I thought storage was a one-way street."  I replied neutrally.  If there was a way out of the afterlife's simulated purgatory, I didn't want to appear too eager to learn about it and scare the guy off.\u000a\u000a"Ordinarily, yes.  These circumstances were different - the contract I'd written up for our placement into the simulation, it covered both of us, but only //both// of us.  We had to arrive at the same time."\u000a\u000aA slow frown came over his face.  "I anticipated that I would die first.  I did not want to spend an eternity waiting in a simulated world for my daughter to join me.  It seemed... unseemly to silently hope for her death so that she might live with me again."  He scoffed.  "So the contract stated that the first to die would be placed in storage."\u000a\u000a"And it was her."  I tried to say this as neutrally as I possibly could.  In truth, I was reeling from the fact that he'd not only lost his daughter recently, he was losing her for the second time.\u000a\u000a"It was."  He replied quietly.  He'd slipped into the somber mood I'd noticed whenever we got on the topic of how his daughter had been in life.  "Undiscovered heart valve problem.  I spent fifteen years in the outside world, waiting for my time to come so that I might join her."\u000a\u000aHe sighed, then looked back up at me.  "When I did, when I came here, the first face I saw was hers.  She told me about her dreams in Storage, how she'd seen the simulation for what it truly was, and it was beautiful and horrible, awful in the old sense of the term, like a fire that could consume a city."\u000a\u000a"I thought Storage was just... storage."  Once again, my newness to the situation was showing.  "You're shipped to some tape backup under a mountain or something."\u000a\u000a"It is."  Koloman confirmed.  "Not exactly as you described, but near enough.  You cannot dream in storage, because there is no 'you' to dream!  These were earlier days of the simulation.  I worried that my Iva had been one of those afflicted by the upload.  But aside from her newfound passion for art, there were no signs."\u000a\u000a* [[You have more questions|convo_koloman]]\u000a
+V"Oh, no, you misunderstand, she was not a criminal or anything."  Koloman explained.\u000a\u000a"I thought storage was a one-way street."  I replied neutrally.  If there was a way out of the afterlife's simulated purgatory, I didn't want to appear too eager to learn about it and scare the guy off.\u000a\u000a"Ordinarily, yes.  These circumstances were different - the contract I'd written up for our placement into the simulation, it covered both of us, but only //both// of us.  We had to arrive at the same time."\u000a\u000aA slow frown came over his face.  "I anticipated that I would die first.  I did not want to spend an eternity waiting in a simulated world for my daughter to join me.  It seemed... unseemly to silently hope for her death so that she might live with me again."  He scoffed.  "So the contract stated that the first to die would be placed in storage."\u000a\u000a"And it was her."  I tried to say this as neutrally as I possibly could.  In truth, I was reeling from the fact that he'd not only lost his daughter recently, he was losing her for the second time.\u000a\u000a"It was."  He replied quietly.  He'd slipped into the somber mood I'd noticed whenever we got on the topic of how his daughter had been in life.  "Undiscovered heart valve problem.  I spent fifteen years in the outside world, waiting for my time to come so that I might join her."\u000a\u000aHe sighed, then looked back up at me.  "When I did, when I came here, the first face I saw was hers.  She told me about her dreams in Storage, how she'd seen the simulation for what it truly was, and it was beautiful and horrible, awful in the old sense of the term, like a fire that could consume a city."\u000a\u000a"I thought Storage was just... storage."  Once again, my newness to the situation was showing.  "You're shipped to some tape backup under a mountain or something."\u000a\u000a"It is."  Koloman confirmed.  "Not exactly as you described, but near enough.  You cannot dream in storage, because there is no 'you' to dream!  These were earlier days of the simulation, and I worried that my Iva had been one of those afflicted by the upload.  But aside from her newfound passion for art, there were no signs."\u000a\u000a* [[You have more questions|convo_koloman]]\u000a
 p1545
 sg29
 (lp1546
@@ -6644,7 +6644,7 @@ Tiddler
 p2034
 (dp2035
 g18
-VBefore Chivalry could answer the question, someone from the back of the room spoke up.  "Give him the flyer!"  A chorus of muted laughter went through the room.\u000a\u000aChivalry rolled her eyes, then explained.  "Sorry about that.  He's referring to our recruitment materials.  I don't think I actually have one with me, but one of the headers is "Why doesn't the Hacker's Club hack?""\u000a\u000a"And why doesn't it?"\u000a\u000aChivalry smiled.  "Because it's illegal.  Something big went down early on in the sim's history - hacker's club wasn't even involved - and ever since then the gal upstairs has been restricting programming activity.  Got it all labeled as 'hacking'.  They say it 'undermines the stability of the simulation'."\u000a\u000a"Wait, you can't even program?  Who makes the games?"  I gestured upward.\u000a\u000a"Metaverse, mostly."  Before I could ask for clarification, she filled me in.  "That's another sim, full of programming types.  It's all allowed over there, but it's not exactly cheap.  Preservers will Store you for free, and getting a policy to set you up in New Detroit  for a few years is actually pretty cheap if you're not going to die for a while."\u000a\u000a"Why not change the name?"  I asked.\u000a\u000aChivalry looked into the distance where the initial heckler's voice had come from as though to pre-emptively silence it.  Then she turned back to me.  "Yeah, that's in the flyer too."  She shrugged.  "The name's got a history.  We're not the same as we were, but it still means something to be a member of the Hacker's Club."\u000a\u000a* [[You have more questions|convo_club]]\u000a
+VBefore Chivalry could answer the question, someone from the back of the room spoke up.  "Give him the flyer!"  A chorus of muted laughter went through the room.\u000a\u000aChivalry rolled her eyes, then explained.  "Sorry about that.  He's referring to our recruitment materials.  I don't think I actually have one with me, but one of the headers is "Why doesn't the Hacker's Club hack?""\u000a\u000a"And why doesn't it?"\u000a\u000aChivalry smiled.  "Because it's illegal.  Something big went down early on in the sim's history - hacker's club wasn't even involved - and ever since then the gal upstairs has been restricting programming activity.  Got it all labeled as 'hacking'.  They say it 'undermines the stability of the simulation'."\u000a\u000a"Wait, you can't even program?  Who makes the games?"  I gestured upward.\u000a\u000a"Metaverse, mostly."  Before I could ask for clarification, she filled me in.  "That's another sim, full of programming types.  It's all allowed over there, but it's not exactly cheap.  Preservers will Store you for free, and getting a policy to set you up in New Detroit  for a few years is actually pretty affordable if you're not going to die for a while."\u000a\u000a"Why not change the name?"  I asked.\u000a\u000aChivalry looked into the distance where the initial heckler's voice had come from as though to pre-emptively silence it.  Then she turned back to me.  "Yeah, that's in the flyer too."  She shrugged.  "The name's got a history.  We're not the same as we were, but it still means something to be a member of the Hacker's Club."\u000a\u000a* [[You have more questions|convo_club]]\u000a
 p2036
 sg29
 (lp2037
@@ -6956,8 +6956,8 @@ g12
 I00
 sg13
 (lp2133
-F850.0
-aF6730.0
+F5470.0
+aF3090.0
 asg15
 (itiddlywiki
 Tiddler
@@ -7430,17 +7430,18 @@ g12
 I00
 sg13
 (lp2280
-I570
-aF6030.0
+F990.0
+aF7570.0
 asg15
 (itiddlywiki
 Tiddler
 p2281
 (dp2282
 g18
-g2136
+VMarcus nodded, no sign of his earlier anxiety over the topic.  "I suppose..." he said slowly.  "Though if it kills you like it did her, I'm never saying anything to anyone ever again, do you understand?"\u000a\u000aI did, all too well.  I was following in Iva's footsteps, and they'd lead down a dangerous path.  I could only hope that this wasn't the particular fork that'd killed her.  I motioned for him to continue.\u000a\u000a"I was never supposed to come out of storage."  He began.  "At least, not until the promised day of the Preservationists.  My husband - Jacob - and I had insurance policies that guaranteed us a spot in Storage.  He was the actual believer, I simply signed up to make him happy and in case it turned out to be real."  He gestured around himself.  "Good thing I did, hm?\u000a\u000a"I died, and they put me in storage.  Jacob died about five years later, but something went wrong with the upload process.  More wrong than usual - he was... corrupted.  They couldn't re-build his mind on this side."\u000a\u000aI nodded.  It seemed there was more than one reason that Marcus had gone into upload-related psychology.\u000a\u000aMarcus was too involved in telling his story to notice my reaction.  "There was a civil suit by his next of kin - his brother.  I was called on as a witness, though even now I don't really know why.  But they pulled me out of storage to testify.  After the settlement, I could afford to live here in New Detroit.  Hell, I could afford to live in New Phoenix, but... well it's less real down here.  It hurts less."\u000a\u000aHe paused, a sad remembrance over his features.  I got the feeling I was dredging up memories he hadn't reflected on in a long time.  I tried to change the subject "And the dreams?"\u000a\u000aMarcus sighed.  "The dreams.  I died in a hospital - I was a smoker, if you can believe such a thing still existed.  So when I woke up in the hospital, I didn't even know anything was wrong.  The first clue should have been that I could walk.  The second clue should have been the fact that I didn't need to breathe.  But I didn't even think about those things, because it's a dream, you know?  You don't question a dream unless you've trained yourself to.\u000a\u000a"I didn't recognize anyone.  The doctors were different, the patients were different.  Jacob, who'd never left my side in those last hours, was gone.  I walked unfamiliar floors in an unfamiliar layout.  I was in a hospital, but it wasn't mine."\u000a\u000aHe glanced up at me.  "Later, after they woke me up, I worked at the retirement home.  It was the place I'd dreamed.  At the time, I rationalized it, I let myself believe that I'd planted the false memory of the retirement home in my mind.  But now?"\u000a\u000aHe shrugged, looking away.  "I don't know what to believe.  Did I dream a place that not only had I never seen before, but wasn't even real?  I couldn't have.  It's impossible."\u000a\u000aHe turned his eyes toward the television.  "But I saw on the news about Iva.  The impossible's already happened."\u000a\u000a* [[You have more questions|convo_marcus]]\u000a
+p2283
 sg29
-(lp2283
+(lp2284
 sg20
 g21
 ((I2013
@@ -7452,32 +7453,32 @@ I56
 I5
 I320
 I0
-tp2284
-(dp2285
-tp2286
-Rp2287
+tp2285
+(dp2286
+tp2287
+Rp2288
 sg28
-g2287
+g2288
 sg26
-S'Untitled Passage 18'
-p2288
-sbsa(dp2289
+Vmarcus_fulldream
+p2289
+sbsa(dp2290
 g12
 I00
 sg13
-(lp2290
+(lp2291
 F4630.0
 aF5890.0
 asg15
 (itiddlywiki
 Tiddler
-p2291
-(dp2292
+p2292
+(dp2293
 g18
 VIva's apartment was laid out almost identially to mine, with the exception that where my bed would have been, there was instead a door leading to a bedroom.\u000a\u000aAnother corner of the apartment featured a [[wooden desk|ivahouse_desk]] and chair - the sort of workstation I'd have set up if I'd known I was going back into the detectiving business.\u000a\u000aThe walls of the room were covered in [[posters|ivahouse_posters]].\u000a\u000aThe place was a mess, but there were no signs of a struggle.  Given the precarious pilings of books, papers, and other materials that littered the floor, such signs would have been extremely obvious.\u000a\u000a* [[Go into the bedroom|ivahouse_bedroom]]\u000a* [[Head back outside|arts_exterior]]\u000a
-p2293
+p2294
 sg29
-(lp2294
+(lp2295
 sg20
 g21
 ((I2013
@@ -7489,32 +7490,32 @@ I58
 I5
 I320
 I0
-tp2295
-(dp2296
-tp2297
-Rp2298
+tp2296
+(dp2297
+tp2298
+Rp2299
 sg28
-g2298
+g2299
 sg26
 Vivahouse_interior
-p2299
-sbsa(dp2300
+p2300
+sbsa(dp2301
 g12
 I00
 sg13
-(lp2301
+(lp2302
 F4770.0
 aF5750.0
 asg15
 (itiddlywiki
 Tiddler
-p2302
-(dp2303
+p2303
+(dp2304
 g18
 VI felt like a voyeur, even though the woman whose bedroom I was peeping into was dead.  In contrast to the living room, the bedroom was clean and well-kept.  The bed was made, the clothes were in the closet rather than scattered about the floor.  I suspected that Koloman or someone else had tried to clean up a little - either that or the reason the bedroom appeared unused was that Iva had simply never used it.\u000a\u000aI spent a few moments rifling through various drawers in search of a diary or something similar, but came up empty-handed.\u000a\u000a* [[Return to the living room|ivahouse_interior]]\u000a
-p2304
+p2305
 sg29
-(lp2305
+(lp2306
 sg20
 g21
 ((I2013
@@ -7526,32 +7527,32 @@ I46
 I5
 I320
 I0
-tp2306
-(dp2307
-tp2308
-Rp2309
+tp2307
+(dp2308
+tp2309
+Rp2310
 sg28
-g2309
+g2310
 sg26
 Vivahouse_bedroom
-p2310
-sbsa(dp2311
+p2311
+sbsa(dp2312
 g12
 I00
 sg13
-(lp2312
+(lp2313
 F4770.0
 aF5890.0
 asg15
 (itiddlywiki
 Tiddler
-p2313
-(dp2314
+p2314
+(dp2315
 g18
 VThere was not a single square inch of Iva's workdesk that did not host at least one paper.  Piles of looseleaf [[notes|ivahouse_notes]] made up the bulk of the mess.  A few books, scattered in no particular order or strata, were hidden beneath the notes.\u000a\u000aThe notes were hand-written and disorganized, but atop the pile of debris was a typewritten and loosely bound collection of paper.  It only took me a moment to recognize it as a [[script|ivahouse_script]]\u000a\u000a* [[Turn your attention back to the living room|ivahouse_interior]]\u000a
-p2315
+p2316
 sg29
-(lp2316
+(lp2317
 sg20
 g21
 ((I2013
@@ -7563,31 +7564,32 @@ I21
 I5
 I320
 I0
-tp2317
-(dp2318
-tp2319
-Rp2320
+tp2318
+(dp2319
+tp2320
+Rp2321
 sg28
-g2320
+g2321
 sg26
 Vivahouse_desk
-p2321
-sbsa(dp2322
+p2322
+sbsa(dp2323
 g12
 I00
 sg13
-(lp2323
-I710
-aF6170.0
+(lp2324
+F850.0
+aF7290.0
 asg15
 (itiddlywiki
 Tiddler
-p2324
-(dp2325
+p2325
+(dp2326
 g18
-g2136
+V"Understand," he started, "there's only so much I can tell you.  Even though I've left that life behind me now, I still adhere to confidentiality."\u000a\u000aI nodded.  "I wouldn't have it any other way."  A lie, of course, I could use all the information I could get, but I knew when not to push.\u000a\u000a"Well, then.  Iva came to me shortly after she'd moved here to New Detroit."  He trailed off.\u000a\u000a"I hope there's more that doesn't fall under confidentiality."  I said wryly.\u000a\u000a"There isn't."  He answered simply.  "The woman changed my life, and what I've told you is all I can say."\u000a\u000aI was reconsidering my previous decision not to push when he continued.  "No, there is more.  I'm the one who got her her job."\u000a\u000a"Writing plays?"  I asked.  I hadn't thought that was the sort of field that needed an introduction.\u000a\u000aMarcus looked as confused by my question as I'd felt asking it.  "No, volunteering!" He clarified.  "She worked at the retirement home.  If you ask me, she was looking for more people like her, people who'd dreamed in their storage.  People who'd gotten locked up rather than pretend it hadn't happened."\u000a\u000aI raised an eyebrow - that seemed like the sort of confidential information he'd just decided he couldn't give me.\u000a\u000a"She never said that."  Marcus said in response to my unspoken criticism.  "And it's not a diagnosis.  Just a gut feeling."\u000a\u000a* [[You have more questions|convo_marcus]]\u000a
+p2327
 sg29
-(lp2326
+(lp2328
 sg20
 g21
 ((I2013
@@ -7599,31 +7601,32 @@ I16
 I5
 I320
 I0
-tp2327
-(dp2328
 tp2329
-Rp2330
+(dp2330
+tp2331
+Rp2332
 sg28
-g2330
+g2332
 sg26
-S'Untitled Passage 19'
-p2331
-sbsa(dp2332
+Vmarcus_iva
+p2333
+sbsa(dp2334
 g12
 I00
 sg13
-(lp2333
-I850
-aF6170.0
+(lp2335
+F850.0
+aF7430.0
 asg15
 (itiddlywiki
 Tiddler
-p2334
-(dp2335
+p2336
+(dp2337
 g18
-g2136
+VMarcus shrugged.  "I'm not sure how much I believe it anymore, but I've got the official word memorized if you want to hear it."\u000a\u000aI motioned for him to continue.\u000a\u000aHe took a breath.  "There are actually two kinds of storage - short term and long term.  Long-term storage is what most people think of - your entire mind is written to a few redundant tapes and shipped to different regions for backup."\u000a\u000a"Did you say tapes?"  I knew that New Detroit's whole theme was old-fasioned, but I had no idea that extended to their backup technology.\u000a\u000a"Oh, yes.  According to what I was told, tapes are more reliable, take up less space, and have decades of shelf life."\u000a\u000aI wasn't sure I believed it, but I wasn't an expert.  I didn't think Marcus was either, but I'd asked him to parrot the company line and I was clearly getting what I asked for.\u000a\u000a"Anyway, that's long-term.  Short term is your ordinary computer storage that you'd save stuff off to.  It's on-site - in case you change your mind or circumstances change or they need you for some reason.  Doesn't happen much, but it's part of the system that's been in place this whole time so they never got around to replacing it."\u000a\u000a* [[You have more questions|convo_marcus]]\u000a
+p2338
 sg29
-(lp2336
+(lp2339
 sg20
 g21
 ((I2013
@@ -7635,31 +7638,32 @@ I17
 I5
 I320
 I0
-tp2337
-(dp2338
-tp2339
-Rp2340
+tp2340
+(dp2341
+tp2342
+Rp2343
 sg28
-g2340
+g2343
 sg26
-S'Untitled Passage 20'
-p2341
-sbsa(dp2342
+Vmarcus_storage
+p2344
+sbsa(dp2345
 g12
 I00
 sg13
-(lp2343
-I710
-aF6030.0
+(lp2346
+F710.0
+aF7290.0
 asg15
 (itiddlywiki
 Tiddler
-p2344
-(dp2345
+p2347
+(dp2348
 g18
-g2136
+VThe counselor lead me to a cushioned chair that felt exactly like every other chair in the city.  Gingerly, he sat across from me in an identical seat.  "My name is Marcus.  How can I help you?"\u000a\u000a<<sugarchoice "marcus_job" "Nickolai told me you're an upload counselor?">>\u000a<<sugarchoice "marcus_iva" "Tell me about Iva">>\u000a<<sugarchoice "marcus_storage" "Tell me about Storage">>\u000a<<sugarchoice "marcus_what_are_dreams" "What are the Storage dreams?">>\u000a<<if $heardMarcusDreamed>>\u000a<<sugarchoice "marcus_dreamed" "You dreamed in storage?">>\u000a/%%/<<endif>>\u000a\u000a* [[You have no more questions|floor_12]]\u000a\u000a
+p2349
 sg29
-(lp2346
+(lp2350
 sg20
 g21
 ((I2013
@@ -7671,31 +7675,32 @@ I18
 I5
 I320
 I0
-tp2347
-(dp2348
-tp2349
-Rp2350
+tp2351
+(dp2352
+tp2353
+Rp2354
 sg28
-g2350
+g2354
 sg26
-S'Untitled Passage 21'
-p2351
-sbsa(dp2352
+Vconvo_marcus
+p2355
+sbsa(dp2356
 g12
 I00
 sg13
-(lp2353
-I990
-aF6170.0
+(lp2357
+F710.0
+aF7570.0
 asg15
 (itiddlywiki
 Tiddler
-p2354
-(dp2355
+p2358
+(dp2359
 g18
-g2136
+VMarcus laughed.  "That's the question, isn't it?  I can give you the company line, if that's what you're looking for."\u000a\u000a"I'd like the truth." I answered simply.\u000a\u000a"Wouldn't we all?  But honestly, at this point, I've got no goddamn idea what the truth is.  I can tell you what the company line is, and then I can tell you what I think."\u000a\u000aI nodded.  That was enough for me.\u000a\u000a"Okay, official statement:  The human mind was not meant to be stored or, for that matter, uploaded."  he began.\u000a\u000a"Hold on."  I hadn't meant to interrupt this early, but already this wasn't making sense.  "This whole sim was made by Preservationists, right?  Isn't their whole philosophy about how we're all meant to ascend this way?"\u000a\u000aMarcus blinked at me as though this was a total non-sequitur.  "Uploads pre-date this sim, <<print $gender>> Hallivert.  The official line I'm giving here isn't Preservationist."\u000a\u000a"Ah, continue."\u000a\u000a"Anyway, the mind's not meant for storage or uploading.  To clarify, I don't mean this in a //moral// way, just in a the-brain-never-evolved-for-this sort of way.  Same reason there were so many car accidents near the turn of the century, the human brain was never meant to comprehend travel at hundred kilometers an hour."\u000a\u000a"You don't have to tell me."  I replied.  "That's exactly how I got killed."\u000a\u000a"But the brain is nothing if not adaptable.  So in the face of something it cannot understand, like uploading, it will invent something that makes sense.  For many people, especially those who first were uploaded, that something was dreams.  They hadn't //died//, they'd merely fallen asleep for a time.  Much easier to understand."\u000a\u000a"They remembered dreaming."  I pointed out.  Somewhere in Ivy's notes had been a half-organized dream journal, though I hadn't checked to see if it dated back to before she'd been pulled out of storage.\u000a\u000a"Memories are lies, <<print $gender>> Hallivert.  It's something the psychological community has known for over a century now.  It's shockingly easy for someone to remember something that, simply put, never occurred.  As an example, doctors had to be careful not to accidentally implant memories in their patients, and this was in the days //before// fully-immersive environments."\u000a\u000aI thought on this for a moment, then changed the subject before I could start doubting my own memories too much.  "You said you'd tell me what you thought, too."\u000a\u000aHallivert smiled weakly.  "I do not know.  It may not sound like much, but you did not know me as I once was.  Strong, certain that I was in the right, that I was helping people get past the false memories of Storage.  To admit that I do not know... it puts my entire life's work in question."\u000a\u000a* [[You have more questions|convo_marcus]]\u000a
+p2360
 sg29
-(lp2356
+(lp2361
 sg20
 g21
 ((I2013
@@ -7707,32 +7712,32 @@ I20
 I5
 I320
 I0
-tp2357
-(dp2358
-tp2359
-Rp2360
+tp2362
+(dp2363
+tp2364
+Rp2365
 sg28
-g2360
+g2365
 sg26
-S'Untitled Passage 22'
-p2361
-sbsa(dp2362
+Vmarcus_what_are_dreams
+p2366
+sbsa(dp2367
 g12
 I00
 sg13
-(lp2363
+(lp2368
 F4910.0
 aF5750.0
 asg15
 (itiddlywiki
 Tiddler
-p2364
-(dp2365
+p2369
+(dp2370
 g18
 VThe posters were for a number of well-known plays:  "Fiddler on the Roof", "Romeo and Juliet", "Babel is Ruined".\u000a\u000aThe fourth and largest poster represented a play I'd never seen headlining anywhere:  "Atlantis Risen".  Given that the poster proclaimed that it was to be presented by the "Koloman Theater Troupe", I didn't find it hard to believe that this was Iva's personal project.\u000a\u000aMore importantly, the poster had the address of the theater Iva's troupe was working out of.<<set $hasTroupeAddress=1>>\u000a\u000a* [[Turn your attention back to the living room|ivahouse_interior]]\u000a
-p2366
+p2371
 sg29
-(lp2367
+(lp2372
 sg20
 g21
 ((I2013
@@ -7744,31 +7749,32 @@ I22
 I5
 I320
 I0
-tp2368
-(dp2369
-tp2370
-Rp2371
+tp2373
+(dp2374
+tp2375
+Rp2376
 sg28
-g2371
+g2376
 sg26
 Vivahouse_posters
-p2372
-sbsa(dp2373
+p2377
+sbsa(dp2378
 g12
 I00
 sg13
-(lp2374
-I430
-aF6310.0
+(lp2379
+F850.0
+aF7570.0
 asg15
 (itiddlywiki
 Tiddler
-p2375
-(dp2376
+p2380
+(dp2381
 g18
-g2136
+V"Why of course!"  Marcus seemed surprised that I hadn't already realized that for myself.\u000a\u000a"Do you believe they were real?"\u000a\u000aMarcus shrugged.  "I'm a lot less certain of their falsity than I once was."\u000a\u000a"What were they?"\u000a\u000aI'd asked Marcus a number of questions at this point, and he'd been open and vaguely friendly the entire time.  This question he shrank from, as though I'd suddenly touched a hot iron to his arm.  He shook his head emphatically.\u000a\u000a"I was a psychologist in life, as well."  He said finally.  I wasn't sure if he was reluctantly answering me or changing the subject.  "So when I came to this world only to be told that I had myself suffered a delusion, well, it was music to my ears!"\u000a\u000a"That's probably not a common reaction."  I commented.\u000a\u000a"No, indeed.  I could recognize the dreams for what they were, though - the false memories the unconscious parts of my brain generated to bridge the gap between my last life and my current one.  But I was fascinated by this expression and all the other side-effects of early upload.  So I changed my specialty, became the counselor that Iva saw."\u000a\u000aThere was a long pause.\u000a\u000a<<sugarchoice "marcus_fulldream" "Can you tell me what you dreamed?">>\u000a\u000a* [[You have more questions|convo_marcus]]\u000a
+p2382
 sg29
-(lp2377
+(lp2383
 sg20
 g21
 ((I2013
@@ -7780,32 +7786,32 @@ I45
 I5
 I320
 I0
-tp2378
-(dp2379
-tp2380
-Rp2381
+tp2384
+(dp2385
+tp2386
+Rp2387
 sg28
-g2381
+g2387
 sg26
-S'Untitled Passage 23'
-p2382
-sbsa(dp2383
+Vmarcus_dreamed
+p2388
+sbsa(dp2389
 g12
 I00
 sg13
-(lp2384
+(lp2390
 F4770.0
 aF6030.0
 asg15
 (itiddlywiki
 Tiddler
-p2385
-(dp2386
+p2391
+(dp2392
 g18
 VThe many, many scattered notes were hand-written and exhibited no organization whatsoever.  A selection of them included notes from her various trips:  An off-grid journey to Metaverse, a meeting in the Hacker's Club.  Strangely, some parts of the notes were blurred into unreadability, as though water had been spilled on them.  That scenario would have been more likely if I'd seen so much as a single drop of water in the entire simulation.\u000a\u000aOne vaguely-related pile was a dream diary - worryingly, she described walking home from the destinations in her dreams, as though she'd somehow actually ended up there.  <<if $accidentallyTeleported>>Of course, the exact same thing had happened to me.  /%%/<<endif>>Iva seems to have come to the conclusion that she'd teleported somehow rather than walking.\u000a\u000aIn the lowest strata of mess was a small business card belonging to "Emil Ormonde".  It had no information other than his address, but that was enough for me.  I tried to take the card and failed - it simply refused to go into my wallet.  Apparently they wouldn't work unless they were given.  It was an annoying quirk but one I could work around:  Ormonde apparently lived one building down from the one I was in, and it wasn't as though "Apartment 222" was hard to memorize.<<set $hasBoyfriendAddress=1>>\u000a\u000a* [[Examine the desk further|ivahouse_desk]]\u000a* [[Turn your attention back to the living room|ivahouse_interior]]\u000a\u000a
-p2387
+p2393
 sg29
-(lp2388
+(lp2394
 sg20
 g21
 ((I2013
@@ -7817,32 +7823,32 @@ I46
 I5
 I320
 I0
-tp2389
-(dp2390
-tp2391
-Rp2392
+tp2395
+(dp2396
+tp2397
+Rp2398
 sg28
-g2392
+g2398
 sg26
 Vivahouse_notes
-p2393
-sbsa(dp2394
+p2399
+sbsa(dp2400
 g12
 I00
 sg13
-(lp2395
+(lp2401
 F4910.0
 aF5890.0
 asg15
 (itiddlywiki
 Tiddler
-p2396
-(dp2397
+p2402
+(dp2403
 g18
 VThe script was named "Atlantis Rising" <<if $hasTroupeAddress>> - clearly the play that the poster was created to promote<<endif>>.\u000a\u000aI glanced through the pages:  The vague impression I got of the play was that its title was literal - Atlantis was a city "kept aloft by dreamers", but its corrupt king had convinced the populace that he was the one doing all the work.\u000a\u000aI'd only been skimming the script, but as I went further more and more passages were blurred as through by a spill.  Some pages were entirely blank.  The script ended shortly after the intermission, with a dozen blank pages.\u000a\u000aThere was something vaguely unsettling about the missing portions.  They //should// have been there.  It was an assertion I had no way of proving.  For all I knew Iva had a bad habit of going up to the New Amsterdam beaches and making a mess of her script.  She might have inserted blank pages at spots she felt needed more work.\u000a\u000aMy mind came up with a dozen innocuous reasons for the script to be the way it was, and I knew all of them were wrong.\u000a\u000a* [[Examine the desk further|ivahouse_desk]]\u000a* [[Turn your attention back to the living room|ivahouse_interior]]\u000a
-p2398
+p2404
 sg29
-(lp2399
+(lp2405
 sg20
 g21
 ((I2013
@@ -7854,32 +7860,32 @@ I12
 I5
 I320
 I0
-tp2400
-(dp2401
-tp2402
-Rp2403
+tp2406
+(dp2407
+tp2408
+Rp2409
 sg28
-g2403
+g2409
 sg26
 Vivahouse_script
-p2404
-sbsa(dp2405
+p2410
+sbsa(dp2411
 g12
 I00
 sg13
-(lp2406
+(lp2412
 F4630.0
 aF5610.0
 asg15
 (itiddlywiki
 Tiddler
-p2407
-(dp2408
+p2413
+(dp2414
 g18
 V"Koloman Theater" had obviously been built using Iva's funds rather than Nickolai's - it was a small and humble area.  If it had two dozen rows of seats I'd have been surprised.  Posters lined the walls - the same posters I'd seen back at Iva's house.  "Atlantis Rising" outnumbered the rest two to one.\u000a\u000aOn stage there was a worried group of kids - well, not //kids//, but that's the impression I got.  They were like kittens that had lost their mother - vaguely searching for something that had always been within reach, not yet realizing it was gone forever.\u000a\u000a* [[Talk to the troupe|troupe_intro]]\u000a* [[Leave the theater|arts_exterior]]\u000a
-p2409
+p2415
 sg29
-(lp2410
+(lp2416
 sg20
 g21
 ((I2013
@@ -7891,32 +7897,32 @@ I14
 I5
 I320
 I0
-tp2411
-(dp2412
-tp2413
-Rp2414
+tp2417
+(dp2418
+tp2419
+Rp2420
 sg28
-g2414
+g2420
 sg26
 Vtheater
-p2415
-sbsa(dp2416
+p2421
+sbsa(dp2422
 g12
 I00
 sg13
-(lp2417
+(lp2423
 F4770.0
 aF5610.0
 asg15
 (itiddlywiki
 Tiddler
-p2418
-(dp2419
+p2424
+(dp2425
 g18
 V<<if $nftTroupe>>\u000aThe theater troop's reaction to my reappearance seemed divided.  On the one hand, most were happy to see me.  On the other, some were afraid.  Maybe because the fact that I was here meant that what had happened to Iva was real.  Maybe they just feared I was bringing them more bad news.  Either way, they were talkative.\u000a<<else>>\u000a<<set $nftTroupe=1>>\u000aI made my way up to the stage.  The actors and actresses who made up the troupe seemed torn between practicing their play and the reality of what had happened to the woman who wrote it.  They didn't notice me until I hefted myself on to the stage.\u000a\u000a"Who-"  The one I'd figured was the leading man spoke up.  His word broke everyone else's trance and suddenly the entire group was huddled together, watching me warily.\u000a\u000a"My name's Sam Hallivert."  I said.  "I'm a private investigator working for Nickolai Koloman"\u000a\u000aTheir guard lowered, but not as much as that news usually did.  "Is this about what happened to Iva?" one of the women said from the back of the group.\u000a\u000a"Yes."  I replied.  "I'm here to find out who did it, and how to stop it from happening again."  Brave words that I wasn't entirely sure that I could back up, but it didn't matter - the kids needed reassurance.\u000a\u000aWith that the group's guard lowered entirely, and they all spoke up in a babble; half directed at me and half among themselves.\u000a<<endif>>\u000a\u000a<<display "convo_troupe">>\u000a
-p2420
+p2426
 sg29
-(lp2421
+(lp2427
 sg20
 g21
 ((I2013
@@ -7928,32 +7934,32 @@ I49
 I5
 I320
 I0
-tp2422
-(dp2423
-tp2424
-Rp2425
+tp2428
+(dp2429
+tp2430
+Rp2431
 sg28
-g2425
+g2431
 sg26
 Vtroupe_intro
-p2426
-sbsa(dp2427
+p2432
+sbsa(dp2433
 g12
 I00
 sg13
-(lp2428
+(lp2434
 F4910.0
 aF5610.0
 asg15
 (itiddlywiki
 Tiddler
-p2429
-(dp2430
+p2435
+(dp2436
 g18
 VI had to speak up to be heard over the chatter of the group.\u000a\u000a<<sugarchoice "troupe_who" "So who are all you people?">>\u000a<<sugarchoice "troupe_iva" "Tell me about Iva">>\u000a<<sugarchoice "troupe_bf" "Who was she dating?">>\u000a<<sugarchoice "troupe_last" "When did you last see her?">>\u000a<<sugarchoice "troupe_rivals" "Anyone you can think of that'd want her out of the way?">>\u000a<<sugarchoice "troupe_play" "What's the play about?">>\u000a\u000a* [[You have no more questions|theater]]\u000a
-p2431
+p2437
 sg29
-(lp2432
+(lp2438
 sg20
 g21
 ((I2013
@@ -7965,32 +7971,32 @@ I14
 I5
 I320
 I0
-tp2433
-(dp2434
-tp2435
-Rp2436
+tp2439
+(dp2440
+tp2441
+Rp2442
 sg28
-g2436
+g2442
 sg26
 Vconvo_troupe
-p2437
-sbsa(dp2438
+p2443
+sbsa(dp2444
 g12
 I00
 sg13
-(lp2439
+(lp2445
 F5190.0
 aF5610.0
 asg15
 (itiddlywiki
 Tiddler
-p2440
-(dp2441
+p2446
+(dp2447
 g18
 VThe troupe introduced themselves at the same time, then tried to not introduce themselves at the same time, which resulted in a lot of people talking over each other.  It didn't really matter, it was easy to tell the relative hierarchy by who shut up when someone else talked.  I'd been right about the leading man, at least.\u000a\u000aEventually they got to the meat of my question.\u000a\u000a"We're Iva's theater troupe."  The leading man said.  "She put us together a month ago after her trip off-grid, but most of us knew her before that.  I met her at the hacker's club."\u000a\u000a"I was in her last play" the leading lady spoke up.\u000a\u000aAgain, a babble.  The group was all from the arts district, all New Detroit natives insofar as the term applied.\u000a\u000a* [[You have more questions|convo_troupe]]\u000a
-p2442
+p2448
 sg29
-(lp2443
+(lp2449
 sg20
 g21
 ((I2013
@@ -8002,32 +8008,32 @@ I33
 I5
 I320
 I0
-tp2444
-(dp2445
-tp2446
-Rp2447
+tp2450
+(dp2451
+tp2452
+Rp2453
 sg28
-g2447
+g2453
 sg26
 Vtroupe_who
-p2448
-sbsa(dp2449
+p2454
+sbsa(dp2455
 g12
 I00
 sg13
-(lp2450
+(lp2456
 F5190.0
 aF5750.0
 asg15
 (itiddlywiki
 Tiddler
-p2451
-(dp2452
+p2457
+(dp2458
 g18
 VI'd thought the group had been effusive before, but clearly I hadn't found the right topic - until now.  Each member of the group shared their opinion of their producer, all at once.\u000a\u000a"She was our stage manager" I managed to hear.  This was interspersed with "wrote the script", "artistic vision", and "kinda a tightass about scheduling" (though the last was said with a smile).\u000a\u000aIf Iva's killer had come from this group, they were by far the most capable liars I'd ever seen.\u000a\u000a* [[You have more questions|convo_troupe]]\u000a
-p2453
+p2459
 sg29
-(lp2454
+(lp2460
 sg20
 g21
 ((I2013
@@ -8039,32 +8045,32 @@ I53
 I5
 I320
 I0
-tp2455
-(dp2456
-tp2457
-Rp2458
+tp2461
+(dp2462
+tp2463
+Rp2464
 sg28
-g2458
+g2464
 sg26
 Vtroupe_iva
-p2459
-sbsa(dp2460
+p2465
+sbsa(dp2466
 g12
 I00
 sg13
-(lp2461
+(lp2467
 F5190.0
 aF5890.0
 asg15
 (itiddlywiki
 Tiddler
-p2462
-(dp2463
+p2468
+(dp2469
 g18
 V"Emil" the leading man said.  For once only one person had answered the question.  "He's not part of the cast, he's crew."  He glanced back to the group.  "We haven't seen him all week."\u000a\u000aBefore I could ask the requisite follow-up, one of the understudies spoke.  "He didn't do this."\u000a\u000aThe previous lack of babble and discourse ceased, and I was again awash in the sound of a dozen people talking over each other.  I got the gist very quickly:  Emil genuinely cared for Iva, he was happy being crew, he had no reason to hurt her.\u000a\u000a"Can I talk to him?" I didn't yell, precisely, but this wasn't my first time on a stage.  I knew how to project.\u000a\u000aThe group seemed somewhat nervous about answering my question, as though they weren't confident that their words had swayed me.  If I hadn't had a character reference from Nickolai himself they probably wouldn't have, but in this case they were backing up what the old man had already told me.\u000a\u000aFinally, they seemed to come to some sort of consensus.  The leading man faced me and answered:  "He lives in the next building down the street from Iva.  His apartment is 222."<<set $hasBoyfriendAddress=1>>\u000a\u000a* [[You have more questions|convo_troupe]]\u000a
-p2464
+p2470
 sg29
-(lp2465
+(lp2471
 sg20
 g21
 ((I2013
@@ -8076,32 +8082,37 @@ I29
 I5
 I320
 I0
-tp2466
-(dp2467
-tp2468
-Rp2469
+tp2472
+(dp2473
+tp2474
+Rp2475
 sg28
-g2469
+g2475
 sg26
 Vtroupe_bf
-p2470
-sbsa(dp2471
+p2476
+sbsa(dp2477
 g12
 I00
 sg13
-(lp2472
-I10
-aF5750.0
+(lp2478
+F5050.0
+aF1830.0
 asg15
 (itiddlywiki
 Tiddler
-p2473
-(dp2474
+p2479
+(dp2480
 g18
-g2136
+V"Out of the question."  Nickolai answered automatically.\u000a\u000aI paused, awaiting an explanation, and for a few moments it didn't appear as though I was going to get one.  Koloman looked at me and laughed.  "You're waiting for me to tell you why!"\u000a\u000a"I assume there's some reason."  I replied blandly.\u000a\u000a"I am incredulous because this is common knowledge, but again I must remind myself I hired you for your newness.  Storage is a one-way trip."  he answered simply.\u000a\u000a"Doesn't sound that way."  I said.  "Iva got out."\u000a\u000aKoloman nodded.  "Exactly my point.  She left storage, and she suffered nightmares, sleepwalking, delusions of dreams.  Her entire personality changed, she went from straight-laced accountancy to wild-spirit artistry."\u000a\u000a"So it's a one-way trip //now//." I was beginning to see where my employer was going with this.  "To prevent that kind of thing from happening."  It sounded almost cruel - if Iva had been right, people were dreaming in that infinite storage.\u000a\u000a"Not explicitly for that reason."  Koloman clarified.  "But yes.  Ostensibly, the reason is that voluntarily going into Storage is an important personal choice, one taken only when the simulation itself is no longer sufficient for life.  In this case, the only return is the Preservationist's fabled future where computation is so cheap that everyone can live in a New Providence-style simulation."\u000a\u000aI honed in on the sole important part of his reply.  "Voluntarily?  What about the alternative?"\u000a\u000aKoloman seemed confused.  "You mean running out of time?  Well of course, that happens, especially in New Detroit.  The minimum wage is one day per day, after all, which is only sufficient if you never take a day off.  And of course not everyone is careful with their spending habits."\u000a\u000a* [[Point out that Iva probably wasn't the only one who dreamed|koloman_other_dreamers]]\u000a
+p2481
 sg29
-(lp2475
-sg20
+(lp2482
+Vconversation
+p2483
+aVnocall
+p2484
+asg20
 g21
 ((I2013
 I11
@@ -8112,32 +8123,32 @@ I33
 I5
 I320
 I0
-tp2476
-(dp2477
-tp2478
-Rp2479
+tp2485
+(dp2486
+tp2487
+Rp2488
 sg28
-g2479
+g2488
 sg26
-S'Untitled Passage 24'
-p2480
-sbsa(dp2481
+Vkoloman_store_me
+p2489
+sbsa(dp2490
 g12
 I00
 sg13
-(lp2482
+(lp2491
 F5330.0
 aF5610.0
 asg15
 (itiddlywiki
 Tiddler
-p2483
-(dp2484
+p2492
+(dp2493
 g18
 VAt least this time when the troupe answered all at once it was almost immediately understandable:  They'd seen Iva the week before she died, during rehearsal.  She'd left with her boyfriend, and she hadn't come back to the theater again.\u000a\u000a"At first we weren't that worried."  The leading woman was easiest to hear at the moment.  "But then we saw the news...."\u000a\u000a* [[You have more questions|convo_troupe]]\u000a
-p2485
+p2494
 sg29
-(lp2486
+(lp2495
 sg20
 g21
 ((I2013
@@ -8149,32 +8160,32 @@ I35
 I5
 I320
 I0
-tp2487
-(dp2488
-tp2489
-Rp2490
+tp2496
+(dp2497
+tp2498
+Rp2499
 sg28
-g2490
+g2499
 sg26
 Vtroupe_last
-p2491
-sbsa(dp2492
+p2500
+sbsa(dp2501
 g12
 I00
 sg13
-(lp2493
+(lp2502
 F5330.0
 aF5750.0
 asg15
 (itiddlywiki
 Tiddler
-p2494
-(dp2495
+p2503
+(dp2504
 g18
 VAbsolutely everyone in the group named someone different.  Theories ranged from the generic "people in charge" to the specific "that bitch from the Holloway theater next door" to the crackpot "her dad, for the insurance money".\u000a\u000a"We don't know."  The leading man finally said.  "I can't imagine anyone actually wanting to hurt her.  She had her rivals, yes, but even Holloway wouldn't //really// hurt her.  She just wanted to embarass her."\u000a\u000a"Besides, Holloway got picked up by a patron two weeks ago.  She's been in New Amsterdam the whole time." another understudy said.\u000a\u000aDamn alibis.\u000a\u000a* [[You have more questions|convo_troupe]]\u000a
-p2496
+p2505
 sg29
-(lp2497
+(lp2506
 sg20
 g21
 ((I2013
@@ -8186,31 +8197,32 @@ I24
 I5
 I320
 I0
-tp2498
-(dp2499
-tp2500
-Rp2501
+tp2507
+(dp2508
+tp2509
+Rp2510
 sg28
-g2501
+g2510
 sg26
 Vtroupe_rivals
-p2502
-sbsa(dp2503
+p2511
+sbsa(dp2512
 g12
 I00
 sg13
-(lp2504
-I850
-aF6030.0
+(lp2513
+F710.0
+aF7430.0
 asg15
 (itiddlywiki
 Tiddler
-p2505
-(dp2506
+p2514
+(dp2515
 g18
-g2136
+VMarcus nodded, then seemed to reconsider.  "Well, not anymore.  I was Iva's counselor, but that young woman made me reconsider the career."\u000a\u000a"I heard she wasn't easily swayed from the dreaming thing."  I replied.\u000a\u000aMarcus laughed.  "It wasn't just that!  Though you are right, I couldn't sway her.  In the end, she's the one who changed my mind."\u000a\u000aI had no trouble believing this - she'd enraptured an entire theater ensemble, after all.  This man had supposedly been a professional but that word didn't seem to mean much in New Detroit.  "So you believe she dreamed in storage."\u000a\u000a"No."  He corrected himself again.  "Well, yes, I do, but more importantly," he leaned forward. "I believe //I// may have dreamed in storage."<<set $heardMarcusDreamed=1>>\u000a\u000a* [[You have more questions|convo_marcus]]\u000a
+p2516
 sg29
-(lp2507
+(lp2517
 sg20
 g21
 ((I2013
@@ -8222,32 +8234,32 @@ I14
 I5
 I320
 I0
-tp2508
-(dp2509
-tp2510
-Rp2511
+tp2518
+(dp2519
+tp2520
+Rp2521
 sg28
-g2511
+g2521
 sg26
-S'Untitled Passage 25'
-p2512
-sbsa(dp2513
+Vmarcus_job
+p2522
+sbsa(dp2523
 g12
 I00
 sg13
-(lp2514
+(lp2524
 F5330.0
 aF5890.0
 asg15
 (itiddlywiki
 Tiddler
-p2515
-(dp2516
+p2525
+(dp2526
 g18
-VThe portions of the troupe that had been sitting on the stage stood up at this, joining the rest of the group in trying to describe what the play was, until the leading man spoke over all of them:  "Storage."<<set $hasStorageReason=1>>\u000a\u000aThe quiet that came over the group was sudden and shocked, as though he'd broken some taboo.\u000a\u000a"Nathan!" the harsh whisper came from the leading woman.\u000a\u000a"I know, but it's important."  The leading man, apparently Nathan, replied.  He turned away from me to address the group.  "I know we're not supposed to talk about how that's the theme.  Iva even told us it was dangerous.  Well you know what?  Maybe she was right.  That's why the detective needs to know."\u000a\u000aThe group didn't seem entirely swayed, but they didn't voice any objections.  Nathan turned back to me.\u000a\u000aI'd been glancing at the seafaring-themed posters of "Atlantis Rising".  "I don't see the word 'Atlantis' and think of Storage".  I said.\u000a\u000a"It's a metaphor.  Atlantis is 'kept aloft by the dreamers', but a corrupt king takes all the credit.  Sound like anything you know?"\u000a\u000aI shrugged.  I didn't see what any of this had to do with Storage.\u000a\u000aNathan failed to stifle a sigh.  "The dreamers are the people in Storage.  The corrupt king is you-know-who"  He pointed upward to indicate the upper levels.\u000a\u000a"Nickolai?"  I played dumb.\u000a\u000aHe grit his teeth.  "No.  The goddess, the AI that runs this place."\u000a\u000a"Oh, you mean Ath-"\u000a\u000a"Shh!" he cut me off with more energy than I'd seen from anyone in the group.  "She can hear you."\u000a\u000aI had no reason to doubt him, so I didn't press it. Instead I asked the other question that'd been bothering me.  "How do dreamers represent Storage?"\u000a\u000aNathan hesitated.  The leading woman spoke up.  "You might as well say it, it's not like you haven't been blabbing secrets so far."\u000a\u000a"Right."  Nathan agreed.  "The people in Storage dream.  That's what Iva always said, that her knowledge of the nature of the system came from her time in Storage, while she dreamed."\u000a\u000a"Okay, I get that the play's a metaphor, but how is anyone else supposed to get that?  Everyone thinks that storage is inert."\u000a\u000aNathan shrugged.  "Not everyone.  Other people have come back from storage, and some of them dreamed, too.  To be honest, I don't think that Iva meant to convince anyone.  I think her aim was to //find// them.  Anyone who'd dreamed while stored would recognize the message of the play."\u000a\u000a* [[You have more questions|convo_troupe]]\u000a
-p2517
+VThe portions of the troupe that had been sitting on the stage stood up at this, joining the rest of the group in trying to describe what the play was, until the leading man spoke over all of them:  "Storage."<<set $hasStorageReason=1>>\u000a\u000aThe quiet that came over the group was sudden and shocked, as though he'd broken some taboo.\u000a\u000a"Nathan!" the harsh whisper came from the leading woman.\u000a\u000a"I know, but it's important."  The leading man, apparently Nathan, replied.  He turned away from me to address the group.  "I know we're not supposed to talk about how that's the theme.  Iva even told us it was dangerous.  Well you know what?  Maybe she was right.  That's why the detective needs to know."\u000a\u000aThe group didn't seem entirely swayed, but they didn't voice any objections.  Nathan turned back to me.\u000a\u000aI'd been glancing at the seafaring-themed posters of "Atlantis Rising".  "I don't see the word 'Atlantis' and think of Storage".  I said.\u000a\u000a"It's a metaphor.  Atlantis is 'kept aloft by the dreamers', but a corrupt king takes all the credit.  Sound like anything you know?"\u000a\u000aI shrugged.  I didn't see what any of this had to do with Storage.\u000a\u000aNathan failed to stifle a sigh.  "The dreamers are the people in Storage.  The corrupt king is you-know-who"  He pointed upward to indicate the upper levels.\u000a\u000a"Nickolai?"  I played dumb.\u000a\u000aHe grit his teeth.  "No.  The goddess, the AI that runs this place."\u000a\u000a"Oh, you mean Ath-"\u000a\u000a"Shh!" he cut me off with more energy than I'd seen from anyone in the group.  "She can hear you."\u000a\u000aI had no reason to doubt him, so I didn't press it. Instead I asked the other question that'd been bothering me.  "How do dreamers represent Storage?"<<set $ivaStorage = $ivaStorage + 1>>\u000a\u000aNathan hesitated.  The leading woman spoke up.  "You might as well say it, it's not like you haven't been blabbing secrets so far."\u000a\u000a"Right."  Nathan agreed.  "The people in Storage dream.  That's what Iva always said, that her knowledge of the nature of the system came from her time in Storage, while she dreamed."\u000a\u000a"Okay, I get that the play's a metaphor, but how is anyone else supposed to get that?  Everyone thinks that storage is inert."\u000a\u000aNathan shrugged.  "Not everyone.  Other people have come back from storage, and some of them dreamed, too.  To be honest, I don't think that Iva meant to convince anyone.  I think her aim was to //find// them.  Anyone who'd dreamed while stored would recognize the message of the play."\u000a\u000a* [[You have more questions|convo_troupe]]\u000a
+p2527
 sg29
-(lp2518
+(lp2528
 sg20
 g21
 ((I2013
@@ -8259,32 +8271,32 @@ I16
 I5
 I320
 I0
-tp2519
-(dp2520
-tp2521
-Rp2522
+tp2529
+(dp2530
+tp2531
+Rp2532
 sg28
-g2522
+g2532
 sg26
 Vtroupe_play
-p2523
-sbsa(dp2524
+p2533
+sbsa(dp2534
 g12
 I00
 sg13
-(lp2525
+(lp2535
 F4630.0
 aF5330.0
 asg15
 (itiddlywiki
 Tiddler
-p2526
-(dp2527
+p2536
+(dp2537
 g18
 V<<if $nftEmil>>\u000aI was pleased to find that the door opened for me this time; at least I wouldn't have to announce myself whenever I came by to visit.\u000a\u000a<<display "convo_emil">>\u000a<<else>>\u000a<<set $nftEmil=1>>Making my way to Emil's apartment proved to be easy, and only having to climb to the second floor was a refreshing change of pace.  I knocked on the door, but got no answer.\u000a\u000aI listened.  I wasn't sure that sound would even carry through the doors, but it couldn't hurt.  After a while, I knocked again, to no response.\u000a\u000a"Emil?"  I said, hoping that sound would at least travel from the outside of the door inside.  "My name's Sam Hallivert.  I'm investigating what happened to Iva."\u000a\u000aAs though the door had been password-protected by just those words, it swung open.  A short olive-skinned man with dark hair and bleary eyes regarded me from the other side of the threshold.  "You're not a cop, are you?"\u000a\u000a"No." I replied.  "Private investigator.  Iva's father hired me."\u000a\u000aEmil nodded.  "I talked to a cop earlier this week.  I didn't like her much."\u000a\u000a"I don't doubt it."\u000a\u000aEmil gestured for me to come in and I followed, the door closing itself behind us.\u000a\u000a* [[Ask some questions|convo_emil]]\u000a<<endif>>
-p2528
+p2538
 sg29
-(lp2529
+(lp2539
 sg20
 g21
 ((I2013
@@ -8296,32 +8308,32 @@ I56
 I5
 I320
 I0
-tp2530
-(dp2531
-tp2532
-Rp2533
+tp2540
+(dp2541
+tp2542
+Rp2543
 sg28
-g2533
+g2543
 sg26
 Vbfhouse_exterior
-p2534
-sbsa(dp2535
+p2544
+sbsa(dp2545
 g12
-I01
+I00
 sg13
-(lp2536
+(lp2546
 F4770.0
 aF5330.0
 asg15
 (itiddlywiki
 Tiddler
-p2537
-(dp2538
+p2547
+(dp2548
 g18
 VEmil was seated in a wooden chair, similar to the one Iva had in her apartment.  His workdesk was immaculate, though it seemed to me that this was probably because he'd never used it rather than him being the cleaning type.\u000a\u000a"What can I do to help?"\u000a\u000a<<sugarchoice "emil_accuse" "Did you do this, Emil?">>\u000a<<sugarchoice "emil_last" "When was the last time you saw Iva?">>\u000a<<sugarchoice "emil_rivals" "Is there anyone you can think of that would wish her harm?">>\u000a<<sugarchoice "emil_play" "What was the play all about?">>\u000a<<if $emilNervous gte 2 and $emilLast>>\u000aEmil seemed <<sugarchoice "emil_nervous" "visibly nervous">> about something.\u000a<<endif>>\u000a\u000a* [[You have no more questions|arts_exterior]]\u000a
-p2539
+p2549
 sg29
-(lp2540
+(lp2550
 sg20
 g21
 ((I2013
@@ -8333,32 +8345,32 @@ I12
 I5
 I320
 I0
-tp2541
-(dp2542
-tp2543
-Rp2544
+tp2551
+(dp2552
+tp2553
+Rp2554
 sg28
-g2544
+g2554
 sg26
 Vconvo_emil
-p2545
-sbsa(dp2546
+p2555
+sbsa(dp2556
 g12
 I00
 sg13
-(lp2547
+(lp2557
 F4770.0
 aF5470.0
 asg15
 (itiddlywiki
 Tiddler
-p2548
-(dp2549
+p2558
+(dp2559
 g18
 V<<set $emilNervous = $emilNervous+1>>"No."  Emil replied dejectedly.  It was not the protestation of innocence I'd expected.\u000a\u000aWhen I didn't say anything in reply, he elaborated:  "That's the first thing that lady cop asked me.  Second thing she asked me, too.  Third and fourth thing she asked me.  Sixth thing she asked me - the fifth thing she asked was 'you really think you can get away with this?'."\u000a\u000a"Sounds like a bear."  I replied.  "Bear" was not the word I wanted to use, but for all I knew the cop was right.\u000a\u000aEmil nodded, then looked up to meet my gaze.  "I love Iva.  I've loved her ever since I met her.  I'd never do anything to hurt her."\u000a\u000aHe looked away and shrugged.  "Believe me or don't, it won't change the facts."\u000a\u000a* [[You have more questions|convo_emil]]\u000a
-p2550
+p2560
 sg29
-(lp2551
+(lp2561
 sg20
 g21
 ((I2013
@@ -8370,32 +8382,37 @@ I56
 I5
 I320
 I0
-tp2552
-(dp2553
-tp2554
-Rp2555
+tp2562
+(dp2563
+tp2564
+Rp2565
 sg28
-g2555
+g2565
 sg26
 Vemil_accuse
-p2556
-sbsa(dp2557
+p2566
+sbsa(dp2567
 g12
 I00
 sg13
-(lp2558
-I10
-aF5610.0
+(lp2568
+F5190.0
+aF1830.0
 asg15
 (itiddlywiki
 Tiddler
-p2559
-(dp2560
+p2569
+(dp2570
 g18
-g2136
+V"No, of course not." Koloman waved the observation aside.  "It's recognized as a psychological issue, after all, those sort of things don't generally happen from a sample size of one."\u000a\u000a"Do you think she sought them out?"  I followed up.\u000a\u000a"I don't think she did, I know she did."  He frowned deeply.  "A few months after she moved to New Detroit, she returned for a visit.  She told me how her art was progressing and how the city was inspiring.  I didn't really understand how that could be the case and I don't suppose I do now, but what was important to me at the time was that she was finding a place for herself.\u000a\u000a"She asked me, on that visit, if I'd ever heard of anyone like her, any early uploads who'd claimed to have dreamed.  At the time I assumed she was looking for something like a support group."  He leaned forward and wrote something on another business card and handed it to me.\u000a\u000a"This is the name of the man I sent her to - he lives in New Detroit.  He worked as a counselor for new uploads back then, I do not know what he does now.  I hope he has answers for you."\u000a\u000aI glanced at the address I'd been given.  The man lived in my apartment building.<<set $hasCounselorAddress=1>>\u000a\u000a* [[You have more questions|convo_koloman]]\u000a
+p2571
 sg29
-(lp2561
-sg20
+(lp2572
+Vconversation
+p2573
+aVnocall
+p2574
+asg20
 g21
 ((I2013
 I11
@@ -8406,31 +8423,32 @@ I19
 I5
 I320
 I0
-tp2562
-(dp2563
-tp2564
-Rp2565
+tp2575
+(dp2576
+tp2577
+Rp2578
 sg28
-g2565
+g2578
 sg26
-S'Untitled Passage 26'
-p2566
-sbsa(dp2567
+Vkoloman_other_dreamers
+p2579
+sbsa(dp2580
 g12
 I00
 sg13
-(lp2568
-I150
-aF5610.0
+(lp2581
+F570.0
+aF7150.0
 asg15
 (itiddlywiki
 Tiddler
-p2569
-(dp2570
+p2582
+(dp2583
 g18
-g2136
+VFloor 12 confirmed my "every floor is exactly the same" hypothesis.  Room 1212 didn't look any different than any of its neighbors, but this was the address that Koloman had given me to find his daughter's counselor.\u000a\u000a* [[Knock|marcus_intro]]\u000a* [[Go upstairs to your floor|floor_13]]\u000a* [[Walk back down to the lobby|apartment_bldg_interior]]\u000a
+p2584
 sg29
-(lp2571
+(lp2585
 sg20
 g21
 ((I2013
@@ -8442,32 +8460,32 @@ I22
 I5
 I320
 I0
-tp2572
-(dp2573
-tp2574
-Rp2575
+tp2586
+(dp2587
+tp2588
+Rp2589
 sg28
-g2575
+g2589
 sg26
-S'Untitled Passage 27'
-p2576
-sbsa(dp2577
+Vfloor_12
+p2590
+sbsa(dp2591
 g12
 I00
 sg13
-(lp2578
+(lp2592
 F4910.0
 aF5470.0
 asg15
 (itiddlywiki
 Tiddler
-p2579
-(dp2580
+p2593
+(dp2594
 g18
 V<<silently>>\u000a<<set $emilNervous = $emilNervous+1>>\u000a<<set $emilLast=1>>\u000a<<endsilently>>"I was the last person to see Iva alive.  It was the night before she died, she came home with me."\u000a\u000a"That's it?"  I asked.\u000a\u000aEmil blushed.  "There were other activites.  My point is, she left in the early morning.  When I came over to her house the next day, I found her like..." he paused, unwilling to continue.\u000a\u000a"You don't know if she met anyone on the way..." It didn't sound likely, but I figured I'd ask.\u000a\u000aEmil shook his head.  "No, she didn't meet anyone on the way."\u000a\u000a* [[You have more questions|convo_emil]]\u000a
-p2581
+p2595
 sg29
-(lp2582
+(lp2596
 sg20
 g21
 ((I2013
@@ -8479,31 +8497,32 @@ I23
 I5
 I320
 I0
-tp2583
-(dp2584
-tp2585
-Rp2586
+tp2597
+(dp2598
+tp2599
+Rp2600
 sg28
-g2586
+g2600
 sg26
 Vemil_last
-p2587
-sbsa(dp2588
+p2601
+sbsa(dp2602
 g12
 I00
 sg13
-(lp2589
-I290
-aF5610.0
+(lp2603
+F710.0
+aF7150.0
 asg15
 (itiddlywiki
 Tiddler
-p2590
-(dp2591
+p2604
+(dp2605
 g18
-g2136
+V<<if $nftMarcus>>\u000aMarcus opened the door, seeming unsurprised to see me.  "Ah, the investigator.  Come in, come in."\u000a<<else>>\u000a<<set $nftMarcus=1>>The door opened to reveal a stooped white-haired man, thick glasses perched on the end of his nose.  I resisted the immediate urge to ask why he needed glasses in a simulation and instead gave him my by-now familiar pitch:  "My name is Sam Hallivert, I'm a private investigator hired by Nickolai Koloman for the matter of his daughter."\u000a\u000aA wistful smile came over his face.  "Iva?  Oh, it's been so long since I've talked to her.  Come in, come in."\u000a<<endif>>\u000a\u000a* [[Enter|convo_marcus]]\u000a
+p2606
 sg29
-(lp2592
+(lp2607
 sg20
 g21
 ((I2013
@@ -8515,32 +8534,32 @@ I27
 I5
 I320
 I0
-tp2593
-(dp2594
-tp2595
-Rp2596
+tp2608
+(dp2609
+tp2610
+Rp2611
 sg28
-g2596
+g2611
 sg26
-S'Untitled Passage 28'
-p2597
-sbsa(dp2598
+Vmarcus_intro
+p2612
+sbsa(dp2613
 g12
 I00
 sg13
-(lp2599
+(lp2614
 F5050.0
 aF5470.0
 asg15
 (itiddlywiki
 Tiddler
-p2600
-(dp2601
+p2615
+(dp2616
 g18
 V<<set $emilNervous = $emilNervous+1>>"She didn't have many real rivals."  Emil replied.  "A few people, like the woman who ran the theater next door to the troupe's, wanted to embarass her or otherwise get her to 'run back home', but nobody who would do this."  he shook his head.\u000a\u000a"Who //would// do this?"  Emil was suddenly plaintive.  "I mean, why?  Nobody's died in this place in fifty years, and the first victim has to be my girlfriend?"\u000a\u000a"In fifty years?  What happened before that?"  I asked.  I'd been under the impression that nobody had died, period.\u000a\u000a"Iva told me."  He replied.  "She'd done a lot of research on the history of the sim.  She volunteered at the old folks' home, I think half to just get stories out of them.  Apparently things weren't stable in the early days and people could die due to glitches in the system."\u000a\u000a* [[You have more questions|convo_emil]]\u000a
-p2602
+p2617
 sg29
-(lp2603
+(lp2618
 sg20
 g21
 ((I2013
@@ -8552,32 +8571,37 @@ I29
 I5
 I320
 I0
-tp2604
-(dp2605
-tp2606
-Rp2607
+tp2619
+(dp2620
+tp2621
+Rp2622
 sg28
-g2607
+g2622
 sg26
 Vemil_rivals
-p2608
-sbsa(dp2609
+p2623
+sbsa(dp2624
 g12
 I00
 sg13
-(lp2610
-I430
-aF5610.0
+(lp2625
+F4910.0
+aF1830.0
 asg15
 (itiddlywiki
 Tiddler
-p2611
-(dp2612
+p2626
+(dp2627
 g18
-g2136
+VKoloman seemed surprised by the news.  "She always said she took inspiration from the dreams, but to create a play directly talking about them?"\u000a\u000a"She can't be the only person to have done something like that."  I pointed out.\u000a\u000a"She can."  Koloman replied strictly.  "She was.  Everyone else knew better."\u000a\u000aI shrugged.  "I didn't."\u000a\u000a"When Iva and I were first woken into the system, there were a series of tests to ensure our upload had been successful, that we had arrived with our minds and personalities intact.  Nowadays failures are so rare that they don't do such things, but they do listen.  If you went to your insurance company and told them that you'd dreamed during your upload, they would not believe you.  They would say it was an artifact of the upload or waking process, false memories created by your brain to patch over noise in the upload."\u000a\u000a"I don't see how that would stop someone-"\u000a\u000a"I am not yet done."  Koloman interrupted without rancor.  "People who are uploaded incompletely or incorrectly are often damaged psychologically.  Their condition can grow worse over time.  Often they are unable to adapt.  What I am telling you, <<print $gender>> Hallivert, is that if people believe that you are such a person, you may well find yourself committed to the retirement home."\u000a\u000aI shuddered.  Based on my fairly limited information, it didn't have a terribly good reputation.  I decided to change the subject.  "Are the dreams real?"\u000a\u000aKoloman looked distracted.  "I would once have said no, absolutely not, there are no dreams.  The words I said to you just then, explaining the false memories, they are the words the doctors said to me to explain my daughter's condition."\u000a\u000aHe looked back to me and spread his hands plaintively.  "But the impossible has happened, and so I must reexamine everything I once believed."\u000a\u000a* [[Ask him to send you to storage to investigate|koloman_store_me]]\u000a* [[Point out that Iva probably wasn't the only one who dreamed|koloman_other_dreamers]]\u000a
+p2628
 sg29
-(lp2613
-sg20
+(lp2629
+Vconversation
+p2630
+aVnocall
+p2631
+asg20
 g21
 ((I2013
 I11
@@ -8588,32 +8612,32 @@ I27
 I5
 I320
 I0
-tp2614
-(dp2615
-tp2616
-Rp2617
+tp2632
+(dp2633
+tp2634
+Rp2635
 sg28
-g2617
+g2635
 sg26
-S'Untitled Passage 29'
-p2618
-sbsa(dp2619
+Vkoloman_play
+p2636
+sbsa(dp2637
 g12
 I00
 sg13
-(lp2620
+(lp2638
 F5190.0
 aF5470.0
 asg15
 (itiddlywiki
 Tiddler
-p2621
-(dp2622
+p2639
+(dp2640
 g18
-V<<set $emilNervous = $emilNervous+1>>"She had a script at her house."  Emil said.  "It was pretty good.  Atlantis is real and has a king that can do miracles.  But it turns out that it's not actually him, it's the people who are dreaming."\u000a\u000aHe smiles.  "It's her story, you know."\u000a\u000a"Iva wrote it, yes."  I replied.  I wasn't sure why that was important.\u000a\u000a"No, I mean it's //her// story.  The evil king is Athena, and she's the dreamer.  She dreamed in Storage, she always said.  Nobody believed her, but I did.  It's what inspired her to make this play."\u000a\u000aHe chuckled.  "Don't tell the troupe I told you this.  They don't want people to know the 'secret message' of the play.  Iva thought it was dangerous somehow."  His laughter died.  "Maybe it was."\u000a\u000a* [[You have more questions|convo_emil]]\u000a
-p2623
+V<<set $emilNervous = $emilNervous+1>>"She had a script at her house."  Emil said.  "It was pretty good.  Atlantis is real and has a king that can do miracles.  But it turns out that it's not actually him, it's the people who are dreaming."\u000a\u000aHe smiled.  "It's her story, you know."\u000a\u000a"Iva wrote it, yes."  I replied.  I wasn't sure why that was important.\u000a\u000a"No, I mean it's //her// story.  The evil king is Athena, and she's the dreamer.  She dreamed in Storage, she always said.  Nobody believed her, but I did.  It's what inspired her to make this play."<<set $ivaStorage = $ivaStorage + 1>>\u000a\u000aHe chuckled.  "Don't tell the troupe I told you this.  They don't want people to know the 'secret message' of the play.  Iva thought it was dangerous somehow."  His laughter died.  "Maybe it was."\u000a\u000a* [[You have more questions|convo_emil]]\u000a
+p2641
 sg29
-(lp2624
+(lp2642
 sg20
 g21
 ((I2013
@@ -8625,32 +8649,32 @@ I29
 I5
 I320
 I0
-tp2625
-(dp2626
-tp2627
-Rp2628
+tp2643
+(dp2644
+tp2645
+Rp2646
 sg28
-g2628
+g2646
 sg26
 Vemil_play
-p2629
-sbsa(dp2630
+p2647
+sbsa(dp2648
 g12
 I00
 sg13
-(lp2631
+(lp2649
 F5190.0
 aF5330.0
 asg15
 (itiddlywiki
 Tiddler
-p2632
-(dp2633
+p2650
+(dp2651
 g18
 V<<set $sleepy=1>>"What's wrong, Emil?"  I finally ventured.\u000a\u000a"Listen, I have more to tell."\u000a\u000aI made a gesture.  "I'm listening."\u000a\u000aEmil nodded but didn't seem to hear me.  "You're not like the cop, you actually seem to care about what I have to say, but this... it's weird."\u000a\u000a"I've been here less than a month."  I replied.  "Everything's weird to me."\u000a\u000a"Yeah, but..." Emil changed tactics.  "Have you sleepwalked?"\u000a\u000a<<if $accidentallyTeleported>>I nodded.  "I woke up in the PvP zone, of all places."\u000a\u000aEmil cringed.\u000a<<else>>\u000aI shrugged.  "When I was a kid, a few times-"\u000a\u000a"No, I mean, since you got here?  A lot of people, when they first get uploaded and they're still in the habit of sleeping, they sleepwalk."\u000a<<endif>>\u000a\u000a"Yeah."  I said.\u000a\u000aEmil nodded.  "Iva sleepwalked //all the time//.  I mean, every single night that she slept - and she slept every night too, never broke the habit - she ended up somewhere other than where she started."\u000a\u000aWas that the weird thing Emil was going to tell me?  It didn't seem that far-fetched.\u000a\u000a"I'm not done."  Emil seemed intent on answering my questions before I asked them.  "She'd often call me when it happened.  I started getting suspicious one night when she called me from Bar Ocho."\u000a\u000a"She was sneaking out to the bars?"  It wouldn't be the first time I'd seen that happen, but it didn't seem quite right for the simulation.\u000a\u000aEmil shook his head.  "No, that's it.  She was in bed next to me.  I got up to go to the kitchen, and when I got back she's gone.  And seconds - literally seconds - later, she calls me."\u000a\u000a"Bar Ocho's across town."  I stated the obvious just to make sure I understood.\u000a\u000a"Yes, it is.  And it wasn't a prank call, she was really there, I went there and picked her up.  I cut across the hub and it still took me half an hour."\u000a\u000aI nodded.  "I see how that's strange, but-"\u000a\u000a"It wasn't the last time that happened.  I started paying attention to when she'd disappear and when she'd turn up, and it seemed like it took her almost no time at all.  So one night, as an experiment, I changed the door permissions so she couldn't leave."\u000a\u000aI wasn't sure I liked the sound of that, but I motioned for him to continue.\u000a\u000a"She knew."  he explained.  "I told her about the sleepwalking and she was excited, can you believe that?  She thought she'd stumbled on some truth of the system.  So she was on-board with the experiment, almost too excited about it to sleep so it could start."\u000a\u000a"Let me guess."  I could see where this was going.  "The door didn't stop her."\u000a\u000a"Nope."  Emil's nervousness seemed to increase as he told the story.  "She walked right out.  But that's the strange thing, I don't think she did walk out.  I mean, I remember that she walked out the door, but it doesn't seem right.  Not after what I saw later."\u000a\u000a"So she got past your door security."  I tried to placate him and understand what the hell he'd just said at the same time.  "She'd hung out with hackers, maybe she picked up a thing or to, that's not so weird-"\u000a\u000a"That wasn't the weird thing." he interrupted bluntly.\u000a\u000a* [[Tell him to go on|emil_nervous_2]]\u000a
-p2634
+p2652
 sg29
-(lp2635
+(lp2653
 sg20
 g21
 ((I2013
@@ -8662,32 +8686,32 @@ I30
 I5
 I320
 I0
-tp2636
-(dp2637
-tp2638
-Rp2639
+tp2654
+(dp2655
+tp2656
+Rp2657
 sg28
-g2639
+g2657
 sg26
 Vemil_nervous
-p2640
-sbsa(dp2641
+p2658
+sbsa(dp2659
 g12
 I00
 sg13
-(lp2642
+(lp2660
 F5330.0
 aF5330.0
 asg15
 (itiddlywiki
 Tiddler
-p2643
-(dp2644
+p2661
+(dp2662
 g18
 V"Go on, then." I said.  Now he really had me wondering.\u000a\u000a"Over the next few nights we repeated the experiment.  She couldn't get into my apartment, the door would keep her out.  She couldn't leave the apartment if she was awake.  Just when she was sleepwalking.  And every time she did, my memory of her leaving the apartment gets a little fuzzier.  Once I opened the door after her to follow, and she wasn't there.  She was already at the insurance building."\u000a\u000a"Okay, this is getting weirder."\u000a\u000a"I told you about the last night I saw her, the night before she died."  it wasn't a question.  "I didn't tell you all of it."\u000a\u000a"You were running the experiment?" I ventured.\u000a\u000a"We were going to, but it didn't get that far.  That night, when we were going to bed, she said the last words she ever said to me:  "Wait, I think I've got this.""\u000a\u000aI didn't comment.  If Iva had simply walked out on him right then it wouldn't have been that strange; he was going somewhere with this.\u000a\u000a"She disappeared."  He held up a hand to forestall the objection I wasn't going to raise.  "I don't mean she walked out the door, I mean //disappeared//.  One moment she was standing there and the next she wasn't.  And when I remembered all the other times she'd sleepwalked... it was like I'd made them up.  Like they weren't real.  What I remembered now was that, every single time she'd gone out, she'd actually vanished.\u000a\u000a"I didn't know what to think."  He added after a pause.  "I thought maybe she'd found some trick to make herself fall asleep instantly.  But she never called.  After a while I started looking..."\u000a\u000a"And you found her at her apartment."\u000a\u000a"It was the first place I stopped at." he acknowledged.  "And she was dead.  Completely still."  He looked up again at me, then away, as though he couldn't bear to look me in the eyes.  "I tell myself it wasn't my fault, my experiment didn't do it.  And lots of people sleepwalk, right?  I think the disappearing is a new wrinkle but on the other hand I think the 'walking' part might be something people's minds make up because the disappearing makes no sense."\u000a\u000aHe was right about one thing.  That was weird.\u000a\u000a* [[You have more questions|convo_emil]]\u000a
-p2645
+p2663
 sg29
-(lp2646
+(lp2664
 sg20
 g21
 ((I2013
@@ -8699,16 +8723,16 @@ I44
 I5
 I320
 I0
-tp2647
-(dp2648
-tp2649
-Rp2650
+tp2665
+(dp2666
+tp2667
+Rp2668
 sg28
-g2650
+g2668
 sg26
 Vemil_nervous_2
-p2651
+p2669
 sbsasS'scale'
-p2652
-F0.8
+p2670
+F0.6000000000000001
 ss.

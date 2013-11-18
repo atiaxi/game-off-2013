@@ -2,6 +2,7 @@
 <<silently>>
 <<set $dreams=0>>
 <<set $emilNervous=0>>
+<<set $ivaStorage=0>>
 <<endsilently>>The afterlife had wood paneling.
 
 It'd ordinarily be an absurd thing to notice.  I was dead, after all, in the hereafter's own waiting room.  You'd think there'd be pearly gates, or at least a hint of brimstone, but instead?
@@ -450,7 +451,7 @@ He sighed, then looked back up at me.  "When I did, when I came here, the first 
 
 "I thought Storage was just... storage."  Once again, my newness to the situation was showing.  "You're shipped to some tape backup under a mountain or something."
 
-"It is."  Koloman confirmed.  "Not exactly as you described, but near enough.  You cannot dream in storage, because there is no 'you' to dream!  These were earlier days of the simulation.  I worried that my Iva had been one of those afflicted by the upload.  But aside from her newfound passion for art, there were no signs."
+"It is."  Koloman confirmed.  "Not exactly as you described, but near enough.  You cannot dream in storage, because there is no 'you' to dream!  These were earlier days of the simulation, and I worried that my Iva had been one of those afflicted by the upload.  But aside from her newfound passion for art, there were no signs."
 
 * [[You have more questions|convo_koloman]]
 
@@ -849,6 +850,8 @@ Nickolai Koloman betrayed no emotions whatsoever.  "You must have many questions
 <<sugarchoice "koloman_friends" "What about friends?">>
 <<sugarchoice "koloman_nd" "No offense, but why did she spend her time in New Detroit?">>
 <<sugarchoice "koloman_storage" "Wait, did you say she'd been in Storage?  What happened?">>
+<<if $ivaStorage gte 2>><<sugarchoice "koloman_play" "Iva's play was about her time in storage.">>
+/%%/<<endif>>
 <<if $kolomanInPerson>>* [[You have no more questions|koloman_exterior]]<<else>>* [[End the phone call|Wallet]]<<endif>>
 /%%/<<else>>[[I'll take the case|koloman_accept]]
 [[Let me think about it|koloman_reject]]
@@ -1056,6 +1059,74 @@ I considered myself a good judge of character.  The ability to tell who's lying 
 "I would not have done such a thing."  he said finally.  "I cannot speak with authority on what happened to you during our call, and I do not wish to call your judgement into question - that would bode ill for the both of us - but many who are recent uploads into our world suffer adjustment symptoms.  It may have been that."
 
 When that answer didn't appear to satisfy me (because it didn't), he continued solemnly.  "I swear to you, <<print $gender>> Hallivert, I did not lock you in your room.  I want to hire a detective who is willing to take the case - more, who demands that justice be done.  If you are not that person, I'll not make you agree."
+
+* [[You have more questions|convo_koloman]]
+
+
+
+:: koloman_play [conversation nocall]
+Koloman seemed surprised by the news.  "She always said she took inspiration from the dreams, but to create a play directly talking about them?"
+
+"She can't be the only person to have done something like that."  I pointed out.
+
+"She can."  Koloman replied strictly.  "She was.  Everyone else knew better."
+
+I shrugged.  "I didn't."
+
+"When Iva and I were first woken into the system, there were a series of tests to ensure our upload had been successful, that we had arrived with our minds and personalities intact.  Nowadays failures are so rare that they don't do such things, but they do listen.  If you went to your insurance company and told them that you'd dreamed during your upload, they would not believe you.  They would say it was an artifact of the upload or waking process, false memories created by your brain to patch over noise in the upload."
+
+"I don't see how that would stop someone-"
+
+"I am not yet done."  Koloman interrupted without rancor.  "People who are uploaded incompletely or incorrectly are often damaged psychologically.  Their condition can grow worse over time.  Often they are unable to adapt.  What I am telling you, <<print $gender>> Hallivert, is that if people believe that you are such a person, you may well find yourself committed to the retirement home."
+
+I shuddered.  Based on my fairly limited information, it didn't have a terribly good reputation.  I decided to change the subject.  "Are the dreams real?"
+
+Koloman looked distracted.  "I would once have said no, absolutely not, there are no dreams.  The words I said to you just then, explaining the false memories, they are the words the doctors said to me to explain my daughter's condition."
+
+He looked back to me and spread his hands plaintively.  "But the impossible has happened, and so I must reexamine everything I once believed."
+
+* [[Ask him to send you to storage to investigate|koloman_store_me]]
+* [[Point out that Iva probably wasn't the only one who dreamed|koloman_other_dreamers]]
+
+
+
+:: koloman_store_me [conversation nocall]
+"Out of the question."  Nickolai answered automatically.
+
+I paused, awaiting an explanation, and for a few moments it didn't appear as though I was going to get one.  Koloman looked at me and laughed.  "You're waiting for me to tell you why!"
+
+"I assume there's some reason."  I replied blandly.
+
+"I am incredulous because this is common knowledge, but again I must remind myself I hired you for your newness.  Storage is a one-way trip."  he answered simply.
+
+"Doesn't sound that way."  I said.  "Iva got out."
+
+Koloman nodded.  "Exactly my point.  She left storage, and she suffered nightmares, sleepwalking, delusions of dreams.  Her entire personality changed, she went from straight-laced accountancy to wild-spirit artistry."
+
+"So it's a one-way trip //now//." I was beginning to see where my employer was going with this.  "To prevent that kind of thing from happening."  It sounded almost cruel - if Iva had been right, people were dreaming in that infinite storage.
+
+"Not explicitly for that reason."  Koloman clarified.  "But yes.  Ostensibly, the reason is that voluntarily going into Storage is an important personal choice, one taken only when the simulation itself is no longer sufficient for life.  In this case, the only return is the Preservationist's fabled future where computation is so cheap that everyone can live in a New Providence-style simulation."
+
+I honed in on the sole important part of his reply.  "Voluntarily?  What about the alternative?"
+
+Koloman seemed confused.  "You mean running out of time?  Well of course, that happens, especially in New Detroit.  The minimum wage is one day per day, after all, which is only sufficient if you never take a day off.  And of course not everyone is careful with their spending habits."
+
+* [[Point out that Iva probably wasn't the only one who dreamed|koloman_other_dreamers]]
+
+
+
+:: koloman_other_dreamers [conversation nocall]
+"No, of course not." Koloman waved the observation aside.  "It's recognized as a psychological issue, after all, those sort of things don't generally happen from a sample size of one."
+
+"Do you think she sought them out?"  I followed up.
+
+"I don't think she did, I know she did."  He frowned deeply.  "A few months after she moved to New Detroit, she returned for a visit.  She told me how her art was progressing and how the city was inspiring.  I didn't really understand how that could be the case and I don't suppose I do now, but what was important to me at the time was that she was finding a place for herself.
+
+"She asked me, on that visit, if I'd ever heard of anyone like her, any early uploads who'd claimed to have dreamed.  At the time I assumed she was looking for something like a support group."  He leaned forward and wrote something on another business card and handed it to me.
+
+"This is the name of the man I sent her to - he lives in New Detroit.  He worked as a counselor for new uploads back then, I do not know what he does now.  I hope he has answers for you."
+
+I glanced at the address I'd been given.  The man lived in my apartment building.<<set $hasCounselorAddress=1>>
 
 * [[You have more questions|convo_koloman]]
 
@@ -1662,6 +1733,10 @@ I tried to bend her arm up at the elbow and got no response.  I suspected that i
 <<display "morgue_actions">>
 
 
+:: Untitled Passage 17
+
+
+
 :: cop_details
 "I swear to God," the policewoman spoke through grit teeth, "if Simon let a reporter down here I am going to hurt him.  I am going to haul him out of that dingy little office, drag his ass over the tracks, and punch him until he chokes."
 
@@ -1914,31 +1989,15 @@ Emil shook his head.  "No, she didn't meet anyone on the way."
 :: emil_play
 <<set $emilNervous = $emilNervous+1>>"She had a script at her house."  Emil said.  "It was pretty good.  Atlantis is real and has a king that can do miracles.  But it turns out that it's not actually him, it's the people who are dreaming."
 
-He smiles.  "It's her story, you know."
+He smiled.  "It's her story, you know."
 
 "Iva wrote it, yes."  I replied.  I wasn't sure why that was important.
 
-"No, I mean it's //her// story.  The evil king is Athena, and she's the dreamer.  She dreamed in Storage, she always said.  Nobody believed her, but I did.  It's what inspired her to make this play."
+"No, I mean it's //her// story.  The evil king is Athena, and she's the dreamer.  She dreamed in Storage, she always said.  Nobody believed her, but I did.  It's what inspired her to make this play."<<set $ivaStorage = $ivaStorage + 1>>
 
 He chuckled.  "Don't tell the troupe I told you this.  They don't want people to know the 'secret message' of the play.  Iva thought it was dangerous somehow."  His laughter died.  "Maybe it was."
 
 * [[You have more questions|convo_emil]]
-
-
-
-:: Untitled Passage 26
-
-
-
-:: Untitled Passage 27
-
-
-
-:: Untitled Passage 28
-
-
-
-:: Untitled Passage 29
 
 
 
@@ -2009,10 +2068,6 @@ At least this time when the troupe answered all at once it was almost immediatel
 "At first we weren't that worried."  The leading woman was easiest to hear at the moment.  "But then we saw the news...."
 
 * [[You have more questions|convo_troupe]]
-
-
-
-:: Untitled Passage 24
 
 
 
@@ -2246,7 +2301,7 @@ He grit his teeth.  "No.  The goddess, the AI that runs this place."
 
 "Shh!" he cut me off with more energy than I'd seen from anyone in the group.  "She can hear you."
 
-I had no reason to doubt him, so I didn't press it. Instead I asked the other question that'd been bothering me.  "How do dreamers represent Storage?"
+I had no reason to doubt him, so I didn't press it. Instead I asked the other question that'd been bothering me.  "How do dreamers represent Storage?"<<set $ivaStorage = $ivaStorage + 1>>
 
 Nathan hesitated.  The leading woman spoke up.  "You might as well say it, it's not like you haven't been blabbing secrets so far."
 
@@ -2296,18 +2351,6 @@ The front door opened like it'd never even considered being closed.
 <<display "floor_13">>
 
 
-:: Untitled Passage 18
-
-
-
-:: Untitled Passage 21
-
-
-
-:: Untitled Passage 25
-
-
-
 :: ivahouse_notes
 The many, many scattered notes were hand-written and exhibited no organization whatsoever.  A selection of them included notes from her various trips:  An off-grid journey to Metaverse, a meeting in the Hacker's Club.  Strangely, some parts of the notes were blurred into unreadability, as though water had been spilled on them.  That scenario would have been more likely if I'd seen so much as a single drop of water in the entire simulation.
 
@@ -2343,18 +2386,6 @@ The man on the other end of the phone didn't even react to the attempt.<<display
 <<display "recruitment">>
 
 
-:: Untitled Passage 19
-
-
-
-:: Untitled Passage 20
-
-
-
-:: Untitled Passage 22
-
-
-
 :: apartment_window_fail_2
 My first thought was to solve one problem with another - I moved to pick up the cast-iron phone and throw it through the window, but naturally the phone wouldn't budge.
 
@@ -2364,10 +2395,6 @@ Naturally, it bounced off of the window pane like rubber.  The one time furnitur
 
 * [[Answer the phone|recruitment_call]]
 * [[Fine, FINE!  I'll answer the goddamn phone!|recruitment_call]]
-
-
-
-:: Untitled Passage 23
 
 
 
@@ -2607,7 +2634,7 @@ Chivalry smiled.  "Because it's illegal.  Something big went down early on in th
 
 "Wait, you can't even program?  Who makes the games?"  I gestured upward.
 
-"Metaverse, mostly."  Before I could ask for clarification, she filled me in.  "That's another sim, full of programming types.  It's all allowed over there, but it's not exactly cheap.  Preservers will Store you for free, and getting a policy to set you up in New Detroit  for a few years is actually pretty cheap if you're not going to die for a while."
+"Metaverse, mostly."  Before I could ask for clarification, she filled me in.  "That's another sim, full of programming types.  It's all allowed over there, but it's not exactly cheap.  Preservers will Store you for free, and getting a policy to set you up in New Detroit  for a few years is actually pretty affordable if you're not going to die for a while."
 
 "Why not change the name?"  I asked.
 
@@ -2678,10 +2705,6 @@ I dreamt I was in a city devoid of all life.  Grey and unyielding though it was,
 I dreamed the last moments of my life - pinned between the unyielding metal bumper of the car that'd killed me and the building it'd crashed into.  My lungs were crushed and useless, my ribs destroyed, but I needed to breathe, I couldn't //breathe//
 
 * [[Wake up|wake]]
-
-
-
-:: Untitled Passage 17
 
 
 
@@ -2922,9 +2945,35 @@ The apartment interior featured more of the famed wood paneling.  Likely the exa
 
 A large glass double-door lead out to the streets, and a permanently propped open metal door pointed the way to the concrete stairway.  Whoever architected this must have figured an elevator was pointless when you can't possibly become exhausted.  I wanted to punch him.
 
-<<if $sleepy>>First, though, I was going to need some sleep.<<endif>>
-* [[Start the tedious climb upward|floor_13]]
+<<if $sleepy>>First, though, I was going to need some sleep.
+/%%/<<endif>><<if $hasCounselorAddress>>
+Koloman had given me the address of an upload counselor that Iva had seen.  He lived on the [[twelfth floor|floor_12]].
+/%%/<<endif>>
+
+* [[Start the tedious climb to your home on the thirteenth floor|floor_13]]
 * [[Go out on the streets|apartment_exterior]]
+
+
+
+:: floor_12
+Floor 12 confirmed my "every floor is exactly the same" hypothesis.  Room 1212 didn't look any different than any of its neighbors, but this was the address that Koloman had given me to find his daughter's counselor.
+
+* [[Knock|marcus_intro]]
+* [[Go upstairs to your floor|floor_13]]
+* [[Walk back down to the lobby|apartment_bldg_interior]]
+
+
+
+:: marcus_intro
+<<if $nftMarcus>>
+Marcus opened the door, seeming unsurprised to see me.  "Ah, the investigator.  Come in, come in."
+<<else>>
+<<set $nftMarcus=1>>The door opened to reveal a stooped white-haired man, thick glasses perched on the end of his nose.  I resisted the immediate urge to ask why he needed glasses in a simulation and instead gave him my by-now familiar pitch:  "My name is Sam Hallivert, I'm a private investigator hired by Nickolai Koloman for the matter of his daughter."
+
+A wistful smile came over his face.  "Iva?  Oh, it's been so long since I've talked to her.  Come in, come in."
+<<endif>>
+
+* [[Enter|convo_marcus]]
 
 
 
@@ -3008,6 +3057,47 @@ It made me wonder if I needed to eat.  I didn't feel hungry and I hadn't eaten a
 
 
 
+:: convo_marcus
+The counselor lead me to a cushioned chair that felt exactly like every other chair in the city.  Gingerly, he sat across from me in an identical seat.  "My name is Marcus.  How can I help you?"
+
+<<sugarchoice "marcus_job" "Nickolai told me you're an upload counselor?">>
+<<sugarchoice "marcus_iva" "Tell me about Iva">>
+<<sugarchoice "marcus_storage" "Tell me about Storage">>
+<<sugarchoice "marcus_what_are_dreams" "What are the Storage dreams?">>
+<<if $heardMarcusDreamed>>
+<<sugarchoice "marcus_dreamed" "You dreamed in storage?">>
+/%%/<<endif>>
+
+* [[You have no more questions|floor_12]]
+
+
+
+
+:: marcus_iva
+"Understand," he started, "there's only so much I can tell you.  Even though I've left that life behind me now, I still adhere to confidentiality."
+
+I nodded.  "I wouldn't have it any other way."  A lie, of course, I could use all the information I could get, but I knew when not to push.
+
+"Well, then.  Iva came to me shortly after she'd moved here to New Detroit."  He trailed off.
+
+"I hope there's more that doesn't fall under confidentiality."  I said wryly.
+
+"There isn't."  He answered simply.  "The woman changed my life, and what I've told you is all I can say."
+
+I was reconsidering my previous decision not to push when he continued.  "No, there is more.  I'm the one who got her her job."
+
+"Writing plays?"  I asked.  I hadn't thought that was the sort of field that needed an introduction.
+
+Marcus looked as confused by my question as I'd felt asking it.  "No, volunteering!" He clarified.  "She worked at the retirement home.  If you ask me, she was looking for more people like her, people who'd dreamed in their storage.  People who'd gotten locked up rather than pretend it hadn't happened."
+
+I raised an eyebrow - that seemed like the sort of confidential information he'd just decided he couldn't give me.
+
+"She never said that."  Marcus said in response to my unspoken criticism.  "And it's not a diagnosis.  Just a gut feeling."
+
+* [[You have more questions|convo_marcus]]
+
+
+
 :: pvp_mugging_questions [nocall]
 "Wh-" was as far as I got before I felt an impact and explosive pain from my kidney.  A set of hands from behind me grabbed me by the collar and held me up.
 
@@ -3015,6 +3105,129 @@ The neo-nazi still in front of me shook his head amusedly.  "I love the smell of
 
 * [[Refuse|pvp_mugging_force]]
 * [[Give in|pvp_mugging_ok]]
+
+
+
+:: marcus_job
+Marcus nodded, then seemed to reconsider.  "Well, not anymore.  I was Iva's counselor, but that young woman made me reconsider the career."
+
+"I heard she wasn't easily swayed from the dreaming thing."  I replied.
+
+Marcus laughed.  "It wasn't just that!  Though you are right, I couldn't sway her.  In the end, she's the one who changed my mind."
+
+I had no trouble believing this - she'd enraptured an entire theater ensemble, after all.  This man had supposedly been a professional but that word didn't seem to mean much in New Detroit.  "So you believe she dreamed in storage."
+
+"No."  He corrected himself again.  "Well, yes, I do, but more importantly," he leaned forward. "I believe //I// may have dreamed in storage."<<set $heardMarcusDreamed=1>>
+
+* [[You have more questions|convo_marcus]]
+
+
+
+:: marcus_storage
+Marcus shrugged.  "I'm not sure how much I believe it anymore, but I've got the official word memorized if you want to hear it."
+
+I motioned for him to continue.
+
+He took a breath.  "There are actually two kinds of storage - short term and long term.  Long-term storage is what most people think of - your entire mind is written to a few redundant tapes and shipped to different regions for backup."
+
+"Did you say tapes?"  I knew that New Detroit's whole theme was old-fasioned, but I had no idea that extended to their backup technology.
+
+"Oh, yes.  According to what I was told, tapes are more reliable, take up less space, and have decades of shelf life."
+
+I wasn't sure I believed it, but I wasn't an expert.  I didn't think Marcus was either, but I'd asked him to parrot the company line and I was clearly getting what I asked for.
+
+"Anyway, that's long-term.  Short term is your ordinary computer storage that you'd save stuff off to.  It's on-site - in case you change your mind or circumstances change or they need you for some reason.  Doesn't happen much, but it's part of the system that's been in place this whole time so they never got around to replacing it."
+
+* [[You have more questions|convo_marcus]]
+
+
+
+:: marcus_what_are_dreams
+Marcus laughed.  "That's the question, isn't it?  I can give you the company line, if that's what you're looking for."
+
+"I'd like the truth." I answered simply.
+
+"Wouldn't we all?  But honestly, at this point, I've got no goddamn idea what the truth is.  I can tell you what the company line is, and then I can tell you what I think."
+
+I nodded.  That was enough for me.
+
+"Okay, official statement:  The human mind was not meant to be stored or, for that matter, uploaded."  he began.
+
+"Hold on."  I hadn't meant to interrupt this early, but already this wasn't making sense.  "This whole sim was made by Preservationists, right?  Isn't their whole philosophy about how we're all meant to ascend this way?"
+
+Marcus blinked at me as though this was a total non-sequitur.  "Uploads pre-date this sim, <<print $gender>> Hallivert.  The official line I'm giving here isn't Preservationist."
+
+"Ah, continue."
+
+"Anyway, the mind's not meant for storage or uploading.  To clarify, I don't mean this in a //moral// way, just in a the-brain-never-evolved-for-this sort of way.  Same reason there were so many car accidents near the turn of the century, the human brain was never meant to comprehend travel at hundred kilometers an hour."
+
+"You don't have to tell me."  I replied.  "That's exactly how I got killed."
+
+"But the brain is nothing if not adaptable.  So in the face of something it cannot understand, like uploading, it will invent something that makes sense.  For many people, especially those who first were uploaded, that something was dreams.  They hadn't //died//, they'd merely fallen asleep for a time.  Much easier to understand."
+
+"They remembered dreaming."  I pointed out.  Somewhere in Ivy's notes had been a half-organized dream journal, though I hadn't checked to see if it dated back to before she'd been pulled out of storage.
+
+"Memories are lies, <<print $gender>> Hallivert.  It's something the psychological community has known for over a century now.  It's shockingly easy for someone to remember something that, simply put, never occurred.  As an example, doctors had to be careful not to accidentally implant memories in their patients, and this was in the days //before// fully-immersive environments."
+
+I thought on this for a moment, then changed the subject before I could start doubting my own memories too much.  "You said you'd tell me what you thought, too."
+
+Hallivert smiled weakly.  "I do not know.  It may not sound like much, but you did not know me as I once was.  Strong, certain that I was in the right, that I was helping people get past the false memories of Storage.  To admit that I do not know... it puts my entire life's work in question."
+
+* [[You have more questions|convo_marcus]]
+
+
+
+:: marcus_dreamed
+"Why of course!"  Marcus seemed surprised that I hadn't already realized that for myself.
+
+"Do you believe they were real?"
+
+Marcus shrugged.  "I'm a lot less certain of their falsity than I once was."
+
+"What were they?"
+
+I'd asked Marcus a number of questions at this point, and he'd been open and vaguely friendly the entire time.  This question he shrank from, as though I'd suddenly touched a hot iron to his arm.  He shook his head emphatically.
+
+"I was a psychologist in life, as well."  He said finally.  I wasn't sure if he was reluctantly answering me or changing the subject.  "So when I came to this world only to be told that I had myself suffered a delusion, well, it was music to my ears!"
+
+"That's probably not a common reaction."  I commented.
+
+"No, indeed.  I could recognize the dreams for what they were, though - the false memories the unconscious parts of my brain generated to bridge the gap between my last life and my current one.  But I was fascinated by this expression and all the other side-effects of early upload.  So I changed my specialty, became the counselor that Iva saw."
+
+There was a long pause.
+
+<<sugarchoice "marcus_fulldream" "Can you tell me what you dreamed?">>
+
+* [[You have more questions|convo_marcus]]
+
+
+
+:: marcus_fulldream
+Marcus nodded, no sign of his earlier anxiety over the topic.  "I suppose..." he said slowly.  "Though if it kills you like it did her, I'm never saying anything to anyone ever again, do you understand?"
+
+I did, all too well.  I was following in Iva's footsteps, and they'd lead down a dangerous path.  I could only hope that this wasn't the particular fork that'd killed her.  I motioned for him to continue.
+
+"I was never supposed to come out of storage."  He began.  "At least, not until the promised day of the Preservationists.  My husband - Jacob - and I had insurance policies that guaranteed us a spot in Storage.  He was the actual believer, I simply signed up to make him happy and in case it turned out to be real."  He gestured around himself.  "Good thing I did, hm?
+
+"I died, and they put me in storage.  Jacob died about five years later, but something went wrong with the upload process.  More wrong than usual - he was... corrupted.  They couldn't re-build his mind on this side."
+
+I nodded.  It seemed there was more than one reason that Marcus had gone into upload-related psychology.
+
+Marcus was too involved in telling his story to notice my reaction.  "There was a civil suit by his next of kin - his brother.  I was called on as a witness, though even now I don't really know why.  But they pulled me out of storage to testify.  After the settlement, I could afford to live here in New Detroit.  Hell, I could afford to live in New Phoenix, but... well it's less real down here.  It hurts less."
+
+He paused, a sad remembrance over his features.  I got the feeling I was dredging up memories he hadn't reflected on in a long time.  I tried to change the subject "And the dreams?"
+
+Marcus sighed.  "The dreams.  I died in a hospital - I was a smoker, if you can believe such a thing still existed.  So when I woke up in the hospital, I didn't even know anything was wrong.  The first clue should have been that I could walk.  The second clue should have been the fact that I didn't need to breathe.  But I didn't even think about those things, because it's a dream, you know?  You don't question a dream unless you've trained yourself to.
+
+"I didn't recognize anyone.  The doctors were different, the patients were different.  Jacob, who'd never left my side in those last hours, was gone.  I walked unfamiliar floors in an unfamiliar layout.  I was in a hospital, but it wasn't mine."
+
+He glanced up at me.  "Later, after they woke me up, I worked at the retirement home.  It was the place I'd dreamed.  At the time, I rationalized it, I let myself believe that I'd planted the false memory of the retirement home in my mind.  But now?"
+
+He shrugged, looking away.  "I don't know what to believe.  Did I dream a place that not only had I never seen before, but wasn't even real?  I couldn't have.  It's impossible."
+
+He turned his eyes toward the television.  "But I saw on the news about Iva.  The impossible's already happened."
+
+* [[You have more questions|convo_marcus]]
 
 
 
