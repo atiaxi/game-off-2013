@@ -3,6 +3,7 @@
 <<set $dreams=0>>
 <<set $emilNervous=0>>
 <<set $ivaStorage=0>>
+<<set $greeterQuestions=0>>
 <<endsilently>>The afterlife had wood paneling.
 
 It'd ordinarily be an absurd thing to notice.  I was dead, after all, in the hereafter's own waiting room.  You'd think there'd be pearly gates, or at least a hint of brimstone, but instead?
@@ -66,6 +67,12 @@ li#storyMenu a {
 	color: yellow;
 }
 
+.getclue {
+	font-size: 150%;
+   font-weight: bold;
+   color: yellow;
+}
+
 
 :: intro_wait
 I was expecting the seats to either be uncomfortably thin or absurdly over-stuffed, in the style of waiting room seats everywhere.  These looked thin but didn't feel it.  They didn't feel like much of anything, to be honest.  I could have been sitting on a box and leaning against the wall and gotten more of a sensory experience out of it.
@@ -88,6 +95,7 @@ The point was, I was dead and I ought to be upset by it, but I couldn't find it 
 <<set $gender="Ms.">>
 <<set $money=18000>>
 
+<<set $wasOfferedTour=1>>
 <<set $cardFerro=1>>
 <<set $cardKoloman=2>>
 <<set $cardClub=1>>
@@ -96,10 +104,12 @@ The point was, I was dead and I ought to be upset by it, but I couldn't find it 
 <<set $hasWallet=1>>
 <<set $hasHadTour=1>>
 <<set $hasHadRecruitmentCall=1>>
+<<set $clue1=1>>
 <<update>>
 <<endsilently>>DEBUG ENABLED
 
-<<display "games_exterior">>
+<<display "train_exterior">>
+
 
 
 :: sugarchoice script [script]
@@ -212,10 +222,18 @@ If Guillory noticed my reaction, he didn't say anything.  Instead, he gestured t
 
 
 :: StoryMenu
-<<if $hasWallet>>[[Wallet]]<<endif>>
+<<if $hasWallet>>
+[[Wallet]]
+/%%/<<endif>>
+<<if $clue1>>
+[[Clue #1]]
+/%%/<<endif>>
+<<if $clue3>>
+[[Clue #3]]
+/%%/<<endif>>
 
 
-:: Wallet
+:: Wallet [notp]
 I looked into my wallet.  I had <<print $money>> days' worth of money.  It bore little resemblance to the cash I'd been familiar with all my life, but the small strange bills were obviously made to be currency.
 
 <<if state.history[1].passage.tags.indexOf("conversation") eq -1>><<set $walletReturn=state.history[1].passage.title>><<endif>>
@@ -260,6 +278,30 @@ Guillory looked at me for a moment, then back at his folder.  Finally, shaking h
 
 * [[Sit down|intro_questions]]
 
+
+
+:: Clue #1 [notp]
+<html><div class="getclue">People Dreamed in Storage</div></html>
+
+I used to think that Storage was exactly that, a static backup of a human mind that did nothing until it was reactivated.  I'd been through it myself, though, and I knew the truth.  Not only had I dreamed, but I'd seen places I'd never been before.
+
+<<back>>
+
+
+
+:: Clue #3 [notp]
+<html><div class="getclue">New Detroit Behaved Like a Dream</div></html>
+
+The only thing that convinced me that I wasn't just dreaming this entire thing was the fact that it was //only// New Detroit.  New Providence had been indistinguishable from reality.
+
+I'd stood at the obelisk in the hub (an obelisk I'd somehow dreamed into being), and I'd teleported myself halfway across town to my apartment.
+
+<<if state.history[1].passage.tags.indexOf("notp") eq -1 and not $kolomanInPerson>>With enough work I could probably teleport myself anywhere in the city, but two locations were already fixed in my mind:  [[The Hub|Hub]] and [[my apartment|apartment_interior]].
+<<else>>
+My current location wasn't a place I could teleport out of, however.
+<<endif>>
+
+<<back>>
 
 
 :: intro_questions
@@ -309,6 +351,45 @@ He studied me for a few moments.  "May I ask you another question?"
 * [[Endure another question|intro_question_2]]
 
 
+:: hub_dream_test
+It certainly felt like I was dreaming, but then again, all of New Detroit felt like I was dreaming....
+
+//All of New Detroit felt like I was dreaming//.
+
+Horror started mounting and I desparately tried to calm my mind.  There was an easy way to test this -  I could control the dreams.  If this was a dream, I'd make a car appear over... //there//.
+
+I stared at the empty road I'd fixated on.  No vehicle appeared.  If this were a dream, it was an obstinate one.
+
+Still, I'd started thinking.  Hadn't Emil said something about Iva's impossible movements across the city?  Hadn't Koloman said she'd suffered from sleepwalking problems?  What if it was something else, what if I'd been following more closely in her footsteps than I'd realized?
+
+If Iva'd learned the same dream-recognizing skill that I had - and given the amount of time she'd spent in storage, she almost certainly had done so - then she'd have come to this same realization that I had.  That New Detroit was eerily dreamlike.
+
+The dreams were more malleable than the reality was proving, but they also had a tendency to change scenery.  Suppose I tried that?
+
+* [[Wait, you think you've got this.|hub_tp]]
+* [[Let this line of thought go for now|Hub]]
+
+
+
+:: large brick obelisk
+With the growing sense of dread balanced only by the eerie sense of deja-vu, I made my way closer to the obelisk in the middle of the plaza.
+
+<<if $nftHub>>
+It hadn't been there before.  Of that I was certain - I'd been through the hub at least once, and I specifically remembered how sparse and undecorated it'd seemed.  It'd a hub, and made no pretenses otherwise.
+
+Now... now?  This thing was there.  This thing that hadn't been there, and then I'd dreamed it, and then it was there.  What the hell?
+<<else>>
+It was the first time I'd made my way to the center of the city, and the obelisk was the last thing I'd expected to see.
+
+I'd dreamed of this place.  It hadn't really been a reach to imagine a hub-type area, but the obelisk?  Why would I have dreamed it?  Had it even been there before I dreamed it up?
+<<endif>>
+
+[[Was I still dreaming?|hub_dream_test]]
+
+* [[Walk away|Hub]]
+
+
+
 :: intro_question_2
 He picked the pen back up.  "Next question - do you know where this is?  Specifically, where we are right now?"
 
@@ -335,7 +416,12 @@ Samahd was standing in front of the building, as promised.  He smiled and waved 
 
 
 :: Hub
-For the center of the city, this is an extremely sparse area.  Roads from every corner of New Detroit converge in a circular plaza utterly lacking in any decoration at all.  They could have at least put a fountain or a statue in the middle.
+<<if $clue1>>
+The center of the city was a circular plaza with roads radiating outward to every neighborhood.  In its center was a <<if not $clue3>>[[large brick obelisk]]<<else>>large brick obelisk<<endif>>.  Whatever it was supposed to symbolize, there was no plaque explaining its purpose.
+<<else>>
+<<set $nftHub=1>>
+For the center of the city, this was an extremely sparse area.  Roads from every corner of New Detroit converged in a circular plaza utterly lacking in any decoration at all.  They could have at least put a fountain or a statue in the middle.
+<<endif>>
 
 * [[Go to the insurance building|insurance_exterior]]
 * [[Visit the Power of Two|power_of_two_exterior]]
@@ -405,6 +491,28 @@ He smiled his tour-guide smile and gestured to the Insurance building behind us.
 "Up this way is the Power of Two."  Samahd started walking up the street.
 
 * [[Follow him|power_of_two_exterior]]
+
+
+
+:: hub_tp [nocall getclue]
+I closed my eyes and visualized the interior of my apartment.  It was surprisingly easier than I thought, though this was likely more to do with the fact that I hadn't bothered decorating than any superior memorization ability.
+
+I felt a strange shift and almost fell.  I opened my eyes to see what had pushed me....
+
+I was in my apartment.
+<<if $accidentallyTeleported>>
+/%%/
+It was just like the time I'd woken up in an other zone completely... but this time I'd done it while I was awake.
+/%%/<<endif>>
+This... this was a secret that Iva had discovered.  And now I knew it.  I knew [[New Detroit behaved like a dream|hub_clue3]].
+
+
+
+:: hub_clue3 [nocall]
+<<silently>>
+<<set $clue3=1>>
+<<update>>
+<<endsilently>><<display "apartment_interior">>
 
 
 
@@ -614,6 +722,20 @@ I got as far as "Ath" before Koloman's face was suddenly inches away from mine, 
 <<display "koloman_suspects_nobody">>
 
 
+:: koloman_clue1 [conversation nocall]
+Koloman nodded.  <<if not $wroteNote>>"You neglected to leave me notes to rescue you with.  Fortunately, nobody seemed inclined to look closely at my forgery."
+
+"Sorry about that.  I was in a rush."  I answered.  I'd been fortunate that my employer wasn't above a little fakery to rescue me.
+<<endif>>
+
+"So it is true."  he said eventually.  "I should have believed her."
+
+There was a silence made of regret.  It was a silence I knew well.
+
+* [[You have more questions|convo_koloman]]
+
+
+
 :: guillory_soulkeeper [conversation nocall]
 "The Soulkeeper is you - at least, the you that you are now."
 
@@ -749,6 +871,31 @@ He shrugged.  "Then?  She is awoken from Storage with new inspiration.  And from
 * [[You have more questions|convo_koloman]]
 
 
+:: koloman_bankrupt [conversation nocall]
+"An astute question."  Koloman replied.  "The system has many safeguards in place to prevent exactly that from happening.  Should you go to the shopping district they would refuse to sell you anything that would drop your balance below a month."
+
+I shrugged.  "I can wait a month."
+
+Koloman looked at me, irritated.  "I cannot, <<print $gender>> Hallivert."  He gestured to the contract.  "You must show progress in 30 days, or you are no longer my employee."
+
+I grit my teeth; I never thought I'd be annoyed at //not// being able to foolishly blow away my bank account.  "So how do I get rid of //all// my time?"
+
+Koloman's expression had not softened, but his irritation no longer seemed focused on me.  "There is a... place in New Detroit.  It is not a pleasant area - it is made to those who have died and did not find that a sufficiently frightening experience.  That is the only place in the entire simulation where you may be harmed, which means it is the only place you can harm yourself."
+
+This entire plan was beginning to feel a little too suicicde-ish for my tastes.
+
+If my employer noticed my discomfort, he did not comment on it.  "Go to the train station.  Cross the tracks there.  You will feel a sensation of dread; that is normal.  It is there to scare away people of lesser resolve who should not be there.  Continue on until you reach the casino."
+
+I smiled, reassured that at least it wasn't going to hurt.  "They'll let me bet it all?"
+
+"Exactly.  It is the only casino that will do so.  Go to it, lose your money, write some gibberish on the note that sounds relevant before they come for you."  Koloman said.  The plan sounded slightly less insane coming from him.
+
+That didn't mean it sounded like a //good// plan, of course, but it was the best I had.
+
+* [[You have more questions|convo_koloman]]
+
+
+
 :: guillory_preserve [conversation nocall]
 "Not exactly."  Now that a less professional topic such as religion had come up, Guillory looked a lot less comfortable.  "This company was founded by the Preservationist movement, of course, and a fair amount of stock is still owned by the church.  But-" he held up a finger to stress the point "we don't require that our clients adopt, share, or even entertain such beliefs.
 
@@ -759,7 +906,7 @@ He shrugged.  "Then?  She is awoken from Storage with new inspiration.  And from
 
 
 :: guillory_broke [conversation nocall]
-A vague grimace game over Guillory's face.  "It's not a scenario we like to discuss - nothing terrible!" He rushed to reassure me despite the fact that I hadn't appeared surprised at all.  "Anyone who runs out of time is simply downgraded to Storage.  We're Preservers, after all<<set $heardOfPreservationists=1>>, we're not going to just delete someone."
+A vague grimace game over Guillory's face.  "It's not a scenario we like to discuss - nothing terrible!" He rushed to reassure me despite the fact that I hadn't appeared surprised or worried at all.  "Anyone who runs out of time is simply downgraded to Storage.  We're Preservers, after all<<set $heardOfPreservationists=1>>, we're not going to just delete someone."
 
 Despite the calming tone, I didn't like the sound of Storage.
 
@@ -820,7 +967,7 @@ Before I could complete the thought, the doors had opened again.
 <<display "elevator_choices_nd">>
 
 
-:: guard_help
+:: guard_help [notp]
 "Sure," I managed to keep a straight face as I presented the business card that'd gotten me this far.  "I'm looking for a Mr. Koloman?  Does he live around here?"
 
 Whoever had hired the guards had apparently chosen nearly identical personalities, because this one reacted the same way his New Detroit counterpart had.  The don't-give-a-damn expression and posture vanished, replaced with a stiff spine and a near salute.
@@ -851,6 +998,14 @@ Nickolai Koloman betrayed no emotions whatsoever.  "You must have many questions
 <<sugarchoice "koloman_nd" "No offense, but why did she spend her time in New Detroit?">>
 <<sugarchoice "koloman_storage" "Wait, did you say she'd been in Storage?  What happened?">>
 <<if $ivaStorage gte 2>><<sugarchoice "koloman_play" "Iva's play was about her time in storage.">>
+<<sugarchoice "koloman_store_me" "Send me to Storage to investigate this">>
+/%%/<<endif>><<if $fullMarcus and not $clue1>>
+<<sugarchoice "koloman_marcus" "I talked to Iva's counselor">>
+<<sugarchoice "koloman_store_me_ok" "I have to know what Iva knew firsthand.  Store me.">>
+/%%/<<endif>><<if $storagePlan>>
+<<sugarchoice "koloman_bankrupt" "How can I spend all my money?">>
+/%%/<<endif>><<if $clue1>>
+<<sugarchoice "koloman_clue1" "It's true.  People in Storage dream">>
 /%%/<<endif>>
 <<if $kolomanInPerson>>* [[You have no more questions|koloman_exterior]]<<else>>* [[End the phone call|Wallet]]<<endif>>
 /%%/<<else>>[[I'll take the case|koloman_accept]]
@@ -877,6 +1032,31 @@ Koloman produced a manilla folder similar to the one Guillory had.  "This is the
 "No.  He was //unambitious//."  Koloman said this as though he'd finally found the word he was looking for.  "He truly cared for her, but he was satisfied in his tiny New Detroit apartment, with his small artistic career that barely sustained his time.
 
 "This is the case for all her friends.  They believed in her work - I believe most recently they'd become a theater troupe under her direction - but none of them had aspirations higher than performing plays."  Koloman shook his head.  "It is not something I can understand."
+
+* [[You have more questions|convo_koloman]]
+
+
+
+:: koloman_marcus [conversation nocall]
+"You do not sound as though you are particularly reassured by that fact."  Koloman observed.
+
+"He says he dreamed in storage."  I replied plainly.
+
+"I checked his background before I sent my daughter to be treated by him, <<print $gender>> Hallivert." my employer replied.  "I know his background."
+
+"No, I mean he //believes// it."
+
+Koloman was momentarily silent.  "Because of Iva."
+
+"Yes."
+
+"I..."  Nickolai was suddenly at a loss for words.  I could see rage and sorrow warring in his expression.  "I didn't believe her."
+
+Unsure where he was going with this, I remained silent.
+
+"When Iva told me she'd dreamed, I parroted what the doctors said.  I never believed she actually experienced it.  What does that say about me, <<print $gender>> Hallivert?  What does it say that she could convince a professional therapist, a man who is obliged //not// to be convinced by the delusions of his patients, and yet her own father would not believe her?"
+
+Words of comfort were never something I was good at.  I stayed silent.  Koloman joined me in solemn reflection.
 
 * [[You have more questions|convo_koloman]]
 
@@ -989,7 +1169,7 @@ I pressed the button for New Providence and the doors closed silently.  There wa
 
 
 
-:: elevator_choices_npr
+:: elevator_choices_npr [notp]
 * [[Press 'Olympus'|olympus_from_npr]]
 * [[Press 'New Amsterdam'|elevator_fail_npr]]
 * [[Press 'New Phoenix'|elevator_fail_npr]]
@@ -998,7 +1178,7 @@ I pressed the button for New Providence and the doors closed silently.  There wa
 
 
 
-:: elevator_npr
+:: elevator_npr [notp]
 <<if $nftNpr>>
 New Providence continued to be startling.  Even though I'd been here before, the sheer contrast between it and New Detroit was going to take longer to get used to than I could afford.
 
@@ -1022,7 +1202,7 @@ He clearly did not want to help.
 
 
 
-:: guard_evade
+:: guard_evade [notp]
 I didn't say a word, simply walked past him like I had all the time in the world and still couldn't be bothered to spare any for him.
 
 His reaction was a shrug and a muttered "Your funeral, pal."  Not exactly what I was expecting, but I supposed the problem of tresspassers in New Providence was somewhat self-limiting.  I didn't dare think of how much time my trip would have already cost me had it not been paid for.
@@ -1031,7 +1211,7 @@ His reaction was a shrug and a muttered "Your funeral, pal."  Not exactly what I
 
 
 
-:: pr_intersection
+:: pr_intersection [notp]
 The forest remained a close companion for the walk, only occasionally breaking to reveal dirt roads vanishing into their depths.  Mailboxes ranging from immaculate to rusty adorned each road, though clearly those suffering from rust were doing so by intention of their owner.  Nobody who could afford living here would have to settle for rusty mailboxes.
 
 An sign declared the road I was walking toward to be an intersection between Central and Prometheus.
@@ -1041,7 +1221,7 @@ An sign declared the road I was walking toward to be an intersection between Cen
 
 
 
-:: koloman_exterior
+:: koloman_exterior [notp]
 Koloman's "house" was a three-story tall log cabin that was bigger than my apartment building.
 
 Granted, that could not have possibly been true, but it was my first impression and it stuck.  It also gave me insight as to why wood paneling was so ubiquitous throughout New Detroit:  Bringing the real thing down to the motor city level of quality would have left little difference between the two.
@@ -1084,32 +1264,6 @@ I shuddered.  Based on my fairly limited information, it didn't have a terribly 
 Koloman looked distracted.  "I would once have said no, absolutely not, there are no dreams.  The words I said to you just then, explaining the false memories, they are the words the doctors said to me to explain my daughter's condition."
 
 He looked back to me and spread his hands plaintively.  "But the impossible has happened, and so I must reexamine everything I once believed."
-
-* [[Ask him to send you to storage to investigate|koloman_store_me]]
-* [[Point out that Iva probably wasn't the only one who dreamed|koloman_other_dreamers]]
-
-
-
-:: koloman_store_me [conversation nocall]
-"Out of the question."  Nickolai answered automatically.
-
-I paused, awaiting an explanation, and for a few moments it didn't appear as though I was going to get one.  Koloman looked at me and laughed.  "You're waiting for me to tell you why!"
-
-"I assume there's some reason."  I replied blandly.
-
-"I am incredulous because this is common knowledge, but again I must remind myself I hired you for your newness.  Storage is a one-way trip."  he answered simply.
-
-"Doesn't sound that way."  I said.  "Iva got out."
-
-Koloman nodded.  "Exactly my point.  She left storage, and she suffered nightmares, sleepwalking, delusions of dreams.  Her entire personality changed, she went from straight-laced accountancy to wild-spirit artistry."
-
-"So it's a one-way trip //now//." I was beginning to see where my employer was going with this.  "To prevent that kind of thing from happening."  It sounded almost cruel - if Iva had been right, people were dreaming in that infinite storage.
-
-"Not explicitly for that reason."  Koloman clarified.  "But yes.  Ostensibly, the reason is that voluntarily going into Storage is an important personal choice, one taken only when the simulation itself is no longer sufficient for life.  In this case, the only return is the Preservationist's fabled future where computation is so cheap that everyone can live in a New Providence-style simulation."
-
-I honed in on the sole important part of his reply.  "Voluntarily?  What about the alternative?"
-
-Koloman seemed confused.  "You mean running out of time?  Well of course, that happens, especially in New Detroit.  The minimum wage is one day per day, after all, which is only sufficient if you never take a day off.  And of course not everyone is careful with their spending habits."
 
 * [[Point out that Iva probably wasn't the only one who dreamed|koloman_other_dreamers]]
 
@@ -1256,6 +1410,68 @@ This was not a very good pep speech.
 I frowned.  "So does this mean I won't officially be on the case?"  I'd already seen what dropping Koloman's name could do in terms of getting people to co-operate; it was a powerful weapon I'd rather not be without.
 
 "You will very much be on this case, <<print $gender>> Hallivert."  Koloman answered stonily.  "It will appear to the officials and gossips of this town that I am not taking my daughter's death seriously with your hire, and I am prepared to endure such accusations because I believe you will find me answers."
+
+* [[You have more questions|convo_koloman]]
+
+
+
+:: koloman_store_me [conversation nocall]
+<<if $fullMarcus>>
+<<display "koloman_store_me_ok">>
+<<else>>"Out of the question."  Nickolai answered automatically.
+
+I paused, awaiting an explanation, and for a few moments it didn't appear as though I was going to get one.  Koloman looked at me and laughed.  "You're waiting for me to tell you why!"
+
+"I assume there's some reason."  I replied blandly.
+
+"I am incredulous because this is common knowledge, but again I must remind myself I hired you for your newness.  Storage is a one-way trip."  he answered simply.
+
+"Doesn't sound that way."  I said.  "Iva got out."
+
+Koloman nodded.  "Exactly my point.  She left storage, and she suffered nightmares, sleepwalking, delusions of dreams.  Her entire personality changed, she went from straight-laced accountancy to wild-spirit artistry."
+
+"So it's a one-way trip //now//." I was beginning to see where my employer was going with this.  "To prevent that kind of thing from happening."  It sounded almost cruel - if Iva had been right, people were dreaming in that infinite storage.
+
+"Not explicitly for that reason."  Koloman clarified.  "But yes.  Ostensibly, the reason is that voluntarily going into Storage is an important personal choice, one taken only when the simulation itself is no longer sufficient for life.  In this case, the only return is the Preservationist's fabled future where computation is so cheap that everyone can live in a New Providence-style simulation."
+
+I honed in on the sole important part of his reply.  "Voluntarily?  What about the alternative?"
+
+Koloman seemed confused.  "You mean running out of time?  Well of course, that happens, especially in New Detroit.  The minimum wage is one day per day, after all, which is only sufficient if you never take a day off.  And of course not everyone is careful with their spending habits."
+
+* [[You have more questions|convo_koloman]]
+<<endif>>
+
+
+:: koloman_store_me_ok [conversation nocall]
+Koloman spread his hands plaintively.  "You have convinced me of the necessity of such an action, drastic though it is.  Still, I must say no."
+
+I opened my mouth to object, but he continued.  "It is simply that such a thing is impossible.  You can volunteer to be stored, sign the waivers saying you are tired of life and be put away, but... there is no coming back from that."
+
+"There are two ways into Storage."  I said, sounding more savvy than I felt.
+
+Koloman had been thinking along similar lines.  "Bankruptcy has much the same problem.  How are you to gain more time if your mind is not even active to work?"
+
+"So pay me."  I stated simply.
+
+"It is not so simple.  If you were officially my employee and receiving a salary, the system would take this into account.  It would not put you into storage, it would simply deduct your living costs from your next paycheck."
+
+"Am I receiving a salary?"  I asked.  This was news to me.
+
+"No - our arrangement was a verbal contract, but you can read the legal terms if you wish."  He produced a thick pile of paper I'd never seen before and I couldn't help but to think I should have forseen.  In a simulation where every moment could be recorded, verbal contracts were probably a lot more easily enforced.  "In short, you are paid on performance."
+
+"I've brought you a fair amount of information.  Does that merit a bonus?"
+
+Koloman was about to dismiss the idea but seemed to have a sudden change of heart.  "If I were to pay a bonus, it would have to be now, when you give me the information.  But suppose I do not get the information now?"
+
+He'd lost me.  "What, the check's in the mail or something?"
+
+"Exactly."  He produced a small pad of paper and I suddenly had an exact copy.  "Write some information about the case on this paper, it doesn't matter what.  Keep it in your apartment and show no-one."
+
+I began to see where he was going with this.  "Then you come to my apartment after I'm put on ice and 'find' the information."
+
+"You will have your bonus then, and they will have no choice but to remove you from storage."  Koloman seemed determined now.  "I will see to that, at least."
+
+We were silent, then, the enormity of the plan seeming to become more real.  It was a risk - what had Marcus said about the mind not being meant to be stored?  But others had gone through the same thing and survived.  I could do the same.  Then I'd know for certain.<<set $storagePlan=1>>
 
 * [[You have more questions|convo_koloman]]
 
@@ -1733,10 +1949,6 @@ I tried to bend her arm up at the elbow and got no response.  I suspected that i
 <<display "morgue_actions">>
 
 
-:: Untitled Passage 17
-
-
-
 :: cop_details
 "I swear to God," the policewoman spoke through grit teeth, "if Simon let a reporter down here I am going to hurt him.  I am going to haul him out of that dingy little office, drag his ass over the tracks, and punch him until he chokes."
 
@@ -1934,7 +2146,7 @@ I didn't comment.  If Iva had simply walked out on him right then it wouldn't ha
 
 "It was the first place I stopped at." he acknowledged.  "And she was dead.  Completely still."  He looked up again at me, then away, as though he couldn't bear to look me in the eyes.  "I tell myself it wasn't my fault, my experiment didn't do it.  And lots of people sleepwalk, right?  I think the disappearing is a new wrinkle but on the other hand I think the 'walking' part might be something people's minds make up because the disappearing makes no sense."
 
-He was right about one thing.  That was weird.
+He was right about one thing.  That was weird.<<set $knowsIvaTeleported=1>>
 
 * [[You have more questions|convo_emil]]
 
@@ -2697,15 +2909,15 @@ Of course, a more likely cause of my waking was the cast iron rotary phone sitti
 :: dream_1 [nocall]
 I dreamt I was in a city devoid of all life.  Grey and unyielding though it was, at least New Detroit had people.  As I walked through the city, it grew larger and I grew smaller, until I fell through the holes in the asphalt.
 
+<<if $clue1>>[[This is a dream|dream_1_control]]<<endif>>
 * [[Wake up|wake]]
 
 
 
-:: dream_3 [nocall]
-I dreamed the last moments of my life - pinned between the unyielding metal bumper of the car that'd killed me and the building it'd crashed into.  My lungs were crushed and useless, my ribs destroyed, but I needed to breathe, I couldn't //breathe//
+:: dream_1_control [nocall]
+The trip through Storage had given me the ability to recognize my dreams when I had them.  With a thought, I was again on solid ground.<<set $lucid=1>>
 
-* [[Wake up|wake]]
-
+I started thinking of how to get that island paradise back, but then I had to [[wake]] up.
 
 
 :: chivalry_whathappened [conversation nocall]
@@ -2720,14 +2932,21 @@ In the dream, New Detroit's streets were filled with vehicles.  Bumper-to-bumper
 
 As one, their engines started.
 
-* [[Wake up|wake]]
-
-
-
-:: dream_4 [nocall]
-This time the dream wasn't nearly as distinct as the others.  I had an impression of impossibly tall buildings outlined in neon, flying cars, dying dozens of times.  Any time I tried to take an action, the dream shifted and I was someone and somewhere else.
+<<if $clue1>>[[This is a dream.|dream_2_control]]<<endif>>
 
 * [[Wake up|wake]]
+
+
+
+:: dream_2_control [nocall]
+Yeesh.  I get it.  I'd been hit by a car.  Life goes on.<<set $lucid=1>>
+
+Or, well, it doesn't, but then it-
+
+Fuck it.  With a thought, the cars' engines stopped.  With another, the cars themselves disappeared.
+
+Now I could [[wake up|wake]] in peace.
+
 
 
 
@@ -2744,61 +2963,107 @@ I was in the PvP zones.
 
 
 
-:: sleep [nocall]
+:: lose big
+I walked up to the roulette table.  It was in mid-spin, so I watched it along with a few other people who, high-rollers or no, looked like the rest of the riffraff in the PVP zone.
+
+Once betting was open, I put everything on 21.
+
+"4, black."
+
+That was easy.<<set $money = 0>>
+
+* [[Leave the casino|storing_intro]]
+
+
+
+:: storing_intro [nocall]
+I walked out of the casino and nearly tripped - rather than taking me to the street outside, I found myself in Guillory's office.<<if $mugged>>I was beginning to wonder how many times the insurance company would end up teleporting me away from the PvP areas.<<endif>>
+
+"<<print $gender>> Hallivert..." Guillory looked extremely uncomfortable.  "Your time balance appears to have reached zero."
+
+"I was a gambling addict in life."  I lied, and Guillory seemed to know I was lying, but so far as I could tell he had no idea why I'd done what I had.
+
+Guillory frowned.  "Do you know what happens next?"  There was concern in his voice.  He'd been eager, when I first asked him about Storage, to reassure me that it was nothing to fear.  The reality appeared to be quite different.
+
+"I get backed up somewhere and wait for the next next life."  I feigned nonchalance.
+
+"Yes.  When you leave this office, the system will cease simulating you here.  You will be stored."
+
+A sudden unwanted chill came over me.  When I'd first arrived, I'd had to wait for Guillory to finish talking with someone before I could see him... but nobody had ever left his office.  I imagined him saying those same words to some other unfortunate that would walk out of a door they'd never see the other side of again.
+
+No.  This was the plan.  I had to stick to the plan.  Besides, it was too late now.
+
+So I stood up and shook Guillory's hand.  "Thanks for your help, agent Guillory.  I look forward to seeing you in the future."  I managed a wide smile I didn't believe in.
+
+"To the future."  For someone who professed to be a Preservationist, he didn't seem very confident in its dogma.
+
+Oh well.
+
+* [[Walk through the door|storage]]
+
+
+
+:: storage [nocall]
 <<silently>>
-<<set $money = $money - 1>>
-<<set $dreams = $dreams + 1>>
-<<if $dreams gt 4>>
-  <<set $dreams = 1>>
-<<endif>>
-<<endsilently>><<if $dreams eq 1>>
-<<display "dream_1">>
-<<else if $dreams eq 2>>
-<<display "dream_2">>
-<<else if $dreams eq 3>>
-<<display "dream_3">>
-<<else if $mugged>>
-<<display "dream_mugged">>
-<<else if $dreams eq 4>>
-<<display "dream_4">>
-<<endif>>
+<<set $hasWallet=0>>
+<<update>>
+<<endsilently>>[[Nothing]]
 
 
-:: dream_mugged [nocall]
-I dreamed I was back in the PvP zones.  A mob of people, all bald, all armed, surrounded me.  They didn't have to beat me - though they would - their simple presence was meanacing enough, and the constant feeling of doom that pervaded the zone was crushing down on me.
 
-<<if $accidentallyTeleported>>
-* [[Wake up|wake]]
+
+:: Nothing [nocall]
+And, just like that, I was in the hub.
+
+I'd have stood up, but I was already standing.  Had Koloman pulled me out of storage already?  It seemed strange that I'd have reappeared in the hub rather than in Guillory's office, but it didn't seem-
+
+In the middle of the hub, where I'd expected a statue or fountain to be, was a brick obelisk.  It towered straight up but seemed poised to fall down atop me at any moment.  I tried to step away from it but found that I could barely move.
+
+The hub got its name because every neighborhood in New Detroit had a road leading to it.  Headlights lit suddenly on each of these roads.  I hadn't seen a single car in the city the entire time I'd been there, but I was slowly beginning to realize that this wasn't the city at all.
+
+The cars lurched forward, as one.
+
+[[Escape]]
+
+
+
+:: still dreaming [nocall]
+I was in a city devoid of all life.  Grey and unyielding though it was, at least New Detroit had people.  As I walked through the city, it grew larger and I grew smaller, until I fell through the holes in the asphalt.
+
+No. Fuck this shit.  If I was dreaming I was going to dream myself up a [[tropical island]].
+
+
+
+:: tropical island [nocall]
+The sun, the sand, the surf.  I couldn't feel any of them, because I was dreaming, but at least holding on to that fact ensured I wasn't going to get run over by any cars.
+
+<<if $seenGreeter>>
+I relaxed only for a few moments before I realized where I was - The Greeter's sand paradise.  My mood soured.  Even in my dreams I couldn't escape New Detroit.
 <<else>>
-* [[Wake up|pvp_teleport]]
+I laid back on the sand and simply relaxed, waiting.  Koloman would get me out of here soon, I hoped.
 <<endif>>
 
+I seemed to have a fair amount of control over my dreams, now that I'd recognized them for what they were, but I couldn't seem to stop them from changing.  The ocean and the sky started to blur together and everything became indistinct as the dream moved on.
+
+[[Dream]]
 
 
-:: apartment_exterior
-741 McGraw St, Apartment #1336 - I knew it was my home without having to consult any notes, or even having to be told.  And it was a good thing, too - the apartment complex was one of dozens, exactly alike, copied-and-pasted like the insurance waiting room furniture on a massive scale.
 
-<<if $tourInProgress>><<silently>>
-<<set $tourInProgress=0>>
-<<set $hasHadTour=1>>
-<<set $ferroInPerson=0>>
-<<set $sleepy=1>>
-<<endsilently>>
-Samahd smiled and gestured magnificently to the particular grey slab that was my building.  "And here we have nearly come full circle.  This is your home, and where our tour ends."
+:: dream_3 [nocall]
+I dreamed the last moments of my life - pinned between the unyielding metal bumper of the car that'd killed me and the building it'd crashed into.  My lungs were crushed and useless, my ribs destroyed, but I needed to breathe, I couldn't //breathe//
 
-He turned to face down the road.  "For reference, this way leads back to the insurance offices, and over there leads to the neighborhood people around here call "The Hub".  It's an easy way to get across the city without having to walk through half the districts, but it's not on the tour because it's boring.  Keep in mind that this is a tour that features an insurance company, so when I say 'boring', I mean //boring//.
+<<if $clue1>>[[You don't need to breathe in dreams, remember?|dream_3_control]]<<endif>>
 
-"And finally," with a deft twist of his hand, he produced a business card like the one Guillory had given me.  "Here's my card.  I like to keep in touch with the people I show around, and I'm always willing to answer questions.  Feel free to call anytime."<<set $cardFerro=1>>
+* [[Wake up|wake]]
 
-With a hearty wave goodbye, Tour Guide Samahd Ferro walked away down the street.
-<<endif>>
-<<if $sleepy>>I was getting somewhat drowsy; heading up to the apartment didn't seem like a bad idea.<<endif>>
 
-* [[Head indoors|apartment_bldg_interior]]
-* [[Go to the Insurance building|insurance_exterior]]
-* [[Go to the Hub|Hub]]
-* [[Visit the Retirement Home|asylum_exterior]]
 
+:: dream_3_control [nocall]
+Hell, for that matter I didn't need to breathe in what passed for real life nowadays.
+
+Car:  Gone.  Building:  Gone.  Me:  Going away to a tropical paradise.<<set $lucid=1>>
+
+That is, if I didn't [[wake up|wake]] first.
 
 
 :: asylum_exterior
@@ -2817,6 +3082,10 @@ Just as quickly, though, he seemed to come out of his reverie.  "Well, isn't tha
 
 * [[Follow him|apartment_exterior]]
 <<else>>
+Next to the iron gate was a small call-box featuring little more than a button and a sign that read "Official business only"
+
+* [[Press the button|asylum_greet]]
+
 * [[Go home|apartment_exterior]]
 * [[Go to the Hub|Hub]]
 * [[Visit the Train Station|train_exterior]]
@@ -2848,9 +3117,144 @@ Conspicuously absent from my tour was the fact that a road went over the tracks 
 <<endif>>
 
 
+:: pvp_street_normal
+I kept my eyes peeled - my reflexes may have suffered in their transition to a digital world, but my observational habits were still in place.  Long practice had honed my ability to tell who to avoid and who would avoid me.  Hell, just the act of looking more attentive was scaring away some of the scavengers.
+
+The PvP zones had the feel of a post-apocalyptic wasteland, except the buildings were all perfectly undamaged.  Still, most were uninhabited.  Everyone looked at everyone else furtively, sizing each other's threat potential.
+
+One place stood out as actually being active:  The large neon "Motor Casino" sign and poorly-animated neon roulette wheel indicated what was likely the only actual business operating in the zone.
+
+* [[Head back to the train station|train_exterior]]
+* [[Enter the casino|casino_interior]]
+
+
+
+:: casino_interior
+The "Motor Casino" only vaguely tried to live up to its motif - there was a large novelty keno wheel that looked like a tire, but that was about it.  Notably similar to real casinos were the slots, the blackjack tables, the roulette wheels, and the large twitchy bouncers.
+
+<<if $storagePlan>>I tried to breathe steadily to calm myself, but that only reminded me that I could't breathe.  Oh well, I'd come here for a reason:  To lose, and [[lose big]].<<endif>>
+* [[Casually play some games for a bit|casino_gamble]]
+* [[Exit the casino|pvp_street_normal]]
+
+
+
+:: casino_gamble
+<<set $money=$money-20>>I tried the slots.  They proved about as interesting as betting on paint drying, so I tried blackjack for a while longer.  It was more fun but also cost me more money - I ended up losing 20 days to the place.
+
+<<if $storagePlan>>If I was going to bankrupt myself, I'd have to find a [[faster way|lose big]].
+<<endif>>
+* [[Exit the casino|pvp_street_normal]]
+
+
+
+:: Escape [nocall]
+I woke up in a hospital.  A surge of sudden emotion ran through me - was I alive?
+
+I had a strange certainty that I was, a certainty that I didn't question even for a moment.  It'd all been a misunderstanding.  Not the part where I spent all my time and got stored:  No, I hadn't actually died in the first place!
+
+I was here, back in my real life, and everything was going to be fine.
+
+I walked to the parking garage to find my car.  There were thousands of identical vehicles, none of them mine.  They all started up and backed out of their parking places.  Toward me.
+
+[[Wait]]
+
+
+
+:: dream_realize [nocall]
+I woke up in a hospital.  A surge of sudden emotion ran through me - was I alive?
+
+I had a strange certainty that I was, but I immediately questioned it.  It was this same, strange hospital that I'd "woken up in" before.  
+
+<<if $seenAsylum>>
+Now that I was thinking about it, I knew where I'd seen this hospital before.  I was in the Retirement Home.  Why was I dreaming about this place?
+<<else>>
+Now that I thought about it, I'd never even seen this before other than in my dreams.
+<<endif>>
+
+Dreams... dammit, I was [[still dreaming]]!
+
+
+
+:: Dream [nocall]
+I don't know how many more dreams I had.  I usually found myself in various places in New Detroit.  Places I'd been: the elevator, the PvP zones.  Places I'd never seen before:  Other people's apartments, expensive theaters.
+
+Each time I'd be threatened by the car that killed me, but all that did was remind me I was dreaming.  Then the dream would dissolve and I'd move on to the next.
+
+[[Awaken]]
+
+
+
+:: post_dream [conversation nocall getclue]
+"Am I really back?"  I asked.  I was relatively certain at this point that I was, but wanted to make sure.  For all I knew this was some sort of Storage wellness-check that Guillory performed every ten years before throwing people back into the digital dreamland.
+
+Digital dreamland.  It'd been true, then.  [[People dreamed in Storage]].  It wasn't just my brain papering over the trauma of being decanted, either - I'd had some measure of control in there.
+
+
+
+:: People dreamed in Storage [conversation nocall]
+<<silently>>
+<<set $clue1=1>>
+<<set $storagePlan=0>>
+<<update>>
+<<endsilently>><<display "convo_guillory">>
+
+
+
+:: dream_4 [nocall]
+This time the dream wasn't nearly as distinct as the others.  I had an impression of impossibly tall buildings outlined in neon, flying cars, dying dozens of times.  Any time I tried to take an action, the dream shifted and I was someone and somewhere else.
+
+<<if $clue1>>[[Think of the island.|dream_4_control]]<<endif>>
+
+* [[Wake up|wake]]
+
+
+
+:: dream_4_control [nocall]
+I forced myself to visualize the sandy beach I'd seen while I was in storage.  The sun, the feel of warmth on my skin that I hadn't felt in life since I'd been to New Providence, the sand...<<set $lucid=1>>
+
+It didn't really work, but it kept me distracted until I [[woke up|wake]].
+
+
+
+:: asylum_greet
+<<if $investigating>>
+  <<if $nftAsylum>>
+  The iron gate buzzed and then loudly grated open.  It wasn't exactly welcoming.  The fact that they'd had to go through extra trouble to make a simulated gate make all that ominous noise made it even less welcoming.  I walked through.
+
+    <<display "asylum_interior">>
+  <<else>>
+  "<<print $gender>> Hallivert?" a voice emanated from the call-box.
+
+"That's me." I replied, trying to keep the wariness out of my voice.  The callbox appeared to have neither a speaker nor a microphone.  There weren't any cameras, either.
+
+"We were sent a directive from Nickolai Koloman to allow you into the facilities.  Please, enter."
+
+With a buzz and a squeak of rusty iron, the gate swung open.
+
+* [[Enter|asylum_interior]]
+
+  <<endif>>
+<<else>>
+There was no answer.  After a few minutes of waiting, I hit the button again, again to no response.  Somehow they knew without even asking that I wasn't official business.
+
+<<display "asylum_exterior">>
+<<endif>>
+
+
+:: ac_elevator
+"Of course, <<print $gender>> Hallivert, I'll page Nurse Fletcher."
+
+That wasn't what I'd asked him to do, but he was already on the phone.  I'd been hoping to look around without supervisory oversight, but something told me that the receptionist knew what I was up to.
+
+He interrupted my thoughts.  "She's on her rounds - she'll meet you at the elevator."<<set $hasCalledNurse=1>>
+
+* [[You had more questions|convo_asylum]]
+
+
+
 :: pvp_entrance
-<<if $mugged>>
-I crossed the tracks and the trademark dread of the PvP zone settled over my mind.  Now that I knew what it was it was a lot easier to handle.  The fear I'd first felt on entering was a dull sensation of unease in the back of my mind.  I could deal with that.
+<<if $mugged or $storagePlan>>
+I crossed the tracks and the expected dread of the PvP zone settled over my mind.  Now that I knew what it was it was a lot easier to handle.  The fear I'd felt on entering was a dull sensation of unease in the back of my mind.  I could deal with that.
 
 * [[Continue down the street|pvp_street_normal]]<<else>>
 The moment I crossed the tracks, I knew I'd made a mistake.  Somewhere in the back of my mind, fear started to creep in.  It was formless, aimless, and sourceless, but it was real and suddenly almost overpowering.  I wasn't someone who scared easily, but this was something else.
@@ -2864,8 +3268,18 @@ The streets around me were empty.  There was absolutely no reason to feel this w
 
 
 
-:: pvp_street_normal
-TODO
+:: pvp_mugging [nocall]
+The sensation of danger in no way faded as I continued down the street.  I looked around me, but saw nothing but the usual dark streets.
+
+I didn't see my attackers until it was far too late.
+
+The man in front of me had emerged from an alleyway.  He was bald and had a swastika tatooed on the top of his head.  His scars were both aged and recent, and he regarded me with the sort of smile that I knew from experience meant he was going to enjoy beating the shit out of me.
+
+"Hand it over, newbie."
+
+* [[Refuse|pvp_mugging_force]]
+* [[Ask what the hell this is about|pvp_mugging_questions]]
+
 
 
 :: pvp_mugging_force [nocall]
@@ -2906,6 +3320,343 @@ The card acted like a normal holo-phone.  That meant it could be voice activated
 
 
 
+:: Wait [nocall]
+I didn't even own a car, why would I have gone to the parking garage?
+
+My surroundings were muddy, indistinct.  I could hear the noise of the engines, but they were diminishing with the rest of the world.
+
+How had I gotten to the parking garage?  There hadn't been an elevator or stairs.  I didn't even remember walking.  Something was not right.
+
+[[What?]]
+
+
+
+:: Dreaming? [nocall]
+And, just like that, I was in the hub.
+
+I'd have stood up, but I was already standing.  Had Koloman pulled me out of storage already?  It seemed strange that I'd have reappeared in the hub rather than in Guillory's office, but it didn't seem-
+
+In the middle of the hub, where I'd expected a statue or fountain to be, was a brick obelisk.  It towered straight up but seemed poised to fall down atop me at any moment.  I tried to step away from it but found that I could barely move.
+
+The hub got its name because every neighborhood in New Detroit had a road leading to it.  Headlights lit suddenly on each of these roads.  I hadn't seen a single car in the city the entire time I'd been there, but I was slowly beginning to realize that this wasn't the city at all.
+
+The cars lurched forward, as one.
+
+[[Escape]]
+[[I'm dreaming.  This is a dream.  It isn't real.|dream_realize]]
+
+
+
+:: Awaken [conversation nocall]
+The afterlife still had wood paneling.
+<<silently>>
+<<set $hasWallet=1>>
+<<set $guilloryInPerson=1>>
+<<set $money=18250>>
+<<update>>
+<<endsilently>>
+I took in my surroundings.  Rather than being confined to the waiting room as I had the first time I'd been here, I'd apparently merited a trip direct to Guillory's office.
+
+Guillory himself sat at the desk across from me, looking at me carefully.
+
+"Welcome back, <<print $gender>> Hallivert."
+
+* [[Reply|post_dream]]
+* [[--I'm still dreaming|dream_test]]
+
+
+
+:: dream_test [conversation nocall]
+I shut my eyes and tried to visualize the tropical island I'd made my way to in the dream.  If I was still dreaming, I'd be able to go there, and then-
+
+"<<print $gender>> Hallivert?"  Guillory interrupted my concentration.  "Are you okay?"
+
+Well, nobody had interrupted me in the dreams or, for that matter, talked to me at all.  This was as real as the rest of New Detroit.
+
+<<display "post_dream">>
+
+
+
+:: dream_mugged [nocall]
+I dreamed I was back in the PvP zones.  A mob of people, all bald, all armed, surrounded me.  They didn't have to beat me - though they would - their simple presence was meanacing enough, and the constant feeling of doom that pervaded the zone was crushing down on me.
+
+<<if $clue1>>[[Dream that you're a superhero|dream_mugged_control]]<<endif>>
+
+<<if $accidentallyTeleported>>
+* [[Wake up|wake]]
+<<else>>
+* [[Wake up|pvp_teleport]]
+<<endif>>
+
+
+
+:: dream_mugged_control [nocall]
+As satisfying as it would be to pound down the miscreants of New Detroit, wearing spandex and underwear on the outside of my clothes wasn't really my style.  I just made the streets empty again, and enjoyed the scenery until I [[woke up|wake]].<<set $lucid=1>>
+
+
+
+:: asylum_interior
+<<if not $seenAsylum and $clue1>>
+A strong feeling of deja vu overcame me as I entered the retirement home.  I //knew// this place, and it only took me a few moments to realize why:  I'd dreamed it when I was in storage.  Just like Iva's counselor Marcus, I'd seen a vision of a place I'd never been.
+<<else>>
+The retirement home was a mix between a hospital and the least exciting college dorm in history.
+<<endif>>
+<<set $seenAsylum=1>>
+  A [[receptionist|convo_asylum]] - the man who'd talked to me through the call-box, presumably - sat alertly behind a curved desk.
+
+* [[Visit the common area|asylum_lounge]]
+* [[Head down the hall|asylum_hall]]
+* [[Leave the retirement home|asylum_exterior]]
+
+
+
+:: convo_asylum
+"Ah, <<print $gender>> Hallivert."  The receptionist smiled the standard service industry smile.  "How may I help you?"
+
+<<sugarchoice "ac_what" "What is this place?">>
+<<sugarchoice "ac_hidden" "I've heard you've got more than just retirees here">>
+<<sugarchoice "ac_lookaround" "Mind if I take a look around?">>
+<<if not $hasCalledNurse>>
+<<sugarchoice "ac_investigate" "I'm investigating what happened to Iva Koloman">>
+/%%/<<else>>
+<<sugarchoice "ac_fletcher" "Where's Nurse Fletcher?">>
+<<sugarchoice "ac_iva" "Tell me about Iva">>
+/%%/<<endif>><<if $stuckAtElevator>>
+<<sugarchoice "ac_elevator" "I need a key for the elevator">>
+/%%/<<endif>>
+
+* [[You have no more questions|asylum_interior]]
+
+
+
+:: ac_what
+"Shady Acres Retirement home is a place for long-standing residents of the simulation to relax before becoming stored, or simply to escape the burdens associated with a long memory."
+
+I could tell two things from his speech:  One, that this was straight out of a memorized sales pitch, and two, that I'd be entirely unable to interrupt him.
+
+"We offer spacious private and shared rooms with views of the city and easy access to our garden and patio. Our friendly and trained staff is committed to providing residents with personal care in an environment that fosters social, emotional, physical and intellectual well-being."
+
+Thinking he was done, I was about to change the subject.  He wasn't.
+
+"We employ a well-trained and courteous staff that is available 24-hours a day. We offer a wide variety of fun and engaging activities and exercise programs for our residents. In addition to general care, our facility is also licensed to care for residents with adaptation syndrome, dementias, or other psychological issues related to extended stays."
+
+He fell silent.  I watched him for any sign that he was about to continue on to another page of his mental brochure.  Eventually, I changed the subject.
+
+* [[You have more questions|convo_asylum]]
+
+
+
+:: ac_fletcher
+"One moment, please."  It occurred to me where I'd heard the receptionist's voice before.  He had to have been the person they'd tapped to be the calm placid voice of corporate phone-trees everywhere.
+
+He turned to the phone and dialed a few numbers, then said some words I couldn't hear.
+
+"Nurse Fletcher is currently on her rounds, but she will meet you at the elevator should you require her."
+
+* [[You had more questions|convo_asylum]]
+
+
+
+:: ac_lookaround
+"Mr. Koloman asked us to cooperate with you in every way; you have the run of the entire hospital."  the receptionist answered with feigned ease.
+
+I glanced down the hallway, then back.  "You've got to have some of these rooms locked up."
+
+The man behind the counter looked as though he really wished I hadn't thought of that.  "Should you encounter any area that you cannot enter, simply return here and you will be provided with a key."
+
+I was about to say something else when he interrupted me.  "But, <<print $gender>> Hallivert... if at all possible, you should have a nurse escort you.  For your own safety."
+
+It was the sole sentence he'd said without his cheery receptionist persona - his face and his gaze were completely serious.
+
+* [[You had more questions|convo_asylum]]
+
+
+
+:: pvp_mugging_questions [nocall]
+"Wh-" was as far as I got before I felt an impact and explosive pain from my kidney.  A set of hands from behind me grabbed me by the collar and held me up.
+
+The neo-nazi still in front of me shook his head amusedly.  "I love the smell of newbie in the morning.  Your wallet, that's what.  Hand it over."
+
+* [[Refuse|pvp_mugging_force]]
+* [[Give in|pvp_mugging_ok]]
+
+
+
+:: pvp_mugging_ok [nocall]
+"Fine." I spat.  "Take it."  I pulled out the wallet and threw it at their feet.  One of the thugs who'd been behind me picked it up and started thumbing through it.
+
+<<display "pvp_wallet">>
+
+
+:: pvp_guillory [nocall]
+"Guillory" the insurance man looked as calm and impeccably dressed as ever.
+
+The meaty hand over my mouth prevented me from replying, but the nice thing about holo-phones in this situation is that they work both ways.  Guillory could clearly see what was happening.
+
+"Ah, you crossed the tracks." he didn't look at all concerned about the situation.  "One moment."
+<<silently>>
+<<set $mugged=1>>
+<<set $guilloryInPerson=1>>
+<<set $sleepy=1>>
+<<endsilently>>
+There was a lurch and I was suddenly falling sideways.  The world dissolved around me just as quickly and then was immediately pressed back into place with a different locale.
+
+I was in Guillory's office, my wallet in my hand.
+
+"You probably have some questions."  Guillory said.
+
+* [[Ask him|convo_guillory]]
+
+
+
+:: What? [nocall]
+I was in a city devoid of all life.  Grey and unyielding though it was, at least New Detroit had people.  As I walked through the city, it grew larger and I grew smaller, until I fell through the holes in the asphalt.
+
+As I plummeted, one thought crossed my mind:
+
+[[I've had this dream before.]]
+
+
+
+:: I've had this dream before.
+I was in the Power of Two, sitting at a table.  Women, and a few men, wandered through the area, casually looking for clients.  They didn't seem to react to my presense at all.
+
+A car horn blared from outside.  Come out, it said.  Come out and face me.  It was that same damn car again, the car that had killed me, the car I kept dreaming about-
+
+[[Dreaming?]]
+
+
+
+:: sleep [nocall]
+<<silently>>
+<<set $money = $money - 1>>
+<<set $dreams = $dreams + 1>>
+<<if $dreams gt 4>>
+  <<set $dreams = 1>>
+<<endif>>
+<<endsilently>>
+<<if $clue3>>
+I woke almost immediately; now that I'd realized the entire city was dreamlike, I found I no longer dreamed.  Or I was dreaming all the time; there didn't seem to be much of a difference.
+
+<<display "wake">>
+<<else if $dreams eq 1>>
+<<display "dream_1">>
+<<else if $dreams eq 2>>
+<<display "dream_2">>
+<<else if $dreams eq 3>>
+<<display "dream_3">>
+<<else if $mugged>>
+<<display "dream_mugged">>
+<<else if $dreams eq 4>>
+<<display "dream_4">>
+<<endif>>
+
+
+:: apartment_exterior
+741 McGraw St, Apartment #1336 - I knew it was my home without having to consult any notes, or even having to be told.  And it was a good thing, too - the apartment complex was one of dozens, exactly alike, copied-and-pasted like the insurance waiting room furniture on a massive scale.
+
+<<if $tourInProgress>><<silently>>
+<<set $tourInProgress=0>>
+<<set $hasHadTour=1>>
+<<set $ferroInPerson=0>>
+<<set $sleepy=1>>
+<<endsilently>>
+Samahd smiled and gestured magnificently to the particular grey slab that was my building.  "And here we have nearly come full circle.  This is your home, and where our tour ends."
+
+He turned to face down the road.  "For reference, this way leads back to the insurance offices, and over there leads to the neighborhood people around here call "The Hub".  It's an easy way to get across the city without having to walk through half the districts, but it's not on the tour because it's boring.  Keep in mind that this is a tour that features an insurance company, so when I say 'boring', I mean //boring//.
+
+"And finally," with a deft twist of his hand, he produced a business card like the one Guillory had given me.  "Here's my card.  I like to keep in touch with the people I show around, and I'm always willing to answer questions.  Feel free to call anytime."<<set $cardFerro=1>>
+
+With a hearty wave goodbye, Tour Guide Samahd Ferro walked away down the street.
+<<endif>>
+<<if $sleepy>>I was getting somewhat drowsy; heading up to the apartment didn't seem like a bad idea.<<endif>>
+
+* [[Head indoors|apartment_bldg_interior]]
+* [[Go to the Insurance building|insurance_exterior]]
+* [[Go to the Hub|Hub]]
+* [[Visit the Retirement Home|asylum_exterior]]
+
+
+
+:: acc_iva
+The woman's motions increased in amplitude with her voice.  "I can't believe they killed her!"
+
+"Who killed her?"  On the one hand, this person seemed absolutely certain she knew.  On the other, "mental ward" would not be an inaccurate description of the room I was in.
+
+"The same people who did this to me."  She replied wearily.  "They took away my ability to teleport.  They took away the dreams that were real."
+
+"Who?"  I pressed.
+
+"I don't KNOW!"  This was punctuated with harder movements of her hand.  "They took that away, too.  Left me like this."
+
+* [[You have more questions|convo_care_wing]]
+
+
+
+:: acc_typing
+The woman laughed.  "Oh, you're new!"  Her arms remained completely still in front of her, but her fingers made sudden jabbing motions while she spoke.  "I'm typing of course!"
+
+Even if it hadn't been an almost entirely obsolete skill, I'd still have doubted her.  Most notably, due to her lack of keyboard.
+
+"Why?"  I asked.
+
+"Because I don't want to be here."  She answered - and typed.  "I knew computers back when the only way to interact with them //was// to type.  So I'm trying as hard as I can go get out of here by interacting the way I used to when I was outside."<<set $heardTypist=1>>
+
+"How will that get you out?"  I wasn't certain I should be entertaining her delusion.
+
+"Because believing is reality here."  was the calm reply.  <<if $clue3>>"But you know that, don't you?  You've seen through the dream to the reality is the dream, and you can walk through that sight to wherever you can see."<<endif>>
+
+* [[You have more questions.  Lots more questions.|convo_care_wing]]
+
+
+
+:: ac_hidden
+The receptionist's friendly facade dropped briefly to reveal a moment of uncomfortability.  Then it returned, as though it'd never been called into question.
+
+"Well, of course.  In the early days of the system people's minds were not always transferred whole or intact." he stressed the word 'early', as though trying to remind me that this sort of thing couldn't happen nowadays despite the fact that I was investigating something very similar.  "We're a medical facility as well, we help who we can, and provide pallative care for those we cannot cure."
+
+"Where are they?"  I asked, feigning innocence.
+
+I thought I saw a flicker of the discomfort he'd displayed earlier, but if it had been there it was gone without a trace.  Instead, he answered:  "There is a care wing on every floor."
+
+* [[You have more questions|convo_asylum]]
+
+
+
+:: ac_iva
+His expression perked up for just a moment.  "Iva was great.  I mean, she's Koloman's daughter so she's got enough money she didn't need the job, but she took it anyway, and then donated everything back to the hospital."
+
+He shook his head in mock disbelief.  "She was great with the retirees, with the patients, she was just... great."  his smile faded as he realized he was using the past tense, and what that signified.
+
+* [[You had more questions|convo_asylum]]
+
+
+
+:: ac_investigate
+<<set $hasCalledNurse=1>>"Ah, that explains Mr. Koloman's interest.  You'll probably be wanting to see Coma Carl.  I'll get Nurse Fletcher to escort you."
+
+Before I could ask one of the many questions that statement had raised, the receptionist was speaking on a phone.  Interestingly enough, it was a dull black rotary like the one that'd woken me up what seemed like an eternity ago.
+
+"She'll be with us in a moment"  The receptionist said finally, after hanging up.
+
+"Who is Coma Carl," I voiced one of the questions, "and why do I need to be escorted to see him?" came another.
+
+Before I could get an answer, Nurse Fletcher came around the corner.  "<<print $gender>> Hallivert, I understand you're here by the behest of one of the home's patrons?"  Her tone was formally polite, but had an undercurrent that communicated her dislike for the sort of management politics she was now having to deal with.
+
+"He's here about Iva."  the receptionist said, almost as an aside.
+
+"Oh."  Nurse Fletcher's professional manner disappated - her shoulders fell, the carefully constructed mask of formality she'd contorted her face into relaxed - she looked like an ordinary if tired person suddenly.  "My apologies, detective.  It has been a trying time; everyone here loved Iva.  Reporters have been attempting to get an official statement on the cause from us this entire week.  When I heard that Mr. Koloman was throwing his weight around, I thought it would be to a journalist."
+
+I waved away the apology.  "Perfectly understandable."  I said even if I didn't feel it.
+
+Nurse Fletcher nodded.  "Thank you.  In any case, you'll likely want to see Coma Carl.  Come meet me at the elevator when you're ready.  Feel free to talk to whoever you'd like, but I'd warn you against talking too closely to the Greeter if you see her.  She's... complicated."
+
+With those confusing words and no explanation, she walked down the hall and away from the reception area.
+
+* [[You had more questions|convo_asylum]]
+
+
+
 :: bed
 The cot was, as I'd already guessed, exactly as featureless as the chairs in the waiting room had been.  I made a mental note to try lying on the floor some time to see if it felt any different whatsoever.
 
@@ -2923,7 +3674,8 @@ A leather-colored [[couch]] took the center stage, sitting across from an irrita
 
 The kitchen nook featured a [[refrigerator]] and a few empty cupboards.  So far as I could tell, there was no laundry or bathroom - hopefully they weren't necessities in this world.
 
-A [[bed]] that seemed barely a step up from a cot was shoved into the far corner.  <<if $sleepy>>Despite the fact that it is the very minimum required for an object to be called a 'bed', it was possibly the most inviting space I'd seen all day.  All I wanted to do was [[sleep]].<<endif>>
+<<if $storagePlan eq 1>>I needed to [[write a note]] for Koloman to 'find' after I'd been stored.
+/%%/<<endif>>A [[bed]] that seemed barely a step up from a cot was shoved into the far corner.  <<if $sleepy>>Despite the fact that it is the very minimum required for an object to be called a 'bed', it was possibly the most inviting space I'd seen all day.  All I wanted to do was [[sleep]].<<endif>>
 
 * [[Go out into the hallway|floor_13]]
 
@@ -2977,44 +3729,131 @@ A wistful smile came over his face.  "Iva?  Oh, it's been so long since I've tal
 
 
 
-:: pvp_mugging [nocall]
-The sensation of danger in no way faded as I continued down the street.  I looked around me, but saw nothing but the usual dark streets.
+:: acc_crazy
+"The annoying part about not being crazy," she said, typing on her invisible typewriter as she spoke, "is that I know //exactly// how crazy I sound."
 
-I didn't see my attackers until it was far too late.
+She paused for a moment, her eyes closed in light frustration, as though she'd had this conversation before.  "I don't expect anyone to understand but, just for a moment, I'd like you to consider your circumstances.
 
-The man in front of me had emerged from an alleyway.  He was bald and had a swastika tatooed on the top of his head.  His scars were both aged and recent, and he regarded me with the sort of smile that I knew from experience meant he was going to enjoy beating the shit out of me.
+You're dead.  You died in the regular world and woke up here.  You're awake here because a group of tiny computers you couldn't even see learned how to be your brain, and those computers talked to this computer that's the simulation, and it agreed to run you here."
 
-"Hand it over, newbie."
+And here is just a simulation.  This bed, those walls" - her hands were busy typing, so she indicated the objects in question by jerking her head in their direction - "they're not real.  This whole building, isn't real.  You are not real."
 
-* [[Refuse|pvp_mugging_force]]
-* [[Ask what the hell this is about|pvp_mugging_questions]]
+With that she shrugged.  "So yes, I sound crazy.  But not any crazier than the rest of this place.  And that includes you."
 
-
-
-:: pvp_mugging_ok [nocall]
-"Fine." I spat.  "Take it."  I pulled out the wallet and threw it at their feet.  One of the thugs who'd been behind me picked it up and started thumbing through it.
-
-<<display "pvp_wallet">>
+* [[You have more questions|convo_care_wing]]
 
 
-:: pvp_guillory [nocall]
-"Guillory" the insurance man looked as calm and impeccably dressed as ever.
 
-The meaty hand over my mouth prevented me from replying, but the nice thing about holo-phones in this situation is that they work both ways.  Guillory could clearly see what was happening.
+:: convo_care_wing
+The woman seems friendly enough as I approached her.  "Hey." she volunteered.  Her fingers made three staccato movements as she spoke.
 
-"Ah, you crossed the tracks." he didn't look at all concerned about the situation.  "One moment."
-<<silently>>
-<<set $mugged=1>>
-<<set $guilloryInPerson=1>>
-<<set $sleepy=1>>
-<<endsilently>>
-There was a lurch and I was suddenly falling sideways.  The world dissolved around me just as quickly and then was immediately pressed back into place with a different locale.
+<<sugarchoice "acc_typing" "What's that you're going as you talk?">>
+<<sugarchoice "acc_iva" "Tell me about Iva">>
+<<if $heardTypist>>
+<<sugarchoice "acc_crazy" "You realize how crazy this sounds, right?">>
+<<sugarchoice "acc_escape" "How can you leave the simulation?">>
+  <<if $clue1>>
+  <<sugarchoice "acc_dream" "I went to storage and dreamed, are those the dreams you're talking about?">>
+  /%%/<<endif>>
+  <<if $clue3>>
+  <<sugarchoice "acc_teleport" "I believe you.  I can teleport, myself.">>
+  /%%/<<endif>>
+/%%/<<endif>>
 
-I was in Guillory's office, my wallet in my hand.
+* [[You have no more questions|asylum_care_wing]]
 
-"You probably have some questions."  Guillory said.
 
-* [[Ask him|convo_guillory]]
+
+:: asylum_care_wing
+The care wing leaned much harder on the 'hospital' side of the balance.  Most notably, the beds were hospital beds, and privacy was provided by curtains rather than individual rooms.
+
+The room was empty except for one woman, propped up in her bed, her hands locked straight in front of her.
+
+* [[Talk to her|convo_care_wing]]
+* [[Go back to the hallway|asylum_hall]]
+
+
+
+:: asylum_hall
+The hallway of the retirement home tried - and failed - to strike a balance between medical and home.  The floors were a polished linoleum but the walls were a faux-welcoming plaster painted brown.
+
+The hallway continues ahead toward the elevator.  A door to the east is labeled "Care wing - 1F"
+
+* [[Head to the elevator|asylum_greeter_exterior]]
+* [[Enter the care wing|asylum_care_wing]]
+* [[Go back to Reception|asylum_interior]]
+* [[Head to the common area|asylum_lounge]]
+
+
+
+:: asylum_lounge
+The retirement home common area appeared to have been converted from a cafeteria at some point - it still had the large long tables I'd have expected to see in a cheap restaurant.  The tables didn't feature anyone eating, however, mostly just 
+
+One side of the room was dedicated to the television - a small boxy model almost entirely identical to the one in my own apartment.  A half dozen people sat in front of it, watching a play I didn't recognize.
+
+* [[Try to talk to one of the retirees|convo_lounge]]
+* [[Head back to the entrance|asylum_interior]]
+* [[Go down the hall|asylum_hall]]
+
+
+
+:: convo_lounge
+After a while, I managed to get the attention of one of the people sitting at the table.  "You don't look like you're here to visit your grandfather."  he said.
+
+<<sugarchoice "acl_what" "What's this place like?">>
+<<sugarchoice "acl_iva" "Tell me about Iva.">>
+<<sugarchoice "acl_others" "What can you tell me about the other people here?">>
+<<sugarchoice "acl_history" "Were you around when the simulation started up?">>
+<<sugarchoice "acl_storage" "Why stay here instead of Storage?">>
+
+* [[You have no more questions|asylum_lounge]]
+
+
+
+:: acl_what
+I could have gotten the official line from the receptionist, but something told me that any resident picked at random would give me a better answer.
+
+The resident in question shrugged.  "It's living.  Sit in my room and read, come down here to play a game of cards or talk."
+
+I still counted it a better answer than the official one.
+
+* [[You have more questions|convo_lounge]]
+
+
+
+:: acl_iva
+A wistful smile overcomes the man's face.  "Ah, Iva!  She hasn't been here in a while."
+
+At the mention of the girl's name, a few of the man's fellow retirees started paying attention.
+
+"You didn't hear?" the woman next to him said, her eyes not moving from her bridge hand.  "For God's sake Morty, watch the news!"
+
+Morty sighed and closed his eyes.  "I'd heard.  I just don't want to believe it.  Can't you give a man his peace?"
+
+"Sorry."  I said.  "I'm looking into what happened to her."
+
+"Don't worry about it."  Morty said plainly.  "And good for you.  Someone ought to be.  Some uppity not-retired-soon-enough-cop came through here yesterday claiming to do the same thing.  Did a lot of yelling and glaring.  Don't see how she's going to make any kinda headway with that attitude.  You're nicer."
+
+"Iva brought us food."  The woman who'd spoken up earlier spoke again.  "Can you believe that?  A luxury like food and she hands it out like... well, like candy."
+
+"She knew how to play bridge."  Morty commented.  "Nobody knows how to play bridge anymore."
+
+The bridge-playing woman looked up from her hand finally.  "I hope you find the bastard who did this.  Iva deserved better."
+
+* [[You had more questions|convo_lounge]]
+
+
+
+:: acl_storage
+The muted but ever-present babble of conversation in the room dipped suddenly in response to the question.
+
+"Listen," the man across from me near-whispered, "nobody here likes storage.  People who come out of storage don't come out right, you understand?  It doesn't happen much anymore because when you do pull people out, they do things like rant about dreams or think they've architected part of the city or can cross it in a single step."  he shook his head.  "I'll take the retirement home, thanks."
+
+"But Iva was stored once, she seemed okay."  I pointed out.
+
+The man frowned.  "I don't want to speak ill of the... not present.  But Iva said she dreamed in storage<<set $ivaStorage=$ivaStorage+1>>.  Iva thought the whole city was made of people who dreamed.  Iva, bless her heart, she *sleepwalked*.  The woman's older than some of us in this room and she not only still needed to sleep, but she walked in her sleep."  He shook his head.  "She's the best thing to ever come out of storage, but not even she came out whole."
+
+* [[You have more questions|convo_lounge]]
 
 
 
@@ -3098,13 +3937,90 @@ I raised an eyebrow - that seemed like the sort of confidential information he'd
 
 
 
-:: pvp_mugging_questions [nocall]
-"Wh-" was as far as I got before I felt an impact and explosive pain from my kidney.  A set of hands from behind me grabbed me by the collar and held me up.
+:: acc_escape
+"Have you ever tried to contact the outside world?"  she asked me. 
 
-The neo-nazi still in front of me shook his head amusedly.  "I love the smell of newbie in the morning.  Your wallet, that's what.  Hand it over."
+I wasn't sure if this was related to my question, but I answered her as best I could.  "No, but I just recently got here."  It hadn't really even occurred to me to try.
 
-* [[Refuse|pvp_mugging_force]]
-* [[Give in|pvp_mugging_ok]]
+"You won't." she repied.
+
+"Well I didn't really have that many friends on the outside-"
+
+"No," she interrupted, "you //won't// try.  I don't know you, I can't predict your behavior, but I do know that thoughts of contacting the outside world are prevented."
+
+"Prevented."  I replied skeptically.  "Then how are we having this conversation?"
+
+"We're not."  She said.  "I'm typing the conversation and you're reading it.  As silly as this action appeares, it has a number of practical benefits."
+
+Considering we were talking and her typing continued to be on an imaginary machine, I doubted very much what she was saying.
+
+"My point is," she continued, "if I behave in a way that's utterly different than anyone else in the simuation, it'll stand out as anomolous.  I'll signal the outside this way.  And once that's done?  I mean, I know my real body is dead, but simulating minds in a computer is possible, it's being done right now.  Take a smaller-scale sim like this, hook up two cameras, two microphones, a speaker, and a robot body.  It'll be like I never died."
+
+* [[You had more questions|convo_care_wing]]
+
+
+
+:: acc_dream
+"Ah, you're one of the lucky few?"  she replied.  I'd almost gotten used to her stegonographer routine.  "I wouldn't go around telling people about it, if I were you.  Iva could get away with it because, frankly, she's rich.  If you're rich and crazy you're 'eccentric'.  You and I, we go on about dreams in storage and we'll have some very mandatory doctor's appointments."
+
+* [[You have more questions|convo_care_wing]]
+
+
+
+:: acc_teleport
+She smiled wistfully and, for just a moment, let her arms relax.  Then they were up in their previous posture, typing away at nothing.
+
+"I'd almost forgotten about that."  she said.  "I used to be able to do that too, before I got checked in here.  It's funny - I used to brag about it, if you can believe it, and nobody would believe me.  Seemed strange, I mean, I could literally //disappear// in front of people and yet they didn't believe it?"
+
+I nodded.  This was sounding familiar.
+
+"I figured it out."  she added offhandedly.  "The memetic immunization package people are given on upload prevents them from realizing it's happening.  Their brain papers over your disappearance.  They think you walked out, when they try to remember it.  You'd have to directly confront someone, put yourself in a situation where there's absolutely no other explanation.
+
+I wouldn't recommend it, unless you'd like to be my roomate."
+
+* [[You had more questions|convo_care_wing]]
+
+
+
+:: acl_others
+The man across the table grimaced.  "The real bad ones are up on the fifth floor.  Gods preserve me from that kinda fate."  he shook his head.
+
+"How bad?"  I asked.
+
+He looked me in the eye.  "I don't know - and you don't want to either.  Listen, the people we got on this floor are bad enough.  The typist and his tic, the greeter and her weird pocket sand."
+
+I wanted to ask what the hell he meant by 'pocket sand', but could tell he was already wanting to change the subject.
+
+* [[You have more questions|convo_lounge]]
+
+
+
+:: acl_history
+He laughed.  "Don't you know it's not polite to ask someone their age?"
+
+I still wasn't exactly certain how age worked in the simulation.  Judging from the people surrounding me, you stayed whatever age you were when you died - there was a mix of all ages in the room, but it was definitely top-heavy.
+
+If I'd actually offended the man, he appeared to take it in stride.  "But to answer your question, yes.  Lots of us were."  He gestured to the room.  "We're here precisely because we don't like talking about it."
+
+The woman next to him was in the midst of a bridge game but found time to make herself heard.  "Felt like I had a flu the whole damn time until they started Storage up."
+
+This strange comment got a few nods.  The man I'd been talking to made a gesture then turned back to me.  "It was bad back then, okay?  Us folks below the fifth floor were lucky.  Folks up there, and in the invalid wings, they got hurt by the shoddy state of things back then."
+
+"It's settled down."  the bridge player said.  "Until recently, of course."
+
+"Of course."  the man replied, a weary bitterness in his voice.
+
+* [[You have more questions|convo_lounge]]
+
+
+
+:: write a note
+I took the paper that Koloman had given me and wrote down a few things that would sound like clues but weren't actually helpful.  "Atlantis is Dreamers", for instance.  They were certainly cryptic enough to be clues.
+
+Once I'd filled the paper with authentic-looking notes, I hid it under the bed.<<set storagePlan=2>>
+<<set $wroteNote=1>>
+
+* [[Return your attention to the living room|apartment_interior]]
 
 
 
@@ -3139,6 +4055,167 @@ I wasn't sure I believed it, but I wasn't an expert.  I didn't think Marcus was 
 "Anyway, that's long-term.  Short term is your ordinary computer storage that you'd save stuff off to.  It's on-site - in case you change your mind or circumstances change or they need you for some reason.  Doesn't happen much, but it's part of the system that's been in place this whole time so they never got around to replacing it."
 
 * [[You have more questions|convo_marcus]]
+
+
+
+:: asylum_greeter_exterior
+At the end of the hallway were two doors - one the standard elevator doors, and the other notable only due to the fact that, unlike all the other doors in the hallway, it was open.
+
+A woman stood just inside the threshold of the second door, smiling outward.  She waved at me briefly and said "Greetings."
+
+<<if $hasCalledNurse>>
+Nurse Fletcher was on the other side of the hallway, trying to simultaneously watch for my approach and keep an eye on the woman in the doorway.  She seemed relieved when I got there.
+/%%/<<endif>>
+
+* [[Talk to the greeter|greeter_intro]]
+* [[Head into the elevator|asylum_elevator]]
+
+
+
+:: greeter_intro
+<<if $nftGreeter>>
+<<display "convo_greeter_outside">>
+<<else>>
+  <<if $hasCalledNurse>>
+  I turned to talk to the woman who'd greeted me, only to be interrupted by Nurse Fletcher.  "<<print $gender>> Hallivert!"  she said suddenly.
+
+I glanced back.  "What?"
+
+Nurse Fletcher seemed to be composing herself.  "The patients on this floor are all relatively harmless, with the exception of this woman."
+
+"I'm flattered."  The woman replied.
+
+I looked around at the door.  "Dangerous patients have an open-door policy?"
+
+"This one does."  Nurse Fletcher replied in a tone that said she'd very much like to change it.  I wondered why it wasn't in her power.
+
+"Is she safe to talk to?"  I asked both of them.
+
+"No." they both answered.
+
+"But I can't stop you." Nurse Fletcher said.
+
+* [[Talk to the greeter|convo_greeter_outside]]
+* [[Step away from the door|asylum_greeter_exterior]]
+
+<<endif>>
+
+
+:: convo_greeter_outside
+<<if $greeterQuestions lte 2 or $canEnterGreeter>>"So, they call me the Greeter" the woman said from her side of the door.  "Because of that whole 'greetings' schtick."
+
+<<sugarchoice "greeter_danger" "Are you really dangerous?">>
+<<sugarchoice "greeter_escape" "They don't let you out of there?">>
+<<sugarchoice "greeter_name" "What's your name?">>
+<<sugarchoice "greeter_truth" "What's the truth about this place?">>
+  <<if $canEnterGreeter>>
+    <<if $hasCalledNurse>>
+      <<sugarchoice "greeter_why_not" "Why doesn't Nurse Fletcher want me to come in?">>
+/%%/<<endif>>
+* [[Enter the room|greeter_interior]]
+* [[You have no more questions|asylum_greeter_exterior]]
+  <<else>>
+* [[You have no more questions|asylum_greeter_exterior]]
+  <<endif>>
+<<else>>
+<<display "convo_greeter_questioning">>
+<<endif>>
+
+
+:: greeter_interior [notp]
+<<if $seenGreeter>>
+I watched my step this time as my surroundings changed from the austere sterility of the asylum to the warm welcoming beach paradise that Greeter had constructed for herself.
+
+<<display "convo_greeter">>
+<<else>>
+I glanced around at the interior of the room again - bare linoleum floor, tiled walls (at least, I reflected, they weren't padded), featureless drop ceiling.  I didn't see what the big deal was.  I stepped into-
+
+I fell, hard, onto the sand, getting some into my mouth.  I spat, standing up rapidly in response to the sudden disorientation, and I suddenly understood what the big deal was.
+
+I was standing on a beach.  The sound of the ocean echoed just below the cries of a few gulls.  The sun shined in a cloudless blue sky.
+
+<<if $clue1>>
+I knew where I recognized this place from - I'd dreamed it.  In Storage, I'd wished myself away to a tropical island, and this had been it.
+/%%/<<endif>><<display "convo_greeter">>
+
+<<endif>>
+
+
+:: convo_greeter [notp]
+Greeter was lying on a beach chair, underneath a parasol.  She had a bathing suit on and was sipping on something that looked extremely alcoholic.
+
+<<sugarchoice "greeter_wtf" "What the hell just happened?">>
+<<sugarchoice "greeter_escape_2" "I can see why you don't want to leave">>
+<<sugarchoice "greeter_how" "How did you end up with an island paradise?  Are you a hacker?">>
+<<sugarchoice "greeter_leave" "So am I free to go?  You're not going to keep me in here?">>
+<<sugarchoice "greeter_iva" "Tell me about Iva">>
+<<sugarchoice "greeter_old_times" "Tell me about the early days of the sim.">>
+<<if $heardGreeterHid>>
+<<sugarchoice "greeter_stay" "Who did you hide in here before?">>
+/%%/<<endif>>
+
+<<if not $greeterKey>>
+* [[You have no more questions|greeter_exit]]
+<<else>
+* [[You have no more questions|asylum_greeter_exterior]]
+<<Endif>>
+
+
+:: greeter_how [notp]
+"I am a hacker in the //very// old meaning of the term.  Originally, the word didn't have the negative connotations it doesn't have today."  She grinned at me.  "Keep looking at me like that and I'll change this beach party to a classroom, it'd serve you right."
+
+Whatever look I'd reconfigured my face into apparently didn't pass muster, because without even a transition, I was seated at a bench in an old-style one-room schoolhouse.  Greeter stood - still in her swimsuit and holding her drink - at the chalkboard, where the word "hacker" was written.
+
+"A hacker", Greeter said in her best teacher-sounding voice, "is a person who enjoys exploring the details of programmable systems and how to stretch their capabilities."  Her authority was only somewhat undercut by the bathing suit.
+
+"The old definition."  I said.
+
+"Ahem.  <<print $gender>> Hallivert, in this classroom we raise our hands before we speak."
+
+When I'd gone to school, I'd buzzed in when I wanted to talk, but judging from my surroundings we were going by a far older standard.  I raised my hand.
+
+"<<print $gender>> Hallivert?" Greeter called on me.
+
+"That's the old definition?"  I repeated myself.
+
+"Yes, <<print $gender>> Hallivert.  It is by that definition that I am a hacker.  I helped build this simulation - that is why my computers are part of it, and though they're generations behind the main sim as you can tell they still get the job done."
+
+"You're the first programmer I've seen in this place."  I replied, keeping my hand up just in case.
+
+She nodded.  "Strange, isn't it?  Hacker types like me love simulated afterlives."
+
+She made a gesture and the classroom vanished, replaced once more by the beach paradise.  "Class dismissed."
+
+* [[You have more questions|convo_greeter]]
+
+
+
+:: greeter_old_times [notp]
+"You're making me feel old, Hallivert."  she said, shaking her head.  I realized belatedly that, if she actually //had// been involved in the building of the system, she was easily half a century older than I was.  She barely looked 25.
+
+"Sorry."  I replied.
+
+"I'm young in spirit and in avatar."  She confessed, "but old in one particular way:  I absolutely cannot resist the urge to talk about the good old days.  Pull up a chair."
+
+I was about to object that there weren't any other chairs for me to pull up, but of course then there were.  Well, it was a stool, but it'd get the job one.  I pulled it up.
+
+"I suspect you might have asked some of the residents of the asylum here what their experience in the olden days was, and I suspect you did not get a very useful answer."
+
+I didn't reply; I got the feeling she was mostly being rhetorical at this point.
+
+"That's not because they're holding out on you."  She continued.  "It's because the early days were a shitshow.  We weren't always the biggest sim, but we were one of the first, and so we had to pioneer half the uploading techniques that are common today.  Didn't always get it right.  If you've been to the fifth floor, you know what I'm talking about."
+
+"But it got better."  I gestured to our surroundings.
+
+"That's the strange thing."  She said.  "It didn't, at first.  It got //worse//.  Preservationists wanted everyone saved, so they let anyone in, and the more people we let in the worse the errors got.  Got to the point where the entire system started glitching."
+
+I gestured again to the beach, the surf and the sand.  "But it did get better."
+
+Greeter nodded.  "It did.  The thing is, nobody knows //how// it got better.  Nobody remembers it.  A lot of my memory's missing due to various compromises and safeguards that have been put into place over time, but this particular change is missing from everyone's memory.
+
+"The official story is that they brought Storage online and that stabilized everything."  She shrugged.  "Sounds reasonable to me."
+
+* [[Ask more questions|convo_greeter]]
 
 
 
@@ -3225,25 +4302,253 @@ He glanced up at me.  "Later, after they woke me up, I worked at the retirement 
 
 He shrugged, looking away.  "I don't know what to believe.  Did I dream a place that not only had I never seen before, but wasn't even real?  I couldn't have.  It's impossible."
 
-He turned his eyes toward the television.  "But I saw on the news about Iva.  The impossible's already happened."
+He turned his eyes toward the television.  "But I saw on the news about Iva.  The impossible's already happened."<<set $fullMarcus=1>>
 
 * [[You have more questions|convo_marcus]]
 
 
 
-:: pvp_entrance
-<<if $mugged>>
-I crossed the tracks and the trademark dread of the PvP zone settled over my mind.  Now that I knew what it was it was a lot easier to handle.  The fear I'd first felt on entering was a dull sensation of unease in the back of my mind.  I could deal with that.
+:: asylum_elevator
+<<if $hasCalledNurse>>
+I stepped into the elevator next to Nurse Fletcher.
 
-* [[Continue down the street|pvp_street_normal]]<<else>>
-The moment I crossed the tracks, I knew I'd made a mistake.  Somewhere in the back of my mind, fear started to creep in.  It was formless, aimless, and sourceless, but it was real and suddenly almost overpowering.  I wasn't someone who scared easily, but this was something else.
+* [[Go to the first floor|asylum_greeter_exterior]]
+* [[Go to the fifth floor|fifth_floor]]
+<<else>>
+I pressed the call button a few times, but nothing happened.
 
-The streets around me were empty.  There was absolutely no reason to feel this way.
+"Hey."  The greeter called from the other side of the hallway.  "They don't let people go between floors un-escorted.  It's dangerous."  Her tone was simultaneously serious and teasing, as though she was giving actual advice she knew wouldn't be received.<<set $stuckAtElevator=1>>
 
-* [[Continue down the street|pvp_mugging]]
+* [[Talk to the greeter|greeter_intro]]
+* [[Go back down the hallway|asylum_hall]]
 <<endif>>
 
-* [[Go back to the train station|train_exterior]]
+
+:: greeter_escape
+"No, no, you misunderstand.  I can leave this room any time I want.  It's just a terrible, //terrible// idea."
+
+I looked around myself.  "I mean, it's no picnic out here, but it's got to be better than what's going on in there." I gestured to the barren room she inhabited.
+
+"You'd be surprised." she replied with a knowing smile.  "In here I'm free.  Out there is the prison."<<set $greeterQuestions=$greeterQuestions+1>>
+
+* [[You have more questions|convo_greeter_outside]]
+
+
+
+:: greeter_danger
+"I'm only dangerous in my own domain."  she gestured around to her room which, now that I was looking at it, I noticed was entirely bare.  "But yes, if you came in here I could hurt you and nobody could stop me."  Her voice was chillingly casual.
+
+"You're not really putting me at ease."  I replied.
+
+Greeter laughed.  "I'm not trying to, I'm trying to be truthful.  But the truth is you probably don't have anything to fear from me.  I mean, the whole 'I could hurt you' thing has been true your entire life up until you ended up here, hasn't it?  You could have been stabbed by a stranger at any point, without even the courtesy of them telling you so beforehand."<<set $greeterQuestions=$greeterQuestions+1>>
+
+* [[You have more questions|convo_greeter_outside]]
+
+
+
+:: greeter_escape_2 [notp]
+Greeter laughed.  "Exactly!  Why go to that locked down reality-like experience when I can have a non-stop beach party?"
+
+Her smile faded somewhat.  "It's more than that, though.  The beach party isn't the only thing this area can do.  These are my computers, I can make them do whatever I want.  Out there I'd just be a nobody, and... there's more."
+
+She looked at me solemnly for a moment before continuing.  "The dreams would take me away."
+
+I shrugged.  "I'd say that sounds crazy, but I did just walk directly from a hallway to a deserted island."
+
+Greeter smiled again.  "I'm glad to see you've got some perspective.  I don't even know what that sentence means, 'the dreams would take me away', but I know it's true, so..." she trailed off, shrugging.  "I stay here.  It's a blast."
+
+* [[You have more questions|convo_greeter]]
+
+
+
+:: greeter_wtf [notp]
+Greeter laughed.  "I'm going to just come right out and admit this - watching people walk through that door and fall on their ass into the sand never //ever// gets old."
+
+"No, I mean, how am I on a beach-"
+
+"I know, I know."  Greeter still seemed to be trying to hold back laughter.  "Welcome to my slice of the grid, Hallivert.  This is the ocean," she gestured as she spoke, "this is my beach chair, and this is my endless drink." she illustrated the latter by drinking it.
+
+"I don't understand."  I understated.
+
+"Okay."  Greeter sat up in her chair and spun to face me.  "When I said that I've been here since the beginning, I mean that I've been here since the //beginning//.  The computers you are now simulated on belong to me.  That's why nobody outside can pull you out, that's why they can't even move my room.  It's part of the sim."
+
+* [[You have more questions|convo_greeter]]
+
+
+
+:: greeter_stay [notp]
+"I don't know."  She raised a hand to forestall my objection.  "My memory is shot, okay?  I've lived a very long time and, in that process, I've had to make a few compromises when it comes to keeping my mind sane.  One of those is that I lose memories."
+
+"Do you know what you've lost?"  I asked gingerly.
+
+She shrugged.  "I remember that I did hide someone, a long time ago.  I remember that I had a normal, proper name.  There might be more things that I don't remember that I don't remember, there's no way to know."
+
+"If I find out-"
+
+"It's pointless."  She replied.  "You're not the first one to make that offer and, in the event you do in fact find out you won't even be the first person to make good on that offer.  But it doesn't stick.  I've got some kinda mental block about it."
+
+* [[You have more questions|convo_greeter]]
+
+
+
+:: greeter_name
+"I'm the Greeter."  she answered, looking somewhat confused at the obvious question.
+
+"Sorry, I mis-spoke." I corrected.  "I'm Sam Hallivert.  I'm looking for your //name//."
+
+"Ah," she said, understanding coming over her features.  "That's an easy one.  I've forgotten it."<<set $greeterQuestions=$greeterQuestions+1>>
+
+* [[You have more questions|convo_greeter_outside]]
+
+
+
+:: greeter_truth
+<<if $hasCalledNurse>>
+Nurse Fletcher frowned.  "<<print $gender>> Hallivert, we've been nothing but cooperative-"
+
+Greeter interrupted.  "Come on, Louise."  She was smiling that I've-got-a-secret smile of hers the entire time.  It wasn't helping.  "<<print $gender>> Hallivert asked the question, and I'll answer."
+
+Fletcher didn't seem happy about this, but she also didn't interfere.
+/%%/<<endif>>"Forgive the nurse, <<print $gender>> Hallivert.  She claims to abhor the politics and nice-making of the managerial role, but in truth she wants nice things to be said about the asylum.  And it is not a nice place."
+
+"Asylum?"  I asked.
+
+Greeter nodded.  "Indeed.  Our nurse is not lying about the purpose of this place, just hiding the worst cases.  Not out of a desire to keep the reputation of this place intact - though that is no doubt part of it - but more out of a desire to keep you from becoming physically ill."
+
+"I was a private detective in life."  I replied simply.  "I've seen a lot of things and kept my lunch."
+
+"I don't doubt your resolve.  But this place is different.  There are people who can't keep a coherent form because they've been here so long they've forgotten what they were like in the first place.  There are others who are so afraid of death that they've locked their minds into the final agonizing moments of their life, not realizing they need not die at all.
+
+There is horror here, Hallivert.  But it is not intentional horror.  Merely unfortunate circumstance."<<set $greeterQuestions=$greeterQuestions+1>>
+
+* [[You have more questions|convo_greeter_outside]]
+
+
+
+
+:: convo_greeter_questioning [notp]
+Before I could speak my next question, Greeter held up a hand.
+
+"I've played the part of greeter, answered your questions up to this point.  Now I have a question for you."
+
+"Fair enough." I begrudgingly admitted.  I wasn't sure I was going to like the qustion.
+
+<<display "convo_greeter_question">>
+
+
+:: greeter_answer_volunteer [notp]
+<<if $hasCalledNurse>>
+"You are a good liar, Hallivert."  Greeter said.  She glances past you.  "Nurse Fletcher, however, could use a better poker face."
+<<else>>
+"Somehow, I don't think that's the truth."  The Greeter said finally.  "Oh, you're a good liar, but there's something else, something more going on."
+<<endif>>
+
+<<display "convo_greeter_question">>
+
+
+:: greeter_leave [notp]
+"There's the door" She gestured.
+
+I glanced back at the area of the beach I'd fallen into.  There was a door standing on the beach, hanging open.  Through it, I could see the halls of the retirement home I'd left.  <<if $hasCalledNurse>>Nurse Fletcher paced the halls worriedly, glancing into the door every so often.  If she saw me, she gave no sign.<<endif>>
+
+"This place looked empty from the other side."  I observed.
+
+"Yup.  Did that on purpose."  she said.  "I control what people see from the outside; most of the time it's just me, but I can mask or show whatever I want.  Right now, for instance, the room looks entirely empty to people outside.  This conversation's private."
+
+"Is that something you have to do often?"
+
+She shook her head.  "Nah, most people aren't worth the trouble.  Haven't had to hide someone since what's-his'name."<<set $heardGreeterHid=1>>
+
+* [[You have more questions|convo_greeter]]
+
+
+
+:: greeter_iva [notp]
+"Great girl."  Greeter said.  "She brought the people here food, always good for a conversation.  She listened to the nurses and never came in here, though, so I couldn't show her a party like this one." she took a drink to emphasize this last point.  "But, overall, great girl."
+
+I didn't want to ask the next question, but I had to.  "You seem much more powerful than almost anyone else in this sim, and that includes Koloman."
+
+"Thank you," Greeter's response was cool, she knew I was going somewhere with this.
+
+"So I have to ask.  Did you kill Iva?"
+
+Greeter shook her head.  "I understand that you have to ask the question.  No, I did not kill Iva.  She never entered the room and, believe me, with my reputation they keep a careful log of everyone who enters the room.  You can't see cameras in the sim but they're here, and one of them is trained on my door.  So feel free to check the logs."
+
+* [[You have more questions|convo_greeter]]
+
+
+
+:: greeter_exit [notp]
+I turned to walk back along the beach to the strange doorway that would, I hoped, bring me back to the slightly more sane world of the asylum.
+
+"Wait" Greeter said from behind me.  I turned and she was standing immediately in front of me.  I hadn't heard her stand up, but then again it wasn't as though she needed to.  
+
+"Before you go." she started without apology for nearly startling me backward through the door.  "You should know something.  Some of my memory's gone because it was taken from me.  Some of it is gone due to corruption when the early storage experiments failed.  But some... some I removed //purposely//.  I gave it to people to seed on the outside.  Should I ever be forcibly evicted and forget who I am, they are there, clues to who I was and who was important to me.  I can give you a key to those memories, a way to recognize them when you see them."
+
+"What's the catch?"  I asked reflexively.  There was always a catch.
+
+"The last time I spoke to Iva, she stood on the other side of that door and asked me a number of questions very similar to the ones you've asked me.  And I gave her the same information I'm about to give you.  I never saw her again."
+
+I nodded.  "I'm following in her footsteps anyway."  I glanced down at the sand to make sure this wasn't the literal truth, but apparently the simulation was not high enough fidelity for me to leave footprints at all.
+
+Greeter nodded and handed a large rusty key over to me.  It vanished the moment I touched it, but I knew I'd find it on my keyring if I looked.
+
+"Good luck."  Greeter said.<<set $greeterKey=1>>
+
+* [[Exit|asylum_greeter_exterior]]
+
+
+
+:: Untitled Passage 1
+
+
+
+:: greeter_why_not
+Greeter grinned.  "Because she's afraid I won't give you back."
+
+I glanced over at Nurse Fletcher.  "I could give you a line about patient confidentiality, but... she's right.  If you walk in there, you're entirely in her power.  She doesn't have to let you go, or even keep simulating you."
+
+Greeter scoffed at this.  "Once.  Once someone came in here and stayed that way, and you couldn't just accept that he did so of his own free will."  She glanced over at me.  "I kept him hidden."<<set $heardGreeterHid=1>>
+
+"What?"  I asked.  This was making little sense.
+
+Greeter shrugged.  "It would take a very long time to explain, and a very short time to show.  Come into the room, and see."
+
+* [[You have more questions|convo_greeter_outside]]
+
+
+
+:: convo_greeter_question [notp]
+"Why," she asked simply, "are you here?"
+
+<<sugarchoice "greeter_answer_iva" "I'm investigating the murder of Iva Koloman">>
+<<sugarchoice "greeter_answer_volunteer" "I'm thinking of volunteering here">>
+<<sugarchoice "greeter_answer_moving" "I'm thinking of moving in">>
+
+
+
+:: greeter_answer_moving [notp]
+Greeter laughed out loud.  "You've been here a month.  Noir though you think you might be, nobody's that cynical.  Come on."
+
+<<display "convo_greeter_question">>
+
+
+
+:: greeter_answer_iva [notp]
+Greeter nodded.<<set $canEnterGreeter=1>>  "That's a very good cause, and there's a lot I can answer for you."
+
+"Oh?" I replied warily.  I wasn't sure I could take anyone at their word in this place.
+
+"I've been here since the beginning."  Greeter said.
+<<if $hasCalledNurse>>
+I glanced over at Nurse Fletcher.  "It's true."  the woman answered.  "Though she's still dangerous."
+/%%/<<endif>>
+"What do you want me to do?"  I asked.
+
+"Simple."  Greeter said, taking a few steps back.  "Come in to my room."
+
+* [[Enter the room|greeter_interior]]
+* [[You have more questions to ask first|convo_greeter_outside]]
 
 
 
