@@ -34,7 +34,7 @@ p16
 (dp17
 S'text'
 p18
-V<<silently>>\u000a<<set $dreams=0>>\u000a<<set $emilNervous=0>>\u000a<<set $ivaStorage=0>>\u000a<<set $greeterQuestions=0>>\u000a<<endsilently>>The afterlife had wood paneling.\u000a\u000aIt'd ordinarily be an absurd thing to notice.  I was dead, after all, in the hereafter's own waiting room.  You'd think there'd be pearly gates, or at least a hint of brimstone, but instead?\u000a\u000aIt was a waiting room.  Wood paneling on the walls, an oblong receptionist counter complete with bored-looking [[receptionist]] doing her best not to make eye contact... it was only missing some out of date magazines and it'd be perfect.  I'd have to mention it to whoever ran the place.\u000a[[Debug]]\u000a* [[Wait|intro_wait]]
+V<<silently>>\u000a<<set $dreams=0>>\u000a<<set $emilNervous=0>>\u000a<<set $ivaStorage=0>>\u000a<<set $greeterQuestions=0>>\u000a<<set $cronusName="-----">>\u000a<<endsilently>>The afterlife had wood paneling.\u000a\u000aIt'd ordinarily be an absurd thing to notice.  I was dead, after all, in the hereafter's own waiting room.  You'd think there'd be pearly gates, or at least a hint of brimstone, but instead?\u000a\u000aIt was a waiting room.  Wood paneling on the walls, an oblong receptionist counter complete with bored-looking [[receptionist]] doing her best not to make eye contact... it was only missing some out of date magazines and it'd be perfect.  I'd have to mention it to whoever ran the place.\u000a[[Debug]]\u000a* [[Wait|intro_wait]]
 p19
 sS'created'
 p20
@@ -1212,7 +1212,7 @@ Vnotp
 p378
 asbsa(dp379
 g12
-I00
+I01
 sg13
 (lp380
 F570.0
@@ -1223,7 +1223,7 @@ Tiddler
 p381
 (dp382
 g18
-V<<if $hasWallet>>\u000a[[Wallet]]\u000a/%%/<<endif>>\u000a<<if $clue1>>\u000a[[Clue #1]]\u000a/%%/<<endif>>\u000a<<if $clue3>>\u000a[[Clue #3]]\u000a/%%/<<endif>>
+V<<if $hasWallet>>\u000a[[Wallet]]\u000a/%%/<<endif>>\u000a<<if $clue1>>\u000a[[Clue #1]]\u000a/%%/<<endif>>\u000a<<if $clue2>>\u000a[[Clue #2]]\u000a/%%/<<endif>>\u000a<<if $clue3>>\u000a[[Clue #3]]\u000a/%%/<<endif>>
 p383
 sg20
 g21
@@ -1759,7 +1759,7 @@ Tiddler
 p544
 (dp545
 g18
-V"The Power of Two" sounded like it ought to be a bordello, and as I got closer to the building I could tell that this impression was, if anything, understated.\u000a\u000aPosters of naked women covered every available surface of the building, in many cases obscuring each other and in some places overlapping with the neon sign naming the building.  A very few ordinary signs were visible:  One proclaiming "Titanic Tits!" and another in much smaller type explaining that the cover charge to enter was 1 day.\u000a<<if $tourInProgress>>\u000aSamahd gestured to the display and wiggled his eyebrows suggestively.  "I'm not here to judge!".\u000a\u000aGrinning, he donned his tour-guide voice.  "This, as you've probably guessed, is New Detroit's premiere whorehouse.  Athena - that's the AI that runs this sim - doesn't let people just turn their brain's pleasure center on and ignore the world, so sex is still very much a thing!  It's got some benefits over the real thing.  No diseases, nobody can possibly get pregnant, nobody's forced into it because you can't be forced into anything here - it's pretty much the best brothel ever, anywhere."\u000a\u000aHe shrugs.  "That's the official line, anyway.  It's kinda pricey for my taste.  Head up this way and I'll show you my hangout."\u000a\u000a* [[Follow him|bar_ocho_exterior]]\u000a<<else>>\u000a* [[Go up the street to Bar Ocho|bar_ocho_exterior]]\u000a* [[Go to the Hub|Hub]]\u000a* [[Head to the insurance office|insurance_exterior]]\u000a<<endif>>\u000a
+V"The Power of Two" sounded like it ought to be a bordello, and as I got closer to the building I could tell that this impression was, if anything, understated.\u000a\u000a<<if $greeterKey>>\u000aIt wasn't as though I'd memorized what the outside of the bawdy house looked like, but I could tell at first glance that something was //wrong//.  It'd changed somehow.\u000a\u000aLooking more closely at the posters, they no longer depicted the naked women as they had before:  Instead, the curves were replaced with scythes, the flesh with metal.  Large signs proclaimed "//Titan//ic tits".  Something strange was happening here.\u000a<<else>>\u000aPosters of naked women covered every available surface of the building, in many cases obscuring each other and in some places overlapping with the neon sign naming the building.  A very few ordinary signs were visible:  One proclaiming "Titanic Tits!" and another in much smaller type explaining that the cover charge to enter was 1 day.\u000a<<endif>>\u000a<<if $tourInProgress>>\u000aSamahd gestured to the display and wiggled his eyebrows suggestively.  "I'm not here to judge!".\u000a\u000aGrinning, he donned his tour-guide voice.  "This, as you've probably guessed, is New Detroit's premiere whorehouse.  Athena - that's the AI that runs this sim - doesn't let people just turn their brain's pleasure center on and ignore the world, so sex is still very much a thing!  It's got some benefits over the real thing.  No diseases, nobody can possibly get pregnant, nobody's forced into it because you can't be forced into anything here - it's pretty much the best brothel ever, anywhere."\u000a\u000aHe shrugs.  "That's the official line, anyway.  It's kinda pricey for my taste.  Head up this way and I'll show you my hangout."\u000a\u000a* [[Follow him|bar_ocho_exterior]]\u000a<<else>>\u000a* [[Enter the Brothel|po2_interior]]\u000a* [[Go up the street to Bar Ocho|bar_ocho_exterior]]\u000a* [[Go to the Hub|Hub]]\u000a* [[Head to the insurance office|insurance_exterior]]\u000a<<endif>>\u000a
 p546
 sg20
 g21
@@ -11889,57 +11889,20 @@ g12
 I00
 sg13
 (lp3632
-I10
-aF8270.0
+F3090.0
+aF8130.0
 asg15
 (itiddlywiki
 Tiddler
 p3633
 (dp3634
 g18
-S''
+VI turned to walk back along the beach to the strange doorway that would, I hoped, bring me back to the slightly more sane world of the asylum.\u000a\u000a"Wait" Greeter said from behind me.  I turned and she was standing immediately in front of me.  I hadn't heard her stand up, but then again it wasn't as though she needed to.  \u000a\u000a"Before you go." she started without apology for nearly startling me backward through the door.  "You should know something.  Some of my memory's gone because it was taken from me.  Some of it is gone due to corruption when the early storage experiments failed.  But some... some I removed //purposely//.  I gave it to people to seed on the outside.  Should I ever be forcibly evicted and forget who I am, they are there, clues to who I was and who was important to me.  I can give you a key to those memories, a way to recognize them when you see them."\u000a\u000a"What's the catch?"  I asked reflexively.  There was always a catch.\u000a\u000a"The last time I spoke to Iva, she stood on the other side of that door and asked me a number of questions very similar to the ones you've asked me.  And I gave her the same information I'm about to give you.  I never saw her again."\u000a\u000aI nodded.  "I'm following in her footsteps anyway."  I glanced down at the sand to make sure this wasn't the literal truth, but apparently the simulation was not high enough fidelity for me to leave footprints at all.\u000a\u000aGreeter nodded and handed a large rusty key over to me.  It vanished the moment I touched it, but I knew I'd find it on my keyring if I looked.\u000a\u000a"Good luck."  Greeter said.<<set $greeterKey=1>><<set $cronusName="Cronus">>\u000a\u000a* [[Exit|asylum_greeter_exterior]]\u000a
 p3635
 sg29
 (lp3636
-sg20
-g21
-((I2013
-I11
-I24
-I0
-I24
-I9
-I6
-I328
-I0
-tp3637
-(dp3638
-tp3639
-Rp3640
-sg28
-g3640
-sg26
-S'Untitled Passage 1'
-p3641
-sbsa(dp3642
-g12
-I01
-sg13
-(lp3643
-F3230.0
-aF8130.0
-asg15
-(itiddlywiki
-Tiddler
-p3644
-(dp3645
-g18
-VI turned to walk back along the beach to the strange doorway that would, I hoped, bring me back to the slightly more sane world of the asylum.\u000a\u000a"Wait" Greeter said from behind me.  I turned and she was standing immediately in front of me.  I hadn't heard her stand up, but then again it wasn't as though she needed to.  \u000a\u000a"Before you go." she started without apology for nearly startling me backward through the door.  "You should know something.  Some of my memory's gone because it was taken from me.  Some of it is gone due to corruption when the early storage experiments failed.  But some... some I removed //purposely//.  I gave it to people to seed on the outside.  Should I ever be forcibly evicted and forget who I am, they are there, clues to who I was and who was important to me.  I can give you a key to those memories, a way to recognize them when you see them."\u000a\u000a"What's the catch?"  I asked reflexively.  There was always a catch.\u000a\u000a"The last time I spoke to Iva, she stood on the other side of that door and asked me a number of questions very similar to the ones you've asked me.  And I gave her the same information I'm about to give you.  I never saw her again."\u000a\u000aI nodded.  "I'm following in her footsteps anyway."  I glanced down at the sand to make sure this wasn't the literal truth, but apparently the simulation was not high enough fidelity for me to leave footprints at all.\u000a\u000aGreeter nodded and handed a large rusty key over to me.  It vanished the moment I touched it, but I knew I'd find it on my keyring if I looked.\u000a\u000a"Good luck."  Greeter said.<<set $greeterKey=1>>\u000a\u000a* [[Exit|asylum_greeter_exterior]]\u000a
-p3646
-sg29
-(lp3647
 Vnotp
-p3648
+p3637
 asg20
 g21
 ((I2013
@@ -11951,16 +11914,1037 @@ I11
 I6
 I328
 I0
-tp3649
-(dp3650
-tp3651
-Rp3652
+tp3638
+(dp3639
+tp3640
+Rp3641
 sg28
-g3652
+g3641
 sg26
 Vgreeter_exit
-p3653
-sbsasS'scale'
+p3642
+sbsa(dp3643
+g12
+I00
+sg13
+(lp3644
+F1970.0
+aF8130.0
+asg15
+(itiddlywiki
+Tiddler
+p3645
+(dp3646
+g18
+V<<if $nftFifthFloor>>\u000aThe fifth floor was a howling madhouse, the expression of a century's worth of asylum memes all put into place at once and given voice.\u000a\u000a* [[Return to the first floor|asylum_greeter_exterior]]\u000a* [[Visit Coma Carl|convo_coma_carl]]\u000a<<else>>\u000a<<set $nftFifthFloor=1>>Nurse Fletcher stepped into the elevator after me and inserted a key into the wall.  It was the first time I'd seen someone use a key as an actual key.\u000a\u000a"Allow me to offer my apologies for all the extra security, <<print $gender>> Hallivert.  You'd be safe enough on your own on every other floor, but the fifth floor is the ward for the more... problematic patients."\u000a\u000a"Crazy, you mean."  I replied bluntly.\u000a\u000aFletcher frowned.  "The stigma of mental illness has existed for centuries and using terms like 'crazy' does not help the matter.  The vast majority of the afflicted are not harmful to others."\u000a\u000a"But the folks who are, they rate the fifth floor?"\u000a\u000a"Yes.  The people on the fifth floor are the most unfortunate of those who have been harmed by the system.  There are people whose minds are so changed that they've edged around the anti-PvP protocols, for one."\u000a\u000aI blinked.  "Anti-PvP?"\u000a\u000a"They can hurt you."  The nurse replied.  "And you wouldn't be able to hurt them back."\u000a\u000aThe elevator door opened.\u000a\u000a* [[Walk down the hallway|asylum_fifth_tour]]\u000a\u000a<<endif>>
+p3647
+sg29
+(lp3648
+Vnotp
+p3649
+asg20
+g21
+((I2013
+I11
+I24
+I14
+I58
+I34
+I6
+I328
+I0
+tp3650
+(dp3651
+tp3652
+Rp3653
+sg28
+g3653
+sg26
+Vfifth_floor
 p3654
+sbsa(dp3655
+g12
+I00
+sg13
+(lp3656
+F1970.0
+aF8270.0
+asg15
+(itiddlywiki
+Tiddler
+p3657
+(dp3658
+g18
+VThe rest of the rest home had tried to disguise its medical nature, but there was no such atttempt at this point - the pretense was gone.  This floor was a ward.\u000a\u000aEach room appeared not to have a door - I was guessing they were set up similar to Greeter's room, in that staff could cross the boundary but the patients could not.  The pessimist in me said I shouldn't count on that, but the realist pointed out that the patients would long since have escaped if that weren't the case.\u000a\u000a"LET ME SLEEP!" As though to demonstrate this, a man in the ward nearest the elevator had come to his feet, screaming.  He threw himself at the threshold and was stopped as though it were solid.  "Please, I'm begging you!  I need sleep!"\u000a\u000a"We're not keeping him awake."  Nurse Fletcher informed me quietly as she walked down the hall.\u000a\u000a* [[Follow her|asylum_fifth_tour_2]]\u000a
+p3659
+sg29
+(lp3660
+Vnotp
+p3661
+asg20
+g21
+((I2013
+I11
+I24
+I15
+I11
+I20
+I6
+I328
+I0
+tp3662
+(dp3663
+tp3664
+Rp3665
+sg28
+g3665
+sg26
+Vasylum_fifth_tour
+p3666
+sbsa(dp3667
+g12
+I00
+sg13
+(lp3668
+F1970.0
+aF8410.0
+asg15
+(itiddlywiki
+Tiddler
+p3669
+(dp3670
+g18
+VNurse Fletcher tried to set an example of professional detachment as we walked down the hall and I immediately failed to follow it.  I couldn't help myself - I'd seen some things in my career, but this was an entirely new sort of something.\u000a\u000aI saw a woman amputating her own arm.  "She'll try it on you,"  Fletcher warned, keeping her eyes off the scene, "and it'll work.  She's got a pile of arms in there that we're filtering out of your view, and only about half of them are hers.  Hers grow back.  Yours won't."\u000a\u000aThe cell across from that had conjoined twins, which didn't strike me as that odd until the nurse explained:  "They used to be ordinary twins - they died together and we woke them together.  Never made that mistake again."\u000a\u000aA few cells that had nothing but mist:  "Each of these used to be a person, and sometimes they still are.  They just can't hold a form.  They're not dangerous to anyone, but if we didn't keep them in the ward, they'd dissipate."\u000a\u000aI saw a man curled up on the floor, desperately clutching his stomach:  "He thinks he needs to eat.  We bring him food, but food's a luxury item here and we're not well-funded enough to do it regularly."  Nurse Fletcher shook her head.  "He's gotten worse, he used to live downstairs."\u000a\u000aAs we moved on, Fletcher added:  "That was before he tried eating someone."\u000a\u000a* [[Continue to the end of the hallway|asylum_fifth_tour_3]]\u000a
+p3671
+sg29
+(lp3672
+Vnotp
+p3673
+asg20
+g21
+((I2013
+I11
+I24
+I15
+I17
+I57
+I6
+I328
+I0
+tp3674
+(dp3675
+tp3676
+Rp3677
+sg28
+g3677
+sg26
+Vasylum_fifth_tour_2
+p3678
+sbsa(dp3679
+g12
+I00
+sg13
+(lp3680
+F1970.0
+aF8550.0
+asg15
+(itiddlywiki
+Tiddler
+p3681
+(dp3682
+g18
+VWe arrived at the end of the hall and Nurse Fletcher gestured to one of the cells.  "This is 'Coma Carl'."  I glanced in and saw a man sitting on a bed, reading.\u000a\u000a"He doesn't look very comatose."  I observed.  I gestured to the rest of the cells.  "Or dangerous."\u000a\u000a"He's harmless," the nurse replied.  "But he's convinced his body isn't.  He insists that we lock it up and that he can't leave it."\u000a\u000a"His body isn't?"  Even by the especially high standard I'd been getting used to, this was confusing.\u000a\u000a"We're screening it from view, you'll see when you get in there."\u000a\u000a* [[Enter|convo_coma_carl]]\u000a
+p3683
+sg29
+(lp3684
+Vnotp
+p3685
+asg20
+g21
+((I2013
+I11
+I24
+I15
+I27
+I55
+I6
+I328
+I0
+tp3686
+(dp3687
+tp3688
+Rp3689
+sg28
+g3689
+sg26
+Vasylum_fifth_tour_3
+p3690
+sbsa(dp3691
+g12
+I00
+sg13
+(lp3692
+F1690.0
+aF8270.0
+asg15
+(itiddlywiki
+Tiddler
+p3693
+(dp3694
+g18
+V<<if $nftCarl>>\u000aFrank looked up from his book.  "You've got more questions?"\u000a<<else>>\u000a<<set $nftCarl=1>>\u000aI walked into the cell, keenly aware of the fact that Nurse Fletcher wasn't following me.  On the one hand, it meant I might be able to get some unsupervised answers.  On the other, I kept thinking of the woman who amputated anyone who came near including herself.\u000a\u000aAs I crossed the threshold, I saw what the hospital's simulation had been screening from me:  A second man, completely identical to the man reading the book, except for the fact that he was dead.\u000a\u000a<<if $seenIva>>I knew he was dead because he looked the same as Iva's body did - utterly rigid, even the clothing locked into place.  No wonder that Nurse Fletcher wanted me to see him.\u000a<<else>>\u000aComa Carl's body was entirely rigid and un-moving.  His arms at his side, his legs unbent, his eyes staring upward to nothingness.  Even his clothing was unmoving.\u000a<<endif>><<set $seenComaCarl=1>>\u000a\u000aThe man with the book gestured at his inert doppleganger.  "And that's why they call me Coma Carl."  he said.  "Name's Frank."\u000a<<endif>>\u000a\u000a<<sugarchoice "carl_frank" "Your name's Frank?">>\u000a<<sugarchoice "carl_what" "What happened to you?">>\u000a<<sugarchoice "carl_iva" "Did you know Iva?">>\u000a<<sugarchoice "carl_body" "Nurse Fletcher said you think Carl is dangerous?">>\u000a<<if $heardCronusName>>\u000a  <<if $greeterKey>>\u000a    <<sugarchoice "carl_cronus" "Wait, who's Cronus?  I thought Athena always ran the place.">>\u000a  <<else>>\u000a    <<sugarchoice "carl_cronus_masked" "Wait, what did you just say?  That name sounded like gibberish">>\u000a  <<endif>>\u000a/%%/<<endif>>\u000a\u000a* [[You have no more questions|fifth_floor]]\u000a
+p3695
+sg29
+(lp3696
+Vnotp
+p3697
+asg20
+g21
+((I2013
+I11
+I24
+I15
+I32
+I9
+I6
+I328
+I0
+tp3698
+(dp3699
+tp3700
+Rp3701
+sg28
+g3701
+sg26
+Vconvo_coma_carl
+p3702
+sbsa(dp3703
+g12
+I00
+sg13
+(lp3704
+F1690.0
+aF8410.0
+asg15
+(itiddlywiki
+Tiddler
+p3705
+(dp3706
+g18
+VFrank shrugged and gestured to the body.  "Well, they call //him// Coma Carl, but he's me, isn't he?  So they call me Coma Carl."\u000a\u000a"You don't mind the name?"\u000a\u000a"Pretty apt, don't you think?"  Frank paused.  "Well, except for the fact that Carl over there is dead.  But I'll take 'Coma Carl' over 'Dead Fred' or whatever they'd come up with."\u000a\u000a* [[You have more questions|convo_coma_carl]]\u000a
+p3707
+sg29
+(lp3708
+Vnotp
+p3709
+asg20
+g21
+((I2013
+I11
+I24
+I15
+I45
+I24
+I6
+I328
+I0
+tp3710
+(dp3711
+tp3712
+Rp3713
+sg28
+g3713
+sg26
+Vcarl_frank
+p3714
+sbsa(dp3715
+g12
+I00
+sg13
+(lp3716
+F1550.0
+aF8410.0
+asg15
+(itiddlywiki
+Tiddler
+p3717
+(dp3718
+g18
+VCarl leaned back with the air of someone who likes to tell stories and doesn't get enough opportunities to do so.  "I'm sure by now you've come to the conclusion that this retirement home is full of people from the olden days, and that aforementioned olden days were terrible."\u000a\u000aI nodded.\u000a\u000a"Buddy," he said, as though he were confiding something to me.  "They don't know the //half// of it.  Because they don't remember, hell for some damn reason none of them remember.  But I do."\u000a\u000aI glanced back at the body.  "Is the information dangerous?"\u000a\u000aCarl shrugged.  "I've told this story to a few people, and only Iva came to any harm.  Your call."\u000a\u000a"Go ahead."  I wasn't going to let a few impossibly dead bodies deter me from hearing the truth.\u000a\u000a"Well, this was back when <<print $cronusName>> <<set $heardCronusName=1>>was in charge, and let me tell you, the system was just straight-up falling apart.  I think the reason half the people don't remember it is because they died in a glitch and had to be restored from backup, it was that bad."\u000a\u000a"A glitch?"\u000a\u000a"Ever see an old-style 2D movie over a shitty connection?"  he asked, not expecting an answer.  "They're all blocky and blurry at the same time.  It was like that, only instead of being a movie it's all around you and you can //feel// it."\u000a\u000a"I've never seen anything like that."  Part of me thought a glitch might be to blame for what had happened to Iva, but nobody had reported anything even remotely like what Frank was saying.\u000a\u000a"Doesn't happen nowadays, at least as far as I noticed."  he replied.  "But at the time, they were all over the place.  If you weren't careful, you'd stumble into one or it'd stumble into you - which is what happened to me.  One second, I'm walking down the street.  The next, a glitch hits me and I black out.  When I wake up, there's two of me, and one of us is dead."  He pointed at his own cadaver.  "That guy, in case you were wondering."\u000a\u000a* [[You had more questions|convo_coma_carl]]\u000a
+p3719
+sg29
+(lp3720
+Vnotp
+p3721
+asg20
+g21
+((I2013
+I11
+I24
+I15
+I47
+I21
+I6
+I328
+I0
+tp3722
+(dp3723
+tp3724
+Rp3725
+sg28
+g3725
+sg26
+Vcarl_what
+p3726
+sbsa(dp3727
+g12
+I00
+sg13
+(lp3728
+F1410.0
+aF8410.0
+asg15
+(itiddlywiki
+Tiddler
+p3729
+(dp3730
+g18
+VFrank sighed.  "Yeah, she came up here every time she volunteered, mostly to feed the hungry guy but she'd stop by my place every now and then, hear the stories of the old days."\u000a\u000aHis gaze moved from me to his immobile roomate.  "I heard that when they found her body, it was just like Carl over there - all frozen up.  I had a moment of hope then, because even though Carl's dead I'm not.  So I got Nurse Fletcher to lend me a phone and I called her, and... nothing.  System says she's dead.  Even after Carl died, people could still call me.  System knows I'm alive, even if it also thinks I'm dead.  Iva... Iva's just dead."\u000a\u000a* [[You have more questions|convo_coma_carl]]\u000a
+p3731
+sg29
+(lp3732
+Vnotp
+p3733
+asg20
+g21
+((I2013
+I11
+I24
+I16
+I10
+I12
+I6
+I328
+I0
+tp3734
+(dp3735
+tp3736
+Rp3737
+sg28
+g3737
+sg26
+Vcarl_iva
+p3738
+sbsa(dp3739
+g12
+I00
+sg13
+(lp3740
+F1410.0
+aF8270.0
+asg15
+(itiddlywiki
+Tiddler
+p3741
+(dp3742
+g18
+V"Of course it's dangerous," Frank replied, casting a suspicious glare at this corpse.  "It's dead, isn't it?  Nothing in this world dies unless it's dangerous."\u000a\u000aI took a few moments to watch Carl's body do absolutely nothing before resuming my questioning.  "Has it ever done anything?"\u000a\u000a"Not //yet//."\u000a\u000aI glanced out of the cell to see Nurse Fletcher watching our conversation with a hint of amusement.  I was guessing it wasn't the first time Frank had been asked these questions, but that wasn't going to stop me from pressing on:  "If it's dangerous, why not just leave it up here in the cell while you play games on the first floor?"\u000a\u000a"It can't hurt //me//." Frank answered as though this ought to be obvious.  "I mean, I //am// it.  But this state of affairs, it's not stable.  If I get too far away from myself, suddenly <<print $cronusName>><<set $heardCronusName=1>> realizes there's two of me, and one of us will get deleted."  He looked aghast at the thought.  "I've got no guarantee that the loser in that exchange wouldn't be me."\u000a\u000a* [[You have more questions|convo_coma_carl]]\u000a
+p3743
+sg29
+(lp3744
+Vnotp
+p3745
+asg20
+g21
+((I2013
+I11
+I24
+I16
+I18
+I54
+I6
+I328
+I0
+tp3746
+(dp3747
+tp3748
+Rp3749
+sg28
+g3749
+sg26
+Vcarl_body
+p3750
+sbsa(dp3751
+g12
+I00
+sg13
+(lp3752
+F1410.0
+aF8130.0
+asg15
+(itiddlywiki
+Tiddler
+p3753
+(dp3754
+g18
+V"Oh, sorry, I keep forgetting that most people can't hear his name."  Frank replied as though that explanation was entirely sensible.\u000a\u000a"No," I corrected, "I heard you say it, it just didn't make any sense."\u000a\u000a"You didn't hear me say the name, you heard me say <<print $cronusName>>.  That's not the name.  Unless you've got a key to it, you can't hear it, system won't let your mind process it.  Can't even hint at it!  <<print $cronusName>>, the son of <<print $cronusName>> and <<print $cronusName>>, overthrown by <<print $cronusName>>... see?  Only one of those was actually the name."\u000a\u000a"A key?"  I replied blankly.  "In my experience keys open doors, they don't let you hear gibberish."\u000a\u000aFrank laughed.  "No? I take it you've never heard of a cryptographic key?  Because that's exactly what they do."\u000a\u000aI shook my head.  "Sounds like a computer thing."\u000a\u000a"It is.  Funny thing is, the system represents your ability to go through doors as physical keys.  But it also represents cryptographic keys the same way.  So you could get a key that looks like any other, but suddenly you hear words you couldn't before, see things that were hidden."\u000a\u000a"So how do I get this key?"  I asked, not holding much hope out for a sensible answer.\u000a\u000a"Talk to Greeter."  He suggested.  Outside, Nurse Fletcher frowned at the name.  Frank didn't appear to notice.  "Haven't talked to her in a while so I have no idea how much she remembers, but she might have a clue."\u000a\u000a* [[You have more questions|convo_coma_carl]]\u000a
+p3755
+sg29
+(lp3756
+Vnotp
+p3757
+asg20
+g21
+((I2013
+I11
+I24
+I16
+I28
+I7
+I6
+I328
+I0
+tp3758
+(dp3759
+tp3760
+Rp3761
+sg28
+g3761
+sg26
+Vcarl_cronus_masked
+p3762
+sbsa(dp3763
+g12
+I00
+sg13
+(lp3764
+F1690.0
+aF8130.0
+asg15
+(itiddlywiki
+Tiddler
+p3765
+(dp3766
+g18
+VFrank looked surprised at my reaction.  "Holy moly, you actually heard me say 'Cronus'."\u000a\u000aI shrugged.  "Well it's not like you whispered it."\u000a\u000a"Only a few people can hear that name."  he replied.  "And one of them was Iva."\u000a\u000a"So who is he?"\u000a\u000a"He's the AI that ran the system before Athena showed up.  He knows what actually happened.  I mean, it's his job to know these things, even though I'm pretty sure he got fired for letting me get split in half and killed."\u000a\u000aI wasn't sure how much of that made sense, but it was one of the more lucid things I'd heard him say.  "Where can I find him now?"<<set $lookingForCronus=1>>\u000a\u000a"No clue.  He's probably still on-grid - he's technically a citizen so they couldn't just shut him down when he lost his job.  Probably got an enclave, like Greeter.  Given that he's based on the greek gods of old, I'd say look for debauchery."\u000a\u000a* [[You have more questions|convo_coma_carl]]\u000a
+p3767
+sg29
+(lp3768
+Vnotp
+p3769
+asg20
+g21
+((I2013
+I11
+I24
+I16
+I35
+I1
+I6
+I328
+I0
+tp3770
+(dp3771
+tp3772
+Rp3773
+sg28
+g3773
+sg26
+Vcarl_cronus
+p3774
+sbsa(dp3775
+g12
+I00
+sg13
+(lp3776
+F1970.0
+aF150.0
+asg15
+(itiddlywiki
+Tiddler
+p3777
+(dp3778
+g18
+VThe Power of Two made an attempt to look 'classy', but like most such attempts it fell flat.  Somehow, the poor-fidelity that was New Detroit made it look even more plastic and tawdry than it already was.\u000a<<set $money = $money - 1>>\u000a\u000a<<if not $seenCronus>>\u000a  <<if $lookingForCronus>>\u000aAs I made my way to the meager bar, one of the working girls sat down next to me.  "I hear you're [[looking for someone]]."  She said without prompting.\u000a  <<else if $greeterKey>>\u000a  Before I could so much as order a drink, two large bouncers surrounded me.  "You've been [[asking questions]], haven't you?" one of them said gruffly.\u000a  <<endif>>\u000a<<endif>>\u000a\u000a<<if $seenCronus>>\u000a* [[Go upstairs to Cronus' room|convo_cronus]]\u000a* [[Leave the Power of Two|power_of_two_exterior]]\u000a<<else>>\u000a* [[Leave the Power of Two|power_of_two_exterior]]\u000a<<endif>>
+p3779
+sg29
+(lp3780
+sg20
+g21
+((I2013
+I11
+I24
+I18
+I14
+I30
+I6
+I328
+I0
+tp3781
+(dp3782
+tp3783
+Rp3784
+sg28
+g3784
+sg26
+Vpo2_interior
+p3785
+sbsa(dp3786
+g12
+I00
+sg13
+(lp3787
+F2110.0
+aF150.0
+asg15
+(itiddlywiki
+Tiddler
+p3788
+(dp3789
+g18
+V"You heard right."  I said, cautiously.\u000a\u000aThe woman nodded.  "What if I told you the person you're looking for is named '<<print $cronusName>>'?"\u000a\u000aI shook my head.  "You're talking gibberish."\u000a\u000aShe didn't seem surprised by the statement.  "For one week - standard rates around here - I'll get you the //real// name you're looking for."\u000a\u000aI frowned at the mention of 'rates'.  "And what would the mechanism of this transfer of information be?"  I knew I was in a bordello, but I didn't want to get //that// involved.\u000a\u000aShe laughed.  "Ordinary, I assure you.  As it happens, we traffic more in information than in... other things."\u000a\u000a\u000a* [[Accept|po2_gain_name]]\u000a* [[Leave the Power of Two|power_of_two_exterior]]\u000a
+p3790
+sg29
+(lp3791
+sg20
+g21
+((I2013
+I11
+I24
+I18
+I27
+I31
+I6
+I328
+I0
+tp3792
+(dp3793
+tp3794
+Rp3795
+sg28
+g3795
+sg26
+Vlooking for someone
+p3796
+sbsa(dp3797
+g12
+I00
+sg13
+(lp3798
+F2390.0
+aF290.0
+asg15
+(itiddlywiki
+Tiddler
+p3799
+(dp3800
+g18
+VI stepped into the dimly lit room.  Poor lighting aside, it was lushly decorated - couch-sized pillows littered the floor, free-standing palm trees were at all corners of the room.  The walls were covered with posters from various theatrical productions.  Some I'd heard of:  "Romeo and Juliet", "Babel is Ruined".  Others were less famous:  "Atlantis Rising" and "Titanomachy".\u000a\u000aSitting on an actual //throne// was the person behind the voice.  He was easily eight feet tall, dressed in a loose-fitting robe.  Most notable were his eyes, in that he had none.  In their place were two flat glowing screens; a faint blue that shed no light.<<set $seenCronus=1>>\u000a\u000a<<display "convo_cronus">>
+p3801
+sg29
+(lp3802
+sg20
+g21
+((I2013
+I11
+I24
+I18
+I31
+I41
+I6
+I328
+I0
+tp3803
+(dp3804
+tp3805
+Rp3806
+sg28
+g3806
+sg26
+Vcronus_intro_2
+p3807
+sbsa(dp3808
+g12
+I00
+sg13
+(lp3809
+F2250.0
+aF150.0
+asg15
+(itiddlywiki
+Tiddler
+p3810
+(dp3811
+g18
+VThe woman produced a keyring - I wasn't entirely certain how, given that what few clothes she was wearing did not appear to have much carrying capacity.<<set $money=$money-7>>  Without a word, she put it on the bar and slid it toward me.  I picked it up and it vanished, added to my keyring.<<set $cronusName="Cronus">><<set $greeterKey=1>>\u000a\u000a"How does a key help me-"\u000a\u000a"Cronus." the woman replied.  "The name you couldn't hear before is 'Cronus'."\u000a\u000a"Thanks." I replied.  I wasn't sure if that information was worth the week I'd just spent or, for that matter, what I was supposed to do with it.\u000a\u000a"No problem."  She turned from her seat and caught the eye of some of the more burly workers in the area.  "And I think he'll want to see you."\u000a\u000aBefore I could ask what she meant, she'd left the bar.  When I got up to go after her, I immediately found myself surrounded by two large bouncers.\u000a\u000a"Boss wants to see you."  They said simply.\u000a\u000aWell.  That answered that question.\u000a\u000a* [[Follow the enforcers|cronus_intro]]\u000a
+p3812
+sg29
+(lp3813
+sg20
+g21
+((I2013
+I11
+I24
+I18
+I31
+I42
+I6
+I328
+I0
+tp3814
+(dp3815
+tp3816
+Rp3817
+sg28
+g3817
+sg26
+Vpo2_gain_name
+p3818
+sbsa(dp3819
+g12
+I00
+sg13
+(lp3820
+F2110.0
+aF290.0
+asg15
+(itiddlywiki
+Tiddler
+p3821
+(dp3822
+g18
+V"I don't want any trouble here." I said with the long practice of a person who expected they'd get exactly that.\u000a\u000aI was hauled off my feet without even getting to order any alcohol.\u000a\u000a* [[Follow the Enforcers|cronus_intro]]\u000a
+p3823
+sg29
+(lp3824
+sg20
+g21
+((I2013
+I11
+I24
+I18
+I37
+I2
+I6
+I328
+I0
+tp3825
+(dp3826
+tp3827
+Rp3828
+sg28
+g3828
+sg26
+Vasking questions
+p3829
+sbsa(dp3830
+g12
+I00
+sg13
+(lp3831
+F2530.0
+aF150.0
+asg15
+(itiddlywiki
+Tiddler
+p3832
+(dp3833
+g18
+V"I am Cronus."  He declared with faux-magnanimity.  "Ask, and be answered."\u000a\u000a<<sugarchoice "cronus_who" "Who, or what, are you?">>\u000a<<if $cronusExplained>>\u000a<<sugarchoice "cronus_why" "Why don't you still run the place?">>\u000a<<sugarchoice "cronus_iva" "Did you know Iva Koloman?">>\u000a<<sugarchoice "cronus_athena" "So your replacement, Athena... what's her angle?">>\u000a  <<if $seenComaCarl>>\u000a    <<sugarchoice "cronus_carl" "What did you do to Coma Carl?">>\u000a/%%/<<endif>>\u000a  <<if $canAskMissingAthena and not $clue2>>\u000a    <<sugarchoice "cronus_clue2_warn" "Tell me what you told Iva.">>\u000a<<endif>>\u000a\u000a* [[You have no more questions|po2_interior]]\u000a
+p3834
+sg29
+(lp3835
+sg20
+g21
+((I2013
+I11
+I24
+I18
+I38
+I41
+I6
+I328
+I0
+tp3836
+(dp3837
+tp3838
+Rp3839
+sg28
+g3839
+sg26
+Vconvo_cronus
+p3840
+sbsa(dp3841
+g12
+I00
+sg13
+(lp3842
+F2250.0
+aF290.0
+asg15
+(itiddlywiki
+Tiddler
+p3843
+(dp3844
+g18
+VThe two bouncers led me upstairs to the private rooms, and then up another set of stairs to a door that simply read "Manager".\u000a\u000a"Set <<print $gender>> Hallivert down."  A voice from inside the door said, even though neither I nor the goons had knocked.  "I will speak to <<if $gender eq "Mr.">>him<<else>>her<<endif>> alone."\u000a\u000aObediently, the thugs let me go and moved down the stairway.  I contemplated following them, but if the manager had gone through all this trouble to fetch me there was no reason he wouldn't do so again.\u000a\u000aThe door opened, and the voice spoke up again.  "Enter, <<print $gender>>".\u000a\u000a* [[Enter|cronus_intro_2]]\u000a\u000a
+p3845
+sg29
+(lp3846
+sg20
+g21
+((I2013
+I11
+I24
+I18
+I38
+I43
+I6
+I328
+I0
+tp3847
+(dp3848
+tp3849
+Rp3850
+sg28
+g3850
+sg26
+Vcronus_intro
+p3851
+sbsa(dp3852
+g12
+I00
+sg13
+(lp3853
+F2670.0
+aF290.0
+asg15
+(itiddlywiki
+Tiddler
+p3854
+(dp3855
+g18
+V"You already know my name."  He replied.  "Which is curious, as very few people are capable of hearing or saying it.  But to answer your question, I am Cronus."  He gestured to his eyes.  "In case you couldn't already tell, I am not human - I am an artificial intelligence, and I once administrated this entire sim."<<set $cronusExplained=1>>\u000a\u000a* [[You have more questions|convo_cronus]]\u000a
+p3856
+sg29
+(lp3857
+sg20
+g21
+((I2013
+I11
+I24
+I18
+I57
+I23
+I6
+I328
+I0
+tp3858
+(dp3859
+tp3860
+Rp3861
+sg28
+g3861
+sg26
+Vcronus_who
+p3862
+sbsa(dp3863
+g12
+I00
+sg13
+(lp3864
+F2530.0
+aF290.0
+asg15
+(itiddlywiki
+Tiddler
+p3865
+(dp3866
+g18
+V"Yes.  She stood in this very room, exactly where you're standing, not too long ago.  You and she are the only two people to have been able to hear my name in over a decade."\u000a\u000a"Did you kill her?"  I didn't know how much power Cronus still had, but ordinary AIs were about ten times smarter than ordinary people.\u000a\u000a"No."  Cronus replied plainly.  "And it's not as though I couldn't - this is my domain and I can kill whoever the hell I want... but only in here.  She died out there."  He gestured vaguely to the walls.\u000a\u000a"You can kill anyone?"  I'd been feeling fairly safe, if unnerved by the dead-screen glow of Cronus' eyes, but this declaration didn't help.\u000a\u000a"//Can// being the operative word."  He said.  "In life, you could have killed anyone you wanted, too.  But there would have been consequences.  If I snuffed your life out, Athena would come down here with... well, with the wrath of a God.  I don't particularly feel like getting her attention.  We didn't part on good terms."\u000a\u000a* [[You have more questions|convo_cronus]]\u000a
+p3867
+sg29
+(lp3868
+sg20
+g21
+((I2013
+I11
+I24
+I19
+I17
+I58
+I6
+I328
+I0
+tp3869
+(dp3870
+tp3871
+Rp3872
+sg28
+g3872
+sg26
+Vcronus_iva
+p3873
+sbsa(dp3874
+g12
+I00
+sg13
+(lp3875
+F2530.0
+aF430.0
+asg15
+(itiddlywiki
+Tiddler
+p3876
+(dp3877
+g18
+V"Athena is... interesting.  I suspect you've found not a lot of people are willing to talk about her?"\u000a\u000a"That's an understatement."  I replied.  "Most won't even say her name."\u000a\u000aCronus nodded.  "There's an old saying:  'Speak of the devil and he shall appear'.  With us, it's true."  He tilted his head and pointed at his non-eyes.  "This is here to remind you that I'm not human, but it's more than that.  None of me is like what you're seeing here.  I have an entirely different way of seeing the world, one I couldn't explain to you any more than you could explain your sight to a blind man.  To say that it is 'all-encompassing' is an understatement.  We understand not only what you'd see happening, but why it's happening, the proximate causes and the long rube-goldberg chain of events from afar."\u000a\u000a"Is that a convoluted way of telling me you can hear it when your name is spoken?"  I asked.\u000a\u000aCronus laughed.  "Yes, yes it is.  But to answer your next question, no.  Athena cannot hear us here; this is my enclave after all."\u000a\u000a"So why is Athena so interesting?"\u000a\u000a"You would think," Cronus replied such that I wasn't sure whether he was answering or going off on another tangent, "that after my so-called 'failure' to corral the degredation of the system, a more sophisticated artificial intelligence would be employed."\u000a\u000a"Athena's not sophisticated?"  I had no way to measure the complexity of a creature like an AI.\u000a\u000a"She is //less// complex than I am.  She's missing parts, and the strange thing is, she's missing //autonomic// parts."\u000a\u000a"You lost me."  I replied.\u000a\u000a"To simplify to an insulting degree, the mind of an AI is like the mind of a human.  There are things we do consciously:  Speak, make decisions, oversee.  And there are things we do unconciously:  Physics, lighting, and chiefly above all the simulation of other minds.  With Athena, it is as though half of this is missing.  As though you had to consciously command your stomach to digest, but your heart worked fine."\u000a\u000a"I'm not sure why that matters."  It seemed strange, certainly, but it was a bit abstract from my case.\u000a\u000a"Because," Cronus leaned forward.  "I know the importance of the parts she's missing.  I've only told one person what that is, and she's dead."<<set $canAskMissingAthena=1>>\u000a\u000a* [[You have more questions|convo_cronus]]\u000a
+p3878
+sg29
+(lp3879
+sg20
+g21
+((I2013
+I11
+I24
+I19
+I18
+I0
+I6
+I328
+I0
+tp3880
+(dp3881
+tp3882
+Rp3883
+sg28
+g3883
+sg26
+Vcronus_athena
+p3884
+sbsa(dp3885
+g12
+I00
+sg13
+(lp3886
+F2670.0
+aF150.0
+asg15
+(itiddlywiki
+Tiddler
+p3887
+(dp3888
+g18
+V"Listen, I'm sure you've heard stories about what a shitparade the old days were,"  he began.  "and I'm not here to deflect blame."  There was a pause, then:  "But I was set up."\u000a\u000a"What?"\u000a\u000a"It wasn't my fault the sim was a wreck, is what I'm saying!  I mean, come on, if I was //that// unstable, I wouldn't have been able to keep my form this long, even in this backwood enclave."\u000a\u000a"Enclave?"  I glanced around at the room.  It seemed to have far few guns to qualify as an enclave.\u000a\u000a"Technical term."  Cronus waved away my objection.  "Means I'm partially off-grid here."\u000a\u000a"So you were framed?"  I'd asked this question a lot, and usually got lies in return.\u000a\u000a"That's what I'm telling you.  Yes, the old system was unstable.  The official story is that they started offloading people to Storage and things got better, but that's not how it went down.  Shit only started going down //after// they activated Storage, not before."\u000a\u000a"Wait, so there were fewer people and things got worse?  That doesn't make any sense."\u000a\u000aCronus laughed bitterly.  "You're telling me.  But there's no-one around who knows any better, because tons of memory got 'corrupted' in the changeover."  He'd actually made the air quotes.\u000a\u000a* [[You have more questions|convo_cronus]]\u000a
+p3889
+sg29
+(lp3890
+sg20
+g21
+((I2013
+I11
+I24
+I19
+I18
+I3
+I6
+I328
+I0
+tp3891
+(dp3892
+tp3893
+Rp3894
+sg28
+g3894
+sg26
+Vcronus_why
+p3895
+sbsa(dp3896
+g12
+I00
+sg13
+(lp3897
+I430
+aF570.0
+asg15
+(itiddlywiki
+Tiddler
+p3898
+(dp3899
+g18
+S''
+p3900
+sg29
+(lp3901
+sg20
+g21
+((I2013
+I11
+I24
+I19
+I54
+I53
+I6
+I328
+I0
+tp3902
+(dp3903
+tp3904
+Rp3905
+sg28
+g3905
+sg26
+S'Untitled Passage 1'
+p3906
+sbsa(dp3907
+g12
+I00
+sg13
+(lp3908
+F2810.0
+aF150.0
+asg15
+(itiddlywiki
+Tiddler
+p3909
+(dp3910
+g18
+V"I killed him."  Cronus replied bluntly.  If he felt any remorse whatsoever, he wasn't showing it.\u000a\u000a"But... why?"\u000a\u000a"I didn't have a choice."  He answered.  " And when I say that, I mean I did not have a choice.  I'm a program - a more advanced program than even you, but like you I'm still a slave to the underlying commands.  If you were struck just below your knee, your leg would kick.  If you held your hand to a flame, you would pull it away.  You have no choice in the matter, and I had no choice in this."\u000a\u000a"You kill by //reflex//?"\u000a\u000a"It's not a perfect comparison, but effectively, yes.  You needn't worry - such reflexes only encompass the health of the overall sim.  There's nothing you could do currently that would activate my murder reflex."\u000a\u000a"So what did Carl do to deserve execution?"  I asked stonily.\u000a\u000a"It wasn't what he did," Cronus answered,  "it's what was done to him.  One of the glitches caused a discontinuity where he was standing, and for about ten seconds, he didn't exist.  That's more than long enough to kick in the emergency backups - that's right, I've got a life reflex too - so he was restored from backup.  But, as it turns out, the bug didn't eat him.  He reappeared after those ten seconds were up.  So then there were two."\u000a\u000a"So what if there are two of them?"\u000a\u000a"I will answer in the form of a parable."  Cronus grinned.  "I am a God, after all, that's what we do.  Unless you object?"\u000a\u000aI said nothing.  I didn't really think I could stop him.\u000a\u000a"Once," the AI said, "a prince believed his weath was limitless.  Determined to teach a lesson to the boy, his wise vizier asked a favor:  A single grain of wheat, placed on the first square chessboard.\u000a\u000a"Of course, this is a trivial favor, so the vizier added a stipulation:  Each day, the prince would add twice as much wheat as the previous day's onto the next square.  So on the second day, there would be two grains on the second square, the third day four, the fourth day eight, and so on."\u000a\u000aI shrugged.  "Doesn't sound like much wheat."\u000a\u000a"No, it doesn't, does it?  Why, the last square of the first row would have only 128 grains.  But how much would the end of the second row have?"\u000a\u000aI tried to do the mental math and failed.  "You're a computer," I replied.  "You tell me."\u000a\u000a"Thirty-two thousand, seven hundred and sixty eight.  And that's just on the second row.  By the end of the third row - the twenty-fourth square - the prince would be piling on sixteen //million// grains."\u000a\u000a"Ah, so by the end of the chessboard..."\u000a\u000a"Two to the sixty-fourth is a //very// large number, <<print $gender>> Hallivert."\u000a\u000aI'd reached the end of my tolerance for seques.  "What does this have to do with Carl and his duplicate?"\u000a\u000aCronus sighed, apparently disappointed that his attempt at parable had failed.  "If a man duplicates himself, he is of a mind to duplicate himself.  If he is of a mind to duplicate himself, his //duplicates// are likewise of the same mind.  You can see how such a thing would be very much out of control.  It threatened the stability of the system, and so out of reflex I terminated one of the Carls."\u000a\u000a"It doesn't seem right." I protested vainly.\u000a\u000aCronus shrugged.  "I don't know right and wrong, Hallivert, at least not the same way you do.  What I do know is that this sim is better off not covered in a sea of Carl."\u000a\u000a* [[You have more questions|convo_cronus]]\u000a
+p3911
+sg29
+(lp3912
+sg20
+g21
+((I2013
+I11
+I24
+I19
+I54
+I55
+I6
+I328
+I0
+tp3913
+(dp3914
+tp3915
+Rp3916
+sg28
+g3916
+sg26
+Vcronus_carl
+p3917
+sbsa(dp3918
+g12
+I00
+sg13
+(lp3919
+F2810.0
+aF290.0
+asg15
+(itiddlywiki
+Tiddler
+p3920
+(dp3921
+g18
+VCronus looked at me skeptically.  "I'd rather not consign you to death.  Iva did nothing to deserve her fate, and you're almost certainly a worse person than she was."\u000a\u000a"I'm trying to find out who did it and stop them from doing it again." I protested.\u000a\u000a"The conversation that Iva and I had was very much like this one." It didn't sound like my appeal had reached him.  "If I tell you, you'll just end up dead like she did.  You don't have the proper protections in place."\u000a\u000a"So put them in place!" I replied, exasperated.\u000a\u000a"If I had those protections, do you think I'd be holed up here in this room?"  Cronus looked at me like I was an idiot.  "This is the only place I'm safe!"\u000a\u000aI grit my teeth, and Cronus looked at me with his blank not-eyes.  His face changed from its frustration to a strangely empty expression.  He stopped moving - for a moment he looked like the simulation had simply stopped running him.\u000a\u000a"You're different."  He said, finally.\u000a\u000a"What?  What was that?"\u000a\u000a"Heavy thinking."  He answered.  "Have you been in Athena's presence?  No, it doesn't matter, if she knew you wouldn't be here.  Don't stay in her presence for longer than you can help it.  She's dumber than I am but even she'd catch on after a while."\u000a\u000a"What are you talking about?"  I asked.\u000a\u000a"I'm saying I'll tell you what I told Iva."\u000a\u000a* [[Listen|clue2_recv]]\u000a
+p3922
+sg29
+(lp3923
+sg20
+g21
+((I2013
+I11
+I24
+I20
+I18
+I26
+I6
+I328
+I0
+tp3924
+(dp3925
+tp3926
+Rp3927
+sg28
+g3927
+sg26
+Vcronus_clue2_warn
+p3928
+sbsa(dp3929
+g12
+I00
+sg13
+(lp3930
+F710.0
+aF430.0
+asg15
+(itiddlywiki
+Tiddler
+p3931
+(dp3932
+g18
+V<html><div class="getclue">>Athena is not the Simulation's Operating System.</div></html>\u000a\u000a"I compared the parts that Athena is missing to my own software." Cronus had told me. "The parts that are missing are exactly the parts dedicated to simulating people's minds.  They //exist//, but they're extremely sparse compared to me.\u000a\u000a"I can't tell what's filling the gaps.  I simply don't have access anymore.  But it's something nobody's tried."\u000a\u000a<<back>>
+p3933
+sg29
+(lp3934
+sg20
+g21
+((I2013
+I11
+I24
+I20
+I27
+I33
+I6
+I328
+I0
+tp3935
+(dp3936
+tp3937
+Rp3938
+sg28
+g3938
+sg26
+VClue #2
+p3939
+sbsa(dp3940
+g12
+I00
+sg13
+(lp3941
+F2810.0
+aF430.0
+asg15
+(itiddlywiki
+Tiddler
+p3942
+(dp3943
+g18
+V"I compared the parts that Athena is missing to my own software.  The parts that are missing are exactly the parts dedicated to simulating people's minds.  They //exist//, but they're extremely sparse compared to me.  I suspect they're there for the benefit of the higher cities like New Amsterdam."\u000a\u000a"What are you saying?"  I asked.\u000a\u000a<html><div class="getclue">Athena is not the Simulation's Operating System.</div></html>\u000a\u000aIt took me a moment to realize Cronus hadn't actually spoken, he'd simply inserted the knowledge into my mind.\u000a\u000a"I can't tell what's filling the gaps." Cronus said.  "I simply don't have access anymore.  But it's something nobody's tried."\u000a<<silently>>\u000a<<set $clue2=1>>\u000a<<update>>\u000a<<endsilently>>\u000a\u000a* [[You have more questions|convo_cronus]]\u000a
+p3944
+sg29
+(lp3945
+sg20
+g21
+((I2013
+I11
+I24
+I20
+I27
+I35
+I6
+I328
+I0
+tp3946
+(dp3947
+tp3948
+Rp3949
+sg28
+g3949
+sg26
+Vclue2_recv
+p3950
+sbsasS'scale'
+p3951
 F0.6118335500650193
 ss.

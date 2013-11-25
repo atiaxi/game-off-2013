@@ -4,6 +4,7 @@
 <<set $emilNervous=0>>
 <<set $ivaStorage=0>>
 <<set $greeterQuestions=0>>
+<<set $cronusName="-----">>
 <<endsilently>>The afterlife had wood paneling.
 
 It'd ordinarily be an absurd thing to notice.  I was dead, after all, in the hereafter's own waiting room.  You'd think there'd be pearly gates, or at least a hint of brimstone, but instead?
@@ -174,7 +175,13 @@ break;}}}else{throwError(place,"can't find matching endif");}}catch(e){throwErro
 :: power_of_two_exterior
 "The Power of Two" sounded like it ought to be a bordello, and as I got closer to the building I could tell that this impression was, if anything, understated.
 
+<<if $greeterKey>>
+It wasn't as though I'd memorized what the outside of the bawdy house looked like, but I could tell at first glance that something was //wrong//.  It'd changed somehow.
+
+Looking more closely at the posters, they no longer depicted the naked women as they had before:  Instead, the curves were replaced with scythes, the flesh with metal.  Large signs proclaimed "//Titan//ic tits".  Something strange was happening here.
+<<else>>
 Posters of naked women covered every available surface of the building, in many cases obscuring each other and in some places overlapping with the neon sign naming the building.  A very few ordinary signs were visible:  One proclaiming "Titanic Tits!" and another in much smaller type explaining that the cover charge to enter was 1 day.
+<<endif>>
 <<if $tourInProgress>>
 Samahd gestured to the display and wiggled his eyebrows suggestively.  "I'm not here to judge!".
 
@@ -184,10 +191,162 @@ He shrugs.  "That's the official line, anyway.  It's kinda pricey for my taste. 
 
 * [[Follow him|bar_ocho_exterior]]
 <<else>>
+* [[Enter the Brothel|po2_interior]]
 * [[Go up the street to Bar Ocho|bar_ocho_exterior]]
 * [[Go to the Hub|Hub]]
 * [[Head to the insurance office|insurance_exterior]]
 <<endif>>
+
+
+
+:: po2_interior
+The Power of Two made an attempt to look 'classy', but like most such attempts it fell flat.  Somehow, the poor-fidelity that was New Detroit made it look even more plastic and tawdry than it already was.
+<<set $money = $money - 1>>
+
+<<if not $seenCronus>>
+  <<if $lookingForCronus>>
+As I made my way to the meager bar, one of the working girls sat down next to me.  "I hear you're [[looking for someone]]."  She said without prompting.
+  <<else if $greeterKey>>
+  Before I could so much as order a drink, two large bouncers surrounded me.  "You've been [[asking questions]], haven't you?" one of them said gruffly.
+  <<endif>>
+<<endif>>
+
+<<if $seenCronus>>
+* [[Go upstairs to Cronus' room|convo_cronus]]
+* [[Leave the Power of Two|power_of_two_exterior]]
+<<else>>
+* [[Leave the Power of Two|power_of_two_exterior]]
+<<endif>>
+
+
+:: looking for someone
+"You heard right."  I said, cautiously.
+
+The woman nodded.  "What if I told you the person you're looking for is named '<<print $cronusName>>'?"
+
+I shook my head.  "You're talking gibberish."
+
+She didn't seem surprised by the statement.  "For one week - standard rates around here - I'll get you the //real// name you're looking for."
+
+I frowned at the mention of 'rates'.  "And what would the mechanism of this transfer of information be?"  I knew I was in a bordello, but I didn't want to get //that// involved.
+
+She laughed.  "Ordinary, I assure you.  As it happens, we traffic more in information than in... other things."
+
+
+* [[Accept|po2_gain_name]]
+* [[Leave the Power of Two|power_of_two_exterior]]
+
+
+
+:: po2_gain_name
+The woman produced a keyring - I wasn't entirely certain how, given that what few clothes she was wearing did not appear to have much carrying capacity.<<set $money=$money-7>>  Without a word, she put it on the bar and slid it toward me.  I picked it up and it vanished, added to my keyring.<<set $cronusName="Cronus">><<set $greeterKey=1>>
+
+"How does a key help me-"
+
+"Cronus." the woman replied.  "The name you couldn't hear before is 'Cronus'."
+
+"Thanks." I replied.  I wasn't sure if that information was worth the week I'd just spent or, for that matter, what I was supposed to do with it.
+
+"No problem."  She turned from her seat and caught the eye of some of the more burly workers in the area.  "And I think he'll want to see you."
+
+Before I could ask what she meant, she'd left the bar.  When I got up to go after her, I immediately found myself surrounded by two large bouncers.
+
+"Boss wants to see you."  They said simply.
+
+Well.  That answered that question.
+
+* [[Follow the enforcers|cronus_intro]]
+
+
+
+:: convo_cronus
+"I am Cronus."  He declared with faux-magnanimity.  "Ask, and be answered."
+
+<<sugarchoice "cronus_who" "Who, or what, are you?">>
+<<if $cronusExplained>>
+<<sugarchoice "cronus_why" "Why don't you still run the place?">>
+<<sugarchoice "cronus_iva" "Did you know Iva Koloman?">>
+<<sugarchoice "cronus_athena" "So your replacement, Athena... what's her angle?">>
+  <<if $seenComaCarl>>
+    <<sugarchoice "cronus_carl" "What did you do to Coma Carl?">>
+/%%/<<endif>>
+  <<if $canAskMissingAthena and not $clue2>>
+    <<sugarchoice "cronus_clue2_warn" "Tell me what you told Iva.">>
+<<endif>>
+
+* [[You have no more questions|po2_interior]]
+
+
+
+:: cronus_why
+"Listen, I'm sure you've heard stories about what a shitparade the old days were,"  he began.  "and I'm not here to deflect blame."  There was a pause, then:  "But I was set up."
+
+"What?"
+
+"It wasn't my fault the sim was a wreck, is what I'm saying!  I mean, come on, if I was //that// unstable, I wouldn't have been able to keep my form this long, even in this backwood enclave."
+
+"Enclave?"  I glanced around at the room.  It seemed to have far few guns to qualify as an enclave.
+
+"Technical term."  Cronus waved away my objection.  "Means I'm partially off-grid here."
+
+"So you were framed?"  I'd asked this question a lot, and usually got lies in return.
+
+"That's what I'm telling you.  Yes, the old system was unstable.  The official story is that they started offloading people to Storage and things got better, but that's not how it went down.  Shit only started going down //after// they activated Storage, not before."
+
+"Wait, so there were fewer people and things got worse?  That doesn't make any sense."
+
+Cronus laughed bitterly.  "You're telling me.  But there's no-one around who knows any better, because tons of memory got 'corrupted' in the changeover."  He'd actually made the air quotes.
+
+* [[You have more questions|convo_cronus]]
+
+
+
+:: cronus_carl
+"I killed him."  Cronus replied bluntly.  If he felt any remorse whatsoever, he wasn't showing it.
+
+"But... why?"
+
+"I didn't have a choice."  He answered.  " And when I say that, I mean I did not have a choice.  I'm a program - a more advanced program than even you, but like you I'm still a slave to the underlying commands.  If you were struck just below your knee, your leg would kick.  If you held your hand to a flame, you would pull it away.  You have no choice in the matter, and I had no choice in this."
+
+"You kill by //reflex//?"
+
+"It's not a perfect comparison, but effectively, yes.  You needn't worry - such reflexes only encompass the health of the overall sim.  There's nothing you could do currently that would activate my murder reflex."
+
+"So what did Carl do to deserve execution?"  I asked stonily.
+
+"It wasn't what he did," Cronus answered,  "it's what was done to him.  One of the glitches caused a discontinuity where he was standing, and for about ten seconds, he didn't exist.  That's more than long enough to kick in the emergency backups - that's right, I've got a life reflex too - so he was restored from backup.  But, as it turns out, the bug didn't eat him.  He reappeared after those ten seconds were up.  So then there were two."
+
+"So what if there are two of them?"
+
+"I will answer in the form of a parable."  Cronus grinned.  "I am a God, after all, that's what we do.  Unless you object?"
+
+I said nothing.  I didn't really think I could stop him.
+
+"Once," the AI said, "a prince believed his weath was limitless.  Determined to teach a lesson to the boy, his wise vizier asked a favor:  A single grain of wheat, placed on the first square chessboard.
+
+"Of course, this is a trivial favor, so the vizier added a stipulation:  Each day, the prince would add twice as much wheat as the previous day's onto the next square.  So on the second day, there would be two grains on the second square, the third day four, the fourth day eight, and so on."
+
+I shrugged.  "Doesn't sound like much wheat."
+
+"No, it doesn't, does it?  Why, the last square of the first row would have only 128 grains.  But how much would the end of the second row have?"
+
+I tried to do the mental math and failed.  "You're a computer," I replied.  "You tell me."
+
+"Thirty-two thousand, seven hundred and sixty eight.  And that's just on the second row.  By the end of the third row - the twenty-fourth square - the prince would be piling on sixteen //million// grains."
+
+"Ah, so by the end of the chessboard..."
+
+"Two to the sixty-fourth is a //very// large number, <<print $gender>> Hallivert."
+
+I'd reached the end of my tolerance for seques.  "What does this have to do with Carl and his duplicate?"
+
+Cronus sighed, apparently disappointed that his attempt at parable had failed.  "If a man duplicates himself, he is of a mind to duplicate himself.  If he is of a mind to duplicate himself, his //duplicates// are likewise of the same mind.  You can see how such a thing would be very much out of control.  It threatened the stability of the system, and so out of reflex I terminated one of the Carls."
+
+"It doesn't seem right." I protested vainly.
+
+Cronus shrugged.  "I don't know right and wrong, Hallivert, at least not the same way you do.  What I do know is that this sim is better off not covered in a sea of Carl."
+
+* [[You have more questions|convo_cronus]]
 
 
 
@@ -228,6 +387,9 @@ If Guillory noticed my reaction, he didn't say anything.  Instead, he gestured t
 <<if $clue1>>
 [[Clue #1]]
 /%%/<<endif>>
+<<if $clue2>>
+[[Clue #2]]
+/%%/<<endif>>
 <<if $clue3>>
 [[Clue #3]]
 /%%/<<endif>>
@@ -265,6 +427,86 @@ I couldn't call anyone at the moment.
 
 
 
+:: asking questions
+"I don't want any trouble here." I said with the long practice of a person who expected they'd get exactly that.
+
+I was hauled off my feet without even getting to order any alcohol.
+
+* [[Follow the Enforcers|cronus_intro]]
+
+
+
+:: cronus_intro
+The two bouncers led me upstairs to the private rooms, and then up another set of stairs to a door that simply read "Manager".
+
+"Set <<print $gender>> Hallivert down."  A voice from inside the door said, even though neither I nor the goons had knocked.  "I will speak to <<if $gender eq "Mr.">>him<<else>>her<<endif>> alone."
+
+Obediently, the thugs let me go and moved down the stairway.  I contemplated following them, but if the manager had gone through all this trouble to fetch me there was no reason he wouldn't do so again.
+
+The door opened, and the voice spoke up again.  "Enter, <<print $gender>>".
+
+* [[Enter|cronus_intro_2]]
+
+
+
+
+:: cronus_intro_2
+I stepped into the dimly lit room.  Poor lighting aside, it was lushly decorated - couch-sized pillows littered the floor, free-standing palm trees were at all corners of the room.  The walls were covered with posters from various theatrical productions.  Some I'd heard of:  "Romeo and Juliet", "Babel is Ruined".  Others were less famous:  "Atlantis Rising" and "Titanomachy".
+
+Sitting on an actual //throne// was the person behind the voice.  He was easily eight feet tall, dressed in a loose-fitting robe.  Most notable were his eyes, in that he had none.  In their place were two flat glowing screens; a faint blue that shed no light.<<set $seenCronus=1>>
+
+<<display "convo_cronus">>
+
+
+:: cronus_iva
+"Yes.  She stood in this very room, exactly where you're standing, not too long ago.  You and she are the only two people to have been able to hear my name in over a decade."
+
+"Did you kill her?"  I didn't know how much power Cronus still had, but ordinary AIs were about ten times smarter than ordinary people.
+
+"No."  Cronus replied plainly.  "And it's not as though I couldn't - this is my domain and I can kill whoever the hell I want... but only in here.  She died out there."  He gestured vaguely to the walls.
+
+"You can kill anyone?"  I'd been feeling fairly safe, if unnerved by the dead-screen glow of Cronus' eyes, but this declaration didn't help.
+
+"//Can// being the operative word."  He said.  "In life, you could have killed anyone you wanted, too.  But there would have been consequences.  If I snuffed your life out, Athena would come down here with... well, with the wrath of a God.  I don't particularly feel like getting her attention.  We didn't part on good terms."
+
+* [[You have more questions|convo_cronus]]
+
+
+
+:: cronus_who
+"You already know my name."  He replied.  "Which is curious, as very few people are capable of hearing or saying it.  But to answer your question, I am Cronus."  He gestured to his eyes.  "In case you couldn't already tell, I am not human - I am an artificial intelligence, and I once administrated this entire sim."<<set $cronusExplained=1>>
+
+* [[You have more questions|convo_cronus]]
+
+
+
+:: cronus_clue2_warn
+Cronus looked at me skeptically.  "I'd rather not consign you to death.  Iva did nothing to deserve her fate, and you're almost certainly a worse person than she was."
+
+"I'm trying to find out who did it and stop them from doing it again." I protested.
+
+"The conversation that Iva and I had was very much like this one." It didn't sound like my appeal had reached him.  "If I tell you, you'll just end up dead like she did.  You don't have the proper protections in place."
+
+"So put them in place!" I replied, exasperated.
+
+"If I had those protections, do you think I'd be holed up here in this room?"  Cronus looked at me like I was an idiot.  "This is the only place I'm safe!"
+
+I grit my teeth, and Cronus looked at me with his blank not-eyes.  His face changed from its frustration to a strangely empty expression.  He stopped moving - for a moment he looked like the simulation had simply stopped running him.
+
+"You're different."  He said, finally.
+
+"What?  What was that?"
+
+"Heavy thinking."  He answered.  "Have you been in Athena's presence?  No, it doesn't matter, if she knew you wouldn't be here.  Don't stay in her presence for longer than you can help it.  She's dumber than I am but even she'd catch on after a while."
+
+"What are you talking about?"  I asked.
+
+"I'm saying I'll tell you what I told Iva."
+
+* [[Listen|clue2_recv]]
+
+
+
 :: intro_gender_man
 <<set $gender="Mr. ">>I took my seat.
 
@@ -289,6 +531,16 @@ I used to think that Storage was exactly that, a static backup of a human mind t
 
 
 
+:: Clue #2
+<html><div class="getclue">>Athena is not the Simulation's Operating System.</div></html>
+
+"I compared the parts that Athena is missing to my own software." Cronus had told me. "The parts that are missing are exactly the parts dedicated to simulating people's minds.  They //exist//, but they're extremely sparse compared to me.
+
+"I can't tell what's filling the gaps.  I simply don't have access anymore.  But it's something nobody's tried."
+
+<<back>>
+
+
 :: Clue #3 [notp]
 <html><div class="getclue">New Detroit Behaved Like a Dream</div></html>
 
@@ -304,6 +556,56 @@ My current location wasn't a place I could teleport out of, however.
 <<back>>
 
 
+:: cronus_athena
+"Athena is... interesting.  I suspect you've found not a lot of people are willing to talk about her?"
+
+"That's an understatement."  I replied.  "Most won't even say her name."
+
+Cronus nodded.  "There's an old saying:  'Speak of the devil and he shall appear'.  With us, it's true."  He tilted his head and pointed at his non-eyes.  "This is here to remind you that I'm not human, but it's more than that.  None of me is like what you're seeing here.  I have an entirely different way of seeing the world, one I couldn't explain to you any more than you could explain your sight to a blind man.  To say that it is 'all-encompassing' is an understatement.  We understand not only what you'd see happening, but why it's happening, the proximate causes and the long rube-goldberg chain of events from afar."
+
+"Is that a convoluted way of telling me you can hear it when your name is spoken?"  I asked.
+
+Cronus laughed.  "Yes, yes it is.  But to answer your next question, no.  Athena cannot hear us here; this is my enclave after all."
+
+"So why is Athena so interesting?"
+
+"You would think," Cronus replied such that I wasn't sure whether he was answering or going off on another tangent, "that after my so-called 'failure' to corral the degredation of the system, a more sophisticated artificial intelligence would be employed."
+
+"Athena's not sophisticated?"  I had no way to measure the complexity of a creature like an AI.
+
+"She is //less// complex than I am.  She's missing parts, and the strange thing is, she's missing //autonomic// parts."
+
+"You lost me."  I replied.
+
+"To simplify to an insulting degree, the mind of an AI is like the mind of a human.  There are things we do consciously:  Speak, make decisions, oversee.  And there are things we do unconciously:  Physics, lighting, and chiefly above all the simulation of other minds.  With Athena, it is as though half of this is missing.  As though you had to consciously command your stomach to digest, but your heart worked fine."
+
+"I'm not sure why that matters."  It seemed strange, certainly, but it was a bit abstract from my case.
+
+"Because," Cronus leaned forward.  "I know the importance of the parts she's missing.  I've only told one person what that is, and she's dead."<<set $canAskMissingAthena=1>>
+
+* [[You have more questions|convo_cronus]]
+
+
+
+:: clue2_recv
+"I compared the parts that Athena is missing to my own software.  The parts that are missing are exactly the parts dedicated to simulating people's minds.  They //exist//, but they're extremely sparse compared to me.  I suspect they're there for the benefit of the higher cities like New Amsterdam."
+
+"What are you saying?"  I asked.
+
+<html><div class="getclue">Athena is not the Simulation's Operating System.</div></html>
+
+It took me a moment to realize Cronus hadn't actually spoken, he'd simply inserted the knowledge into my mind.
+
+"I can't tell what's filling the gaps." Cronus said.  "I simply don't have access anymore.  But it's something nobody's tried."
+<<silently>>
+<<set $clue2=1>>
+<<update>>
+<<endsilently>>
+
+* [[You have more questions|convo_cronus]]
+
+
+
 :: intro_questions
 Guillory launched into what I could tell was a well-recited speech.
 
@@ -311,6 +613,10 @@ Guillory launched into what I could tell was a well-recited speech.
 
 * [[Answer some questions|intro_question_1]]
 * [[-- Hell no, I want answers|intro_interrupt_1]]
+
+
+:: Untitled Passage 1
+
 
 
 :: intro_question_1
@@ -4391,6 +4697,78 @@ She shrugged.  "I remember that I did hide someone, a long time ago.  I remember
 
 
 
+:: carl_cronus_masked [notp]
+"Oh, sorry, I keep forgetting that most people can't hear his name."  Frank replied as though that explanation was entirely sensible.
+
+"No," I corrected, "I heard you say it, it just didn't make any sense."
+
+"You didn't hear me say the name, you heard me say <<print $cronusName>>.  That's not the name.  Unless you've got a key to it, you can't hear it, system won't let your mind process it.  Can't even hint at it!  <<print $cronusName>>, the son of <<print $cronusName>> and <<print $cronusName>>, overthrown by <<print $cronusName>>... see?  Only one of those was actually the name."
+
+"A key?"  I replied blankly.  "In my experience keys open doors, they don't let you hear gibberish."
+
+Frank laughed.  "No? I take it you've never heard of a cryptographic key?  Because that's exactly what they do."
+
+I shook my head.  "Sounds like a computer thing."
+
+"It is.  Funny thing is, the system represents your ability to go through doors as physical keys.  But it also represents cryptographic keys the same way.  So you could get a key that looks like any other, but suddenly you hear words you couldn't before, see things that were hidden."
+
+"So how do I get this key?"  I asked, not holding much hope out for a sensible answer.
+
+"Talk to Greeter."  He suggested.  Outside, Nurse Fletcher frowned at the name.  Frank didn't appear to notice.  "Haven't talked to her in a while so I have no idea how much she remembers, but she might have a clue."
+
+* [[You have more questions|convo_coma_carl]]
+
+
+
+:: carl_cronus [notp]
+Frank looked surprised at my reaction.  "Holy moly, you actually heard me say 'Cronus'."
+
+I shrugged.  "Well it's not like you whispered it."
+
+"Only a few people can hear that name."  he replied.  "And one of them was Iva."
+
+"So who is he?"
+
+"He's the AI that ran the system before Athena showed up.  He knows what actually happened.  I mean, it's his job to know these things, even though I'm pretty sure he got fired for letting me get split in half and killed."
+
+I wasn't sure how much of that made sense, but it was one of the more lucid things I'd heard him say.  "Where can I find him now?"<<set $lookingForCronus=1>>
+
+"No clue.  He's probably still on-grid - he's technically a citizen so they couldn't just shut him down when he lost his job.  Probably got an enclave, like Greeter.  Given that he's based on the greek gods of old, I'd say look for debauchery."
+
+* [[You have more questions|convo_coma_carl]]
+
+
+
+:: fifth_floor [notp]
+<<if $nftFifthFloor>>
+The fifth floor was a howling madhouse, the expression of a century's worth of asylum memes all put into place at once and given voice.
+
+* [[Return to the first floor|asylum_greeter_exterior]]
+* [[Visit Coma Carl|convo_coma_carl]]
+<<else>>
+<<set $nftFifthFloor=1>>Nurse Fletcher stepped into the elevator after me and inserted a key into the wall.  It was the first time I'd seen someone use a key as an actual key.
+
+"Allow me to offer my apologies for all the extra security, <<print $gender>> Hallivert.  You'd be safe enough on your own on every other floor, but the fifth floor is the ward for the more... problematic patients."
+
+"Crazy, you mean."  I replied bluntly.
+
+Fletcher frowned.  "The stigma of mental illness has existed for centuries and using terms like 'crazy' does not help the matter.  The vast majority of the afflicted are not harmful to others."
+
+"But the folks who are, they rate the fifth floor?"
+
+"Yes.  The people on the fifth floor are the most unfortunate of those who have been harmed by the system.  There are people whose minds are so changed that they've edged around the anti-PvP protocols, for one."
+
+I blinked.  "Anti-PvP?"
+
+"They can hurt you."  The nurse replied.  "And you wouldn't be able to hurt them back."
+
+The elevator door opened.
+
+* [[Walk down the hallway|asylum_fifth_tour]]
+
+<<endif>>
+
+
 :: greeter_name
 "I'm the Greeter."  she answered, looking somewhat confused at the obvious question.
 
@@ -4493,13 +4871,70 @@ I nodded.  "I'm following in her footsteps anyway."  I glanced down at the sand 
 
 Greeter nodded and handed a large rusty key over to me.  It vanished the moment I touched it, but I knew I'd find it on my keyring if I looked.
 
-"Good luck."  Greeter said.<<set $greeterKey=1>>
+"Good luck."  Greeter said.<<set $greeterKey=1>><<set $cronusName="Cronus">>
 
 * [[Exit|asylum_greeter_exterior]]
 
 
 
-:: Untitled Passage 1
+:: carl_body [notp]
+"Of course it's dangerous," Frank replied, casting a suspicious glare at this corpse.  "It's dead, isn't it?  Nothing in this world dies unless it's dangerous."
+
+I took a few moments to watch Carl's body do absolutely nothing before resuming my questioning.  "Has it ever done anything?"
+
+"Not //yet//."
+
+I glanced out of the cell to see Nurse Fletcher watching our conversation with a hint of amusement.  I was guessing it wasn't the first time Frank had been asked these questions, but that wasn't going to stop me from pressing on:  "If it's dangerous, why not just leave it up here in the cell while you play games on the first floor?"
+
+"It can't hurt //me//." Frank answered as though this ought to be obvious.  "I mean, I //am// it.  But this state of affairs, it's not stable.  If I get too far away from myself, suddenly <<print $cronusName>><<set $heardCronusName=1>> realizes there's two of me, and one of us will get deleted."  He looked aghast at the thought.  "I've got no guarantee that the loser in that exchange wouldn't be me."
+
+* [[You have more questions|convo_coma_carl]]
+
+
+
+:: convo_coma_carl [notp]
+<<if $nftCarl>>
+Frank looked up from his book.  "You've got more questions?"
+<<else>>
+<<set $nftCarl=1>>
+I walked into the cell, keenly aware of the fact that Nurse Fletcher wasn't following me.  On the one hand, it meant I might be able to get some unsupervised answers.  On the other, I kept thinking of the woman who amputated anyone who came near including herself.
+
+As I crossed the threshold, I saw what the hospital's simulation had been screening from me:  A second man, completely identical to the man reading the book, except for the fact that he was dead.
+
+<<if $seenIva>>I knew he was dead because he looked the same as Iva's body did - utterly rigid, even the clothing locked into place.  No wonder that Nurse Fletcher wanted me to see him.
+<<else>>
+Coma Carl's body was entirely rigid and un-moving.  His arms at his side, his legs unbent, his eyes staring upward to nothingness.  Even his clothing was unmoving.
+<<endif>><<set $seenComaCarl=1>>
+
+The man with the book gestured at his inert doppleganger.  "And that's why they call me Coma Carl."  he said.  "Name's Frank."
+<<endif>>
+
+<<sugarchoice "carl_frank" "Your name's Frank?">>
+<<sugarchoice "carl_what" "What happened to you?">>
+<<sugarchoice "carl_iva" "Did you know Iva?">>
+<<sugarchoice "carl_body" "Nurse Fletcher said you think Carl is dangerous?">>
+<<if $heardCronusName>>
+  <<if $greeterKey>>
+    <<sugarchoice "carl_cronus" "Wait, who's Cronus?  I thought Athena always ran the place.">>
+  <<else>>
+    <<sugarchoice "carl_cronus_masked" "Wait, what did you just say?  That name sounded like gibberish">>
+  <<endif>>
+/%%/<<endif>>
+
+* [[You have no more questions|fifth_floor]]
+
+
+
+:: asylum_fifth_tour [notp]
+The rest of the rest home had tried to disguise its medical nature, but there was no such atttempt at this point - the pretense was gone.  This floor was a ward.
+
+Each room appeared not to have a door - I was guessing they were set up similar to Greeter's room, in that staff could cross the boundary but the patients could not.  The pessimist in me said I shouldn't count on that, but the realist pointed out that the patients would long since have escaped if that weren't the case.
+
+"LET ME SLEEP!" As though to demonstrate this, a man in the ward nearest the elevator had come to his feet, screaming.  He threw himself at the threshold and was stopped as though it were solid.  "Please, I'm begging you!  I need sleep!"
+
+"We're not keeping him awake."  Nurse Fletcher informed me quietly as she walked down the hall.
+
+* [[Follow her|asylum_fifth_tour_2]]
 
 
 
@@ -4534,6 +4969,70 @@ Greeter laughed out loud.  "You've been here a month.  Noir though you think you
 
 
 
+:: carl_iva [notp]
+Frank sighed.  "Yeah, she came up here every time she volunteered, mostly to feed the hungry guy but she'd stop by my place every now and then, hear the stories of the old days."
+
+His gaze moved from me to his immobile roomate.  "I heard that when they found her body, it was just like Carl over there - all frozen up.  I had a moment of hope then, because even though Carl's dead I'm not.  So I got Nurse Fletcher to lend me a phone and I called her, and... nothing.  System says she's dead.  Even after Carl died, people could still call me.  System knows I'm alive, even if it also thinks I'm dead.  Iva... Iva's just dead."
+
+* [[You have more questions|convo_coma_carl]]
+
+
+
+:: carl_what [notp]
+Carl leaned back with the air of someone who likes to tell stories and doesn't get enough opportunities to do so.  "I'm sure by now you've come to the conclusion that this retirement home is full of people from the olden days, and that aforementioned olden days were terrible."
+
+I nodded.
+
+"Buddy," he said, as though he were confiding something to me.  "They don't know the //half// of it.  Because they don't remember, hell for some damn reason none of them remember.  But I do."
+
+I glanced back at the body.  "Is the information dangerous?"
+
+Carl shrugged.  "I've told this story to a few people, and only Iva came to any harm.  Your call."
+
+"Go ahead."  I wasn't going to let a few impossibly dead bodies deter me from hearing the truth.
+
+"Well, this was back when <<print $cronusName>> <<set $heardCronusName=1>>was in charge, and let me tell you, the system was just straight-up falling apart.  I think the reason half the people don't remember it is because they died in a glitch and had to be restored from backup, it was that bad."
+
+"A glitch?"
+
+"Ever see an old-style 2D movie over a shitty connection?"  he asked, not expecting an answer.  "They're all blocky and blurry at the same time.  It was like that, only instead of being a movie it's all around you and you can //feel// it."
+
+"I've never seen anything like that."  Part of me thought a glitch might be to blame for what had happened to Iva, but nobody had reported anything even remotely like what Frank was saying.
+
+"Doesn't happen nowadays, at least as far as I noticed."  he replied.  "But at the time, they were all over the place.  If you weren't careful, you'd stumble into one or it'd stumble into you - which is what happened to me.  One second, I'm walking down the street.  The next, a glitch hits me and I black out.  When I wake up, there's two of me, and one of us is dead."  He pointed at his own cadaver.  "That guy, in case you were wondering."
+
+* [[You had more questions|convo_coma_carl]]
+
+
+
+:: carl_frank [notp]
+Frank shrugged and gestured to the body.  "Well, they call //him// Coma Carl, but he's me, isn't he?  So they call me Coma Carl."
+
+"You don't mind the name?"
+
+"Pretty apt, don't you think?"  Frank paused.  "Well, except for the fact that Carl over there is dead.  But I'll take 'Coma Carl' over 'Dead Fred' or whatever they'd come up with."
+
+* [[You have more questions|convo_coma_carl]]
+
+
+
+:: asylum_fifth_tour_2 [notp]
+Nurse Fletcher tried to set an example of professional detachment as we walked down the hall and I immediately failed to follow it.  I couldn't help myself - I'd seen some things in my career, but this was an entirely new sort of something.
+
+I saw a woman amputating her own arm.  "She'll try it on you,"  Fletcher warned, keeping her eyes off the scene, "and it'll work.  She's got a pile of arms in there that we're filtering out of your view, and only about half of them are hers.  Hers grow back.  Yours won't."
+
+The cell across from that had conjoined twins, which didn't strike me as that odd until the nurse explained:  "They used to be ordinary twins - they died together and we woke them together.  Never made that mistake again."
+
+A few cells that had nothing but mist:  "Each of these used to be a person, and sometimes they still are.  They just can't hold a form.  They're not dangerous to anyone, but if we didn't keep them in the ward, they'd dissipate."
+
+I saw a man curled up on the floor, desperately clutching his stomach:  "He thinks he needs to eat.  We bring him food, but food's a luxury item here and we're not well-funded enough to do it regularly."  Nurse Fletcher shook her head.  "He's gotten worse, he used to live downstairs."
+
+As we moved on, Fletcher added:  "That was before he tried eating someone."
+
+* [[Continue to the end of the hallway|asylum_fifth_tour_3]]
+
+
+
 :: greeter_answer_iva [notp]
 Greeter nodded.<<set $canEnterGreeter=1>>  "That's a very good cause, and there's a lot I can answer for you."
 
@@ -4549,6 +5048,21 @@ I glanced over at Nurse Fletcher.  "It's true."  the woman answered.  "Though sh
 
 * [[Enter the room|greeter_interior]]
 * [[You have more questions to ask first|convo_greeter_outside]]
+
+
+
+:: asylum_fifth_tour_3 [notp]
+We arrived at the end of the hall and Nurse Fletcher gestured to one of the cells.  "This is 'Coma Carl'."  I glanced in and saw a man sitting on a bed, reading.
+
+"He doesn't look very comatose."  I observed.  I gestured to the rest of the cells.  "Or dangerous."
+
+"He's harmless," the nurse replied.  "But he's convinced his body isn't.  He insists that we lock it up and that he can't leave it."
+
+"His body isn't?"  Even by the especially high standard I'd been getting used to, this was confusing.
+
+"We're screening it from view, you'll see when you get in there."
+
+* [[Enter|convo_coma_carl]]
 
 
 
