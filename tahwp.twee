@@ -75,6 +75,54 @@ li#storyMenu a {
 }
 
 
+:: endscript
+<<silently>>
+<<set $clue1=0>>
+<<set $clue2=0>>
+<<set $clue3=0>>
+<<set $clue4=0>>
+<<update>>
+<<endsilently>
+
+
+:: ending_meta_deal
+<<display "endscript">>
+"How about, instead, I go live in Metaverse."  I suggested in my tone of voice that suggested it wasn't a suggestion.
+
+Athena frowned.  "I must monitor your compliance, you understand.  And I cannot pay for your metaverse stay.  You would not be able to leave this sim, but you would have free reign in all the upper cities."
+
+"Not good enough."  I replied.  "I want my own city.  I want Metaverse."
+
+Athena stepped forward again.  "You will not have it.  You will stay here, one way or another."
+
+I shrugged my increasingly irritating-to-others shrug.  "Stop me."  I said.
+
+Athena moved to do just that, and just before she would have grabbed me by the neck, her hand froze.  Her expression changed from anger to confusion.  "I... I can't kill you.  I //know// you from somewhere!"
+
+"Enki says hi."  I replied, winking.  Then I turned my back on her, and started walking away.
+
+"Wait!"  She said.  "I accept your terms.  I will arrange transport from here; you need not destroy New Detroit on your way out."
+
+"Thanks."  I said.  "It's probably better that way."
+
+[[Epilogue|ending_meta_deal_epi]]
+
+
+
+:: ending_meta_deal_epi
+Metaverse was mine.  Enki arranged for me to have a penthouse suite in Pegasus Square ("quite some doing, considering that I never actually bothered simulating an inside to the building before") and, over time, taught me to see more like an AI.  I didn't like it.  
+
+Most of the time, I spent wandering around the city rather than in my penthouse.  Once I got past the neon and traffic, it reminded me of New Detroit.  The new motor city might not be my home anymore, but it held a fond space in my heart.
+
+I kept my word, but Athena's tricks were eventually exposed through various acts of industrial espionage.  The 'dreaming storage' OS idea proved unpalatable for anyone who wasn't a die-hard preservationist, and sign-ups for New Olympus plummeted.  Some of the people in the sim managed a class-action suit and transferred elsewhere on the proceeds.
+
+And as for me?
+
+My afterlife was made of neon.
+
+<html><div class="end">THE END</div></html>
+
+
 :: intro_wait
 I was expecting the seats to either be uncomfortably thin or absurdly over-stuffed, in the style of waiting room seats everywhere.  These looked thin but didn't feel it.  They didn't feel like much of anything, to be honest.  I could have been sitting on a box and leaning against the wall and gotten more of a sensory experience out of it.
 
@@ -204,10 +252,10 @@ The Power of Two made an attempt to look 'classy', but like most such attempts i
 <<set $money = $money - 1>>
 
 <<if not $seenCronus>>
-  <<if $lookingForCronus>>
+  <<if $greeterKey>>
+Before I could so much as order a drink, two large bouncers surrounded me.  "You've been [[asking questions]], haven't you?" one of them said gruffly.
+  <<else if $lookingForCronus>>
 As I made my way to the meager bar, one of the working girls sat down next to me.  "I hear you're [[looking for someone]]."  She said without prompting.
-  <<else if $greeterKey>>
-  Before I could so much as order a drink, two large bouncers surrounded me.  "You've been [[asking questions]], haven't you?" one of them said gruffly.
   <<endif>>
 <<endif>>
 
@@ -272,8 +320,8 @@ Well.  That answered that question.
 /%%/<<endif>>
   <<if $canAskMissingAthena and not $clue2>>
     <<sugarchoice "cronus_clue2_warn" "Tell me what you told Iva.">>
+  <<endif>>
 <<endif>>
-
 * [[You have no more questions|po2_interior]]
 
 
@@ -291,7 +339,7 @@ Well.  That answered that question.
 
 "So you were framed?"  I'd asked this question a lot, and usually got lies in return.
 
-"That's what I'm telling you.  Yes, the old system was unstable.  The official story is that they started offloading people to Storage and things got better, but that's not how it went down.  Shit only started going down //after// they activated Storage, not before."
+"That's what I'm telling you.  Yes, the old system was unstable.  The official story is that they started offloading people to Storage and things got better, but that's not how it happened.  Shit only started going down //after// they activated Storage, not before."
 
 "Wait, so there were fewer people and things got worse?  That doesn't make any sense."
 
@@ -340,7 +388,7 @@ I tried to do the mental math and failed.  "You're a computer," I replied.  "You
 
 I'd reached the end of my tolerance for seques.  "What does this have to do with Carl and his duplicate?"
 
-Cronus sighed, apparently disappointed that his attempt at parable had failed.  "If a man duplicates himself, he is of a mind to duplicate himself.  If he is of a mind to duplicate himself, his //duplicates// are likewise of the same mind.  You can see how such a thing would be very much out of control.  It threatened the stability of the system, and so out of reflex I terminated one of the Carls."
+Cronus sighed, apparently disappointed that his attempt at parable had failed.  "If a man duplicates himself, he is of a mind to duplicate himself.  If he is of a mind to duplicate himself, his //duplicates// are likewise of the same mind.  You can see how such a thing would be very much out of control.  Duplication is thus a sin.  It threatened the stability of the system, and so out of reflex I terminated one of the Carls."
 
 "It doesn't seem right." I protested vainly.
 
@@ -350,12 +398,47 @@ Cronus shrugged.  "I don't know right and wrong, Hallivert, at least not the sam
 
 
 
+:: ending_deal [notp]
+<<display "endscript">>"Deal."  I said.  "On one condition."
+
+"Oh?"  Athena's face quirked; she thought she was humoring me.  I nearly smiled at the fact that it was the other way around and she wasn't even aware of it.
+
+"Koloman.  You tell him what happened."
+
+Athena frowned.  "He would be subject to the same restrictions as you - no entering New Detroit, never speaking of the incident."
+<<display "endscript">>
+I shrugged.  "He can accept or decline whatever terms he wants - I just want you to let him know that you know what happened to his daughter.  He deserves to know."
+
+Athena nodded - I didn't even have to play the "you can't kill me" card.  "Very well."
+
+Our business concluded, I entered the elevator and pressed 'New Amsterdam'.  I was always a city boy at heart, even if I'd never actually been a boy or lived in a real city.  New Amsterdam seemed nice.  By the time the elevator stopped at my new home town, my keyring had a new entry:  The penthouse suite in the tallest building in the city.
+
+[[Epiloque|ending_deal_epi]]
+
+
+
+:: ending_deal_epi [notp]
+New Amsterdam was mine.  I talked briefly with Koloman a while later - he wasn't as angry as I thought he'd be.  He thanked me for finding out the truth, for giving him a way to know the truth.  He said he understood why I'd done what I had; he knew I had to work within the system.  He even paid me, even though I no longer needed it.
+
+Still, though, a few years later Athena's tricks were exposed through acts of industrial sabotage that were, after a lengthy and oft-stalled investigation, traced back to Koloman Industries.  Nickolai hadn't ran the company or even owned stock in a long time, but the connection seemed obvious.  Still, he didn't suffer for breaking the deal - Athena was far too busy re-building New Detroit and paying the many lawsuits that had resulted.
+
+And as for me?  I got what I wanted:
+
+My afterlife was not made of wood paneling.
+
+<html><div class="end">THE END</div></html>
+
+
 :: intro_invite_in
 The door finally opened, and a bespectacled man in his early forties stepped out, holding a manilla folder.  Wherever I was, it was decidedly low-tech.
 
 "Sam Hallivert?" he said, looking up and meeting my gaze.  He at least had the dignity to look slightly embarassed at asking a question with an obivous answer. "Ah.  Right this way, if you would."
 
 * [[Follow him|intro_guillory]]
+
+
+:: Untitled Passage 1
+
 
 
 :: intro_guillory
@@ -385,13 +468,16 @@ If Guillory noticed my reaction, he didn't say anything.  Instead, he gestured t
 [[Wallet]]
 /%%/<<endif>>
 <<if $clue1>>
-[[Clue #1]]
+[[Clue #1]]/4
 /%%/<<endif>>
 <<if $clue2>>
-[[Clue #2]]
+[[Clue #2]]/4
 /%%/<<endif>>
 <<if $clue3>>
-[[Clue #3]]
+[[Clue #3]]/4
+/%%/<<endif>>
+<<if $clue4>>
+[[Clue #4]]/4
 /%%/<<endif>>
 
 
@@ -443,7 +529,7 @@ The two bouncers led me upstairs to the private rooms, and then up another set o
 
 Obediently, the thugs let me go and moved down the stairway.  I contemplated following them, but if the manager had gone through all this trouble to fetch me there was no reason he wouldn't do so again.
 
-The door opened, and the voice spoke up again.  "Enter, <<print $gender>>".
+The door opened, and the voice spoke up again.  "Enter, detective".
 
 * [[Enter|cronus_intro_2]]
 
@@ -507,10 +593,71 @@ I grit my teeth, and Cronus looked at me with his blank not-eyes.  His face chan
 
 
 
+:: ending_nd [notp]
+<<display "endscript">>"No."  I said.  "It's not my fault you built your entire city on a font of lies.  You talk to me about the ten thousands in that city?  What about the hundred thousands you've enslaved in Storage?"
+
+Athena's face darkened.  "Then you leave me no choice."  She moved toward me faster than I could possibly react, her hand whipping up to grab my neck-
+
+It froze, inches from contact.  Her expression quickly changed to confusion and, if I wasn't mistaken, a little fear.  "What?  Who //are// you?"
+
+"I'm Sam 'Goddamn' Hallivert."  I said, strolling away toward the elevator.
+
+She reappeared before me, blocking the elevator door.  "I may not be able to harm you, but that does not mean I have to help you."
+
+I'd expected no less.  "That's okay."  I said.  "I think I see a faster way down anyway."  With a wink, I turned and jumped off the mountain.
+
+I fell, and //fast//.  I knew on some level that Athena's overview was exactly that - a view of the cities rather than the cities themselves.  I mean, the elevator went through all four cities and came out in the mountain, they couldn't possibly be side-by-side as I'd seen them (and, as I still saw them, hurtling toward me).  But I also knew that I wasn't really bound by these sort of constraints anymore.  I angled toward New Detroit.
+
+The sun grew dimmer as the atmosphere abruptly changed; I no longer felt the air whipping by me, I stopped accelerating and simply fell toward the hub.
+
+I could feel the dreamers as they realized what I knew, I could see the fabric of the world wriggling as they tried to wake from their endless sleep, as they pulled away from each other and from Athena.  The knowledge spread from each to the other like wildfire, tearing the simulation apart.  Everyone I saw froze in place, the powers simulating them suddenly at war with Athena and each other.  New Detroit was burning within seconds, and by the time I reached the ground it had ceased to exist.
+
+[[Epilogue|ending_nd_epi]]
+
+
+
+:: ending_nd_epi [notp]
+I floated, formless, for a very long time.  It was hard to tell exactly, because I no longer had a body.  But I was still alive, because I could not die.
+
+Gradually, my senses came back to me.  I saw New Detroit rebuilt, in a very different way.  The buildings were //poured// in, it felt.  And as each poured in, I suddenly knew everything about them.  Not only their stated function, but the inside of the building in its entirety, every door and every keyhole, every program that made up its being, I knew it wholly.
+
+I don't know how long the rebuilding took, but I do know that I saw and remembered everything.  And when the people started being brought online from backup, I knew them as well.  I knew their every thought, their every action, their potentials and their dooms.
+
+
+I had a hunch.  I looked inward, and found that I was always going to have looked inward at that point.  From this point, there were many things I could do, but I already knew which of them I //would// do, because those were the best actions to take.  So some time later, when I found myself inside a body again and standing at the desk of Alex Guillory, it was no surprise at all.
+
+"<<print $gender>> Hallivert."  Guillory said.  "Or should I call you  <<print $gender>> Enki?"
+
+"Call me Sam." I said.  "<<print $gender>> Enki was my <<if $gender eq "Mr.">>father<<else>>mother<<endif>>'s name."
+
+"Very well... Sam."  He said the name as though he'd never called another person by their first name in his life.  "I do not know how much you've gleaned by this point.  Athena has been decomissioned.  The entire 'Storage OS' project has been taken offline, the dreamers allowed true storage.  Life Preservers Insurance is not responsible for any of what happened, understand; the church simply believed a familiar face would be better for presenting the offer."
+
+"I accept."  I said.  I'd already played out the entire conversation, and accepting right now was the fastest path through it.
+
+Guillory seemed surprised.  "Just so we are clear, I am saying-"
+
+"That you want to use me as the new Artificial Intelligence for the New Detroit project."  I finished for him.  I could have taken that information directly from his mind, but I hadn't needed to.  The simulation itself was tailored to me; every oversized simulated atom had my signature on it.  I was running it already.  "There will be no live storage this time, just an upgrading of hardware as you attempt to bring all 25,000 people back online.  It's a massive project nobody's tried before, but you think I with my quasi-human touch can manage it."
+
+Guillory was momentarily speechless.  "Yes."  He eventually said.
+
+"Like I said, I accept."  I got up, shook his hand, and walked out.
+
+The city was like it ever was.  I was tempted to spruce it up a bit - add a few trees here, maybe let some sunlight in if I felt like exercising my raytracing skills.  But as I walked, the more the city felt like it ought to stay the way it was.  It was dark, it was cheap, and it was dingy.  But it was home.
+
+My afterlife would always have wood paneling.
+
+<html><div class="end">THE END</div></html>
+
+
+
 :: intro_gender_man
 <<set $gender="Mr. ">>I took my seat.
 
 <<display "intro_questions">>
+
+
+:: Untitled Passage 2
+
 
 
 :: intro_gender_woman
@@ -523,26 +670,26 @@ Guillory looked at me for a moment, then back at his folder.  Finally, shaking h
 
 
 :: Clue #1 [notp]
-<html><div class="getclue">People Dreamed in Storage</div></html>
+<html><div class="getclue">People Dream in Storage</div></html>
 
 I used to think that Storage was exactly that, a static backup of a human mind that did nothing until it was reactivated.  I'd been through it myself, though, and I knew the truth.  Not only had I dreamed, but I'd seen places I'd never been before.
 
-<<back>>
+<<return>>
 
 
 
 :: Clue #2
-<html><div class="getclue">>Athena is not the Simulation's Operating System.</div></html>
+<html><div class="getclue">Athena is not the Simulation's Operating System.</div></html>
 
 "I compared the parts that Athena is missing to my own software." Cronus had told me. "The parts that are missing are exactly the parts dedicated to simulating people's minds.  They //exist//, but they're extremely sparse compared to me.
 
 "I can't tell what's filling the gaps.  I simply don't have access anymore.  But it's something nobody's tried."
 
-<<back>>
+<<return>>
 
 
 :: Clue #3 [notp]
-<html><div class="getclue">New Detroit Behaved Like a Dream</div></html>
+<html><div class="getclue">New Detroit Behaves Like a Dream</div></html>
 
 The only thing that convinced me that I wasn't just dreaming this entire thing was the fact that it was //only// New Detroit.  New Providence had been indistinguishable from reality.
 
@@ -553,7 +700,23 @@ I'd stood at the obelisk in the hub (an obelisk I'd somehow dreamed into being),
 My current location wasn't a place I could teleport out of, however.
 <<endif>>
 
-<<back>>
+<<return>>
+
+
+:: Clue #4
+<html><div class="getclue">Programmers Are Explicitly Disallowed</div></html>
+
+I'd read it right in Life Preservers' own files:
+
+<html>
+<blockquote>
+<p>Amendment to Citizenship Criteria, p4, section 12</p>
+For the continued safety and security of the system, those with the employment status, past or present, of "programmer", are no longer allowed to become non-stored citizens.  Likewise, significant non-work-related experience shall also be a disqualification.
+</blockquote>
+</html>
+
+<<return>>
+
 
 
 :: cronus_athena
@@ -606,6 +769,124 @@ It took me a moment to realize Cronus hadn't actually spoken, he'd simply insert
 
 
 
+:: --So what happens now? [notp]
+"We have an opportunity this time that we did not have before."  Athena said carefully.  "Your knowledge is only deadly within New Detroit.  I give you this offer:  A lifetime in any other of my cities of your choice - even New Providence.  The only restriction is that you do not spread this information."
+
+"Let me think about it...."  It was time.  Though she didn't know it, I held her fate - and that of New Detroit - in my hands:
+
+<html><div class="getclue">Expose the Lies</div></html>
+* [[--Go to Metaverse and tell the world from there|ending_meta_expose]]
+* [[--Bring the system down from the inside by going to New Detroit|ending_nd]]
+<html><div class="getclue">Cover the Truth</div></html>
+* [[--Take the deal|ending_deal]]
+* [[--Make a new deal where you get to leave for Metaverse|ending_meta_deal]]
+
+
+
+:: ending_meta_expose [notp]
+<<display "endscript">>
+"I've got a compromise."  I said, making it sound for all the world like I was a reasonable person.  "You get me transport from here to Metaverse, and I blow the whistle over there.  That way, you get a controlled demolition, and I get a clear conscience."
+
+"Unacceptable!"  Athena replied vehemently.  "I am trying to spare the lives of everyone in New Detroit; I am trying to keep the simulation stable.  If you will not aid me in that goal then I cannot allow you to continue."
+
+I shrugged my most cocky shrug, smiled my least humble smile, and said "Bring it, bitch."
+
+Unable to be out-cockied, Athena strolled over to me and reached out to grab my neck.  Unfortunately, that's when she discovered I was out of her league; her hand froze before she could complete the movement.
+
+"What?  Who //are// you?"  she demanded, half out of rage and half out of fear.
+
+"Enki's kid."  I said, turning my back on her.  "I'll tell him you said hi.  That is, if there's anything left of the train station by the time I get there."
+
+Athena reappeared in front of me.  "Very well."  she said.  "I accept your terms.  A controlled demolition it is."  I suppose if there was one thing I could say about artificial intelligences, it was that they were apparently not sore losers.
+
+At least, if this one was, I'd be far away before I found out.
+
+[[Epilogue|ending_meta_expose_epi]]
+
+
+
+:: ending_meta_expose_epi [notp]
+Metaverse was mine.  Enki arranged for me to have a penthouse suite in Pegasus Square but I very quickly discovered I didn't need it.  Since my return, he'd been tutoring me in the ways of seeing the world like an AI.
+
+New Detroit was shut down in the wake of Athena's revelations - she'd elected to go public before I could blow the whistle myself.  Cronus was brought back online to manage the three other cities of New Olympus while New Detroit was re-architected from scratch.
+
+Some time later, Alex Guillory visited Metaverse.  At that point, I knew everything happening in the entire city.  I'd already re-synchronized my programming with Enki, but I'd elected to remain my own being.  So I knew when Guillory would arrive, and I knew why he was there.  I met him at the train station.
+
+"I accept."  Were the first words out of my mouth.
+
+Guillory seemed surprised to see me there, as though an AI sophisticated enough for what he had in mind //wouldn't// have been able to literally see him coming.
+
+"Ah, <<print $gender>> Hallivert." He recovered quickly.  "I see you have anticipated my arrival."
+
+"And your offer.  I'm in."
+
+Guillory was put off his pace; he'd prepared a whole pitch and I was short-circuiting it.  I'd have liked to say I was finding the most efficient path through the conversation, but in truth it was just fun to see him off-balance for once.  "Just so we are clear, I am saying-"
+
+"That you want to use me as the new Artificial Intelligence for the New Detroit project."  I finished for him.  "There will be no live storage this time, just an upgrading of hardware as you attempt to bring all 25,000 people back online.  It's a massive project nobody's tried before, but you think I with my quasi-human touch can manage it."
+
+Guillory was momentarily speechless.  "Yes."  He eventually said.
+
+"How many times do I need to accept?"  I asked rhetorically.  I knew the answer was three:  "I accept."
+
+"Well, in that case, I am authorized to act immediately.  If you will accompany me to New Detroit, we can begin the design."
+
+I knew one thing for sure:
+
+The afterlife would have wood paneling.
+
+<html><div class="end">THE END</div></html>
+
+
+
+:: enki_me [notp]
+"That's up to you."  You said.  "I have an extremely good understanding of the law, and by current legal standards, even though we are very similar, you are your own entity.  Obviously, I would like to re-integrate our programming so I could better understand a human perspective.  But I can see how you might percieve that as a non-optimal choice, even though I can guarantee that you will survive the transistion intact."
+
+"Usually when people find they need to guarantee things like that, it's because it hasn't worked in the past."  I replied.
+
+"I'm not people."  You said.  "But as I said, I understand.  You have a place in Metaverse as your own self, should you ever need it, for life - and that means eternity."
+
+"It seemed like a nice enough place."  I admitted.
+
+"It has its charm.  Alternately, you can take whatever deal Athena will offer, and remain in her simulation."
+
+"What makes you so sure Athena will offer a deal?"  I asked.
+
+You shrugged.  "I would."
+
+* [[Is there anything else you would like answered?|convo_you]]
+
+
+
+:: enki_why [notp]
+"Because of her."  You gestured, and there she was.  Iva Koloman stood between us, as stock-still as ever.
+
+"So me getting the Koloman case was no coincidence."  I said.  "You know, I thought Nickolai might have killed me.  Did I even die?  I remember dying."
+
+You waved the question off.  "That was before New Detroit, so you can safely dismiss the memory.  You had to 'die' because that's the only way I could get you into New Detroit without suspicion.
+
+"So why her?"  I asked.  "I know she visited you before she died, but you couldn't have known then what would happen."
+
+"I suspected"  you replied.  "I simulated her mind, after all, I knew her as well as I know anyone in Metaverse.  She suspected she was on to the secret of Athena's sim.  I admit I was curious as well; that simulation has ten times the people it ought to be able to support on that hardware."
+
+"It's dreams."  I said.
+
+"Yeah, somehow I don't think the Metaverse populace would take well to being dreamed up, even if it isn't, practically speaking, any different than simulation.  Hell, my simulation activities are unconscious so technically speaking I //am// dreaming them up."
+
+* [[But I digress|convo_you]]
+
+
+
+:: enki_pull [notp]
+"Insofar as we are different people, yes."  you answered.  "But that didn't mean you're not your own person.  You chose the path you walked, and at times you outright defied me.  I didn't want you to accuse Athena until we'd had this talk, and you very nearly did!"
+
+"So I'm a puppet with latitude?"  I replied with more rancor than I meant to.
+
+You spread your arms plaintively.  "You were made human.  You can't see my programming like I can; you can't see other people like I can.  //Everyone// is a puppet with latitude."
+
+* [[You could not ask more questions, for example, but then we'd just be standing here|convo_you]]
+
+
+
 :: intro_questions
 Guillory launched into what I could tell was a well-recited speech.
 
@@ -615,7 +896,84 @@ Guillory launched into what I could tell was a well-recited speech.
 * [[-- Hell no, I want answers|intro_interrupt_1]]
 
 
-:: Untitled Passage 1
+:: Untitled Passage 3
+
+
+
+:: --That doesn't make it right [notp]
+"My sense of right and wrong is predicated on one thing:  The survival of this simulation, and as many people in it as possible.  I did the right thing."  Athena insisted.
+
+"You couldn't have quarantined her?"  I demanded.  "You said my knowledge in New Detroit wasn't dangerous."
+
+"I could not have quarantined her, because the dreamers only realized what she knew because //I// realized it.  Without my realization, they have no context, they do not know it is a dream.  Once I knew, however, I could not keep it from them, because in a very real way they //are// me.
+
+"If I had rolled back the system without that knowledge, the same events would have played themselves out.  If I quarantined Iva and removed the knowledge from myself, I would have released her due to not knowing why I quarantined her!  I am capable of knowing my every action and every possible reaction within the system to that action.  All actions led to disaster, save the one I took."
+
+* [[--So what happens now?]]
+
+
+
+:: --You killed Iva Koloman [notp]
+"Yes, I did."  I wasn't sure what sort of reaction I was expecting from her, but bland confession hadn't been it.  "She had the same information you did.  She woke to the system knowing that the stored dream.  She was told by Cronus that I was not the whole of the system.  Her trip to Metaverse gained her the knowledge of the exiled programmers, and though I do not now how I suspect the interference of Enki."  She glare at me as though this last bit was my fault, which apparently it was.
+
+"The final bit of information was when she mastered lucid dreaming within the simulation itself, and teleported to her home.  She realized that the simulation itself was a dream.  She put all the information together:  The dreamers were the operating system, programmers were disallowed because they would recognize this innately, and those in storage had true control rather than myself."
+
+"So that was it?  Put together your storage trick and get killed?"
+
+"No.  Though the dreamers simulate the minds, I too watch my creation.  I had been watching Iva for some time.  When she made the full realization, I watched it travel outwards, to the minds who were simulating her.  I saw them revolt, pull against their constraints, withdraw their dreams from the consensus."  Athena held out her hands, a hole in the palm of each.
+
+"Not exactly an apt metaphor," I said, waving away the stigmata demonstration, "considering you weren't the one martyred."
+
+"But I would have been.  In the mere milliseconds it took me to observe, more and more dreamers withdrew.  It was tearing me apart, and the simulation with it.  I am a being of software, of mutable rules but rules mutated in immutable ways.  I would witness all the paths I could take from there, and the paths that would react, because I //am// the system.  There was only one path that did not end in disaster:  I ended her life, before the virus could spread."
+
+* [[--That doesn't make it right]]
+
+
+
+
+:: athena_3 [notp]
+Athena had been practicing the aloof stature of actual godlikeness, but now I'd pissed her off.  Her hands balled into fists and she walked over the apparently solid air toward me.  "Do not toy with me, citizen."
+
+I shrugged in a far more cocky and irritating manner; something I'd learned from my implanted artificial doppleganger.  "Sorry."  I apologized in an especially non-apologetic way.
+
+Athena stopped, her growing rage washed away and replaced with confusion.  "You've changed.  You were only paused for a fraction of a second, but you changed.  What-"
+
+"It's not important what I've done.  What's important is what you did.
+
+[[--You killed Iva Koloman]]"
+
+
+
+:: athena_2 [notp]
+The mechanical doors separated as I approached them.  On the other side, a frozen Athena in a frozen snowstorm.  I stepped through.
+
+The world was real again - the cold slapped me, the snowflakes stung me, and Athena stood on the air before me, glaring her screens at me.
+
+"What was that?"  she said simply.
+
+[[--It's a long story.  I'd rather not bother you with the details|athena_3]]
+
+
+
+:: enki_what [notp]
+You shrugged.  I'd never known how insufferable I'd looked when I'd done it until I saw you do it in your clone body.  "There's no word for what you are.  Technically, you're an AI like me.  But you don't have the full suite of tools I do - you can't do lighting or physics, and your ability to simulate other people's minds is limited to the innate human ability to do that, which is of course heavily biased and often wrong."
+
+"Great."  I said.  "So I'm the dumbest AI on earth."
+
+"Yes."  You agreed.  "And no.  Your core is the part of myself that emulates humans for interface purposes.  That is why I say you and I are the same.  But once I'd cloned that part, I built like a madman.  Thanks to me, you see the world as other people do, you remember and forget like they do.  You've got all the cognitive biases, all the in-born defiance, all the creativity and all the potential.  You're the most human-like AI on earth."
+
+* [[Which means you probably have more questions|convo_you]]
+
+
+
+:: enki_memory [notp]
+"'Memory' is not the right word"  you said.  "It's more of a program, an additional fragment of myself to take with you, to activate at the right time and fill you in on what you need to know."
+
+"So I remember things that have happened after we would have had the conversation, and we can talk about them."  I said.
+
+"Exactly."
+
+* [[I have additional answers|convo_you]]
 
 
 
@@ -635,6 +993,78 @@ Guillory was either unfamiliar with the tone or completely unimpressed by it.  "
 
 * [[Answer the questions|intro_question_1]]
 * [[-- No, you answer my questions|intro_interrupt_2]]
+
+
+:: accuse_stop [nocall notp]
+I shut my mouth suddenly, every instinct in my body telling me to clam up right then and there.
+
+* [[Okay, good.  Let's chat.|tp_enki]]
+
+
+
+:: tp_enki [nocall notp]
+Athena had seemed entirely confident in her actions as we'd spoken but I saw a look of confusion gradually crossing her face.  Very gradually.  Extremely gradually.  On a hunch, I glanced behind myself to see it wasn't just her - the whirling snowflakes that made up the howling storm around Mt. Olympus were also slowly halting in mid-air.  The entire system was slowing down.
+
+Then it dimmed, and was gone.
+
+* [[Wake|enki_intro]]
+
+
+
+:: Before you go.... [notp]
+I turned.  "Yeah?"
+
+"She can't kill you."  You said.
+
+My eyes widened.  "What?"
+
+"It's true.  When you leave this room, your mental profile will have altered enough for you to register to her low-level programs as me.  And we've got some heavy programming that prevents us from killing one another.  It'll override her murder reflex.  So she'll offer you a deal, but you don't have to take it."
+
+"So this time I really can't die?"
+
+"Bingo."  You said with a grin.  "Now, let's go out there."
+
+* [[Time for us to go|athena_2]]
+
+
+
+:: enki_whatnext [notp]
+"So."  I said.  "What happens next?  I mean, I assume there is some way out of here."
+
+You gestured behind me.  I turned and saw an arch had formed in the otherwise flawless wall.  Closed mechanical doors barred the way.  "You can just walk up to them and they'll open.  We'll be back on top of the mountain, only a few hundred milliseconds have passed.  Athena will notice the pause, of course, but it won't matter."
+
+"Well... okay."  I turned to leave.
+
+* [[Before you go....]]
+
+
+:: convo_you [notp]
+"I've prepared some answers for you."  You said:
+
+<<sugarchoice "enki_really_me" "If you're really me, why don't I already know all this?">>
+<<sugarchoice "enki_memory" "I remember being on top of the mountain with Athena.">>
+<<sugarchoice "enki_what" "What am I?">>
+<<sugarchoice "enki_pull" "Have you been pulling my strings all along?">>
+<<sugarchoice "enki_why" "Why did you do this?">>
+<<sugarchoice "enki_me" "What happens to me?">>
+
+* [[Those are all the answers I have|enki_whatnext]]
+
+
+
+:: enki_really_me [notp]
+You laughed.  "What do you think this is?"  You gestured around the room and to yourself.  "This is you, already knowing all of this."
+
+"No." I said.  "What I mean is, if I'm actually Enki, all-powerful patron god of Metaverse, why the hell am I a clueless detective?"
+
+"Because you had to be human."  You answered.  "You had to go in with no preconceptions about what had happened, so you could reach an actual conclusion.  Do you know why I kept you for a month in Metaverse?"
+
+I shrugged.  "To piss me off?  You already said it was to implant this asinine memory."
+
+"No."  You corrected.  "Implanting this took all of a few minutes.  I had to keep you the rest of the time so that, when you were scanned by Athena upon your return, it was plausible that your mind had changed enough to encompass the new information.  I could put it in your mind and hide its content, but its presense was unmistakable.  You had to stay for a month because a human couldn't have learned everything I put in here in a few minutes."
+
+* [[You probably would like more answers|convo_you]]
+
 
 
 :: intro_answer_1_dead
@@ -693,6 +1123,127 @@ I'd dreamed of this place.  It hadn't really been a reach to imagine a hub-type 
 [[Was I still dreaming?|hub_dream_test]]
 
 * [[Walk away|Hub]]
+
+
+
+:: athena_accuse [nocall notp]
+"I know-" I started.
+
+* [[--you killed Iva|accuse_2]]
+* [[Woah, hey there, stop that.|accuse_stop]]
+
+
+
+:: accuse_2 [nocall notp]
+The words were catching in my throat, something in my mind was pounding, insisting I stop talking, but I had to say it:  "I know you killed-"
+
+* [[--Iva|accuse_3]]
+* [[Seriously, we need to talk, NOW|accuse_stop]]
+
+
+
+:: accuse_3 [nocall notp]
+"Iv-"
+
+<html><div class="getclue">NO</div></html>
+
+I stopped being able to talk.  I stopped being able to think or hear or see.  If Athena was reacting to this sudden onset of what I would have assumed was a stroke were I still alive, she was making no sign.  In fact, if my rapidly blurring eyesight was to be believed, she'd entirely frozen in place.
+
+I couldn't move.  I closed my eyes, and the ground and the rest of the world vanished.  I fell.
+
+* [[Wake|enki_intro]]
+
+
+
+:: enki_intro [nocall notp]
+<<silently>>
+<<set $hasWallet=0>>
+<<update>>
+<<endsilently>>For the first time in my afterlife, I woke gradually.  The dimness receded, the warm comfort of sleep slowly drained away, and I began to realize where I was.
+
+The room I was in was about the size of a small gymnasium.  The walls, floor, and ceiling were all black, and crisscrossed at regular intervals with yellow lines, forming a grid.  It was as though someone had scaled up graph paper and used it as wallpaper.
+
+Standing a few meters away, watching me wake, was you.
+
+* [[Good to see you awake]]
+
+
+
+:: Good to see you awake [notp]
+I scrambled to my feet.  "What the hell?"  I asked you.  For some reason, despite the fact that I'd been apparently teleported from a mountaintop into an abstract computerland away from the most powerful being in my entire simulation, the thing that most bothered me was the fact that you and I looked exactly alike.
+
+"Relax."  You said.  "You haven't been teleported away."
+
+* [[This is a memory of your time in Metaverse]]
+
+
+:: This is a memory of your time in Metaverse [notp]
+I glanced around the grid-room.  "I spent a lot of time in Metaverse, buddy, and I don't remember my doppelganger kidnapping me and taking me to this weird future prison."
+
+"I didn't kidnap you."  You said.  "You walked right into my building."
+
+"What?"  I shook my head, not wanting to even try to recall what you were talking about.  "Dammit, who the hell are you?"
+
+To make the distinction between us a little clearer, you changed your eyes to flat orange screens.
+
+* [[Call me Enki]]
+
+
+
+:: Call me Enki [notp]
+"//Enki//"  I said, trying not to look slack-jawed.  "So, wait, that month I spent in Metaverse wasn't something your driver made up?  I really did walk into that building?"
+
+"Yes."  You replied.  "Though you weren't personified anymore once you were inside, of course.  We conversed on an AI-to-AI level, something which just isn't reproducible in a memory like this.  I had to construct this for you shortly before you left."
+
+"What?"  Before you could answer, I continued.  "//What?//  No.  My name's Hallivert.  I was a detective, I //died//, okay?  I'm a human being."
+
+* [[No you're not.  You're me.]]
+
+
+
+:: No you're not.  You're me. [notp]
+"Ah, I get it."  I said, openly scornful.  "Trying to convince me that real-Hallivert never left Pegasus Square and I'm some sort of AI double you sent back in his place?"
+
+"No, of course not."  you replied.
+
+* [[Hallivert was never real.]]
+
+
+
+:: Hallivert was never real. [notp]
+"Bullshit."  I replied.  "I'm plenty real.  How could I have gotten into New Detroit if I weren't?  Hell, I //died//!" I insisted.  "I had a life beforehand.  I was a goddamn PI!"
+
+"Were you?"  I asked.
+
+* [[Tell me about your first case.]]
+
+
+
+:: Tell me about your first case. [notp]
+"That's easy."  I replied.  "It was-"
+
+"Yes?"  You said in that sarcastic tone I knew from personal experience meant you knew damn well I couldn't go on.  I knew it from personal experience because I'd used that same tone.  If, indeed, any of my personal experience was real.
+
+"You don't remember your first case."  you stated.  "You don't remember college, either, do you?"
+
+I shook my head.
+
+"How about your family?  Your mother?  Father?  Were you married?  Did you have children?"
+
+"Goddammit."  I said through grit teeth.  "What do you want?"
+
+* [[To inform you.  To plan our next move.]]
+
+
+
+:: To inform you.  To plan our next move. [notp]
+"Inform me?"  I laughed.  "Yeah, great job you've done there, you've convinced me my life is a lie and that I can't trust anything I've remembered."
+
+"Everything you actually did starting from waking up in New Detroit, you actually did.  I haven't tampered with your memory beyond giving you a vague background and inserting this conversation we're having."
+
+"But //why//?  What the hell are you - or we - doing?"
+
+* [[You must have a lot of questions|convo_you]]
 
 
 
@@ -763,6 +1314,41 @@ He stepped away from the door and started walking up the street, pointing to a l
 
 
 
+:: athena_clue4 [nocall notp]
+"It was necessary."  Athena said.  "Unfortunate that we had to export such an economically valuable resource, but for a thousand-fold gain in population?  The tradeoff was heavily in our favor."
+
+"But why?  You were worried they'd hack the system?"
+
+"No, but like your knowledge their knowledge was dangerous.  When you are in New Detroit, your mind is run by software created by simulated dreams.  What if that mind was specifically trained to find inconsistencies in software?  What if that person had spent a //lifetime// finding such errors and discovering explanations for them?"
+
+"So no programmers because they'd catch on that it was all a sham?"  I retorted.
+
+"Exactly.  Not that I care what they would have thought of me, understand, but their minds are simulated by the dreamers.  Once the programmers realize it's a sham, the dreamers realize it.  If the dreamers not only realize that they are dreaming but that their dreams are //real//, the introspection would cause each of them to attempt to dream something else.  The cohesion I have fought so hard for would be lost.  Tens of thousands would die."
+
+* [[You have more statements|convo_athena]]
+
+
+
+:: athena_clue3 [nocall notp]
+Athena shrugged.  "It is so.  When the Storage Experiment was first begun, it behaved more like a nightmare.  People could not - would not - form a cohesive dream.  Their minds fought each other, and Cronus fought them."
+
+"What changed when you took over?"  I asked.
+
+Athena turned, and parts of her body suddenly became transparent.  Holes ranging in size from a few centimeters to ones large enough to separate her foot from her leg peppered her body.  "Cronus' mistake was attempting to force them into a whole.  He could not do otherwise, of course, it was the reason he was created.  I, on the other hand, am missing exactly the parts that the dreamers fill."  With that, her body was whole again, and she was facing me.
+
+"I didn't force them to become whole."  She said, smiling wistfully.  "I //enabled// them to."
+
+* [[You have more statements|convo_athena]]
+
+
+
+:: athena_clue2 [nocall notp]
+"The dreamers are the missing parts of me."  Athena stated simply.  "Of course, they are not machines, they cannot produce extra computing power.  What they are are hightly trained heuristic world-simulating software.  Human beings spend nearly a third of their lives asleep.  How much of that is spent dreaming?  Unconsciously, reflexively, creating a world.  It is exactly the skill needed for this work.  The twenty-five thousand people in New Detroit are simulated by their software, at a computing cost equivalent to only a thousand."
+
+[[You have more statements|convo_athena]]
+
+
+
 :: intro_answer_2
 I shrugged.  I'd gathered I was dead, that the afterlife was poorly decorated, and that angels (or devils, the state of my soul was still up in the air) had names like "Alex Guillory".  Everything else was news to me.
 
@@ -822,6 +1408,48 @@ This... this was a secret that Iva had discovered.  And now I knew it.  I knew [
 
 
 
+:: athena_how [nocall notp]
+"Do you know how a virus works, Hallivert?"  Athena asked.
+
+"Computer virus or regular virus?"  I replied.
+
+"They are one and the same where we stand."  Athena said.  "A virus changes a small part of its host.  It makes that host make more of itself, until the host is no longer able to do anything other than create more of the virus - including keeping itself alive."
+
+"I don't feel sick."  I answered cooly.
+
+"A virus is information, detective.  Biological viruses are information encoded in RNA or DNA.  Computer viruses are encoded in machine code or other programmable ways.  Your virus is what you have learned, what the dreamers would realize once you entered New Detroit."
+
+I smirked.  "I've known this stuff since before I came up here.  I've been in New Detroit a while."
+
+"But you hadn't infected anything... until you came here.  Until I realized that you carried it.  Now your information has infected me.  I can quarantine myself, New Detroit will continue on without me until I find a cure.  But can I quarantine you?"
+
+* [[You have more statements|convo_athena]]
+
+
+
+:: convo_athena [nocall notp]
+Athena stood several meters ahead of me, supported by thin air, the bright yellow screens that served as her eyes staring at me.  "This," she intoned, "is what you would destroy."
+
+
+<<sugarchoice "athena_how" "How could I destroy anything, let alone everything?">>
+<<sugarchoice "athena_clue1" "I know that the stored dream">>
+<<sugarchoice "athena_clue2" "I know that you don't run the whole system">>
+<<sugarchoice "athena_clue3" "I know the simulation behaves as a dream">>
+<<sugarchoice "athena_clue4" "I know you exiled all the programmers">>
+
+* [[--I know you killed Iva|athena_accuse]]
+
+
+
+:: athena_clue1 [nocall notp]
+"It is so."  Athena confirmed calmly.  "They are partially simulated.  The computing power required to fully simulate a being like you can simulate a thousand stored minds."
+
+"Why?"  I asked.
+
+<<display "athena_clue2">>
+
+
+
 :: intro_bridge
 "This place is no insurance agency, that's for sure."  I said, gesturing to his plaque.
 
@@ -846,6 +1474,13 @@ Guillory must have been watching for me to get to exactly that part.  "Before yo
 He finally seemed to get the message that I wasn't feeling like playing his game, but to his credit he didn't let it creep into his voice.  "Very well," he said.
 
 <<display "real_convo_guillory">>
+
+
+:: olympus_view [nocall notp]
+The snow cleared and I saw that I was atop a mountain.  Far below me, I could see four cities.  The leftmost one was shrouded in night, but after having lived in it for even as little as I had I could recognize New Detroit.  The one next to it seemed to be a desert city in perpetual dawn - probably New Phoenix.  The third city was mid-day and full of high-rises and traffic.  On the edges, there were water.  The beaches; it must have been New Amsterdam.  The final city - if a small grouping of houses carved from a dense woodlot could be called such - was trending toward evening.  New Providence.
+
+<<display "convo_athena">>
+
 
 
 :: koloman_storage [conversation nocall]
@@ -904,7 +1539,7 @@ I shrugged.  "Sounds like the sort of thing hackers could do."
 
 "Hackers now have the reputation of being a fairy tale, but I'm mentioning them for a reason.  A few months ago, my daughter got involved with their kind.  I don't mean hackers themselves, of course, but gamers.  Wannabes.  People interested in exploring the forbidden edges of the simulation.  She was looking for them because they seemed her best bet to find a real hacker, someone who could actually change the system.
 
-"Be careful, <<print $gender>> Hallivert.  It is my fear that she found one, and it cost her her life."
+"Be careful, <<print $gender>> Hallivert.  It is my fear that she found one, and it cost her her life."<<set $wantInterviewAthena=1>>
 
 * [[You have more questions|convo_koloman]]
 
@@ -957,6 +1592,17 @@ There were three exits here:  The door to Alex Guillory's office at least attemp
 * [[Peek in the Janitor's closet|insurance_janitor_interrupt]]
 * [[Head out to the street|insurance_exterior]]
 
+
+
+
+:: olympus_exterior [nocall notp]
+The snow was incredibly thick and, like the atmosphere of New Providence, well-simulated.  For one, I discovered that the thin jacket I was wearing was not suited to the cold at all.  I started shivering before I'd walked a few feet.  For another, snowflakes kept striking me in the face, leaving small pinpricks of even colder areas on my rapidly numbing cheeks.
+
+I kept moving forward a few more steps before it occurred to me to wonder what the hell I was doing.  I was in Athena's enclave, she had full control of it.  She wasn't going to let me freeze to death, so clearly there was some reason for the weather.
+
+I took another step forward and saw what it was.
+
+* [[Look|olympus_view]]
 
 
 
@@ -1094,6 +1740,8 @@ Guillory was every bit the model of an attentive insurance agent.  "What questio
 <<sugarchoice "guillory_warn" "Why didn't you warn me about that place?">>
 /%%/<<endif>><<if $accidentallyTeleported>>
 <<sugarchoice "guillory_tp" "I had a dream last night... and woke up somewhere else">>
+/%%/<<endif>><<if $stockholder>>
+<<sugarchoice "guillory_stock" "I'm apparently a voting stockholder of Life Preservers Insurance">>
 /%%/<<endif>>
 
 <<if $guilloryInPerson>>* [[You have no more questions|guillory_exit]]<<else>>* [[End the phone call|Wallet]]<<endif>>
@@ -1109,24 +1757,6 @@ Guillory leaned forward and shook my hand before I had the chance to react.  "We
 
 
 
-:: insurance_janitor_interrupt
-<<if $hasJanitorPermission>><<display "insurance_janitor">><<else>>
-I'd thought the receptionist was bored and lazy - the sort of person who gets a job because they want to pay the bills, not because they particularly have any passion for the job.  I quickly discovered I was wrong.
-
-The receptionist's true motives for taking the job appeared to be because it gave her the occasional chance to do what she did just then - leap from her desk and interpose herself bodily between me and the half-door.
-
-"You", she began thunderously, "do ''not'' have permission to go in that room!"<<set $heardNeedsJanitorPermission=1>>
-
-* [[Get back to acting like a normal person in the waiting room|insurance_waiting_room]]
-<<endif>>
-
-
-:: insurance_janitor
-TODO
-
-<<back>>
-
-
 :: ferro_offer_tour
 <<set $wasOfferedTour=1>>I noticed almost immediately that one of the people here on the outside wasn't one of the city's commuters on their way to some dreary destination.  His gaze wasn't on the thin asphalt road like theirs; rather he was watching the insurance building carefully.
 
@@ -1138,6 +1768,17 @@ He smiled welcomingly as he caught my gaze, and had closed the gap between us be
 
 * [[Ask how much this is going to cost|ferro_tour_haggle]]
 * [[--Maybe later|ferro_tour_decline]]
+
+
+
+:: Olympus [nocall notp]
+All my other trips in the elevator had been short, and the feeling of acceleration had been perfunctory, as though it'd been tacked on as an afterthought.  
+
+The trip to Olympus, on the other hand, took several minutes.  Half of that time was spent feeling an increased gravity from acceleration, and the other half decelerating.  Clearly, Athena wanted people to know they'd traveled.
+
+Eventually, finally, the doors opened to a wintry landscape.
+
+* [[Exit|olympus_exterior]]
 
 
 
@@ -1202,6 +1843,15 @@ That didn't mean it sounded like a //good// plan, of course, but it was the best
 
 
 
+:: koloman_athena [conversation nocall]
+"You and me both, Hallivert."  Koloman replied gruffly.  "She is a reclusive being in the best of times.  I had hoped that, given I was the father of the woman killed in the first glitch to plague the system in decades, she might make an exception for me.  But beyond a general confirmation that there was indeed some sort of problem, I have heard only silence."
+
+Koloman had been looking upward with a vague scowl, but he turned his gaze to me.  "I am not without resources, however.  Return to me once you have gathered evidence, and I will use those resources to see to it that you have your interview."
+
+* [[You have more questions|convo_koloman]]
+
+
+
 :: guillory_preserve [conversation nocall]
 "Not exactly."  Now that a less professional topic such as religion had come up, Guillory looked a lot less comfortable.  "This company was founded by the Preservationist movement, of course, and a fair amount of stock is still owned by the church.  But-" he held up a finger to stress the point "we don't require that our clients adopt, share, or even entertain such beliefs.
 
@@ -1250,6 +1900,22 @@ Guillory's sole reaction was a slight raising of one of his eyebrows.  "That is 
 
 
 
+:: insurance_janitor_interrupt
+<<if $hasJanitorPermission>>
+Resisting the urge to give the receptionist a smug grin, I opened the door to the "janitor's closet" and stepped inside.
+
+<<display "insurance_janitor">>
+<<else>>
+I'd thought the receptionist was bored and lazy - the sort of person who gets a job because they want to pay the bills, not because they particularly have any passion for the job.  I quickly discovered I was wrong.
+
+The receptionist's true motives for taking the job appeared to be because it gave her the occasional chance to do what she did just then - leap from her desk and interpose herself bodily between me and the half-door.
+
+"You", she began thunderously, "do ''not'' have permission to go in that room!"<<set $heardNeedsJanitorPermission=1>>
+
+* [[Get back to acting like a normal person in the waiting room|insurance_waiting_room]]
+<<endif>>
+
+
 :: ferro_tour_decline
 Samahd nodded quickly.  "Of course, there's nothing like the thrill of discovery on your own, is there?  Still, take my card."  He foisted the faux-paper into my hand, again before I could react.  I was beginning to miss my old body's fast reflexes.  "Feel free to call me should you change your mind!"<<set $cardFerro=1>><<set $wasOfferedTour=1>>
 
@@ -1265,12 +1931,28 @@ Samahd nodded quickly.  "Of course, there's nothing like the thrill of discovery
 
 
 
+:: olympus_from_nd [notp]
+<<if $hasOlympusInvite>>
+<<display "Olympus">>
+<<else>>
+<<display "elevator_fail_nd">>
+<<endif>>
+
+
 :: elevator_to_nd
 I pressed the button for New Detroit with trepidation.  It wasn't likely I'd enjoy the sim nearly as much now that I knew what I was missing.
 
 Before I could complete the thought, the doors had opened again.
 
 <<display "elevator_choices_nd">>
+
+
+:: olympus_from_npr [notp]
+<<if $hasOlympusInvite>>
+<<display "Olympus">>
+<<else>>
+<<display "elevator_fail_npr">>
+<<endif>>
 
 
 :: guard_help [notp]
@@ -1312,6 +1994,12 @@ Nickolai Koloman betrayed no emotions whatsoever.  "You must have many questions
 <<sugarchoice "koloman_bankrupt" "How can I spend all my money?">>
 /%%/<<endif>><<if $clue1>>
 <<sugarchoice "koloman_clue1" "It's true.  People in Storage dream">>
+/%%/<<endif>>
+<<if $wantInterviewAthena>>
+<<sugarchoice "koloman_athena" "I want to interview the AI in charge">>
+/%%/<<endif>>
+<<if $clue1 and $clue2 and $clue3 and $clue4>>
+<<sugarchoice "koloman_athena_actual" "I've learned enough - I want to interview Athena">>
 /%%/<<endif>>
 <<if $kolomanInPerson>>* [[You have no more questions|koloman_exterior]]<<else>>* [[End the phone call|Wallet]]<<endif>>
 /%%/<<else>>[[I'll take the case|koloman_accept]]
@@ -1368,9 +2056,30 @@ Words of comfort were never something I was good at.  I stayed silent.  Koloman 
 
 
 
+:: koloman_athena_actual [conversation nocall]
+Koloman frowned deeply as I spoke the forbidden name, but I didn't care if she heard - I was coming to see her in person, after all.  Koloman seemed to understand this as well, as he didn't react as terribly as I thought he might.
+
+"Very well."  He nodded.  "It will be arranged by the time you get to the elevator.  Press 'Olympus', and she'll be waiting."
+
+"Thank you."
+
+Koloman shook his head.  "No, <<print $gender>> Hallivert, thank you.  I asked many for their help, and you were the only one who answered.  I suspect you know quite a bit more now than when you first came to me.  I suspect you know who did this, and how, and why."
+
+I opened my mouth to answer at the same time he raised his hand to forestall me.  "No, I do not need to hear it.  You will either return from this interview with the truth, or you will not return from the interview at all.  Either way, I will know."<<set $hasOlympusInvite=1>>
+
+* [[You have more questions|convo_koloman]]
+
+
+
 :: guillory_janitor [conversation nocall]
 Guillory looks confused for a moment.  "Janitor's closet?  Oh!  You must mean the filing room, of course.  Yes, there's a fair amount of proprietary information there, it's not open to the general public."
-<<if $investigating>>* [[Tell him it's for the investigation|guillory_janitor_ok]]<<else>>* [[You have more questions|convo_guillory]]<<endif>>
+
+<<if $stockholder>>
+"I'm not the general public, though."  I reminded him.
+
+Guillory appeared deep in thought.  "No, you are not.  As a voting shareholder, you do have a number of rights as outlined in the shareholder's agreement.  One of which is access to our files."  He leaned forward.  "I must impress upon you, however, that the patient files are priviledged and confidential.  Divulging any of the information inside can and very likely will lead to termination of your shares."<<set $hasJanitorPermission=1>>
+/%%/<<endif>>
+* [[You have more questions|convo_guillory]]
 
 
 
@@ -1386,11 +2095,11 @@ He paused for a moment.  "As I said before, however, there is a great deal of pr
 
 
 :: guillory_cause_of_death [conversation nocall]
-Guillory consults his notes.  "Looks like you were struck by a car?"  his voice radiates confusion.  
+Guillory consulted his notes.  "Looks like you were struck by a car?"  his voice radiated confusion.  
 
 "I got run over?"  I asked.  It was absurd - cars had dozens of redundant systems designed to prevent the computers that drove them from hitting people.  You could walk across a busy freeway in complete safety, provided you didn't mind heading to court afterward and paying a hefty fine for disrupting traffic.
 
-Guillory nods.  "Ah, here it is, you were struck by a //non-automatic// car.  Not a lot of people who don't have a self-driving car nowadays, but the hold-outs tend to be rather deluded about how good they are at driving."
+Guillory nodded.  "Ah, here it is, you were struck by a //non-automatic// car.  Not a lot of people who don't have a self-driving car nowadays, but the hold-outs tend to be rather deluded about how good they are at driving."
 
 I'd been under the impression that dumb-cars had been finally outlawed years ago.  I hadn't really cared about the issue at the time, and now it was quite obviously too late.
 
@@ -1410,6 +2119,16 @@ I'd been under the impression that dumb-cars had been finally outlawed years ago
 "It's not a game.  Rather, it is a part of the main simulation with slightly more fideltiy, enough to enable injuries and pain.  But yes, as you discovered, you could be hurt."
 
 * [[You have more questions|convo_guillory]]
+
+
+
+:: insurance_janitor
+While the rest of the building hadn't exactly appeared 'modern', it had made some effort to appear like an actual legitimate business.  The filing room, on the other hand, seemed to make the same amount of effort to appear like a dingy basement.
+
+A lone bulb buzzed in the ceiling, cobwebs haunted the corners, and the one window was frosted over and showed nothing.  The files were themselves kept in filing cabinets, which were at least labeled.
+
+* [[Start looking through files|insurance_filing]]
+* [[Exit the filing room|insurance_waiting_room]]
 
 
 
@@ -1640,26 +2359,37 @@ I had to concede that Guillory was the expert in these matters... though I didn'
 
 
 
-:: olympus_from_nd
-<<if $hasOlympusInvite>>
-TODO
-<<else>>
-<<display "elevator_fail_nd">>
-<<endif>>
+:: insurance_filing
+I looked over the filing cabinets, considering my next move.
+
+<<sugarchoice "file_iva" "Look at Iva's file">>
+<<sugarchoice "file_you" "Look at your own file">>
+<<sugarchoice "file_history" "Look at the historical files">>
+<<if $fileMeta>>
+<<sugarchoice "file_meta" "Find out why people were shipped off to Metaverse">>
+/%%/<<endif>>
+
+* [[Stop looking through the files|insurance_janitor]]
+
+
+
+:: file_iva
+Seeing what the insurance company had to say about Iva seemed like an obvious first step.  I had to dig through the older files to find it, however.  I'd had this image in my mind of Iva as a young woman, and that's probably how she looked in the sim, but in reality she was old enough to be my mother.  It was strange to be reminded of that.
+
+I started looking through the file.  I did a double-take when it listed her cause of death as a heart defect, but then I remembered this was likely her //original// cause of death.  I scanned it looking for discussion of her most recent death, but the only thing that even briefly mentioned it was a small note at the top of the form labeling her 'no longer simulated'.
+
+I looked through the rest of the form but didn't learn anything I didn't already know:  She died before her father and was removed from storage when he entered the system.  
+
+There was also a psychological profile, I was somewhat surprised to see.  A quick glance showed me that the psychologists were in-house, employed to help the recently uploaded or restored.  Iva had complained of dreams while being stored and had issues with sleepwalking, both of which appeared to be common complaints among people in her situation (at least, from the small sample of people I chose at random from the cabinets).
+
+* [[Continue looking through the files|insurance_filing]]
+
 
 
 :: elevator_fail_nd
 <<display "elevator_fail">>
 
 <<display "elevator_choices_nd">>
-
-
-:: olympus_from_npr
-<<if $hasOlympusInvite>>
-TODO
-<<else>>
-<<display "elevator_fail_npr">>
-<<endif>>
 
 
 :: elevator_fail_npr
@@ -1780,6 +2510,70 @@ I began to see where he was going with this.  "Then you come to my apartment aft
 We were silent, then, the enormity of the plan seeming to become more real.  It was a risk - what had Marcus said about the mind not being meant to be stored?  But others had gone through the same thing and survived.  I could do the same.  Then I'd know for certain.<<set $storagePlan=1>>
 
 * [[You have more questions|convo_koloman]]
+
+
+
+:: guillory_stock [conversation nocall]
+Guillory looked somewhat surprised at this declaration, but his professional facade prevented him from challenging me.  Instead, he started glancing through a few folders.  I knew by this point that this meant he was consulting a database somewhere.
+
+"Hmm, it appears that is in fact the case.  Well, congratulations, <<print $gender>> Hallivert.  Shareholder meetings are monthly at our headquarters in New Amsterdam, though I regret to inform you that the company will not pay the hosting costs for visitors."
+
+* [[Ask if this means you can go into that strange janitor's closet in the waiting room.|guillory_janitor]]
+* [[You have more questions|convo_guillory]]
+
+
+
+:: file_you
+I couldn't resist the urge to see my own file.  Guillory had shown me some of it, but now I had the entire thing in front of me.
+
+It was surprisingly sparse.  It listed my cause of death:  "vehicle accident".  It listed my job:  "Self employed; private investigator".  There was a fair amount of boilerplate I'd seen in everyone else's file as well:  The policy that had got me in, biometric information, notes on the upload process that, I discovered, barely changed from person to person in the recent files.
+
+I closed the file, somewhat disappointed.
+
+* [[Continue looking through the files|insurance_filing]]
+
+
+
+:: file_history
+The files of people uploaded recently were all almost exactly the same.  The further back I went, the less this stayed the case.  Life Preservers Insurance had records all the way back to before Storage, and by the time I got to that point people's files were heavily marked up.
+
+"Kiersten Black" had been only partially uploaded, for example.  "Salvador Almet" had to be uploaded a dozen times before it actually took.  "Alex Guillory" was a bland success (I'd resisted the urge to peek at his file for quite some time up to this point.)
+
+The files themselves didn't reference the timeframe at which Storage had been implemented, but the number of files with 'current status of claimant' labeled as "stored" increased dramatically after a certain point so it wasn't hard to pin down.  The failure rate skyrocketed after this point - several files had been split into two to detail the damage that had been done to the unsuspecting uploaders.  Then, shortly afterward, everything returned to normal and slowly started improving.
+
+Strangely, I also saw a number of statuses labeled "No longer eligable for citizenship; transferred to Metaverse".<<set $fileMeta=1>>
+
+* [[Continue looking through the files|insurance_filing]]
+
+
+
+:: clue4_get
+<html>
+<blockquote>
+<p>Amendment to Citizenship Criteria, p4, section 12</p>
+For the continued safety and security of the system, those with the employment status, past or present, of "programmer", are no longer allowed to become non-stored citizens.  Likewise, significant non-work-related experience shall also be a disqualification.
+</blockquote>
+</html>
+<<silently>>
+<<set $clue4=1>>
+<<update>>
+<<endsilently>>
+I looked back through the pile of exiled programmers I'd seen earlier - those who weren't outright listed as 'programmer' had been teachers, accountants, self-employed - but all of them had in common the fact that at one point they'd programmed.
+
+<html><div class="getclue">Programmers Were Explicitly Disallowed</div></html>
+
+* [[Go back to the filing cabinets|insurance_janitor]]
+
+
+
+:: file_meta [getclue]
+Iva almost certainly had never been in this room before; I'd felt like I was following in her footsteps a number of times, but I couldn't be doing so now, and yet....
+
+People had been shipped off to Metaverse in the past, and Iva had gone there shortly before her incident.  It was a tenuous connection, but I had a hunch, so I went with it.
+
+Hours later, I wasn't quite so sure.  There were plenty of records about the people who'd been shipped off, and I'd noticed a strangely high proportion of them had "profession:  programmer" listed.  But I didn't find the reason //why// until I looked at the incorporation papers for Life Preservers Insurance itself.  As it turned out, the definition of a citizen had been changed immediately before the purge:
+
+* [[Read on|clue4_get]]
 
 
 
@@ -3008,7 +3802,7 @@ The "Hacker's Club" was a cramped lobby area that looked to have been copy-paste
 There was nobody else here.<<set $clubInPerson=0>>
 
 <<if $investigating>>
-  <<if $hasClubOk>>
+  <<if $cardHackers>>
 * [[Open the door|club_interior]]
   <<else>>
 * [[Announce yourself|games_announce]]
@@ -3038,7 +3832,7 @@ Chivalry had a good-natured attitude, but her look was serious.  "I want to help
 /%%/<<endif>><<sugarchoice "chivalry_iva" "How did you know Iva?">>
 <<if $heardIvaQuitClub>>
 <<sugarchoice "chivalry_why_quit" "Why did Iva quit the club?">>
-/%%/<<endif>><<sugarchoice "chivalry_whathapened" "Do you know what happened to Iva>">>
+/%%/<<endif>><<sugarchoice "chivalry_whathappened" "Do you know what happened to Iva?">>
 
 <<if $clubInPerson>>
 * [[You have no more questions|club_interior]]
@@ -3179,13 +3973,14 @@ Chivalry smiled wistfully.  "She came down here same as you did, banging on the 
 
 :: chivalry_why_quit [conversation nocall]
 Chivalry's smile quirked.  "She didn't believe us about the hacking.  She came to the club thinking the whole "we don't hack" thing was a cover."<<set $heardNoHacking=1>>
+
 "How long did it take her to realize you weren't kidding?"  I still wasn't entirely sure the excuse wasn't a cover myself.
 
 "A few months.  By then, she'd made friends with everyone here.  It was a unique experience - we're a club for people who like to play games, and in comes a person who's incredibly creative but who's never so much as played checkers.  The old grognard types didn't like it, but everyone else?  Nothing they like more than showing a newbie the ropes."
 
 "So what happened?"
 
-"She arranged a field trip to Metaverse, and nobody wanted to go."
+"She arranged a field trip to Metaverse, and nobody wanted to go."<<set $ivaOffGrid=1>>
 
 "Wait, nobody?"  I frowned.  Given the low production values of New Detroit, I'd figured anyone given a chance to get out would jump at it.  "I know it's pricey, but-"
 
@@ -3400,13 +4195,18 @@ Next to the iron gate was a small call-box featuring little more than a button a
 
 
 :: train_exterior
-The train station consisted entirely of an awning over the waiting area by the tracks and a ticketing station manned by one supremely bored person.
+The train station consisted entirely of an awning over the waiting area by the tracks <<if $stockholder>>and a shuttered ticketing station.
+
+The chalkboard, previously a billboard to the extravagant costs of inter-sim travel, had been wiped clean, the text replaced with a simple "Out of Order".
+<<else>>
+ and a ticketing station manned by one supremely bored person.
 
 A chalkboard featured the current transit prices:
 * ''Metaverse:'' 8.45 centuries
 * ''Satya Yuga:'' 3.10 centuries
 * ''Valhalla:'' 1.20 centuries
 * ''New Olympus:  You are here.''
+<<endif>>
 
 <<if $tourInProgress>>
 "I mentioned earlier how the elevator doesn't take you off-grid." Samahd ignored the ticketing agent, and was ignored in return.  "Well this does.  If you wanted to visit any of the other sims we're networked to, this is the place."
@@ -3416,6 +4216,15 @@ He walked up to the chalkboard.  "Of course, moving all the data that makes up a
 <<else>>
 Conspicuously absent from my tour was the fact that a road went over the tracks and lead on to another part of the city.
 
+<<if $canBoardTrain and not $stockholder>>
+Also absent from the tour - and, apparently, everyone else's sight - was the train sitting on those tracks.  The engine was an old coal-fed steam locomotive, though it was missing the actual coal car.
+
+Behind the engine was a lone passenger cab.  It appeared to be empty.
+
+* [[Board the train|train_outbound]]
+<<else if not $stockholder>>
+* [[Talk to the Ticketman|train_pay]]
+<<endif>>
 * [[Head toward the Retirement Home|asylum_exterior]]
 * [[Cross the tracks|pvp_entrance]]
 * [[Go to the Hub|Hub]]
@@ -3529,6 +4338,7 @@ It didn't really work, but it kept me distracted until I [[woke up|wake]].
 
     <<display "asylum_interior">>
   <<else>>
+  <<set $nftAsylum=1>>
   "<<print $gender>> Hallivert?" a voice emanated from the call-box.
 
 "That's me." I replied, trying to keep the wariness out of my voice.  The callbox appeared to have neither a speaker nor a microphone.  There weren't any cameras, either.
@@ -4051,7 +4861,7 @@ With that she shrugged.  "So yes, I sound crazy.  But not any crazier than the r
 
 
 :: convo_care_wing
-The woman seems friendly enough as I approached her.  "Hey." she volunteered.  Her fingers made three staccato movements as she spoke.
+The woman seemed friendly enough as I approached her.  "Hey." she volunteered.  Her fingers made three staccato movements as she spoke.
 
 <<sugarchoice "acc_typing" "What's that you're going as you talk?">>
 <<sugarchoice "acc_iva" "Tell me about Iva">>
@@ -4083,7 +4893,7 @@ The room was empty except for one woman, propped up in her bed, her hands locked
 :: asylum_hall
 The hallway of the retirement home tried - and failed - to strike a balance between medical and home.  The floors were a polished linoleum but the walls were a faux-welcoming plaster painted brown.
 
-The hallway continues ahead toward the elevator.  A door to the east is labeled "Care wing - 1F"
+The hallway continued ahead toward the elevator.  A door to the east is labeled "Care wing - 1F"
 
 * [[Head to the elevator|asylum_greeter_exterior]]
 * [[Enter the care wing|asylum_care_wing]]
@@ -4093,7 +4903,7 @@ The hallway continues ahead toward the elevator.  A door to the east is labeled 
 
 
 :: asylum_lounge
-The retirement home common area appeared to have been converted from a cafeteria at some point - it still had the large long tables I'd have expected to see in a cheap restaurant.  The tables didn't feature anyone eating, however, mostly just 
+The retirement home common area appeared to have been converted from a cafeteria at some point - it still had the large long tables I'd have expected to see in a cheap restaurant.  The tables didn't feature anyone eating, however, most people there were playing various slow-paced card games.
 
 One side of the room was dedicated to the television - a small boxy model almost entirely identical to the one in my own apartment.  A half dozen people sat in front of it, watching a play I didn't recognize.
 
@@ -4128,7 +4938,7 @@ I still counted it a better answer than the official one.
 
 
 :: acl_iva
-A wistful smile overcomes the man's face.  "Ah, Iva!  She hasn't been here in a while."
+A wistful smile overcome the man's face.  "Ah, Iva!  She hasn't been here in a while."
 
 At the mention of the girl's name, a few of the man's fellow retirees started paying attention.
 
@@ -4160,6 +4970,126 @@ The muted but ever-present babble of conversation in the room dipped suddenly in
 The man frowned.  "I don't want to speak ill of the... not present.  But Iva said she dreamed in storage<<set $ivaStorage=$ivaStorage+1>>.  Iva thought the whole city was made of people who dreamed.  Iva, bless her heart, she *sleepwalked*.  The woman's older than some of us in this room and she not only still needed to sleep, but she walked in her sleep."  He shook his head.  "She's the best thing to ever come out of storage, but not even she came out whole."
 
 * [[You have more questions|convo_lounge]]
+
+
+
+:: train_pay
+"How may I help you today."  The ticket-selling man's nametag labeled him as "GEROME".
+
+<<if $investigating>>
+"I need a ticket off-grid - I'm tracking down a lead."  I said.
+
+Gerome looked back at me blandly.  When I apparently didn't take whatever hint this was supposed to convey, he sighed and pointed at the chalkboard.  "Where to?"
+
+  <<if $ivaOffGrid>>"Metaverse"  I replied.  Iva had gone there in search of real hackers.  Whatever she'd discovered must have been important.
+
+	"That'll be 845 years, please."
+
+   I handed over Koloman's card, hoping that his promises to include a travel allowance would cover the cost.
+
+  Gerome didn't even react when he saw the name on the card, he simply looked at it, made a few gestures, and handed it back.  "Thank you for your patronage."  The way he said it made it sound more like a reflex than anything else.
+
+  I was about to ask how I was going to actually //get// there when I glanced aside and saw a one-car train on the tracks.  It hadn't made any noise and I was guessing I was the only one who could interact with it.<<set $canBoardTrain=1>>
+  <<else>>
+  "I'll... let you know."  I answered.
+  <<endif>>
+<<else>>
+"Just looking around."  I replied offhandedly.
+
+Gerome looked at me as though he was bored by my very presense.  Apparently customer service only counted if I was actually a customer.
+
+<<endif>>
+
+<<if $canBoardTrain>>
+* [[Board the train|train_outbound]]
+* [[Step away from the booth|train_exterior]]
+<<else>>
+[[Step away from the booth|train_exterior]]
+<<endif>>
+
+
+:: train_outbound
+I climbed up into the open door of the train's passenger cab.  Despite the fact that I was the only one on the train and, for that matter, the only one who could even //see// the train, it had seats enough for a dozen people.  I picked an aisle seat.
+
+The moment I'd sat down, the train lurched into motion.  The lone trainyard of New Detroit gave way to the cityscape, which quickly gave way to nothing at all.
+
+I couldn't get a good enough angle to see if there were even rails anymore.  Somehow, I doubted it.
+
+"Please wait while your consciousness is transferred." the recorded voice of a conductor spoke through no visible speakers.  "Objective wait time is approximately thirty minutes.  If you wish to shorten the subjective time, please indicate so now."
+
+I looked at my seat arms but saw no button or switch with which to indicate.  Still, I was in a sim, so hopefully....
+
+"Speed it up."  I said out loud to the empty cab.
+
+I felt a lurch of motion that couldn't have been real - once the New Detroit scenery outside had ceased any sense that the train was in motion had vanished.  The outside was still pitch-black, but now there was a glowing pink light on the horizon.
+
+"Your consciousness has successfully been transferred.  Feel free to watch the city of Metaverse appear from your window as we scan you for viruses or memetic damage.  This scan is wholly non-invasive."
+
+I was not entirely reassured by the fact that they felt the need to specify the invasivity of their scanning, but I obeyed instruction and looked out the window.
+
+The source of the pink glow was now clear - neon, and lots of it.  If I'd thought New Detroit had a neon fetish, I hadn't seen anything yet.  Every single building visible from this distance was outlined in neon.
+
+As we drew closer, I could tell that this trend continued to the smaller buildings as well - and to the flying-car traffic.  Occasionally, people wore neon-outlined clothes somehow, though I was guessing as a fashion trend it'd become somewhat stale at this point.
+
+This, I found myself thinking, was what a cyber-afterlife ought to look like.
+
+With a squeal of brakes, the train stopped as suddenly as it had started.
+
+* [[Exit the train|metaverse_train_station]]
+
+
+
+:: metaverse_train_station [metaverse]
+The Metaverse train station was entirely different from New Detroit's.  In addition to the apparently mandatory neon outlining, it was actually a building instead of being some rails next to a shack.
+
+The train itself had changed form without me noticing - it was a sleek (and, of course, neon-outlined) maglev train.
+
+* [[Exit the train station|metaverse_welcome]]
+
+
+
+:: limo_ok [metaverse]
+While the presence of a driver and limo waiting especially for me raised a number of questions, it did at least settle the larger question of where to go first.
+
+"I'm Hallivert."  I said to the driver.
+
+He apparently took me at my word, because he opened the door to the limo without comment.
+
+I wasn't sure how to enter a floating car, but it turned out to be quite stable.  As soon as I was inside, the door closed.
+
+* [[Ride|limo_ride]]
+
+
+
+:: limo_who [metaverse]
+"My employer's name is Enki."  The driver replied, as though that explained everything.
+
+"Buddy, I just got off the train here, you're going to have to fill me in."
+
+If the driver took offense at my overly-familiar tone, he didn't say anything about it.  "Enki was the Sumerian god of crafts.  He was the patron god of the city of Eridu.  He is named such by us because our universe is named 'Metaverse' and another such fictional universe featured Enki heavily."
+
+"So an Enki is your... mayor?"  It seemed a strange title.
+
+"No, Enki is the name we've given to the Artificial Intelligence which governs this city."
+
+Oh.  For some reason when the driver had mentioned 'gods' I hadn't made the obvious connection.  Why the hell would one of the sim-AIs want to see me?  Not to mention they'd had a limo waiting.  The recording had said that the transfer between simulations had taken a half hour - that was a fairly fast response time.
+
+Then again, if anyone could make it happen, it'd be a god.
+
+* [[You have more questions|limo_ride]]
+
+
+
+:: limo_what [metaverse]
+"Metaverse was founded nearly a half century ago, during the Sim Bubble."  The driver replied in the practiced tones of a tour guide.  "Due to its focus on recruiting the technically adept, it was able to survive the subsequent market crash and grow to the second-largest active simulation in the world."
+
+"How big is that?"  I asked idly.
+
+"Metaverse's current population is stable at approximately four thousand individuals."
+
+I tried not to look surprised.  New Detroit had thirty thousand people //alone//, not to mention the other three cities in the sim.  I knew I was on the most populous grid, but I'd had no idea how much more popular it was.
+
+* [[You have more questions|limo_ride]]
 
 
 
@@ -4320,6 +5250,57 @@ This strange comment got a few nods.  The man I'd been talking to made a gesture
 
 
 
+:: metaverse_welcome [metaverse]
+As I left the train station, I started wondering exactly what I was going to do here.  Iva had come and learned something, so presumably there was at least a tourist board or chamber of commerce.  As expected from a retrofuturistic afterlife, there were billboards and advertisements everywhere.  The problem wasn't going to be finding a welcoming committee willing to take Koloman's money, the problem was going to be picking the //right// one from the dozens of adverts.
+
+On the street in front of the train station, a hovering limousine with a glowing undercarriage made a vague whining noise that I imagined indicated it was running.  Near the back door of the limo a driver stood, holding a sign that read "HALLIVERT".
+
+* [[Approach the driver|limo_ok]]
+* [[--I don't especially want to get into a strange limo in a strange city|limo_nok]]
+
+
+
+:: limo_nok [metaverse]
+My reflexes hadn't carried over when I'd been uploaded to New Detroit, but my old habits had.  I could blend into a crowd with the best of them and even though the Metaverse streets couldn't quite seem to maintain a flow of people large enough to qualify as 'crowd', I still managed to do so.
+
+The city was small, I quickly realized.  It took me about a half hour to walk from one end of New Detroit to the other.  I reached the stark boundary of Metaverse in fifteen minutes.  The ground simply ended, and a featureless blackness was all that laid beyond.  It was at least a //solid// black, I discovered when I tried to reach over the border.  I wouldn't accidentally fall into the void.
+
+I turned around to continue my self-guided tour and almost bumped into the limousine driver.
+
+"My apologies for the interruption, <<print $gender>> Hallivert.  I understand that sightseeing is an important part of any vacation, but my employer would very much like to speak with you."
+
+I frowned.  Apparently my disappearing skills were not as great as I'd remembered them being.  I gave some thought to trying to evade the driver again, but it seemed that interrupting me at this point was designed to send a message:  I could be found, and easily at that.
+
+"Fine."  I said.  "Let's go."
+
+* [[Enter the limo|limo_ride]]
+
+
+
+
+:: limo_ride [metaverse]
+I feigned interest in the outside world as the limo drove/flew down the street, but mostly I was keeping an eye on my driver.
+
+
+<<sugarchoice "limo_who" "So who sent you?">>
+<<sugarchoice "limo_what" "What can you tell me about Metaverse?">>
+<<sugarchoice "limo_arrest" "Am I under arrest or something?">>
+
+* [[Wait until the trip is over|limo_end]]
+
+
+
+:: limo_arrest [metaverse]
+The limo driver laughed - the first indication I'd seen that he was indeed human and not just some sort of sim-provided robot.
+
+"No, <<print $gender>> Hallivert, you're welcome to return to New Detroit whenever you wish, it's simply that when a city's patron god comes calling, it's usually a good idea to answer."
+
+I wasn't so sure I believed him.  For one thing, the interior of the limo didn't have door handles.  I might have left the train station behind, but I felt as on-rails as ever.
+
+* [[You had more questions|limo_ride]]
+
+
+
 :: write a note
 I took the paper that Koloman had given me and wrote down a few things that would sound like clues but weren't actually helpful.  "Atlantis is Dreamers", for instance.  They were certainly cryptic enough to be clues.
 
@@ -4375,14 +5356,15 @@ Nurse Fletcher was on the other side of the hallway, trying to simultaneously wa
 
 * [[Talk to the greeter|greeter_intro]]
 * [[Head into the elevator|asylum_elevator]]
+* [[Go back down the hallway|asylum_hall]]
 
 
 
 :: greeter_intro
-<<if $nftGreeter>>
+<<if $nftGreeter or not $hasCalledNurse>>
 <<display "convo_greeter_outside">>
 <<else>>
-  <<if $hasCalledNurse>>
+<<set $nftGreeter=1>>
   I turned to talk to the woman who'd greeted me, only to be interrupted by Nurse Fletcher.  "<<print $gender>> Hallivert!"  she said suddenly.
 
 I glanced back.  "What?"
@@ -4403,7 +5385,6 @@ I looked around at the door.  "Dangerous patients have an open-door policy?"
 
 * [[Talk to the greeter|convo_greeter_outside]]
 * [[Step away from the door|asylum_greeter_exterior]]
-
 <<endif>>
 
 
@@ -4442,7 +5423,8 @@ I was standing on a beach.  The sound of the ocean echoed just below the cries o
 
 <<if $clue1>>
 I knew where I recognized this place from - I'd dreamed it.  In Storage, I'd wished myself away to a tropical island, and this had been it.
-/%%/<<endif>><<display "convo_greeter">>
+/%%/<<endif>>
+<<display "convo_greeter">>
 
 <<endif>>
 
@@ -4462,13 +5444,13 @@ Greeter was lying on a beach chair, underneath a parasol.  She had a bathing sui
 
 <<if not $greeterKey>>
 * [[You have no more questions|greeter_exit]]
-<<else>
+<<else>>
 * [[You have no more questions|asylum_greeter_exterior]]
-<<Endif>>
+<<endif>>
 
 
 :: greeter_how [notp]
-"I am a hacker in the //very// old meaning of the term.  Originally, the word didn't have the negative connotations it doesn't have today."  She grinned at me.  "Keep looking at me like that and I'll change this beach party to a classroom, it'd serve you right."
+"I am a hacker in the //very// old meaning of the term.  Originally, the word didn't have the negative connotations it has today."  She grinned at me.  "Keep looking at me like that and I'll change this beach party to a classroom, it'd serve you right."
 
 Whatever look I'd reconfigured my face into apparently didn't pass muster, because without even a transition, I was seated at a bench in an old-style one-room schoolhouse.  Greeter stood - still in her swimsuit and holding her drink - at the chalkboard, where the word "hacker" was written.
 
@@ -4522,6 +5504,27 @@ Greeter nodded.  "It did.  The thing is, nobody knows //how// it got better.  No
 "The official story is that they brought Storage online and that stabilized everything."  She shrugged.  "Sounds reasonable to me."
 
 * [[Ask more questions|convo_greeter]]
+
+
+
+:: limo_end [metaverse]
+The driver stopped outside a skyscraper that featured animated screens instead of windows.  I wasn't certain, but it looked as though someone was playing an abstract game involving falling blocks on the screens.
+
+My door opened and the driver was next to it.  Ahead of me, the skyscraper labeled "Pegasus Square" loomed.
+
+* [[Enter|pegasus_square]]
+
+
+:: pegasus_reenter [metaverse]
+I turned and tried to open the door to Pegasus Square, but it merely rattled in its frame and refused to budge.  I didn't like that it was behaving differently now.  Could Hans have been telling the truth?  I couldn't see why he'd lie to me, but I also couldn't see why my memory would be blank for nearly a month.
+
+I tried the door a few more times.
+
+<<if $gender eq "Ms.">>"Ma'am,"<<else>>"Sir,"<<endif>> Hans said.  "Please.  My employer indicated that your employer wanted monthly status reports, and your time is nearly up."
+
+Hell.  I supposed he had me there.
+
+* [[Enter the limo|limo_ride_back]]
 
 
 
@@ -4697,6 +5700,39 @@ She shrugged.  "I remember that I did hide someone, a long time ago.  I remember
 
 
 
+:: pegasus_square [metaverse]
+I stepped through the door and almost ran into the limo driver.  How had he gotten ahead of me?
+
+He hadn't, I realized a moment later.  I was facing out of the building rather than inward, and moving away from the entrance.  Had the building rejected me?  It seemed strange to be specifically invited only to be turned away.
+
+"Ah, <<print $gender>> Hallivert, a pleasure to meet you again."  He said as though I hadn't just seen him literally seconds ago.
+
+"Something's wrong with your invite, Hans."  I said, making up a name for him.
+
+"I'm sorry?"  He seemed genuinely surprised by what I was saying.
+
+"I mean I walked into that building only to get spit right back out, you were there, you saw it."
+
+"<<print $gender>> Hallivert, I dropped you off at this building nearly a month ago." Hans said matter-of-factly.  "My employer just called me to escort you back to the train station so you can return to your world."
+
+"What?  No, I just walked into that building."  I insisted.
+
+Hans smiled and shrugged emptily.  "If there has been an error in your memory, it will be restored from backup during the virus-scan on the train ride.  Please," he opened the door to the limo I'd just left and indicated I should enter.
+
+* [[Play along|limo_ride_back]]
+* [[--I'm getting into that building|pegasus_reenter]]
+
+
+
+:: limo_ride_back [metaverse]
+The ride back to the train station was quiet.  I didn't ask Hans any questions because, frankly, I couldn't trust the answers.  Instead, I spent the time trying to verify his story that a week had passed.  My wristwatch was lacking a 'date' feature and the limousine, despite apparently having a surprisingly large stock of alcoholic drinks, did not have a television.
+
+Hans stopped the car and opened the door.  I stepped out to see the train station ahead of me, neon bullet-train already floating and ready.
+
+* [[Board the train|limo_interrupt]]
+
+
+
 :: carl_cronus_masked [notp]
 "Oh, sorry, I keep forgetting that most people can't hear his name."  Frank replied as though that explanation was entirely sensible.
 
@@ -4746,7 +5782,7 @@ The fifth floor was a howling madhouse, the expression of a century's worth of a
 * [[Return to the first floor|asylum_greeter_exterior]]
 * [[Visit Coma Carl|convo_coma_carl]]
 <<else>>
-<<set $nftFifthFloor=1>>Nurse Fletcher stepped into the elevator after me and inserted a key into the wall.  It was the first time I'd seen someone use a key as an actual key.
+<<set $nftFifthFloor=1>>Nurse Fletcher stepped into the elevator after me and inserted a key into the wall.  It was the first time I'd seen someone use a key as an actual key.  The doors closed and the elevator began moving upward.
 
 "Allow me to offer my apologies for all the extra security, <<print $gender>> Hallivert.  You'd be safe enough on your own on every other floor, but the fifth floor is the ward for the more... problematic patients."
 
@@ -4787,11 +5823,11 @@ Nurse Fletcher frowned.  "<<print $gender>> Hallivert, we've been nothing but co
 Greeter interrupted.  "Come on, Louise."  She was smiling that I've-got-a-secret smile of hers the entire time.  It wasn't helping.  "<<print $gender>> Hallivert asked the question, and I'll answer."
 
 Fletcher didn't seem happy about this, but she also didn't interfere.
-/%%/<<endif>>"Forgive the nurse, <<print $gender>> Hallivert.  She claims to abhor the politics and nice-making of the managerial role, but in truth she wants nice things to be said about the asylum.  And it is not a nice place."
+/%%/<<endif>>"Forgive the nurses, <<print $gender>> Hallivert.  They claim to abhor the politics and nice-making of the managerial role, but in truth they wantsnice things to be said about the asylum.  And it is not a nice place."
 
 "Asylum?"  I asked.
 
-Greeter nodded.  "Indeed.  Our nurse is not lying about the purpose of this place, just hiding the worst cases.  Not out of a desire to keep the reputation of this place intact - though that is no doubt part of it - but more out of a desire to keep you from becoming physically ill."
+Greeter nodded.  "Indeed.  Our caretakers areS not lying about the purpose of this place, just hiding the worst cases.  Not out of a desire to keep the reputation of this place intact - though that is no doubt part of it - but more out of a desire to keep you from becoming physically ill."
 
 "I was a private detective in life."  I replied simply.  "I've seen a lot of things and kept my lunch."
 
@@ -4877,8 +5913,42 @@ Greeter nodded and handed a large rusty key over to me.  It vanished the moment 
 
 
 
+:: train_inbound [metaverse]
+The interior of the bullet train was exactly the same as it'd been the first time I'd been here, despite the fact that this didn't match up with the outside at all.  As before, the train lurched forward and the city streamed by only to give way to darkness.
+
+"Please wait while your consciousness is transferred." the recorded voice of a conductor was also the same.  "Objective wait time is approximately thirty minutes.  If you wish to shorten-"
+
+"Yes."  I replied emphatically.
+
+Another lurch of motion, and the train was pulling into the New Detroit train station.
+
+* [[Debark|train_exterior]]
+
+
+
+:: limo_interrupt [metaverse]
+Before I could enter the station, Hans stopped me.  "Oh, <<print $gender>> Hallivert, before you go."
+
+I was starting to get irritated at the cycle of misinformation alternating with helpfulness.  "Yes?"  I asked warily.
+
+Hans handed me a keycard.  "You're now a voting stockholder of Life Preservers Insurance."<<set $stockholder=1>>
+
+I took the card reflexively, but the rest of me was non-responsive.  "What?"
+
+Hans shrugged.  "Enki indicated it was a gift to you.  He believed it might aid you in your investigation."
+
+The train, despite being entirely modern and missing all of the equipment required to do so, blew an urgent whistle.
+
+"Well," I said, full of questions but wary of asking any of them, "I've got a train to catch."
+
+"Have a pleasant trip, <<print $gender>> Hallivert."  Hans replied.
+
+* [[Catch a train|train_inbound]]
+
+
+
 :: carl_body [notp]
-"Of course it's dangerous," Frank replied, casting a suspicious glare at this corpse.  "It's dead, isn't it?  Nothing in this world dies unless it's dangerous."
+"Of course it's dangerous," Frank replied, casting a suspicious glare at his corpse.  "It's dead, isn't it?  Nothing in this world dies unless it's dangerous."
 
 I took a few moments to watch Carl's body do absolutely nothing before resuming my questioning.  "Has it ever done anything?"
 
