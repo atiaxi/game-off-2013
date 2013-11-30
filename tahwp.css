@@ -1,0 +1,28 @@
+
+body {
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	background-color: black;
+	color: white;
+}
+
+h1 {
+   font-size: 150%;
+   font-weight: bold;
+   color: yellow;
+}
+
+p.header {
+	font-size: small;
+}
+p.header span {
+	font-weight: bold;
+}
+p.footer {
+	font-size: x-small;
+}
+.play {
+	margin: auto;
+	width: 200px;
+	text-align: center;
+	border: 1px solid gold;
+}
