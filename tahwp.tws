@@ -20,12 +20,12 @@ p9
 (dp11
 S'selected'
 p12
-I00
+I01
 sS'pos'
 p13
 (lp14
-I10
-aI10
+F10.0
+aF10.0
 asS'passage'
 p15
 (itiddlywiki
@@ -34,7 +34,7 @@ p16
 (dp17
 S'text'
 p18
-V<<silently>>\u000a<<set $dreams=0>>\u000a<<set $emilNervous=0>>\u000a<<set $ivaStorage=0>>\u000a<<set $greeterQuestions=0>>\u000a<<set $cronusName="-----">>\u000a<<endsilently>>The afterlife had wood paneling.\u000a\u000aIt'd ordinarily be an absurd thing to notice.  I was dead, after all, in the hereafter's own waiting room.  You'd think there'd be pearly gates, or at least a hint of brimstone, but instead?\u000a\u000aIt was a waiting room.  Wood paneling on the walls, an oblong receptionist counter complete with bored-looking [[receptionist]] doing her best not to make eye contact... it was only missing some out of date magazines and it'd be perfect.  I'd have to mention it to whoever ran the place.\u000a[[Debug]]\u000a* [[Wait|intro_wait]]
+V<<silently>>\u000a<<set $dreams=0>>\u000a<<set $emilNervous=0>>\u000a<<set $ivaStorage=0>>\u000a<<set $greeterQuestions=0>>\u000a<<set $cronusName="-----">>\u000a<<endsilently>>The afterlife had wood paneling.\u000a\u000aIt'd ordinarily be an absurd thing to notice.  I was dead, after all, in the hereafter's own waiting room.  You'd think there'd be pearly gates, or at least a hint of brimstone, but instead?\u000a\u000aIt was a waiting room.  Wood paneling on the walls, an oblong receptionist counter complete with bored-looking [[receptionist]] doing her best not to make eye contact... it was only missing some out of date magazines and it'd be perfect.  I'd have to mention it to whoever ran the place.\u000a\u000a* [[Wait|intro_wait]]
 p19
 sS'created'
 p20
@@ -15346,7 +15346,7 @@ V--That doesn't make it right
 p4700
 sbsa(dp4701
 g12
-I01
+I00
 sg13
 (lp4702
 F3650.0
