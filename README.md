@@ -15,4 +15,6 @@ which is itself
 based on [twee](https://github.com/tweecode/twee) and
 [TiddlyWiki](https://github.com/TiddlyWiki/tiddlywiki)
 
-(A [Github 2013 game-off entry](https://github.com/github/game-off-2013))
+Wood paneling icon source: [OpenGameArt](http://opengameart.org/node/8595)
+
+(A [Github 2013 game-off / NaNoWriMo entry](https://github.com/github/game-off-2013))
