@@ -82,7 +82,7 @@ li#storyMenu a {
 <<set $clue3=0>>
 <<set $clue4=0>>
 <<update>>
-<<endsilently>
+<<endsilently>>
 
 
 :: ending_meta_deal
@@ -154,6 +154,9 @@ The point was, I was dead and I ought to be upset by it, but I couldn't find it 
 <<set $hasHadTour=1>>
 <<set $hasHadRecruitmentCall=1>>
 <<set $clue1=1>>
+<<set $clue2=1>>
+<<set $clue3=1>>
+<<set $stockholder=1>>
 <<update>>
 <<endsilently>>DEBUG ENABLED
 
@@ -437,10 +440,6 @@ The door finally opened, and a bespectacled man in his early forties stepped out
 * [[Follow him|intro_guillory]]
 
 
-:: Untitled Passage 1
-
-
-
 :: intro_guillory
 What choice did I have?  As strangely at-peace as I was with my current morbid state of affairs, I still had questions. "Alex", as his gilded nametag proclaimed him to be, presumably had answers.
 
@@ -651,17 +650,13 @@ My afterlife would always have wood paneling.
 
 
 :: intro_gender_man
-<<set $gender="Mr. ">>I took my seat.
+<<set $gender="Mr.">>I took my seat.
 
 <<display "intro_questions">>
 
 
-:: Untitled Passage 2
-
-
-
 :: intro_gender_woman
-<<set $gender="Ms. ">>I frowned.  "I know I'm probably not looking my best right now, but I'm no mister.  Ms. Hallivert, Detective Hallivert, my friends call me Sam....  Pick one."
+<<set $gender="Ms.">>I frowned.  "I know I'm probably not looking my best right now, but I'm no mister.  Ms. Hallivert, Detective Hallivert, my friends call me Sam....  Pick one."
 
 Guillory looked at me for a moment, then back at his folder.  Finally, shaking his head as though to clear it, he took a pen and made some note I couldn't see from my vantage point.  "My apologies, Ms. Hallivert, there was a mistake in our files.  Please take a seat."
 
@@ -773,10 +768,11 @@ It took me a moment to realize Cronus hadn't actually spoken, he'd simply insert
 "We have an opportunity this time that we did not have before."  Athena said carefully.  "Your knowledge is only deadly within New Detroit.  I give you this offer:  A lifetime in any other of my cities of your choice - even New Providence.  The only restriction is that you do not spread this information."
 
 "Let me think about it...."  It was time.  Though she didn't know it, I held her fate - and that of New Detroit - in my hands:
-
 <html><div class="getclue">Expose the Lies</div></html>
 * [[--Go to Metaverse and tell the world from there|ending_meta_expose]]
 * [[--Bring the system down from the inside by going to New Detroit|ending_nd]]
+
+
 <html><div class="getclue">Cover the Truth</div></html>
 * [[--Take the deal|ending_deal]]
 * [[--Make a new deal where you get to leave for Metaverse|ending_meta_deal]]
@@ -862,7 +858,7 @@ You shrugged.  "I would."
 
 "So me getting the Koloman case was no coincidence."  I said.  "You know, I thought Nickolai might have killed me.  Did I even die?  I remember dying."
 
-You waved the question off.  "That was before New Detroit, so you can safely dismiss the memory.  You had to 'die' because that's the only way I could get you into New Detroit without suspicion.
+You waved the question off.  "That was before New Detroit, so you can safely dismiss the memory.  You had to 'die' because that's the only way I could get you into New Detroit without suspicion."
 
 "So why her?"  I asked.  "I know she visited you before she died, but you couldn't have known then what would happen."
 
@@ -896,10 +892,6 @@ Guillory launched into what I could tell was a well-recited speech.
 * [[-- Hell no, I want answers|intro_interrupt_1]]
 
 
-:: Untitled Passage 3
-
-
-
 :: --That doesn't make it right [notp]
 "My sense of right and wrong is predicated on one thing:  The survival of this simulation, and as many people in it as possible.  I did the right thing."  Athena insisted.
 
@@ -909,7 +901,7 @@ Guillory launched into what I could tell was a well-recited speech.
 
 "If I had rolled back the system without that knowledge, the same events would have played themselves out.  If I quarantined Iva and removed the knowledge from myself, I would have released her due to not knowing why I quarantined her!  I am capable of knowing my every action and every possible reaction within the system to that action.  All actions led to disaster, save the one I took."
 
-* [[--So what happens now?]]
+[[--So what happens now?]]
 
 
 
@@ -926,7 +918,7 @@ Guillory launched into what I could tell was a well-recited speech.
 
 "But I would have been.  In the mere milliseconds it took me to observe, more and more dreamers withdrew.  It was tearing me apart, and the simulation with it.  I am a being of software, of mutable rules but rules mutated in immutable ways.  I would witness all the paths I could take from there, and the paths that would react, because I //am// the system.  There was only one path that did not end in disaster:  I ended her life, before the virus could spread."
 
-* [[--That doesn't make it right]]
+[[--That doesn't make it right]]
 
 
 
@@ -940,7 +932,7 @@ Athena stopped, her growing rage washed away and replaced with confusion.  "You'
 
 "It's not important what I've done.  What's important is what you did.
 
-[[--You killed Iva Koloman]]"
+[[--You killed Iva Koloman]]
 
 
 
@@ -967,7 +959,7 @@ You shrugged.  I'd never known how insufferable I'd looked when I'd done it unti
 
 
 :: enki_memory [notp]
-"'Memory' is not the right word"  you said.  "It's more of a program, an additional fragment of myself to take with you, to activate at the right time and fill you in on what you need to know."
+"I keep saying I have you a memory, but 'memory' is not the right word"  you said.  "It's more of a program, an additional fragment of myself to take with you, to activate at the right time and fill you in on what you need to know."
 
 "So I remember things that have happened after we would have had the conversation, and we can talk about them."  I said.
 
@@ -1260,11 +1252,12 @@ I stood in front of the Life Preservers Insurance building - a middling grey cub
 <<if not $wasOfferedTour>>
 <<display "ferro_offer_tour">>
 <<else>>
-<<if $acceptingTour>>
+  <<if $acceptingTour>>
 Samahd was standing in front of the building, as promised.  He smiled and waved broadly as he saw me coming.  "You made the right call.  One week will buy you the best tour in town."
 
-<<display "ferro_tour_accept">>
-<<else>>
+  <<display "ferro_tour_accept">>
+  <<else>>
+* [[Enter the insurance agency|insurance_waiting_room]]
 * [[Head to the Power of Two|power_of_two_exterior]]
 * [[Head to the Hub|Hub]]
 * [[Go home|apartment_exterior]]
@@ -1296,7 +1289,7 @@ For the center of the city, this was an extremely sparse area.  Roads from every
 
 
 :: bar_ocho_exterior
-Bar Ocho looks like someone took the platonic ideal of 'Bar' and copy-pasted it into the city.  Considering the fact that this was a simulated city, that might not have been too far from the truth.  The name of the bar was in neon, as far too many building signs seemed to be.  The "O" in "Ocho" was overlaying a large stylized 8-ball.  I found myself wondering if anyone played pool in New Detroit.
+Bar Ocho looked like someone took the platonic ideal of 'Bar' and copy-pasted it into the city.  Considering the fact that this was a simulated city, that might not have been too far from the truth.  The name of the bar was in neon, as far too many building signs seemed to be.  The "O" in "Ocho" was overlaying a large stylized 8-ball.  I found myself wondering if anyone played pool in New Detroit.
 
 <<if $tourInProgress>>
 Samahd stood to the side of the bar's door.  "For future reference, this is where I am on almost all of my downtime.  I mean, I'll give you my card at the end of the tour, but not everything is business, right?  Sometimes you need to unwind.  That's what this place is for!  The beer's not as effective as on the outside, but the upside is that you can't become addicted to it.  Simulation doesn't allow it.  Great, huh?"
@@ -1372,7 +1365,7 @@ I frowned at the last observation.  The room was lit perfectly - there weren't e
 
 "All right, let's get started!  Let's see, basic information you need to know:  This is New Detroit, the lowest level of the simulation.  You've probably noticed all the lack of amenities - no shadows, no smells, no heat or cold, sounds don't travel far, lots of things lack texture - you get used to it.  You probably wouldn't even have noticed if I hadn't pointed them out." He grinned prankishly and started numbering things on his hand.
 
-"First, you can't die here."  There was something in the tone of his voice when he said this, but as usual I couldn't get him to stop long enough to ask.  "Where would you go, right?  Second, you can't be hurt here unless you go into the wrong neighborhood - and you'll know it if that happens.  Third, you can't be robbed - other people can't even //see// your wallet, let alone take anything out of it.  This Detroit's a lot safer than the real one, if a lot less scenic."
+"First, you can't die here."  There was something in the tone of his voice when he said this, but as usual I couldn't get him to stop long enough to ask.  "Where would you go, right?  Second, you can't be hurt here unless you go into the wrong neighborhood - and you'll know it if that happens.  Third, you can't be robbed - other people could take your wallet and rifle through it, but they wouldn't be able to take anything out of it or, for that matter, take it very far.  This Detroit's a lot safer than the real one, if a lot less scenic."
 
 "Fourth:  Don't run out of time.  That's a one-way ticket to Storage.  I'd recommend getting a job - even one that pays one day per day is a pretty good gig, keeps you going."
 
@@ -1586,7 +1579,7 @@ He gestured down to the sheaf of paper on his desk that was my insurance policy.
 :: insurance_waiting_room
 <<set $guilloryInPerson=0>>The afterlife hadn't gotten any classier since the last time I'd been here at the Life Preservers Insurance office.  Same wood paneling that had been my first sight upon entering the world.  Same bored receptionist.  Same lack of magazines.
 
-There were three exits here:  The door to Alex Guillory's office at least attempted to look more like real wood than its surroundings.  The purpose of the metal door with the "EXIT" sign above it was obvious.  A smaller half-door at the other end of the room seems to be a janitor's closet of some sort.
+There were three exits here:  The door to Alex Guillory's office at least attempted to look more like real wood than its surroundings.  The purpose of the metal door with the "EXIT" sign above it was obvious.  A smaller half-door at the other end of the room seemed to be a janitor's closet of some sort.
 
 * [[Visit Guillory|real_convo_guillory]]
 * [[Peek in the Janitor's closet|insurance_janitor_interrupt]]
@@ -1711,7 +1704,7 @@ The question made Guillory smile.  "That's somewhat of our mission statement."
 
 "Life Preservers Insurance," he said with the same air of rehearsed speech he'd had earlier, "was founded to provide people with policies that could be used to keep them alive in this simulation after they'd passed on.
 
-"That is somewhat of an important point - we are not a traditional insurance company.  We do not insure houses, or health, or even life in the usual manner - though much of the funding that finances your part of the simulation is derived from a life insurance policy.  Instead, we're an insurance company dedicated to getting people to the /next/ life.  This life.
+"That is somewhat of an important point - we are not a traditional insurance company.  We do not insure houses, or health, or even life in the usual manner - though much of the funding that finances your part of the simulation is derived from a life insurance policy.  Instead, we're an insurance company dedicated to getting people to the //next// life.  This life.
 
 "In this way, we further <<set $heardOfPreservationists=1>>Preserver goals and, best of all, keep people alive and well."
 
@@ -1758,7 +1751,7 @@ Guillory leaned forward and shook my hand before I had the chance to react.  "We
 
 
 :: ferro_offer_tour
-<<set $wasOfferedTour=1>>I noticed almost immediately that one of the people here on the outside wasn't one of the city's commuters on their way to some dreary destination.  His gaze wasn't on the thin asphalt road like theirs; rather he was watching the insurance building carefully.
+I noticed almost immediately that one of the people here on the outside wasn't one of the city's commuters on their way to some dreary destination.  His gaze wasn't on the thin asphalt road like theirs; rather he was watching the insurance building carefully.
 
 He smiled welcomingly as he caught my gaze, and had closed the gap between us before I could even say a word.
 
@@ -1803,7 +1796,7 @@ Koloman nodded reluctantly, as though simultaneously acknowledging that this was
 :: koloman_nd [conversation nocall]
 "No offense taken, it was a question I asked her many times."  His tone indicated he hadn't gotten a particularly compelling explanation himself.
 
-"She was an artist, fascinated by the medium that is the simulation.  I don't mean that she was fascinated by working within the simulation, I mean that she found the simulation //itself// to be a medium.
+"She was an artist," he began, "fascinated by the medium that is the simulation.  I don't mean that she was fascinated by working within the simulation, I mean that she found the simulation //itself// to be a medium.
 
 "She was not the first to think so, of course, the idea of reality as a canvas pre-dates realities as mutable as this one.  And the restrictions placed on this simulation at all levels mean it is much less mutable than one would hope.  Still, she worked to express this idea through the more mundane mediums.
 
@@ -1827,7 +1820,7 @@ Koloman looked at me, irritated.  "I cannot, <<print $gender>> Hallivert."  He g
 
 I grit my teeth; I never thought I'd be annoyed at //not// being able to foolishly blow away my bank account.  "So how do I get rid of //all// my time?"
 
-Koloman's expression had not softened, but his irritation no longer seemed focused on me.  "There is a... place in New Detroit.  It is not a pleasant area - it is made to those who have died and did not find that a sufficiently frightening experience.  That is the only place in the entire simulation where you may be harmed, which means it is the only place you can harm yourself."
+Koloman's expression had not softened, but his irritation no longer seemed focused on me.  "There is a... place in New Detroit.  It is not a pleasant area - it is made of those who have died and did not find that a sufficiently frightening experience.  That is the only place in the entire simulation where you may be harmed, which means it is the only place you can harm yourself."
 
 This entire plan was beginning to feel a little too suicicde-ish for my tastes.
 
@@ -1901,7 +1894,7 @@ Guillory's sole reaction was a slight raising of one of his eyebrows.  "That is 
 
 
 :: insurance_janitor_interrupt
-<<if $hasJanitorPermission>>
+<<if $hasJanitorPermission or $stockholder>>
 Resisting the urge to give the receptionist a smug grin, I opened the door to the "janitor's closet" and stepped inside.
 
 <<display "insurance_janitor">>
@@ -1924,7 +1917,7 @@ Samahd nodded quickly.  "Of course, there's nothing like the thrill of discovery
 
 
 :: ferro_tour_haggle
-"Just a week of your time."  Ferro continued talking before I could even ask for the obvious clarification.  "Of course, the tour isn't going to //take// a week to experience.  It'll cost that much.  It's well worth it, though - they don't let you become a tour guide unless you know this city in and out."
+"Just a week of your time."  Ferro continued talking before I could even ask for the obvious clarification.  "Of course, the tour isn't going to //take// a week to experience.  It'll cost that much.  It's well worth it, though - they don't let you become a tour guide unless you know this city in and out."<<set $wasOfferedTour=1>>
 
 * [[Take the tour|ferro_tour_accept]]
 * [[-- Maybe later|ferro_tour_decline]]
@@ -1960,7 +1953,7 @@ Before I could complete the thought, the doors had opened again.
 
 Whoever had hired the guards had apparently chosen nearly identical personalities, because this one reacted the same way his New Detroit counterpart had.  The don't-give-a-damn expression and posture vanished, replaced with a stiff spine and a near salute.
 
-"Oh, yes!  He's right down this road - take a right at the Prometheus Lane and he'll be the first house you see, can't miss it."
+"Oh, yes!  He's right down this road - take a right at Prometheus Lane and he'll be the first house you see, can't miss it."
 
 "Thanks." I managed to say with slightly more politeness than I felt.
 
@@ -2036,7 +2029,7 @@ Koloman produced a manilla folder similar to the one Guillory had.  "This is the
 
 "He says he dreamed in storage."  I replied plainly.
 
-"I checked his background before I sent my daughter to be treated by him, <<print $gender>> Hallivert." my employer replied.  "I know his background."
+"I checked his file before I sent my daughter to be treated by him, <<print $gender>> Hallivert." my employer replied.  "I know his background."
 
 "No, I mean he //believes// it."
 
@@ -2072,7 +2065,7 @@ I opened my mouth to answer at the same time he raised his hand to forestall me.
 
 
 :: guillory_janitor [conversation nocall]
-Guillory looks confused for a moment.  "Janitor's closet?  Oh!  You must mean the filing room, of course.  Yes, there's a fair amount of proprietary information there, it's not open to the general public."
+Guillory looked confused for a moment.  "Janitor's closet?  Oh!  You must mean the filing room, of course.  Yes, there's a fair amount of proprietary information there, it's not open to the general public."
 
 <<if $stockholder>>
 "I'm not the general public, though."  I reminded him.
@@ -2116,7 +2109,7 @@ I'd been under the impression that dumb-cars had been finally outlawed years ago
 
 "Wonderful."  I said.  "So I wandered into a game I could be hurt in."
 
-"It's not a game.  Rather, it is a part of the main simulation with slightly more fideltiy, enough to enable injuries and pain.  But yes, as you discovered, you could be hurt."
+"It's not a game.  Rather, it is a part of the main simulation with slightly more fidelity, enough to enable injuries and pain.  But yes, as you discovered, you could be hurt."
 
 * [[You have more questions|convo_guillory]]
 
@@ -2165,7 +2158,7 @@ I hadn't noticed it the first time I'd been here, but there was no place to buy 
 
 <<if not $nftElevator>><<set $nftElevator=1>>I found out why when I tried to get into the elevator - one of the more intimidating-looking of them stepped in front of me.
 
-"<<if $gender eq "Mr.">>Sir,<<else>>Miss,<<endif>> I'm going to have to ask you to step back.  The elevator's closed due to investigation."
+"I'm going to have to ask you to step back.  The elevator's closed due to investigation."
 
 I decided to see exactly how much clout Koloman purportedly had.  I pulled out the card for display.  "I've got an urgent appointment with Nikolai Koloman."
 
@@ -2239,7 +2232,7 @@ His reaction was a shrug and a muttered "Your funeral, pal."  Not exactly what I
 :: pr_intersection [notp]
 The forest remained a close companion for the walk, only occasionally breaking to reveal dirt roads vanishing into their depths.  Mailboxes ranging from immaculate to rusty adorned each road, though clearly those suffering from rust were doing so by intention of their owner.  Nobody who could afford living here would have to settle for rusty mailboxes.
 
-An sign declared the road I was walking toward to be an intersection between Central and Prometheus.
+A sign declared the road I was walking toward to be an intersection between Central and Prometheus.
 
 * [[Walk to the elevator|elevator_npr]]
 * [[Walk toward Koloman's House|koloman_exterior]]
@@ -2873,9 +2866,9 @@ The man quirked an eyebrow at me as I approached. His expression cycled through 
 
 <<sugarchoice "clerk_hello" "How's things?">>
 <<sugarchoice "clerk_job" "I'm looking for a job">>
-<<if $heardOfDeath>>>
+<<if $heardOfDeath>>
 <<sugarchoice "clerk_death" "I heard someone died">>
-<<endif>><<if $investigating>>
+/%%/<<endif>><<if $investigating>>
 <<sugarchoice "clerk_investigate" "Koloman hired me to investigate this">>
 <<endif>>
 
@@ -3195,7 +3188,7 @@ Was that the weird thing Emil was going to tell me?  It didn't seem that far-fet
 
 "I'm not done."  Emil seemed intent on answering my questions before I asked them.  "She'd often call me when it happened.  I started getting suspicious one night when she called me from Bar Ocho."
 
-"She was sneaking out to the bars?"  It wouldn't be the first time I'd seen that happen, but it didn't seem quite right for the simulation.
+"She was sneaking out to the bars?"  It wouldn't be the first time I'd seen that happen, but it didn't seem quite in character for what I'd heard of Iva so far.
 
 Emil shook his head.  "No, that's it.  She was in bed next to me.  I got up to go to the kitchen, and when I got back she's gone.  And seconds - literally seconds - later, she calls me."
 
@@ -3253,7 +3246,7 @@ He was right about one thing.  That was weird.<<set $knowsIvaTeleported=1>>
 
 
 :: emil_accuse
-<<set $emilNervous = $emilNervous+1>>"No."  Emil replied dejectedly.  It was not the protestation of innocence I'd expected.
+<<set $emilNervous = $emilNervous+1>>"No."  Emil replied dejectedly.  It was not as spirited a protestation of innocence as I'd expected.
 
 When I didn't say anything in reply, he elaborated:  "That's the first thing that lady cop asked me.  Second thing she asked me, too.  Third and fourth thing she asked me.  Sixth thing she asked me - the fifth thing she asked was 'you really think you can get away with this?'."
 
@@ -3279,7 +3272,7 @@ Emil blushed.  "There were other activites.  My point is, she left in the early 
 
 "You don't know if she met anyone on the way..." It didn't sound likely, but I figured I'd ask.
 
-Emil shook his head.  "No, she didn't meet anyone on the way."
+Emil shook his head.  "No, she didn't meet anyone on the way.  She lives in the next building over, it's not like she could have somehow wandered over the tracks by mistake."
 
 * [[You have more questions|convo_emil]]
 
@@ -3305,7 +3298,7 @@ He smiled.  "It's her story, you know."
 
 "Iva wrote it, yes."  I replied.  I wasn't sure why that was important.
 
-"No, I mean it's //her// story.  The evil king is Athena, and she's the dreamer.  She dreamed in Storage, she always said.  Nobody believed her, but I did.  It's what inspired her to make this play."<<set $ivaStorage = $ivaStorage + 1>>
+"No, I mean it's //her// story.  The evil king is Athena, and Ivas the dreamer.  She dreamed in Storage, she always said.  Nobody believed her, but I did.  It's what inspired her to make this play."<<set $ivaStorage = $ivaStorage + 1>>
 
 He chuckled.  "Don't tell the troupe I told you this.  They don't want people to know the 'secret message' of the play.  Iva thought it was dangerous somehow."  His laughter died.  "Maybe it was."
 
@@ -3456,7 +3449,7 @@ I spent a few moments rifling through various drawers in search of a diary or so
 :: ivahouse_posters
 The posters were for a number of well-known plays:  "Fiddler on the Roof", "Romeo and Juliet", "Babel is Ruined".
 
-The fourth and largest poster represented a play I'd never seen headlining anywhere:  "Atlantis Risen".  Given that the poster proclaimed that it was to be presented by the "Koloman Theater Troupe", I didn't find it hard to believe that this was Iva's personal project.
+The fourth and largest poster represented a play I'd never seen headlining anywhere:  "Atlantis Rising".  Given that the poster proclaimed that it was to be presented by the "Koloman Theater Troupe", I didn't find it hard to believe that this was Iva's personal project.
 
 More importantly, the poster had the address of the theater Iva's troupe was working out of.<<set $hasTroupeAddress=1>>
 
@@ -3936,7 +3929,7 @@ We walked for a bit.  The hacker's club was a long, nearly featureless, hallway 
 
 
 :: chivalry_nohack [conversation nocall]
-Before Chivalry could answer the question, someone from the back of the room spoke up.  "Give him the flyer!"  A chorus of muted laughter went through the room.
+Before Chivalry could answer the question, someone from the back of the room spoke up.  "Give 'em the flyer!"  A chorus of muted laughter went through the room.
 
 Chivalry rolled her eyes, then explained.  "Sorry about that.  He's referring to our recruitment materials.  I don't think I actually have one with me, but one of the headers is "Why doesn't the Hacker's Club hack?""
 
@@ -4077,7 +4070,7 @@ That was easy.<<set $money = 0>>
 
 
 
-:: storing_intro [nocall]
+:: storing_intro [nocall notp]
 I walked out of the casino and nearly tripped - rather than taking me to the street outside, I found myself in Guillory's office.<<if $mugged>>I was beginning to wonder how many times the insurance company would end up teleporting me away from the PvP areas.<<endif>>
 
 "<<print $gender>> Hallivert..." Guillory looked extremely uncomfortable.  "Your time balance appears to have reached zero."
@@ -4104,7 +4097,7 @@ Oh well.
 
 
 
-:: storage [nocall]
+:: storage [nocall notp]
 <<silently>>
 <<set $hasWallet=0>>
 <<update>>
@@ -4113,7 +4106,7 @@ Oh well.
 
 
 
-:: Nothing [nocall]
+:: Nothing [nocall notp]
 And, just like that, I was in the hub.
 
 I'd have stood up, but I was already standing.  Had Koloman pulled me out of storage already?  It seemed strange that I'd have reappeared in the hub rather than in Guillory's office, but it didn't seem-
@@ -4128,14 +4121,14 @@ The cars lurched forward, as one.
 
 
 
-:: still dreaming [nocall]
+:: still dreaming [nocall notp]
 I was in a city devoid of all life.  Grey and unyielding though it was, at least New Detroit had people.  As I walked through the city, it grew larger and I grew smaller, until I fell through the holes in the asphalt.
 
 No. Fuck this shit.  If I was dreaming I was going to dream myself up a [[tropical island]].
 
 
 
-:: tropical island [nocall]
+:: tropical island [nocall notp]
 The sun, the sand, the surf.  I couldn't feel any of them, because I was dreaming, but at least holding on to that fact ensured I wasn't going to get run over by any cars.
 
 <<if $seenGreeter>>
@@ -4235,7 +4228,7 @@ Behind the engine was a lone passenger cab.  It appeared to be empty.
 :: pvp_street_normal
 I kept my eyes peeled - my reflexes may have suffered in their transition to a digital world, but my observational habits were still in place.  Long practice had honed my ability to tell who to avoid and who would avoid me.  Hell, just the act of looking more attentive was scaring away some of the scavengers.
 
-The PvP zones had the feel of a post-apocalyptic wasteland, except the buildings were all perfectly undamaged.  Still, most were uninhabited.  Everyone looked at everyone else furtively, sizing each other's threat potential.
+The PvP zones had the feel of a post-apocalyptic wasteland, except the buildings were all perfectly undamaged.  Still, most were uninhabited.  Everyone seemed to look at everyone else furtively, sizing each other's threat potential.
 
 One place stood out as actually being active:  The large neon "Motor Casino" sign and poorly-animated neon roulette wheel indicated what was likely the only actual business operating in the zone.
 
@@ -4262,7 +4255,7 @@ The "Motor Casino" only vaguely tried to live up to its motif - there was a larg
 
 
 
-:: Escape [nocall]
+:: Escape [nocall notp]
 I woke up in a hospital.  A surge of sudden emotion ran through me - was I alive?
 
 I had a strange certainty that I was, a certainty that I didn't question even for a moment.  It'd all been a misunderstanding.  Not the part where I spent all my time and got stored:  No, I hadn't actually died in the first place!
@@ -4275,7 +4268,7 @@ I walked to the parking garage to find my car.  There were thousands of identica
 
 
 
-:: dream_realize [nocall]
+:: dream_realize [nocall notp]
 I woke up in a hospital.  A surge of sudden emotion ran through me - was I alive?
 
 I had a strange certainty that I was, but I immediately questioned it.  It was this same, strange hospital that I'd "woken up in" before.  
@@ -4290,7 +4283,7 @@ Dreams... dammit, I was [[still dreaming]]!
 
 
 
-:: Dream [nocall]
+:: Dream [nocall notp]
 I don't know how many more dreams I had.  I usually found myself in various places in New Detroit.  Places I'd been: the elevator, the PvP zones.  Places I'd never seen before:  Other people's apartments, expensive theaters.
 
 Each time I'd be threatened by the car that killed me, but all that did was remind me I was dreaming.  Then the dream would dissolve and I'd move on to the next.
@@ -4299,19 +4292,23 @@ Each time I'd be threatened by the car that killed me, but all that did was remi
 
 
 
-:: post_dream [conversation nocall getclue]
+:: post_dream [conversation nocall getclue notp]
 "Am I really back?"  I asked.  I was relatively certain at this point that I was, but wanted to make sure.  For all I knew this was some sort of Storage wellness-check that Guillory performed every ten years before throwing people back into the digital dreamland.
 
 Digital dreamland.  It'd been true, then.  [[People dreamed in Storage]].  It wasn't just my brain papering over the trauma of being decanted, either - I'd had some measure of control in there.
 
 
 
-:: People dreamed in Storage [conversation nocall]
+:: People dreamed in Storage [conversation nocall notp]
 <<silently>>
 <<set $clue1=1>>
 <<set $storagePlan=0>>
 <<update>>
-<<endsilently>><<display "convo_guillory">>
+<<endsilently>>"Yes," Guillory said evenly.  "It seems that your employer discovered some additional work you'd done for him and credited your account.  Restoration from storage is unusual, to say the least, but Mr. Koloman was quite insistant, and he was in the right."
+
+I nodded.  "Well, thanks for bringing me back."
+
+* [[Talk to Guillory|convo_guillory]]
 
 
 
@@ -4436,7 +4433,7 @@ The card acted like a normal holo-phone.  That meant it could be voice activated
 
 
 
-:: Wait [nocall]
+:: Wait [nocall notp]
 I didn't even own a car, why would I have gone to the parking garage?
 
 My surroundings were muddy, indistinct.  I could hear the noise of the engines, but they were diminishing with the rest of the world.
@@ -4447,7 +4444,7 @@ How had I gotten to the parking garage?  There hadn't been an elevator or stairs
 
 
 
-:: Dreaming? [nocall]
+:: Dreaming? [nocall notp]
 And, just like that, I was in the hub.
 
 I'd have stood up, but I was already standing.  Had Koloman pulled me out of storage already?  It seemed strange that I'd have reappeared in the hub rather than in Guillory's office, but it didn't seem-
@@ -4463,7 +4460,7 @@ The cars lurched forward, as one.
 
 
 
-:: Awaken [conversation nocall]
+:: Awaken [conversation nocall notp]
 The afterlife still had wood paneling.
 <<silently>>
 <<set $hasWallet=1>>
@@ -4482,7 +4479,7 @@ Guillory himself sat at the desk across from me, looking at me carefully.
 
 
 
-:: dream_test [conversation nocall]
+:: dream_test [conversation nocall notp]
 I shut my eyes and tried to visualize the tropical island I'd made my way to in the dream.  If I was still dreaming, I'd be able to go there, and then-
 
 "<<print $gender>> Hallivert?"  Guillory interrupted my concentration.  "Are you okay?"
@@ -4625,7 +4622,7 @@ I was in Guillory's office, my wallet in my hand.
 
 
 
-:: What? [nocall]
+:: What? [nocall notp]
 I was in a city devoid of all life.  Grey and unyielding though it was, at least New Detroit had people.  As I walked through the city, it grew larger and I grew smaller, until I fell through the holes in the asphalt.
 
 As I plummeted, one thought crossed my mind:
@@ -4634,7 +4631,7 @@ As I plummeted, one thought crossed my mind:
 
 
 
-:: I've had this dream before.
+:: I've had this dream before. [nocall notp]
 I was in the Power of Two, sitting at a table.  Women, and a few men, wandered through the area, casually looking for clients.  They didn't seem to react to my presense at all.
 
 A car horn blared from outside.  Come out, it said.  Come out and face me.  It was that same damn car again, the car that had killed me, the car I kept dreaming about-
@@ -4790,7 +4787,7 @@ A leather-colored [[couch]] took the center stage, sitting across from an irrita
 
 The kitchen nook featured a [[refrigerator]] and a few empty cupboards.  So far as I could tell, there was no laundry or bathroom - hopefully they weren't necessities in this world.
 
-<<if $storagePlan eq 1>>I needed to [[write a note]] for Koloman to 'find' after I'd been stored.
+<<if $storagePlan and not $wroteNote>>I needed to [[write a note]] for Koloman to 'find' after I'd been stored.
 /%%/<<endif>>A [[bed]] that seemed barely a step up from a cot was shoved into the far corner.  <<if $sleepy>>Despite the fact that it is the very minimum required for an object to be called a 'bed', it was possibly the most inviting space I'd seen all day.  All I wanted to do was [[sleep]].<<endif>>
 
 * [[Go out into the hallway|floor_13]]
@@ -4850,9 +4847,9 @@ A wistful smile came over his face.  "Iva?  Oh, it's been so long since I've tal
 
 She paused for a moment, her eyes closed in light frustration, as though she'd had this conversation before.  "I don't expect anyone to understand but, just for a moment, I'd like you to consider your circumstances.
 
-You're dead.  You died in the regular world and woke up here.  You're awake here because a group of tiny computers you couldn't even see learned how to be your brain, and those computers talked to this computer that's the simulation, and it agreed to run you here."
+"You're dead.  You died in the regular world and woke up here.  You're awake here because a group of tiny computers you couldn't even see learned how to be your brain, and those computers talked to this computer that's the simulation, and it agreed to run you here.
 
-And here is just a simulation.  This bed, those walls" - her hands were busy typing, so she indicated the objects in question by jerking her head in their direction - "they're not real.  This whole building, isn't real.  You are not real."
+"And here is just a simulation.  This bed, those walls" - her hands were busy typing, so she indicated the objects in question by jerking her head in their direction - "they're not real.  This whole building, isn't real.  You are not real."
 
 With that she shrugged.  "So yes, I sound crazy.  But not any crazier than the rest of this place.  And that includes you."
 
@@ -4938,7 +4935,7 @@ I still counted it a better answer than the official one.
 
 
 :: acl_iva
-A wistful smile overcome the man's face.  "Ah, Iva!  She hasn't been here in a while."
+A wistful smile overcame the man's face.  "Ah, Iva!  She hasn't been here in a while."
 
 At the mention of the girl's name, a few of the man's fellow retirees started paying attention.
 
@@ -4967,7 +4964,7 @@ The muted but ever-present babble of conversation in the room dipped suddenly in
 
 "But Iva was stored once, she seemed okay."  I pointed out.
 
-The man frowned.  "I don't want to speak ill of the... not present.  But Iva said she dreamed in storage<<set $ivaStorage=$ivaStorage+1>>.  Iva thought the whole city was made of people who dreamed.  Iva, bless her heart, she *sleepwalked*.  The woman's older than some of us in this room and she not only still needed to sleep, but she walked in her sleep."  He shook his head.  "She's the best thing to ever come out of storage, but not even she came out whole."
+The man frowned.  "I don't want to speak ill of the... not present.  But Iva said she dreamed in storage<<set $ivaStorage=$ivaStorage+1>>.  Iva thought the whole city was made of people who dreamed.  Iva, bless her heart, she //sleepwalked//.  The woman's older than some of us in this room and she not only still needed to sleep, but she walked in her sleep."  He shook his head.  "She's the best thing to ever come out of storage, but not even she came out whole."
 
 * [[You have more questions|convo_lounge]]
 
@@ -5186,7 +5183,7 @@ I wasn't sure if this was related to my question, but I answered her as best I c
 
 "Prevented."  I replied skeptically.  "Then how are we having this conversation?"
 
-"We're not."  She said.  "I'm typing the conversation and you're reading it.  As silly as this action appeares, it has a number of practical benefits."
+"We're not."  She said.  "I'm typing the conversation and you're reading it.  As silly as this action appears, it has a number of practical benefits."
 
 Considering we were talking and her typing continued to be on an imaginary machine, I doubted very much what she was saying.
 
@@ -5595,7 +5592,7 @@ I did, all too well.  I was following in Iva's footsteps, and they'd lead down a
 
 "I was never supposed to come out of storage."  He began.  "At least, not until the promised day of the Preservationists.  My husband - Jacob - and I had insurance policies that guaranteed us a spot in Storage.  He was the actual believer, I simply signed up to make him happy and in case it turned out to be real."  He gestured around himself.  "Good thing I did, hm?
 
-"I died, and they put me in storage.  Jacob died about five years later, but something went wrong with the upload process.  More wrong than usual - he was... corrupted.  They couldn't re-build his mind on this side."
+"I died, and they put me in storage.  Jacob died about five years later, but something went wrong with the upload process.  More wrong than usual - his data was... corrupted.  They couldn't re-build his mind on this side."
 
 I nodded.  It seemed there was more than one reason that Marcus had gone into upload-related psychology.
 
@@ -5645,7 +5642,7 @@ I looked around myself.  "I mean, it's no picnic out here, but it's got to be be
 
 
 :: greeter_danger
-"I'm only dangerous in my own domain."  she gestured around to her room which, now that I was looking at it, I noticed was entirely bare.  "But yes, if you came in here I could hurt you and nobody could stop me."  Her voice was chillingly casual.
+"I'm only dangerous in my own domain."  she gestured around to her room which, now that I was looking at it, I noticed was entirely bare.  "But yes, if you came in here I could hurt you and nobody could stop me."  Her voice was strangely casual about such a topic.
 
 "You're not really putting me at ease."  I replied.
 
@@ -5656,7 +5653,7 @@ Greeter laughed.  "I'm not trying to, I'm trying to be truthful.  But the truth 
 
 
 :: greeter_escape_2 [notp]
-Greeter laughed.  "Exactly!  Why go to that locked down reality-like experience when I can have a non-stop beach party?"
+Greeter laughed.  "Exactly!  Why go to that locked down reality-lite experience when I can have a non-stop beach party?"
 
 Her smile faded somewhat.  "It's more than that, though.  The beach party isn't the only thing this area can do.  These are my computers, I can make them do whatever I want.  Out there I'd just be a nobody, and... there's more."
 
@@ -5823,11 +5820,12 @@ Nurse Fletcher frowned.  "<<print $gender>> Hallivert, we've been nothing but co
 Greeter interrupted.  "Come on, Louise."  She was smiling that I've-got-a-secret smile of hers the entire time.  It wasn't helping.  "<<print $gender>> Hallivert asked the question, and I'll answer."
 
 Fletcher didn't seem happy about this, but she also didn't interfere.
-/%%/<<endif>>"Forgive the nurses, <<print $gender>> Hallivert.  They claim to abhor the politics and nice-making of the managerial role, but in truth they wantsnice things to be said about the asylum.  And it is not a nice place."
+/%%/<<endif>>
+"Forgive the nurses, <<print $gender>> Hallivert.  They claim to abhor the politics and nice-making of the managerial role, but in truth they want nice things to be said about the asylum.  And it is not a nice place."
 
 "Asylum?"  I asked.
 
-Greeter nodded.  "Indeed.  Our caretakers areS not lying about the purpose of this place, just hiding the worst cases.  Not out of a desire to keep the reputation of this place intact - though that is no doubt part of it - but more out of a desire to keep you from becoming physically ill."
+Greeter nodded.  "Indeed.  Our caretakers are not lying about the purpose of this place, just hiding the worst cases.  Not out of a desire to keep the reputation of this place intact - though that is no doubt part of it - but more out of a desire to keep you from becoming physically ill."
 
 "I was a private detective in life."  I replied simply.  "I've seen a lot of things and kept my lunch."
 
@@ -5871,7 +5869,7 @@ I glanced back at the area of the beach I'd fallen into.  There was a door stand
 
 "Is that something you have to do often?"
 
-She shook her head.  "Nah, most people aren't worth the trouble.  Haven't had to hide someone since what's-his'name."<<set $heardGreeterHid=1>>
+She shook her head.  "Nah, most people aren't worth the trouble.  Haven't had to hide someone since what's his name."<<set $heardGreeterHid=1>>
 
 * [[You have more questions|convo_greeter]]
 
@@ -6080,7 +6078,7 @@ Frank shrugged and gestured to the body.  "Well, they call //him// Coma Carl, bu
 
 "You don't mind the name?"
 
-"Pretty apt, don't you think?"  Frank paused.  "Well, except for the fact that Carl over there is dead.  But I'll take 'Coma Carl' over 'Dead Fred' or whatever they'd come up with."
+"Pretty apt, don't you think?"  Frank paused.  "Well, except for the fact that Carl over there is dead.  But I'll take 'Coma Carl' over 'Dead Fred' or whatever else they'd come up with."
 
 * [[You have more questions|convo_coma_carl]]
 
@@ -6089,7 +6087,7 @@ Frank shrugged and gestured to the body.  "Well, they call //him// Coma Carl, bu
 :: asylum_fifth_tour_2 [notp]
 Nurse Fletcher tried to set an example of professional detachment as we walked down the hall and I immediately failed to follow it.  I couldn't help myself - I'd seen some things in my career, but this was an entirely new sort of something.
 
-I saw a woman amputating her own arm.  "She'll try it on you,"  Fletcher warned, keeping her eyes off the scene, "and it'll work.  She's got a pile of arms in there that we're filtering out of your view, and only about half of them are hers.  Hers grow back.  Yours won't."
+I saw a woman carefully and thoughtfully amputating her own arm.  "She'll try it on you,"  Fletcher warned, keeping her eyes off the scene, "and it'll work.  She's got a pile of arms in there that we're filtering out of your view, and only about half of them are hers.  Hers grow back.  Yours won't."
 
 The cell across from that had conjoined twins, which didn't strike me as that odd until the nurse explained:  "They used to be ordinary twins - they died together and we woke them together.  Never made that mistake again."
 
@@ -6109,10 +6107,10 @@ Greeter nodded.<<set $canEnterGreeter=1>>  "That's a very good cause, and there'
 "Oh?" I replied warily.  I wasn't sure I could take anyone at their word in this place.
 
 "I've been here since the beginning."  Greeter said.
+
 <<if $hasCalledNurse>>
 I glanced over at Nurse Fletcher.  "It's true."  the woman answered.  "Though she's still dangerous."
-/%%/<<endif>>
-"What do you want me to do?"  I asked.
+/%%/<<endif>>"What do you want me to do?"  I asked.
 
 "Simple."  Greeter said, taking a few steps back.  "Come in to my room."
 
