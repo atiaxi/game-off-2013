@@ -664,7 +664,7 @@ Guillory looked at me for a moment, then back at his folder.  Finally, shaking h
 
 
 
-:: Clue #1 [notp]
+:: Clue #1 [notp conversation]
 <html><div class="getclue">People Dream in Storage</div></html>
 
 I used to think that Storage was exactly that, a static backup of a human mind that did nothing until it was reactivated.  I'd been through it myself, though, and I knew the truth.  Not only had I dreamed, but I'd seen places I'd never been before.
@@ -673,7 +673,7 @@ I used to think that Storage was exactly that, a static backup of a human mind t
 
 
 
-:: Clue #2
+:: Clue #2 [conversation notp]
 <html><div class="getclue">Athena is not the Simulation's Operating System.</div></html>
 
 "I compared the parts that Athena is missing to my own software." Cronus had told me. "The parts that are missing are exactly the parts dedicated to simulating people's minds.  They //exist//, but they're extremely sparse compared to me.
@@ -683,7 +683,7 @@ I used to think that Storage was exactly that, a static backup of a human mind t
 <<return>>
 
 
-:: Clue #3 [notp]
+:: Clue #3 [notp conversation]
 <html><div class="getclue">New Detroit Behaves Like a Dream</div></html>
 
 The only thing that convinced me that I wasn't just dreaming this entire thing was the fact that it was //only// New Detroit.  New Providence had been indistinguishable from reality.
@@ -698,7 +698,7 @@ My current location wasn't a place I could teleport out of, however.
 <<return>>
 
 
-:: Clue #4
+:: Clue #4 [conversation notp]
 <html><div class="getclue">Programmers Are Explicitly Disallowed</div></html>
 
 I'd read it right in Life Preservers' own files:
@@ -1103,7 +1103,7 @@ The dreams were more malleable than the reality was proving, but they also had a
 With the growing sense of dread balanced only by the eerie sense of deja-vu, I made my way closer to the obelisk in the middle of the plaza.
 
 <<if $nftHub>>
-It hadn't been there before.  Of that I was certain - I'd been through the hub at least once, and I specifically remembered how sparse and undecorated it'd seemed.  It'd a hub, and made no pretenses otherwise.
+It hadn't been there before.  Of that I was certain - I'd been through the hub at least once, and I specifically remembered how sparse and undecorated it'd seemed.  It'd been a hub, and made no pretenses otherwise.
 
 Now... now?  This thing was there.  This thing that hadn't been there, and then I'd dreamed it, and then it was there.  What the hell?
 <<else>>
@@ -1253,6 +1253,7 @@ I stood in front of the Life Preservers Insurance building - a middling grey cub
 <<display "ferro_offer_tour">>
 <<else>>
   <<if $acceptingTour>>
+  <<set $acceptingTour=0>>
 Samahd was standing in front of the building, as promised.  He smiled and waved broadly as he saw me coming.  "You made the right call.  One week will buy you the best tour in town."
 
   <<display "ferro_tour_accept">>
@@ -4860,7 +4861,7 @@ With that she shrugged.  "So yes, I sound crazy.  But not any crazier than the r
 :: convo_care_wing
 The woman seemed friendly enough as I approached her.  "Hey." she volunteered.  Her fingers made three staccato movements as she spoke.
 
-<<sugarchoice "acc_typing" "What's that you're going as you talk?">>
+<<sugarchoice "acc_typing" "What's that you're doing as you talk?">>
 <<sugarchoice "acc_iva" "Tell me about Iva">>
 <<if $heardTypist>>
 <<sugarchoice "acc_crazy" "You realize how crazy this sounds, right?">>
